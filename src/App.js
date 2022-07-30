@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [login, setLogin] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost/php/login.php", {
+      headers: {
+        'Authorization': 'Basic ' + btoa("a:a")
+      }})
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      setIsLoaded(true)
+      setLogin(data)
+    })
+    .catch(err => {    
+      setError(err.message)
+    })
+  }, [])
+
+  if (error) {
+    return <div> Error: {error} </div>
+  } else if (!isLoaded) {
+    return <div> Loading... </div>
+  } else {
+    return (
+      <div>
+        Login: {login}
+      </div>
+    );
+  }
 }
 
 export default App;
