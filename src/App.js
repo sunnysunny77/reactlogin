@@ -13,14 +13,18 @@ import spinner from './images/spinner.gif';
 
 function App() {
 
-  const [login, setLogin] = useState("log In");
+  const [classes, setClasses] = useState("displayNone");
+  const [login, setLogin] = useState(false);
   const [error, setError] = useState(false);
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
-  const [isLoaded, setIsLoaded] = useState(true);
 
   const valid = (e) => {
+    setLogin("Loading...")
+    setClasses("display")
     fetch("http://localhost/php/login.php", {
+      method: 'OPTIONS',
+      mode: 'cors',
       headers: {
         'Authorization': 'Basic ' + btoa(user + ":" + pass)
       }
@@ -29,7 +33,6 @@ function App() {
         return res.json()
       })
       .then(data => {
-        setIsLoaded(true)
         setLogin(data)
       })
       .catch(err => {
@@ -46,26 +49,19 @@ function App() {
         <img src={spinner} alt="Loading..." />
       </section>
     )
-  } else if (!isLoaded) {
-    return (
-      <section className="loadingSection">
-        <h1 className="text-secondary">Loading...</h1>
-        <img src={spinner} alt="Loading..." />
-      </section>
-    )
   } else if (login === true) {
     return (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home logOut={ () => setLogin("log In")} />} />
+            <Route index element={<Home logOut={() => { setError(false); setLogin(false); setClasses("displayNone"); setPass(""); setUser("") }} />} />
           </Route>
         </Routes>
       </BrowserRouter>
     );
   } else {
     return (
-      <Auth login={login} pass={pass} user={user} onSub={ (e) => {valid(e); setIsLoaded(false)}} onPass={e => setPass(e.target.value)} onUser={e => setUser(e.target.value)} />
+      <Auth classes={classes} login={login} pass={pass} user={user} onSub={e => valid(e)} onPass={e => setPass(e.target.value)} onUser={e => setUser(e.target.value)} />
     )
   }
 }
