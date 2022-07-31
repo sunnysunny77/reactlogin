@@ -1,0 +1,44 @@
+.loadingSection {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    .Auth-form-content {
+        width: 300px;
+        h1 {
+            font-size: large;
+        }
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 25vh;
+}
