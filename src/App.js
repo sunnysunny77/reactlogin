@@ -83,7 +83,6 @@ function App() {
         setError(err.message)
       })
   }
-
   if (error) {
     return (
       <Error error={error} />
