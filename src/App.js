@@ -62,11 +62,11 @@ function App() {
       setSignup("Pass accepts one lowercase")
       return;
     }
-    if (this.pass.value.length > 19 || passTwo < 8) {
+    if (passTwo > 19 || passTwo < 8) {
       setSignup("Pass accepts 8 to 19 characters")
       return;
     }
-    fetch("http://192.168.64.17/php/index.php/?model=register&controller=registration", {
+    fetch("http://192.168.64.17/php/index.php/?model=signup&controller=registration", {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
