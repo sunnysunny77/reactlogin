@@ -22,7 +22,7 @@ function App() {
   const valid = (e) => {
     setLogin("Loading...")
     setClasses("display")
-    fetch("http://localhost/php/login.php", {
+    fetch("http://192.168.64.17/php/index.php/?model=login&controller=authorization", {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
