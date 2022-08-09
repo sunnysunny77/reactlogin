@@ -88,7 +88,7 @@ function App() {
     (
       <Error error={error} />
     ) : (
-      login === true || signup === true ? (
+      login === process.env.REACT_APP_KEY|| signup === process.env.REACT_APP_KEY ? (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>

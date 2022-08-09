@@ -93,7 +93,7 @@ const Auth = (props) => {
                 value={userTwo} onChange={onUserTwo}
                 autoComplete="on"
                 id="email"
-                disabled="true"
+                disabled={true}
               />
               <label>Password</label>
               <input
@@ -103,9 +103,9 @@ const Auth = (props) => {
                 value={passTwo} onChange={onPassTwo}
                 autoComplete="on"
                 id="pass"
-                disabled="true"
+                disabled={true}
               />
-              <button disabled="true" id="submit" type="submit" className="btn mt-1 btn-secondary">
+              <button disabled={true} id="submit" type="submit" className="btn mt-1 btn-secondary">
                 Submit
               </button>
               <p className={"alert alert-secondary " + classesTwo} role="alert">
