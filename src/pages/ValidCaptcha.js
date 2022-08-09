@@ -12,16 +12,12 @@ export default function ValidCaptcha() {
     string1 = string1.split(' ').join('')
     string2 = string2.split(' ').join('')
 
-    if (string1 == string2) {
+    if (string1 === string2) {
 
         sub.disabled = false;
         pass.disabled = false;
         email.disabled = false;
         cap.innerHTML = "Correct";
-
-        setTimeout(function () {
-            cap.innerHTML = "";
-        }, 2500)
 
     } else {
         sub.disabled = true;

@@ -1,3 +1,4 @@
+// error
 .loadingSection {
     height: 100vh;
     display: flex;
@@ -6,31 +7,38 @@
     align-items: center;
 }
 
+
+// auth
 .Auth-form-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     height: 100vh;
-    .Auth-form-content {
+    .accordion-body {
         width: 300px;
-    }
-    .display {
-        display: block;
-        margin-top: 16px;
-        width: 100%;
-    }
-    .displayNone {
-        display: none;
-    }
-    #mainCaptcha {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+        #mainCaptcha {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .btn,
+        input {
+            width: 100%;
+        }
+        .display {
+            display: block;
+            margin-top: 16px;
+            width: 100%;
+        }
+        .displayNone {
+            display: none;
+        }
     }
 }
 
+// layout
 nav {
     display: flex;
     justify-content: center;
@@ -46,6 +54,8 @@ nav {
     }
 }
 
+
+// home
 #home {
     display: flex;
     justify-content: center;
