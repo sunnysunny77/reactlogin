@@ -27,7 +27,7 @@ function App() {
     e.preventDefault()
     setLogin("Loading...")
     setClasses("display")
-    fetch("http://192.168.64.17/php/index.php/?model=login&controller=authorization", {
+    fetch("/?model=login&controller=authorization", {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
@@ -66,7 +66,7 @@ function App() {
       setSignup("Pass accepts 8 to 19 characters")
       return;
     }
-    fetch("http://192.168.64.17/php/index.php/?model=signup&controller=registration", {
+    fetch("/?model=signup&controller=registration", {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
