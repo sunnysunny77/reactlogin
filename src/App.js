@@ -83,53 +83,51 @@ function App() {
         setError(err.message)
       })
   }
-  if (error) {
-    return (
+
+  return error ?
+    (
       <Error error={error} />
-    )
-  } else if (login === true || signup === true) {
-    return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={
-              <Home
-                logOut={() => {
-                  setError(false);
-                  setLogin(false);
-                  setClasses("displayNone");
-                  setPass("");
-                  setUser("")
-                  setSignup(false);
-                  setClassesTwo("displayNone");
-                  setPassTwo("");
-                  setUserTwo("")
-                }} />}
-            />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    ) : (
+      login === true || signup === true ? (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={
+                <Home
+                  logOut={() => {
+                    setError(false);
+                    setLogin(false);
+                    setClasses("displayNone");
+                    setPass("");
+                    setUser("")
+                    setSignup(false);
+                    setClassesTwo("displayNone");
+                    setPassTwo("");
+                    setUserTwo("")
+                  }} />}
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      ) : (
+        <Auth
+          classes={classes}
+          login={login}
+          pass={pass}
+          user={user}
+          onSub={e => authorization(e)}
+          onPass={e => setPass(e.target.value)}
+          onUser={e => setUser(e.target.value)}
+          classesTwo={classesTwo}
+          signup={signup}
+          passTwo={passTwo}
+          userTwo={userTwo}
+          onSubTwo={e => registration(e)}
+          onPassTwo={e => setPassTwo(e.target.value)}
+          onUserTwo={e => setUserTwo(e.target.value)}
+        />
+      )
     );
-  } else {
-    return (
-      <Auth
-        classes={classes}
-        login={login}
-        pass={pass}
-        user={user}
-        onSub={e => authorization(e)}
-        onPass={e => setPass(e.target.value)}
-        onUser={e => setUser(e.target.value)}
-        classesTwo={classesTwo}
-        signup={signup}
-        passTwo={passTwo}
-        userTwo={userTwo}
-        onSubTwo={e => registration(e)}
-        onPassTwo={e => setPassTwo(e.target.value)}
-        onUserTwo={e => setUserTwo(e.target.value)}
-      />
-    )
-  }
 }
 
 export default App;
