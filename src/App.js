@@ -7,7 +7,7 @@ import {
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
-import Error from "./pages/Error";
+import Output from "./pages/Output";
 import NotFound from "./pages/NotFound";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -19,7 +19,7 @@ function App() {
   const [login, setLogin] = useState(false);
   const [cookie, setCookie] = useState(false);
   const [signup, setSignup] = useState(false);
-  const [error, setError] = useState(false);
+  const [load, setLoad] = useState(false);
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
   const [passTwo, setPassTwo] = useState("");
@@ -27,6 +27,7 @@ function App() {
 
   useEffect(() => {
 
+    setLoad("Loading")
     fetch("/api/?controller=authorizationcookie", {
       method: 'GET',
       mode: 'cors',
@@ -36,9 +37,10 @@ function App() {
       })
       .then(data => {
         setCookie(data)
+        setLoad(false)
       })
       .catch(err => {
-        setError(err.message)
+        setLoad(err.message)
       })
 
   }, [])
@@ -50,7 +52,7 @@ function App() {
       mode: 'cors',
     })
       .catch(err => {
-        setError(err.message)
+        setLoad(err.message)
       })
   }
 
@@ -73,7 +75,7 @@ function App() {
         setLogin(data)
       })
       .catch(err => {
-        setError(err.message)
+        setLoad(err.message)
       })
   }
 
@@ -113,12 +115,12 @@ function App() {
         setSignup(data)
       })
       .catch(err => {
-        setError(err.message)
+        setLoad(err.message)
       })
   }
-  return error ?
+  return load ?
     (
-      <Error error={error} />
+      <Output load={load} />
     ) : (
       login === process.env.REACT_APP_KEY || signup === process.env.REACT_APP_KEY | cookie === process.env.REACT_APP_KEY ? (
         <BrowserRouter>
@@ -127,7 +129,7 @@ function App() {
               <Route index element={
                 <Home
                   logOut={() => {
-                    setError(false);
+                    setLoad(false);
                     setLogin(false);
                     setClasses("displayNone");
                     setPass("");
