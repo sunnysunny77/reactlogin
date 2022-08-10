@@ -37,7 +37,7 @@ function App() {
       mode: 'cors',
     })
       .then(res => {
-        
+
         return res.json()
       })
       .then(data => {
@@ -137,10 +137,15 @@ function App() {
         setLoad(err.message)
       })
   }
-  
+
   return load ?
     (
-      <Output load={load} />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Output load={load} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     ) : (
       login === true || signup === true | cookie === true ? (
         <BrowserRouter>
