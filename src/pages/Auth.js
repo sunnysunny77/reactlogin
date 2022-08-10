@@ -48,7 +48,7 @@ const Auth = (props) => {
                     value={pass} onChange={onPass}
                     autoComplete="on"
                   />          
-                  <button type="submit" className="btn btn-secondary">
+                  <button type="submit" className="btn mt-1 btn-secondary">
                     Submit
                   </button>             
                 <p className={"alert alert-secondary " + classes} role="alert">
