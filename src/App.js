@@ -37,6 +37,7 @@ function App() {
       mode: 'cors',
     })
       .then(res => {
+        
         return res.json()
       })
       .then(data => {
