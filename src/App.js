@@ -39,6 +39,14 @@ function App() {
         return res.json()
       })
       .then(data => {
+
+        if (data === process.env.REACT_APP_KEY) {
+
+          setCookie(true)
+          setLoad(false)
+          return
+        }
+
         setCookie(data)
         setLoad(false)
       })
@@ -49,7 +57,7 @@ function App() {
   }, [])
 
   const logout = (e) => {
-   
+
     fetch("/api/?controller=logout", {
       method: 'GET',
       mode: 'cors',
@@ -75,6 +83,13 @@ function App() {
         return res.json()
       })
       .then(data => {
+
+        if (data === process.env.REACT_APP_KEY) {
+
+          setLogin(true)
+          return
+        }
+
         setLogin(data)
       })
       .catch(err => {
@@ -115,6 +130,13 @@ function App() {
         return res.json()
       })
       .then(data => {
+
+        if (data === process.env.REACT_APP_KEY) {
+
+          setSignup(true)
+          return
+        }
+        
         setSignup(data)
       })
       .catch(err => {
@@ -125,7 +147,7 @@ function App() {
     (
       <Output load={load} />
     ) : (
-      login === process.env.REACT_APP_KEY || signup === process.env.REACT_APP_KEY | cookie === process.env.REACT_APP_KEY ? (
+      login === true || signup === true | cookie === true ? (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -137,7 +159,7 @@ function App() {
                     setClasses("displayNone");
                     setClassesTwo("displayNone");
                     setLogin(false);
-                    setSignup(false);           
+                    setSignup(false);
                     setPass("");
                     setUser("")
                     setPassTwo("");
