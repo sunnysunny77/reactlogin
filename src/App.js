@@ -51,6 +51,7 @@ function App() {
         setLoad(false)
       })
       .catch(err => {
+
         setLoad(err.message)
       })
 
@@ -63,6 +64,7 @@ function App() {
       mode: 'cors',
     })
       .catch(err => {
+
         setLoad(err.message)
       })
   }
@@ -72,6 +74,7 @@ function App() {
     e.preventDefault()
     setLogin("Loading...")
     setClasses("display")
+
     fetch("/api/?model=login&controller=authorization", {
       method: 'OPTIONS',
       mode: 'cors',
@@ -80,6 +83,7 @@ function App() {
       }
     })
       .then(res => {
+
         return res.json()
       })
       .then(data => {
@@ -93,6 +97,7 @@ function App() {
         setLogin(data)
       })
       .catch(err => {
+        
         setLoad(err.message)
       })
   }
@@ -102,6 +107,7 @@ function App() {
     e.preventDefault()
     setSignup("Loading...")
     setClassesTwo("display")
+
     if (/^[^0-9]+$/.test(passTwo)) {
       alert(passTwo)
       setSignup("Pass accepts one #")
@@ -119,6 +125,7 @@ function App() {
       setSignup("Pass accepts 8 to 19 characters")
       return;
     }
+
     fetch("/api/?model=signup&controller=registration", {
       method: 'OPTIONS',
       mode: 'cors',
@@ -127,6 +134,7 @@ function App() {
       }
     })
       .then(res => {
+
         return res.json()
       })
       .then(data => {
