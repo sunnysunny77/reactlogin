@@ -26,6 +26,7 @@ function App() {
   const [userTwo, setUserTwo] = useState("");
 
   useEffect(() => {
+
     fetch("/api/?controller=authorizationcookie", {
       method: 'GET',
       mode: 'cors',
@@ -42,8 +43,19 @@ function App() {
 
   }, [])
 
+  const logout = (e) => {
+   
+    fetch("/api/?controller=logout", {
+      method: 'GET',
+      mode: 'cors',
+    })
+      .catch(err => {
+        setError(err.message)
+      })
+  }
 
   const authorization = (e) => {
+
     e.preventDefault()
     setLogin("Loading...")
     setClasses("display")
@@ -66,6 +78,7 @@ function App() {
   }
 
   const registration = (e) => {
+
     e.preventDefault()
     setSignup("Loading...")
     setClassesTwo("display")
@@ -103,7 +116,6 @@ function App() {
         setError(err.message)
       })
   }
-
   return error ?
     (
       <Error error={error} />
@@ -125,6 +137,7 @@ function App() {
                     setPassTwo("");
                     setUserTwo("")
                     setCookie(false);
+                    logout();
                   }} />}
               />
             </Route>
