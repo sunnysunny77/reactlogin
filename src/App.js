@@ -42,7 +42,7 @@ function App() {
       })
       .then(data => {
 
-        if (data === process.env.REACT_APP_KEY) {
+        if (data === btoa(process.env.REACT_APP_KEY)) {
 
           setCookie(true)
           setLoad(false)
@@ -91,7 +91,7 @@ function App() {
       })
       .then(data => {
 
-        if (data === process.env.REACT_APP_KEY) {
+        if (data === btoa(process.env.REACT_APP_KEY)) {
 
           setLogin(true)
           return
@@ -125,7 +125,7 @@ function App() {
       })
       .then(data => {
 
-        if (data === process.env.REACT_APP_KEY) {
+        if (data === btoa(process.env.REACT_APP_KEY)) {
 
           setSignup(true)
           return
