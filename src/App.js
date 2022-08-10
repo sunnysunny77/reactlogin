@@ -111,27 +111,6 @@ function App() {
     setSignup("Loading...")
     setClassesTwo("display")
 
-    if (/^[^0-9]+$/.test(passTwo)) {
-
-      setSignup("Pass accepts one #")
-      return;
-    }
-    if (/^[^A-Z]+$/.test(passTwo)) {
-
-      setSignup("Pass accepts one capital")
-      return;
-    }
-    if (/^[^a-z]+$/.test(passTwo)) {
-
-      setSignup("Pass accepts one lowercase")
-      return;
-    }
-    if (passTwo > 19 || passTwo < 8) {
-
-      setSignup("Pass accepts 8 to 19 characters")
-      return;
-    }
-
     fetch("/api/?model=signup&controller=registration", {
 
       method: 'OPTIONS',
