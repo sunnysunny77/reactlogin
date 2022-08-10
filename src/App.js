@@ -32,6 +32,7 @@ function App() {
   useEffect(() => {
 
     fetch("/api/?controller=authorizationcookie", {
+
       method: 'GET',
       mode: 'cors',
     })
@@ -54,12 +55,12 @@ function App() {
 
         setLoad(err.message)
       })
-
   }, [])
 
   const logout = (e) => {
 
     fetch("/api/?controller=logout", {
+
       method: 'GET',
       mode: 'cors',
     })
@@ -76,6 +77,7 @@ function App() {
     setClasses("display")
 
     fetch("/api/?model=login&controller=authorization", {
+
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
@@ -97,7 +99,7 @@ function App() {
         setLogin(data)
       })
       .catch(err => {
-        
+
         setLoad(err.message)
       })
   }
@@ -109,24 +111,28 @@ function App() {
     setClassesTwo("display")
 
     if (/^[^0-9]+$/.test(passTwo)) {
-      alert(passTwo)
+
       setSignup("Pass accepts one #")
       return;
     }
     if (/^[^A-Z]+$/.test(passTwo)) {
+
       setSignup("Pass accepts one capital")
       return;
     }
     if (/^[^a-z]+$/.test(passTwo)) {
+
       setSignup("Pass accepts one lowercase")
       return;
     }
     if (passTwo > 19 || passTwo < 8) {
+
       setSignup("Pass accepts 8 to 19 characters")
       return;
     }
 
     fetch("/api/?model=signup&controller=registration", {
+
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
@@ -144,13 +150,14 @@ function App() {
           setSignup(true)
           return
         }
-        
+
         setSignup(data)
       })
       .catch(err => {
         setLoad(err.message)
       })
   }
+  
   return load ?
     (
       <Output load={load} />
