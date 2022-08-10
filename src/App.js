@@ -33,7 +33,7 @@ function App() {
 
     fetch("/api/?controller=authorizationcookie", {
       
-      credentials: "same-origin",
+      credentials: "include",
       method: 'GET',
       mode: 'cors',
     })
