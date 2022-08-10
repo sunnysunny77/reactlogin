@@ -32,7 +32,8 @@ function App() {
   useEffect(() => {
 
     fetch("/api/?controller=authorizationcookie", {
-
+      
+      credentials: "same-origin",
       method: 'GET',
       mode: 'cors',
     })
