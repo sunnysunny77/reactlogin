@@ -17,6 +17,7 @@ function App() {
   const [classes, setClasses] = useState("displayNone");
   const [classesTwo, setClassesTwo] = useState("displayNone");
   const [login, setLogin] = useState(false);
+  const [cookie, setCookie] = useState(false);
   const [signup, setSignup] = useState(false);
   const [error, setError] = useState(false);
   const [pass, setPass] = useState("");
@@ -26,19 +27,20 @@ function App() {
 
   useEffect(() => {
     fetch("/api/?controller=authorizationcookie", {
+      method: 'GET',
       mode: 'cors',
     })
-    .then(res => {
-      return res.json()
-    })
-    .then(data => {
-      setLogin(data)
-    })
-    .catch(err => {
-      setError(err.message)
-    })
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setCookie(data)
+      })
+      .catch(err => {
+        setError(err.message)
+      })
 
-  },[])
+  }, [])
 
 
   const authorization = (e) => {
@@ -106,7 +108,7 @@ function App() {
     (
       <Error error={error} />
     ) : (
-      login === process.env.REACT_APP_KEY || signup === process.env.REACT_APP_KEY ? (
+      login === process.env.REACT_APP_KEY || signup === process.env.REACT_APP_KEY | cookie === process.env.REACT_APP_KEY ? (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -122,6 +124,7 @@ function App() {
                     setClassesTwo("displayNone");
                     setPassTwo("");
                     setUserTwo("")
+                    setCookie(false);
                   }} />}
               />
             </Route>
