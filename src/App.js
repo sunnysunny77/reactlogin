@@ -19,7 +19,7 @@ function App() {
   const [login, setLogin] = useState(false);
   const [cookie, setCookie] = useState(false);
   const [signup, setSignup] = useState(false);
-  const [load, setLoad] = useState(false);
+  const [load, setLoad] = useState("Loading");
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
   const [passTwo, setPassTwo] = useState("");
@@ -27,7 +27,6 @@ function App() {
 
   useEffect(() => {
 
-    setLoad("Loading")
     fetch("/api/?controller=authorizationcookie", {
       method: 'GET',
       mode: 'cors',
