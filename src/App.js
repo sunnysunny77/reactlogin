@@ -25,7 +25,7 @@ function App() {
 
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
-  
+
   const [passTwo, setPassTwo] = useState("");
   const [userTwo, setUserTwo] = useState("");
 
@@ -133,15 +133,15 @@ function App() {
                 <Home
                   logOut={() => {
                     setLoad(false);
-                    setLogin(false);
+                    setCookie(false);
                     setClasses("displayNone");
+                    setClassesTwo("displayNone");
+                    setLogin(false);
+                    setSignup(false);           
                     setPass("");
                     setUser("")
-                    setSignup(false);
-                    setClassesTwo("displayNone");
                     setPassTwo("");
                     setUserTwo("")
-                    setCookie(false);
                     logout();
                   }} />}
               />
