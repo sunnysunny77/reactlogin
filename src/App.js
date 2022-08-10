@@ -14,14 +14,18 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
 
+  const [load, setLoad] = useState("Loading");
+  const [cookie, setCookie] = useState(false);
+
   const [classes, setClasses] = useState("displayNone");
   const [classesTwo, setClassesTwo] = useState("displayNone");
+
   const [login, setLogin] = useState(false);
-  const [cookie, setCookie] = useState(false);
   const [signup, setSignup] = useState(false);
-  const [load, setLoad] = useState("Loading");
+
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
+  
   const [passTwo, setPassTwo] = useState("");
   const [userTwo, setUserTwo] = useState("");
 
