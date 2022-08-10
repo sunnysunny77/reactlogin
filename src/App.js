@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Error from "./pages/Error";
+import NotFound from "./pages/NotFound";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -23,11 +24,28 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [userTwo, setUserTwo] = useState("");
 
+  useEffect(() => {
+    fetch("/api/?controller=authorizationcookie", {
+      mode: 'cors',
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      setLogin(data)
+    })
+    .catch(err => {
+      setError(err.message)
+    })
+
+  },[])
+
+
   const authorization = (e) => {
     e.preventDefault()
     setLogin("Loading...")
     setClasses("display")
-    fetch("/?model=login&controller=authorization", {
+    fetch("/api/?model=login&controller=authorization", {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
@@ -66,7 +84,7 @@ function App() {
       setSignup("Pass accepts 8 to 19 characters")
       return;
     }
-    fetch("/?model=signup&controller=registration", {
+    fetch("/api/?model=signup&controller=registration", {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
@@ -107,25 +125,33 @@ function App() {
                   }} />}
               />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       ) : (
-        <Auth
-          classes={classes}
-          login={login}
-          pass={pass}
-          user={user}
-          onSub={e => authorization(e)}
-          onPass={e => setPass(e.target.value)}
-          onUser={e => setUser(e.target.value)}
-          classesTwo={classesTwo}
-          signup={signup}
-          passTwo={passTwo}
-          userTwo={userTwo}
-          onSubTwo={e => registration(e)}
-          onPassTwo={e => setPassTwo(e.target.value)}
-          onUserTwo={e => setUserTwo(e.target.value)}
-        />
+        <BrowserRouter>
+          <Routes>
+            <Route index element={
+              <Auth
+                classes={classes}
+                login={login}
+                pass={pass}
+                user={user}
+                onSub={e => authorization(e)}
+                onPass={e => setPass(e.target.value)}
+                onUser={e => setUser(e.target.value)}
+                classesTwo={classesTwo}
+                signup={signup}
+                passTwo={passTwo}
+                userTwo={userTwo}
+                onSubTwo={e => registration(e)}
+                onPassTwo={e => setPassTwo(e.target.value)}
+                onUserTwo={e => setUserTwo(e.target.value)}
+              />}
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
       )
     );
 }
