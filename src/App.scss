@@ -35,7 +35,8 @@ main {
 }
 
 //404 + error
-.alert-secondary {
+.alert-secondary, .alert-light {
+    text-align: center;
     max-width: 1200px;
     margin: auto;
 }

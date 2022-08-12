@@ -6,7 +6,7 @@ const Output = (props) => {
   return (
     <React.Fragment>
       <br />
-      <Alert variant="secondary">
+      <Alert variant="light">
         {load}
       </Alert>
     </React.Fragment>
