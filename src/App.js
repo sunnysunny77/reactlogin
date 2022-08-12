@@ -40,8 +40,7 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        return res.json() 
-      
+        return res.json()  
       })
       .then(data => {
 
