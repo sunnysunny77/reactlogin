@@ -5,7 +5,7 @@ const NotFound = () => {
         <React.Fragment> 
             <br/>
             <Alert  variant="secondary">
-                404 Not Found
+                <h1>404 Not Found</h1>
                 <br/>
                 <Alert.Link href="./">Return</Alert.Link>
             </Alert>

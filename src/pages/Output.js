@@ -7,7 +7,7 @@ const Output = (props) => {
     <React.Fragment>
       <br />
       <Alert variant="light">
-        {load}
+        <h1>{load}</h1>
       </Alert>
     </React.Fragment>
   );
