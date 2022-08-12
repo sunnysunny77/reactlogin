@@ -159,23 +159,22 @@ function App() {
       login === true || signup === true | cookie === true ? (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={
-                <Home
-                  logOut={() => {
-                    setLoad(false);
-                    setCookie(false);
-                    setClasses("displayNone");
-                    setClassesTwo("displayNone");
-                    setLogin(false);
-                    setSignup(false);
-                    setPass("");
-                    setUser("")
-                    setPassTwo("");
-                    setUserTwo("")
-                    logout();
-                  }} />}
-              />
+            <Route path="/" element={<Layout
+              logOut={() => {
+                setLoad(false);
+                setCookie(false);
+                setClasses("displayNone");
+                setClassesTwo("displayNone");
+                setLogin(false);
+                setSignup(false);
+                setPass("");
+                setUser("")
+                setPassTwo("");
+                setUserTwo("")
+                logout();
+              }}
+            />}>
+              <Route index element={<Home />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

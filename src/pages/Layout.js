@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Navigation from "./Navigation"
-const Layout = () => {
+
+const Layout = (props) => {
+  const { logOut } = props;
   return (
     <>
-      <Navigation/>
+      <Navigation logOut={logOut}/>
       <main>
         <Outlet />
       </main>

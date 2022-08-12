@@ -4,7 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import { Link } from "react-router-dom";
 
-function Navigation() {
+const Navigation = (props) => {
+  const { logOut } = props;
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -13,6 +14,9 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <Nav.Link as={Link} to="/" >Home</Nav.Link>
+          </Nav>
+          <Nav>
+          <Nav.Link onClick={logOut} >Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
