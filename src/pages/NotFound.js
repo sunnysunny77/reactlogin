@@ -1,9 +1,15 @@
+import React from "react";
+import Alert from 'react-bootstrap/Alert';
 const NotFound = () => {
     return (
-        <section id="notFound">
-            <h1>404 Not Found</h1>
-            <a href="./">Return</a>
-        </section>
+        <React.Fragment> 
+            <br/>
+            <Alert  variant="secondary">
+                404 Not Found
+                <br/>
+                <Alert.Link href="./">Return</Alert.Link>
+            </Alert>
+        </React.Fragment>
     );
 }
 

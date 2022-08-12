@@ -1,11 +1,3 @@
-// error
-.loadingSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 // auth
 .Auth-form-container {
     display: flex;
@@ -36,27 +28,14 @@
     }
 }
 
-// layout
-nav {
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    align-items: center;
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        a {
-            text-decoration: none;
-        }
-    }
+//main 
+main {
+    max-width: 1200px;
+    margin: auto;
 }
 
-// home
-#home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 25vh;
+//404 + error
+.alert-secondary {
+    max-width: 1200px;
+    margin: auto;
 }

@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
 
-  const [load, setLoad] = useState("Loading");
+  const [load, setLoad] = useState("Loading...");
   const [cookie, setCookie] = useState(false);
 
   const [classes, setClasses] = useState("displayNone");
@@ -56,7 +56,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad(err.statusText)
+        setLoad("Error: " + err.statusText)
       })
   }, [])
 
@@ -73,7 +73,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad(err.statusText)
+        setLoad("Error: " + err.statusText)
       })
   }
 
@@ -108,7 +108,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad(err.statusText)
+        setLoad("Error: " + err.statusText)
       })
   }
 
@@ -143,7 +143,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad(err.statusText)
+        setLoad("Error: " + err.statusText)
       })
   }
 
