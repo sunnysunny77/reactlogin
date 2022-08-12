@@ -39,7 +39,9 @@ function App() {
     })
       .then(res => {
 
-        return res.json()
+        if (!res.ok) { throw res }
+        return res.json() 
+      
       })
       .then(data => {
 
@@ -55,7 +57,9 @@ function App() {
       })
       .catch(err => {
 
-        setLoad(err.message)
+        err.text().then( errorMessage => {
+          setLoad(errorMessage)
+        })
       })
   }, [])
 
@@ -68,7 +72,9 @@ function App() {
     })
       .catch(err => {
 
-        setLoad(err.message)
+        err.text().then( errorMessage => {
+          setLoad(errorMessage)
+        })
       })
   }
 
@@ -88,7 +94,8 @@ function App() {
     })
       .then(res => {
 
-        return res.json()
+        if (!res.ok) { throw res }
+        return res.json() 
       })
       .then(data => {
 
@@ -102,7 +109,9 @@ function App() {
       })
       .catch(err => {
 
-        setLoad(err.message)
+        err.text().then( errorMessage => {
+          setLoad(errorMessage)
+        })
       })
   }
 
@@ -122,7 +131,8 @@ function App() {
     })
       .then(res => {
 
-        return res.json()
+        if (!res.ok) { throw res }
+        return res.json() 
       })
       .then(data => {
 
@@ -135,7 +145,10 @@ function App() {
         setSignup(data)
       })
       .catch(err => {
-        setLoad(err.message)
+       
+        err.text().then( errorMessage => {
+          setLoad(errorMessage)
+        })
       })
   }
 
