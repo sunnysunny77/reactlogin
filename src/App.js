@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
 
     fetch("/api/?controller=authorizationcookie", {
-      
+
       credentials: "include",
       method: 'GET',
       mode: 'cors',
@@ -40,7 +40,7 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        return res.json()  
+        return res.json()
       })
       .then(data => {
 
@@ -55,7 +55,7 @@ function App() {
         setLoad(false)
       })
       .catch(err => {
-      
+
         setLoad(err.statusText)
       })
   }, [])
@@ -67,14 +67,14 @@ function App() {
       method: 'GET',
       mode: 'cors',
     })
-    .then(res => {
+      .then(res => {
 
-      if (!res.ok) { throw res }
-    })
-    .catch(err => {
+        if (!res.ok) { throw res }
+      })
+      .catch(err => {
 
-      setLoad(err.statusText)
-    })
+        setLoad(err.statusText)
+      })
   }
 
   const authorization = (e) => {
@@ -94,7 +94,7 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        return res.json() 
+        return res.json()
       })
       .then(data => {
 
@@ -107,7 +107,7 @@ function App() {
         setLogin(data)
       })
       .catch(err => {
-      
+
         setLoad(err.statusText)
       })
   }
@@ -129,7 +129,7 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        return res.json() 
+        return res.json()
       })
       .then(data => {
 
@@ -142,7 +142,7 @@ function App() {
         setSignup(data)
       })
       .catch(err => {
-       
+
         setLoad(err.statusText)
       })
   }
