@@ -55,10 +55,8 @@ function App() {
         setLoad(false)
       })
       .catch(err => {
-
-        err.text().then( errorMessage => {
-          setLoad(errorMessage)
-        })
+      
+        setLoad(err.statusText)
       })
   }, [])
 
@@ -69,12 +67,14 @@ function App() {
       method: 'GET',
       mode: 'cors',
     })
-      .catch(err => {
+    .then(res => {
 
-        err.text().then( errorMessage => {
-          setLoad(errorMessage)
-        })
-      })
+      if (!res.ok) { throw res }
+    })
+    .catch(err => {
+
+      setLoad(err.statusText)
+    })
   }
 
   const authorization = (e) => {
@@ -107,10 +107,8 @@ function App() {
         setLogin(data)
       })
       .catch(err => {
-
-        err.text().then( errorMessage => {
-          setLoad(errorMessage)
-        })
+      
+        setLoad(err.statusText)
       })
   }
 
@@ -145,9 +143,7 @@ function App() {
       })
       .catch(err => {
        
-        err.text().then( errorMessage => {
-          setLoad(errorMessage)
-        })
+        setLoad(err.statusText)
       })
   }
 
