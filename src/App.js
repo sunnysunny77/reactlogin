@@ -98,7 +98,7 @@ function App() {
       })
       .then(data => {
 
-        if (data === btoa(process.env.REACT_APP_KEY)) {
+        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
 
           setLogin(true)
           return
@@ -133,7 +133,7 @@ function App() {
       })
       .then(data => {
 
-        if (data === btoa(process.env.REACT_APP_KEY)) {
+        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
 
           setSignup(true)
           return
