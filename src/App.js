@@ -19,7 +19,7 @@ function App() {
   const [classes, setClasses] = useState("displayNone");
   const [classesTwo, setClassesTwo] = useState("displayNone");
 
-  const [session, setSession] = useState(false);
+  const [cookie, setCookie] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
 
@@ -31,8 +31,9 @@ function App() {
 
   const initial = () => {
 
-    fetch("/api/?controller=authorizationsession", {
+    fetch("/api/?controller=authorizationcookie", {
 
+      credentials: "include",
       method: 'GET',
       mode: 'cors',
     })
@@ -45,12 +46,12 @@ function App() {
 
         if (data === btoa(process.env.REACT_APP_KEY)) {
 
-          setSession(true)
+          setCookie(true)
           setLoad(false)
           return
         }
 
-        setSession(data)
+        setCookie(data)
         setLoad(false)
       })
       .catch(err => {
@@ -87,7 +88,7 @@ function App() {
     setLogin("Loading...")
     setClasses("display")
 
-    fetch("/api/?model=login&controller=authorization&token=" + session, {
+    fetch("/api/?model=login&controller=authorization&token=" + cookie, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -102,7 +103,7 @@ function App() {
       })
       .then(data => {
 
-        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === session) {
+        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
 
           setLogin(true)
           return
@@ -122,7 +123,7 @@ function App() {
     setSignup("Loading...")
     setClassesTwo("display")
 
-    fetch("/api/?model=signup&controller=registration&token=" + session, {
+    fetch("/api/?model=signup&controller=registration&token=" + cookie, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -137,7 +138,7 @@ function App() {
       })
       .then(data => {
 
-        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === session) {
+        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
 
           setSignup(true)
           return
@@ -160,13 +161,13 @@ function App() {
         </Routes>
       </BrowserRouter>
     ) : (
-      login === true || signup === true | session === true ? (
+      login === true || signup === true | cookie === true ? (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout
               logOut={() => {
                 setLoad(false);
-                setSession(false);
+                setCookie(false);
                 setClasses("displayNone");
                 setClassesTwo("displayNone");
                 setLogin(false);
