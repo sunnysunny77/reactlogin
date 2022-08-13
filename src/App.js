@@ -69,15 +69,17 @@ function App() {
 
     fetch("/api/?controller=logout", {
 
+      credentials: "include",
       method: 'GET',
       mode: 'cors',
     })
       .then(res => {
 
         if (!res.ok) { throw res }
+        initial();
       })
       .catch(err => {
-
+       
         setLoad("Error: " + err.statusText)
       })
   }
@@ -177,7 +179,6 @@ function App() {
                 setPassTwo("");
                 setUserTwo("")
                 logout();
-                initial();
               }}
             />}>
               <Route index element={<Home />} />
