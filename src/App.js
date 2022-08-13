@@ -15,11 +15,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 function App() {
 
   const [load, setLoad] = useState("Loading...");
-  const [cookie, setCookie] = useState(false);
 
   const [classes, setClasses] = useState("displayNone");
   const [classesTwo, setClassesTwo] = useState("displayNone");
 
+  const [cookie, setCookie] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
 
@@ -83,7 +83,7 @@ function App() {
     setLogin("Loading...")
     setClasses("display")
 
-    fetch("/api/?model=login&controller=authorization", {
+    fetch("/api/?model=login&controller=authorization&token=" + cookie, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -118,7 +118,7 @@ function App() {
     setSignup("Loading...")
     setClassesTwo("display")
 
-    fetch("/api/?model=signup&controller=registration", {
+    fetch("/api/?model=signup&controller=registration&token=" + cookie, {
 
       method: 'OPTIONS',
       mode: 'cors',
