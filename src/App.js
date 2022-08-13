@@ -29,7 +29,7 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [userTwo, setUserTwo] = useState("");
 
-  useEffect(() => {
+  const initial = () => {
 
     fetch("/api/?controller=authorizationcookie", {
 
@@ -58,6 +58,11 @@ function App() {
 
         setLoad("Error: " + err.statusText)
       })
+  }
+
+  useEffect(() => {
+    
+    initial()
   }, [])
 
   const logout = (e) => {
@@ -172,6 +177,7 @@ function App() {
                 setPassTwo("");
                 setUserTwo("")
                 logout();
+                initial();
               }}
             />}>
               <Route index element={<Home />} />
