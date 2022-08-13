@@ -43,14 +43,14 @@ function App() {
         return res.json()
       })
       .then(data => {
-
+      
         if (data === btoa(process.env.REACT_APP_KEY)) {
 
           setCookie(true)
           setLoad(false)
           return
         }
-
+    
         setCookie(data)
         setLoad(false)
       })
