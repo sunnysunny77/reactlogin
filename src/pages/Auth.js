@@ -26,34 +26,34 @@ const Auth = (props) => {
   }, []);
 
   return (
-    <main className="Auth-form-container">
-      <Accordion>
+    <div className="Auth-form-container">
+      <Accordion >
         <Accordion.Item eventKey="0">
           <Accordion.Header>Login</Accordion.Header>
           <Accordion.Body>
-            <form onSubmit={onSub} className="Auth-form"> 
-                  <label>Email address</label>
-                  <input
-                    type="email"
-                    className="form-control mt-1"
-                    placeholder="Enter email"
-                    value={user} onChange={onUser}
-                    autoComplete="on"
-                  />        
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    className="form-control mt-1"
-                    placeholder="Enter password"
-                    value={pass} onChange={onPass}
-                    autoComplete="on"
-                  />          
-                  <button type="submit" className="btn mt-1 btn-secondary">
-                    Submit
-                  </button>             
-                <p className={"alert alert-secondary " + classes} role="alert">
-                  {login}
-                </p>         
+            <form onSubmit={onSub} className="Auth-form">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="Enter email"
+                value={user} onChange={onUser}
+                autoComplete="on"
+              />
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+                value={pass} onChange={onPass}
+                autoComplete="on"
+              />
+              <button type="submit" className="btn mt-1 btn-secondary">
+                Submit
+              </button>
+              <p className={"alert alert-secondary " + classes} role="alert">
+                {login}
+              </p>
             </form>
           </Accordion.Body>
         </Accordion.Item>
@@ -115,7 +115,7 @@ const Auth = (props) => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-    </main>
+    </div>
   )
 }
 export default Auth;

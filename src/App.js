@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import {
-  BrowserRouter,
   Routes,
   Route,
+  useNavigate
 } from "react-router-dom";
-import Layout from "./pages/Layout";
+import AdminLayout from "./pages/AdminLayout";
+import AuthLayout from "./pages/AuthLayout";
+import Admin from "./pages/Admin";
 import Home from "./pages/Home";
-import Auth from "./pages/Auth";
 import Output from "./pages/Output";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
+
+  const navigate = useNavigate();
 
   const [load, setLoad] = useState("Loading...");
 
@@ -76,10 +80,11 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
+        navigate('/')
         initial();
       })
       .catch(err => {
-       
+
         setLoad("Error: " + err.statusText)
       })
   }
@@ -108,6 +113,7 @@ function App() {
         if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
 
           setLogin(true)
+          navigate('/')
           return
         }
 
@@ -143,6 +149,7 @@ function App() {
         if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
 
           setSignup(true)
+          navigate('/')
           return
         }
 
@@ -156,17 +163,15 @@ function App() {
 
   return load ?
     (
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Output load={load} />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route index element={<Output load={load} />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     ) : (
       login === true || signup === true | cookie === true ? (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout
+        <Routes>
+          <Route path="/" element={
+            <AdminLayout
               logOut={() => {
                 setLoad(false);
                 setCookie(false);
@@ -180,16 +185,22 @@ function App() {
                 setUserTwo("")
                 logout();
               }}
-            />}>
-              <Route index element={<Home />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+            />
+          }>
+            <Route index element={<Admin />} />
+            <Route path="home" element={<Home />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       ) : (
-        <BrowserRouter>
-          <Routes>
-            <Route index element={
+        <Routes>
+          <Route path="/" element={
+            <AuthLayout
+
+            />
+          }>
+            <Route index element={<Home />} />
+            <Route path="auth" element={
               <Auth
                 classes={classes}
                 login={login}
@@ -207,9 +218,9 @@ function App() {
                 onUserTwo={e => setUserTwo(e.target.value)}
               />}
             />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       )
     );
 }
