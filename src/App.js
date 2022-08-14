@@ -81,8 +81,8 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        navigate('/')
         initial();
+        navigate('/')
       })
       .catch(err => {
 
