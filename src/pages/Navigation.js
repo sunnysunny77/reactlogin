@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { ArrowUpCircle } from 'react-bootstrap-icons';
 import { Link } from "react-router-dom";
 
 const Navigation = (props) => {
@@ -16,7 +16,7 @@ const Navigation = (props) => {
           <Nav.Link as={Link} to="/" >Home</Nav.Link>
           </Nav>
           <Nav>
-          <Nav.Link onClick={logOut} >Log Out</Nav.Link>
+          <Nav.Link onClick={logOut} >Sign out <ArrowUpCircle /> </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
