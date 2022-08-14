@@ -194,11 +194,7 @@ function App() {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={
-            <AuthLayout
-
-            />
-          }>
+          <Route path="/" element={<AuthLayout />}>
             <Route index element={<Home />} />
             <Route path="auth" element={
               <Auth
