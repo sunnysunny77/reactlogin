@@ -4,15 +4,20 @@ import {
   Route,
   useNavigate
 } from "react-router-dom";
-import AdminLayout from "./pages/AdminLayout";
-import AuthLayout from "./pages/AuthLayout";
-import Admin from "./pages/Admin";
-import Home from "./pages/Home";
-import Output from "./pages/Output";
-import Auth from "./pages/Auth";
-import NotFound from "./pages/NotFound";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
+
+import AdminLayout from "./pages/admin/AdminLayout";
+import Admin from "./pages/admin/Admin";
+
+import AuthLayout from "./pages/auth/AuthLayout";
+import Auth from "./pages/auth/Auth";
+
+import Home from "./pages/Home";
+import Output from "./pages/Output";
+import NotFound from "./pages/NotFound";
+
+
 
 function App() {
 
