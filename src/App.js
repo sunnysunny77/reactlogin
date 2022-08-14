@@ -24,7 +24,7 @@ function App() {
   const [classes, setClasses] = useState("displayNone");
   const [classesTwo, setClassesTwo] = useState("displayNone");
 
-  const [cookie, setCookie] = useState(false);
+  const [token, setToken] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
 
@@ -34,9 +34,9 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [userTwo, setUserTwo] = useState("");
 
-  const initial = () => {
+  const initialAuthorization = () => {
 
-    fetch("/api/?controller=authorizationcookiesession", {
+    fetch("/api/?controller=initialauthorization", {
 
       credentials: "include",
       method: 'GET',
@@ -51,12 +51,12 @@ function App() {
 
         if (data === btoa(process.env.REACT_APP_KEY)) {
 
-          setCookie(true)
+          setToken(true)
           setLoad(false)
           return
         }
 
-        setCookie(data)
+        setToken(data)
         setLoad(false)
       })
       .catch(err => {
@@ -67,7 +67,7 @@ function App() {
 
   useEffect(() => {
 
-    initial()
+    initialAuthorization()
   }, [])
 
   const logout = (e) => {
@@ -81,7 +81,7 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        initial();
+        initialAuthorization();
         navigate('/')
       })
       .catch(err => {
@@ -96,7 +96,7 @@ function App() {
     setLogin("Loading...")
     setClasses("display")
 
-    fetch("/api/?model=login&controller=authorization&token=" + cookie, {
+    fetch("/api/?model=login&controller=authorization&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -111,7 +111,7 @@ function App() {
       })
       .then(data => {
 
-        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
+        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
           setLogin(true)
           navigate('/')
@@ -132,7 +132,7 @@ function App() {
     setSignup("Loading...")
     setClassesTwo("display")
 
-    fetch("/api/?model=signup&controller=registration&token=" + cookie, {
+    fetch("/api/?model=signup&controller=registration&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -147,7 +147,7 @@ function App() {
       })
       .then(data => {
 
-        if (data.bool === btoa(process.env.REACT_APP_KEY) && data.token === cookie) {
+        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
           setSignup(true)
           navigate('/')
@@ -169,13 +169,13 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     ) : (
-      login === true || signup === true | cookie === true ? (
+      login === true || signup === true | token === true ? (
         <Routes>
           <Route path="/" element={
             <Layout
               logOut={() => {
                 setLoad(false);
-                setCookie(false);
+                setToken(false);
                 setClasses("displayNone");
                 setClassesTwo("displayNone");
                 setLogin(false);

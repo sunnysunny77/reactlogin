@@ -8,8 +8,9 @@ const Layout = (props) => {
 
   return (
     <>
+    <a className="d-none" href="#main">skip navigation</a>
      <Navigation bool={bool} logOut={logOut}  />
-      <main>
+      <main id="main">
        
         <Outlet />
       </main>

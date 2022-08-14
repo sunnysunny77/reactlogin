@@ -16,20 +16,20 @@ const Navigation = (props) => {
         {bool ? (
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/" > Home </Nav.Link>
+              <Nav.Link accessKey='1' as={Link} to="/" > Home </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link as={Link} to="auth"  > sign in <ArrowUpCircle /> </Nav.Link>
+              <Nav.Link accessKey='2' as={Link} to="auth"  > sign in <ArrowUpCircle /> </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         ) : (
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/" > Home </Nav.Link>
-              <Nav.Link as={Link} to="admin" > Admin </Nav.Link>
+              <Nav.Link accessKey='1' as={Link} to="/" > Home </Nav.Link>
+              <Nav.Link accessKey='2' as={Link} to="admin" > Admin </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link onClick={logOut} > sign out <ArrowUpCircle /> </Nav.Link>
+              <Nav.Link accessKey='3' onClick={logOut} > sign out <ArrowUpCircle /> </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         )}

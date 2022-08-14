@@ -2,6 +2,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import React, { useEffect } from "react";
 import Captcha from "./Captcha";
 import ValidCaptcha from "./ValidCaptcha";
+import './auth.scss';
 
 const Auth = (props) => {
   
@@ -28,6 +29,7 @@ const Auth = (props) => {
 
   return (
     <div className="Auth-form-container">
+      <h1 className="d-none">Auth</h1>
       <Accordion >
         <Accordion.Item eventKey="0">
           <Accordion.Header>Login</Accordion.Header>
