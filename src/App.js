@@ -189,8 +189,8 @@ function App() {
               bool={false}
             />
           }>
-            <Route index element={<Admin />} />
-            <Route path="home" element={<Home />} />
+            <Route index element={<Home />} />
+            <Route path="admin" element={<Admin />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
