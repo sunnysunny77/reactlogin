@@ -7,12 +7,12 @@ import {
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
 
-
-
+import AdminLayout from "./pages/admin/AdminLayout";
 import Admin from "./pages/admin/Admin";
+
+import AuthLayout from "./pages/auth/AuthLayout";
 import Auth from "./pages/auth/Auth";
 
-import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Output from "./pages/Output";
 import NotFound from "./pages/NotFound";
@@ -176,7 +176,7 @@ function App() {
       login === true || signup === true | cookie === true ? (
         <Routes>
           <Route path="/" element={
-            <Layout
+            <AdminLayout
               logOut={() => {
                 setLoad(false);
                 setCookie(false);
@@ -190,7 +190,6 @@ function App() {
                 setUserTwo("")
                 logout();
               }}
-              log="log out"
             />
           }>
             <Route index element={<Admin />} />
@@ -200,7 +199,7 @@ function App() {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Layout log="sign in" />}>
+          <Route path="/" element={<AuthLayout />}>
             <Route index element={<Home />} />
             <Route path="auth" element={
               <Auth
