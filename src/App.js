@@ -4,6 +4,7 @@ import {
   Route,
   useNavigate
 } from "react-router-dom";
+
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -13,8 +14,6 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Output from "./pages/Output";
 import NotFound from "./pages/NotFound";
-
-
 
 function App() {
 

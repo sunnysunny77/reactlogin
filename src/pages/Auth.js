@@ -4,6 +4,7 @@ import Captcha from "./Captcha";
 import ValidCaptcha from "./ValidCaptcha";
 
 const Auth = (props) => {
+  
   const {
     classes,
     login,
