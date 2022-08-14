@@ -36,7 +36,7 @@ function App() {
 
   const initial = () => {
 
-    fetch("/api/?controller=authorizationcookie", {
+    fetch("/api/?controller=authorizationcookiesession", {
 
       credentials: "include",
       method: 'GET',
