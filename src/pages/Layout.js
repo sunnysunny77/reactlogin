@@ -10,8 +10,7 @@ const Layout = (props) => {
     <>
     <a className="d-none" href="#main">skip navigation</a>
      <Navigation logOut={logOut}  />
-      <main id="main">
-       
+      <main id="main">  
         <Outlet />
       </main>
     </>
