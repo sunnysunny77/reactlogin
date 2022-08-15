@@ -74,7 +74,6 @@ function App() {
 
     fetch("/api/?controller=logout", {
 
-      credentials: "include",
       method: 'GET',
       mode: 'cors',
     })
