@@ -185,7 +185,6 @@ function App() {
                 setEmailTwo("")
                 logout();
               }}
-              bool={false}
             />
           }>
             <Route index element={<Home />} />
@@ -195,7 +194,7 @@ function App() {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Layout  bool={true} />}>
+          <Route path="/" element={<Layout logOut={false} />}>
             <Route index element={<Home />} />
             <Route path="auth" element={
               <Auth

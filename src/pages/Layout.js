@@ -4,12 +4,12 @@ import Navigation from "./Navigation"
 
 const Layout = (props) => {
 
-  const { bool, logOut } = props; 
+  const { logOut } = props; 
 
   return (
     <>
     <a className="d-none" href="#main">skip navigation</a>
-     <Navigation bool={bool} logOut={logOut}  />
+     <Navigation logOut={logOut}  />
       <main id="main">
        
         <Outlet />
