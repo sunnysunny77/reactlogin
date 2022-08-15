@@ -1,10 +1,14 @@
 import React from "react";
+import { ClipboardPulse } from 'react-bootstrap-icons';
 
 const Admin = () => {
     return (
         <React.Fragment>
             <br />
             <h1>Admin</h1>
+            <br />
+            <ClipboardPulse /> 
+            <br />
             <br />
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 

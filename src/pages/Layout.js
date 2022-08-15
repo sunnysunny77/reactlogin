@@ -10,9 +10,20 @@ const Layout = (props) => {
     <>
       <a className="d-none" href="#main">skip navigation</a>
       <Navigation logOut={logOut} />
-      <main id="main">
+      <main id="main" className="px-3">
         <Outlet />
       </main>
+      <footer className="bg-secondary text-white">
+        <ul>
+          <li> Login App
+            <ul>
+              <li>
+                &copy;&nbsp;D.C
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </footer>
     </>
   )
 };

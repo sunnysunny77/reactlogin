@@ -1,10 +1,14 @@
 import React from "react";
+import { HouseDoor } from 'react-bootstrap-icons';
 
 const Home = () => {
     return (
         <React.Fragment>
             <br />
             <h1>Home</h1>
+            <br />
+            <HouseDoor /> 
+            <br />
             <br />
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 

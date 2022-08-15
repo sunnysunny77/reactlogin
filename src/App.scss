@@ -2,6 +2,7 @@
 main {
     max-width: 1200px;
     margin: auto;
+    min-height: 100vh;
 }
 
 //not found + output alerts
@@ -9,4 +10,19 @@ main {
     text-align: center;
     max-width: 1200px;
     margin: auto;
+}
+
+//footer
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+        
+    }
 }
