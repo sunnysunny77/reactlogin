@@ -29,10 +29,10 @@ function App() {
   const [signup, setSignup] = useState(false);
 
   const [pass, setPass] = useState("");
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
 
   const [passTwo, setPassTwo] = useState("");
-  const [userTwo, setUserTwo] = useState("");
+  const [emailTwo, setEmailTwo] = useState("");
 
   const initialAuthorization = () => {
 
@@ -101,7 +101,7 @@ function App() {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
-        'Authorization': 'Basic ' + btoa(user + ":" + pass)
+        'Authorization': 'Basic ' + btoa(email + ":" + pass)
       }
     })
       .then(res => {
@@ -137,7 +137,7 @@ function App() {
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
-        'Authorization': 'Basic ' + btoa(userTwo + ":" + passTwo)
+        'Authorization': 'Basic ' + btoa(emailTwo + ":" + passTwo)
       }
     })
       .then(res => {
@@ -181,9 +181,9 @@ function App() {
                 setLogin(false);
                 setSignup(false);
                 setPass("");
-                setUser("")
+                setEmail("")
                 setPassTwo("");
-                setUserTwo("")
+                setEmailTwo("")
                 logout();
               }}
               bool={false}
@@ -203,17 +203,17 @@ function App() {
                 classes={classes}
                 login={login}
                 pass={pass}
-                user={user}
+                email={email}
                 onSub={e => authorization(e)}
                 onPass={e => setPass(e.target.value)}
-                onUser={e => setUser(e.target.value)}
+                onEmail={e => setEmail(e.target.value)}
                 classesTwo={classesTwo}
                 signup={signup}
                 passTwo={passTwo}
-                userTwo={userTwo}
+                emailTwo={emailTwo}
                 onSubTwo={e => registration(e)}
                 onPassTwo={e => setPassTwo(e.target.value)}
-                onUserTwo={e => setUserTwo(e.target.value)}
+                onEmailTwo={e => setEmailTwo(e.target.value)}
               />}
             />
           </Route>

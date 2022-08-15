@@ -10,16 +10,16 @@ const Auth = (props) => {
     classes,
     login,
     onPass,
-    onUser,
+    onEmail,
     onSub,
-    user,
+    email,
     pass,
     classesTwo,
     signup,
     onPassTwo,
-    onUserTwo,
+    onEmailTwo,
     onSubTwo,
-    userTwo,
+    emailTwo,
     passTwo
   } = props;
 
@@ -40,7 +40,7 @@ const Auth = (props) => {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
-                value={user} onChange={onUser}
+                value={email} onChange={onEmail}
                 autoComplete="on"
               />
               <label>Password</label>
@@ -93,7 +93,7 @@ const Auth = (props) => {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
-                value={userTwo} onChange={onUserTwo}
+                value={emailTwo} onChange={onEmailTwo}
                 autoComplete="on"
                 id="email"
                 disabled={true}
