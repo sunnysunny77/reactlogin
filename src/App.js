@@ -53,11 +53,13 @@ function App() {
 
           setToken(true)
           setLoad(false)
+          navigate('/admin')
           return
         }
 
         setToken(data)
         setLoad(false)
+        navigate('/')
       })
       .catch(err => {
 
@@ -66,8 +68,7 @@ function App() {
   }
 
   useEffect(() => {
-
-    navigate('/')
+   
     initialAuthorization()
   }, [])
 
@@ -81,8 +82,17 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
+        setLoad("Loading...");
+        setToken(false);
+        setClasses("displayNone");
+        setClassesTwo("displayNone");
+        setLogin(false);
+        setSignup(false);
+        setPass("");
+        setEmail("")
+        setPassTwo("");
+        setEmailTwo("")
         initialAuthorization();
-        navigate('/')
       })
       .catch(err => {
 
@@ -114,7 +124,7 @@ function App() {
         if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
           setLogin(true)
-          navigate('/')
+          navigate('/admin')
           return
         }
 
@@ -150,7 +160,7 @@ function App() {
         if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
           setSignup(true)
-          navigate('/')
+          navigate('/admin')
           return
         }
 
@@ -165,8 +175,7 @@ function App() {
   return load ?
     (
       <Routes>
-        <Route index element={<Output load={load} />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Output load={load} />} />
       </Routes>
     ) : (
       login === true || signup === true | token === true ? (
@@ -174,16 +183,6 @@ function App() {
           <Route path="/" element={
             <Layout
               logOut={() => {
-                setLoad(false);
-                setToken(false);
-                setClasses("displayNone");
-                setClassesTwo("displayNone");
-                setLogin(false);
-                setSignup(false);
-                setPass("");
-                setEmail("")
-                setPassTwo("");
-                setEmailTwo("")
                 logout();
               }}
             />
