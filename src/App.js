@@ -59,7 +59,6 @@ function App() {
 
         setToken(data)
         setLoad(false)
-        navigate('/')
       })
       .catch(err => {
 
