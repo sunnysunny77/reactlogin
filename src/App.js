@@ -91,6 +91,7 @@ function App() {
         setEmail("")
         setPassTwo("");
         setEmailTwo("")
+        navigate('/')
         initialAuthorization();
       })
       .catch(err => {
