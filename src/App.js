@@ -165,7 +165,6 @@ function App() {
     (
       <Routes>
         <Route index element={<Output load={load} />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
     ) : (
       login === true || signup === true | token === true ? (
