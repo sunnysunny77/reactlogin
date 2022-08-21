@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Routes,
   Route,
@@ -34,8 +34,8 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
-  const initialAuthorization = () => {
-
+  const initialAuthorization = useCallback(() => {
+    
     fetch("/api/?controller=initialauthorization", {
 
       credentials: "include",
@@ -64,12 +64,12 @@ function App() {
 
         setLoad("Error: " + err.statusText)
       })
-  }
+  }, [navigate])
 
   useEffect(() => {
    
     initialAuthorization()
-  }, [])
+  }, [initialAuthorization])
 
   const logout = (e) => {
 
