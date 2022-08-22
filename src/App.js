@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Routes,
   Route,
@@ -34,8 +34,10 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
-  const initialAuthorization = useCallback(() => {
-    
+
+
+  useEffect(() => {
+
     fetch("/api/?controller=initialauthorization", {
 
       credentials: "include",
@@ -64,16 +66,9 @@ function App() {
 
         setLoad("Error: " + err.statusText)
       })
-  }, [navigate])
 
-  useEffect(() => {
-
-   if (load){
-
-    initialAuthorization()
-   }
     
-  }, [load,initialAuthorization])
+  }, [navigate])
 
   const logout = (e) => {
 
@@ -86,9 +81,9 @@ function App() {
 
         if (!res.ok) { throw res }
         setLoad("Loading...");
-        setToken(false);
         setClasses("displayNone");
         setClassesTwo("displayNone");
+        setToken(false);
         setLogin(false);
         setSignup(false);
         setPass("");
@@ -96,7 +91,6 @@ function App() {
         setPassTwo("");
         setEmailTwo("")
         navigate('/')
-        initialAuthorization();
       })
       .catch(err => {
 
