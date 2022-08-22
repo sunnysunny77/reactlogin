@@ -53,7 +53,6 @@ function App() {
 
           setToken(true)
           setLoad(false)
-          navigate('/admin')
           return
         }
 
@@ -67,8 +66,12 @@ function App() {
   }, [navigate])
 
   useEffect(() => {
-   
+
+   if (load){
+
     initialAuthorization()
+   }
+    
   }, [initialAuthorization])
 
   const logout = (e) => {
