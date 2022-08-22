@@ -20,6 +20,7 @@ function App() {
   const navigate = useNavigate();
 
   const [load, setLoad] = useState("Loading...");
+  const [auth, setAuth] = useState(false);
 
   const [classes, setClasses] = useState("displayNone");
   const [classesTwo, setClassesTwo] = useState("displayNone");
@@ -34,8 +35,7 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
-
-
+  console.log(token)
   useEffect(() => {
 
     fetch("/api/?controller=initialauthorization", {
@@ -51,11 +51,11 @@ function App() {
       })
       .then(data => {
 
-        if (data === btoa(process.env.REACT_APP_KEY)) {
+        if (data.key === btoa(process.env.REACT_APP_KEY)) {
 
-          setToken(true)
+          setToken(data.token)
+          setAuth(true)
           setLoad(false)
-          navigate('/admin')
           return
         }
 
@@ -67,8 +67,7 @@ function App() {
         setLoad("Error: " + err.statusText)
       })
 
-    
-  }, [navigate])
+  }, [])
 
   const logout = (e) => {
 
@@ -80,10 +79,11 @@ function App() {
       .then(res => {
 
         if (!res.ok) { throw res }
-        setLoad("Loading...");
+        setLoad(false)
+        setAuth(false)
         setClasses("displayNone");
         setClassesTwo("displayNone");
-        setToken(false);
+        setToken(token)
         setLogin(false);
         setSignup(false);
         setPass("");
@@ -121,7 +121,7 @@ function App() {
 
         if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
-          setLogin(true)
+          setAuth(true)
           navigate('/admin')
           return
         }
@@ -157,7 +157,7 @@ function App() {
 
         if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
-          setSignup(true)
+          setAuth(true)
           navigate('/admin')
           return
         }
@@ -176,7 +176,7 @@ function App() {
         <Route path="*" element={<Output load={load} />} />
       </Routes>
     ) : (
-      login === true || signup === true | token === true ? (
+      auth === true ? (
         <Routes>
           <Route path="/" element={
             <Layout
