@@ -73,7 +73,7 @@ function App() {
     initialAuthorization()
    }
     
-  }, [initialAuthorization])
+  }, [load,initialAuthorization])
 
   const logout = (e) => {
 
