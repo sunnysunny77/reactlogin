@@ -53,6 +53,7 @@ function App() {
 
           setToken(true)
           setLoad(false)
+          navigate('/admin')
           return
         }
 
