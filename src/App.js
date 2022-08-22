@@ -35,7 +35,6 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
-  console.log(token)
   useEffect(() => {
 
     fetch("/api/?controller=initialauthorization", {
