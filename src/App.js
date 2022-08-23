@@ -68,7 +68,7 @@ function App() {
 
   }, [])
 
-  const logout = (e) => {
+  const logout = () => {
 
     fetch("/api/?controller=logout", {
 
