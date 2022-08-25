@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
 
-    fetch("/api/?controller=initialauthorization", {
+    fetch("/api/initialauthorization/?controller=initialauthorization", {
 
       credentials: "include",
       method: 'GET',
