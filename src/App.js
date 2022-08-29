@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
 
-    fetch("/initialauthorization/?controller=initialauthorization", {
+    fetch("/api/initialauthorization/?controller=initialauthorization", {
 
       credentials: "include",
       method: 'GET',
@@ -70,7 +70,7 @@ function App() {
 
   const logout = () => {
 
-    fetch("/?controller=logout", {
+    fetch("/api/?controller=logout", {
 
       method: 'GET',
       mode: 'cors',
@@ -103,7 +103,7 @@ function App() {
     setLogin("Loading...")
     setClasses("display")
 
-    fetch("/?model=login&controller=authorization&token=" + token, {
+    fetch("/api/?model=login&controller=authorization&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -139,7 +139,7 @@ function App() {
     setSignup("Loading...")
     setClassesTwo("display")
 
-    fetch("/?model=signup&controller=registration&token=" + token, {
+    fetch("/api/?model=signup&controller=registration&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
