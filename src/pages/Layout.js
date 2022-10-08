@@ -8,7 +8,7 @@ const Layout = (props) => {
 
   return (
     <>
-      <a className="d-none" href="#main">skip navigation</a>
+      <a className="d-none" accessKey="s" href="#main">skip navigation</a>
       <Navigation logOut={logOut} />
       <main id="main" className="px-3">
         <Outlet />
