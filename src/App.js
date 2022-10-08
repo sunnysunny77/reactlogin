@@ -37,8 +37,9 @@ function App() {
 
   useEffect(() => {
 
-    fetch(process.env.REACT_APP_HOST + "/initialauthorization/?controller=initialauthorization", {
+    fetch("/api/initialauthorization/?controller=initialauthorization", {
 
+      credentials: "include",
       method: 'GET',
       mode: 'cors',
     })
@@ -69,7 +70,7 @@ function App() {
 
   const logout = () => {
 
-    fetch(process.env.REACT_APP_HOST + "/?controller=logout", {
+    fetch("/api/?controller=logout", {
 
       method: 'GET',
       mode: 'cors',
@@ -102,7 +103,7 @@ function App() {
     setLogin("Loading...")
     setClasses("display")
 
-    fetch(process.env.REACT_APP_HOST + "/?model=login&controller=authorization&token=" + token, {
+    fetch("/api/?model=login&controller=authorization&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -138,7 +139,7 @@ function App() {
     setSignup("Loading...")
     setClassesTwo("display")
 
-    fetch(process.env.REACT_APP_HOST + "/?model=signup&controller=registration&token=" + token, {
+    fetch("/api/?model=signup&controller=registration&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
