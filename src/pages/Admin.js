@@ -8,9 +8,7 @@ const Admin = () => {
 
         const script = document.createElement("script")
         script.src = process.env.REACT_APP_PAYPAL_ID + "&currency=AUD"
-        script.async = true
-        document.body.appendChild(script)
-
+        document.head.appendChild(script)
         script.addEventListener("load", () => {
 
             window.paypal.Buttons({
