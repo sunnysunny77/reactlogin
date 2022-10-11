@@ -5,3 +5,10 @@ setupProxy.jy proxy to origin
 https://login.sunnyhome.site/
 <br>
 https://github.com/sunnysunny77/reactlogin
+<br>
+<br>
+PayPal:
+<br>
+Email: sb-wze6p1303778@personal.example.com
+<br>
+Pass: o)<qQ)>4
