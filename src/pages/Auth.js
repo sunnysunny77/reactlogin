@@ -66,7 +66,7 @@ const Auth = (props) => {
           <Accordion.Header>Signup</Accordion.Header>
           <Accordion.Body>
             <p id="responseCaptcha">Please enter captcha</p>
-            <label for="txtInput" id="mainCaptcha"> </label>
+            <label htmlFor="txtInput" id="mainCaptcha"> </label>
               <input
                 className="form-control mt-1"
                 type="text"

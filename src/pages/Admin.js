@@ -78,7 +78,7 @@ const Admin = () => {
             <br />
             <img id="sunflower" src={sunflower} alt="sunflower" />
             <div id="payPal"></div>
-            <section id="approved"></section>
+            <div id="approved"></div>
         </React.Fragment>
     );
 }
