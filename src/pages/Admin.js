@@ -13,6 +13,9 @@ const Admin = () => {
 
             window.paypal.Buttons({
 
+                style: {
+                    layout: 'horizontal'
+                },
                 createOrder: (data, actions, err) => {
 
                     return actions.order.create({
@@ -64,7 +67,7 @@ const Admin = () => {
 
                     document.getElementById("approved").innerHTML = err
                 }
-            }).render(document.getElementById("payPal"))
+            }).render("#payPal")
         })
     }, [])
 
