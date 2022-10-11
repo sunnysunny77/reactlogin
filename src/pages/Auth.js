@@ -5,7 +5,7 @@ import ValidCaptcha from "./ValidCaptcha";
 import './auth.scss';
 
 const Auth = (props) => {
-  
+
   const {
     classes,
     login,
@@ -35,22 +35,24 @@ const Auth = (props) => {
           <Accordion.Header>Login</Accordion.Header>
           <Accordion.Body>
             <form onSubmit={onSub} className="Auth-form">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control mt-1"
-                placeholder="Enter email"
-                value={email} onChange={onEmail}
-                autoComplete="on"
-              />
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Enter password"
-                value={pass} onChange={onPass}
-                autoComplete="on"
-              />
+              <label>Email address
+                <input
+                  type="email"
+                  className="form-control mt-1"
+                  placeholder="Enter email"
+                  value={email} onChange={onEmail}
+                  autoComplete="on"
+                />
+              </label>
+              <label>Password
+                <input
+                  type="password"
+                  className="form-control mt-1"
+                  placeholder="Enter password"
+                  value={pass} onChange={onPass}
+                  autoComplete="on"
+                />
+              </label>
               <button type="submit" className="btn mt-1 btn-secondary">
                 Submit
               </button>
@@ -64,13 +66,13 @@ const Auth = (props) => {
           <Accordion.Header>Signup</Accordion.Header>
           <Accordion.Body>
             <p id="responseCaptcha">Please enter captcha</p>
-            <p id="mainCaptcha"></p>
-            <input
-              className="form-control mt-1"
-              type="text"
-              id="txtInput"
-              onPaste={e => e.preventDefault()}
-            />
+            <label for="txtInput" id="mainCaptcha"> </label>
+              <input
+                className="form-control mt-1"
+                type="text"
+                id="txtInput"
+                onPaste={e => e.preventDefault()}
+              />
             <button
               className="btn btn-secondary mt-1"
               id="captchaSubmit"
@@ -88,26 +90,28 @@ const Auth = (props) => {
               Refresh
             </button>
             <form onSubmit={onSubTwo} className="Auth-form">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control mt-1"
-                placeholder="Enter email"
-                value={emailTwo} onChange={onEmailTwo}
-                autoComplete="on"
-                id="email"
-                disabled={true}
-              />
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Enter password"
-                value={passTwo} onChange={onPassTwo}
-                autoComplete="on"
-                id="pass"
-                disabled={true}
-              />
+              <label>Email address
+                <input
+                  type="email"
+                  className="form-control mt-1"
+                  placeholder="Enter email"
+                  value={emailTwo} onChange={onEmailTwo}
+                  autoComplete="on"
+                  id="email"
+                  disabled={true}
+                />
+              </label>
+              <label>Password
+                <input
+                  type="password"
+                  className="form-control mt-1"
+                  placeholder="Enter password"
+                  value={passTwo} onChange={onPassTwo}
+                  autoComplete="on"
+                  id="pass"
+                  disabled={true}
+                />
+              </label>
               <button disabled={true} id="submit" type="submit" className="btn mt-1 btn-secondary">
                 Submit
               </button>
