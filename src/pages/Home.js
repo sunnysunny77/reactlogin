@@ -1,5 +1,6 @@
 import React from "react";
 import { HouseDoor } from 'react-bootstrap-icons';
+import security from "../images/cyber-security.png";
 
 const Home = () => {
     return (
@@ -18,7 +19,8 @@ const Home = () => {
                 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
                 Excepteur sint occaecat cupidatat non proident, 
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>    
+            </p>  
+            <img id="security" src={security} alt="security"/>
         </React.Fragment>
     );
 }
