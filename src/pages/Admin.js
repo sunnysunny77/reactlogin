@@ -7,7 +7,9 @@ const Admin = () => {
     useEffect(() => {
 
         const script = document.createElement("script")
-        script.src = process.env.REACT_APP_PAYPAL_ID + "&currency=AUD"
+        script.setAttribute('src', process.env.REACT_APP_PAYPAL_ID + "&currency=AUD")
+        script.setAttribute('nonce', "xyz123")
+        script.setAttribute('data-csp-nonce', "xyz123")
         document.head.appendChild(script)
         script.addEventListener("load", () => {
 
