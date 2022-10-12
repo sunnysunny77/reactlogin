@@ -91,32 +91,30 @@ const Admin = () => {
             <ClipboardPulse />
             <br />
             <br />
-            <img id="sunflower" src={sunflower} alt="sunflower" />
             <div id="payPal">
-                <div className="counter">
-                    <span
-                        onClick={() => {
+                <img src={sunflower} alt="sunflower" />
+                <span
+                    onClick={() => {
 
-                            if (count > 1) setCount(count - 1)
-                        }}
-                    >
-                        -
-                    </span>
-                    <input disabled={true} id="quantity" type="text" value={count} />
-                    <span
-                        onClick={() => {
+                        if (count > 1) setCount(count - 1)
+                    }}
+                >
+                    -
+                </span>
+                <input disabled={true} type="text" value={count} />
+                <span
+                    onClick={() => {
 
-                            setCount(count + 1)
-                        }}
-                    >
-                        +
-                    </span>
-                </div>
-                <PayPalScriptProvider  options={{"client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD",'data-csp-nonce':'xyz123'}} >
-                    <PayPalButtons createOrder={createOrder}  onApprove={onApprove}  forceReRender={[count]} />
+                        setCount(count + 1)
+                    }}
+                >
+                    +
+                </span>
+                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': 'xyz123' }} >
+                    <PayPalButtons createOrder={createOrder} onApprove={onApprove} forceReRender={[count]} />
                 </PayPalScriptProvider>
+                <div id="approved"></div>
             </div>
-            <div id="approved"></div>
         </React.Fragment>
     );
 }

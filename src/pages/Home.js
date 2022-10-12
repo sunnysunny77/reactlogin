@@ -20,7 +20,7 @@ const Home = () => {
                 Excepteur sint occaecat cupidatat non proident, 
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>  
-            <img id="security" src={security} alt="security"/>
+            <img src={security} alt="security"/>
         </React.Fragment>
     );
 }
