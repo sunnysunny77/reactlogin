@@ -112,7 +112,7 @@ const Admin = () => {
                         +
                     </span>
                 </div>
-                <PayPalScriptProvider  options={{"client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD",'data-csp-nonce':'xyz123',"nonce":"xyz123"}} >
+                <PayPalScriptProvider  options={{"client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD",'data-csp-nonce':'xyz123'}} >
                     <PayPalButtons createOrder={createOrder}  onApprove={onApprove}  forceReRender={[count]} />
                 </PayPalScriptProvider>
             </div>
