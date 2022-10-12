@@ -101,7 +101,7 @@ const Admin = () => {
                 >
                     -
                 </span>
-                <lable  htmlFor="count" className="d-none">Quantity</lable>
+                <label  htmlFor="count" className="d-none">Quantity</label>
                 <input disabled={true} id="count" type="text" value={count} />
                 <span
                     onClick={() => {
