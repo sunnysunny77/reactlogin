@@ -20,12 +20,10 @@ const Admin = () => {
         script.onload = () => {
 
             PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
-            setLoad(
-                <PayPalButton
-                    createOrder={(data, actions) => createOrder(data, actions)}
-                    onApprove={(data, actions) => onApprove(data, actions)}
-                />  
-            )
+            setLoad( <PayPalButton
+                createOrder={(data, actions) => createOrder(data, actions)}
+                onApprove={(data, actions) => onApprove(data, actions)}
+            />)
         };
         document.head.appendChild(script);
     }, [])
