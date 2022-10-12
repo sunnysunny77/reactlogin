@@ -7,10 +7,11 @@ let PayPalButton
 
 const Admin = () => {
 
-    if (window.paypal) PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
-
+    
     const [count, setCount] = useState(1)
     const [load, setLoad] = useState(false)
+
+    if (load) PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
     useEffect(() => {
 
