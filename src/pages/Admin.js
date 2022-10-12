@@ -131,7 +131,7 @@ const Admin = () => {
                     </span>
                 </div>
                 {load ? (
-                    <PayPalButton id="payPal"
+                    <PayPalButton
                         createOrder={(data, actions) => createOrder(data, actions)}
                         onApprove={(data, actions) => onApprove(data, actions)}
                     />
