@@ -6,8 +6,7 @@ import sunflower from "../images/sunflower.jpg";
 let PayPalButton
 
 const Admin = () => {
-
-    
+ 
     const [count, setCount] = useState(1)
     const [load, setLoad] = useState(false)
 
@@ -59,6 +58,7 @@ const Admin = () => {
                 }],
         });
     };
+
     const onApprove = async (data, actions) => {
 
         const order = await actions.order.capture()
@@ -67,11 +67,13 @@ const Admin = () => {
         const orderID = order.id;
         const email = order.payer.email_address;
         const name = order.purchase_units[0].shipping.name.full_name
+
         let address = "";
         for (let x in order.purchase_units[0].shipping.address) {
             address +=
                 order.purchase_units[0].shipping.address[x] + "<br>";
         }
+
         const purchase =
             order.purchase_units[0].items[0].quantity +
             " x " +
@@ -80,6 +82,7 @@ const Admin = () => {
             order.purchase_units[0].items[0].unit_amount.value +
             "<br><br>Total: $" +
             order.purchase_units[0].amount.value;
+
         const output =
             "<h2>" +
             description +
@@ -108,7 +111,7 @@ const Admin = () => {
             <br />
             <img id="sunflower" src={sunflower} alt="sunflower" />
             <div id="payPal">
-                <div className="counter">
+                <div>
                     <span
                         onClick={() => {
 
