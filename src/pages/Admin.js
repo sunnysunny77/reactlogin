@@ -1,30 +1,11 @@
-import ReactDOM from "react-dom"
-import React, { useState, useEffect } from "react";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import React, { useState } from "react";
 import { ClipboardPulse } from 'react-bootstrap-icons';
 import sunflower from "../images/sunflower.jpg";
 
-let PayPalButton
-
 const Admin = () => {
- 
-    const [count, setCount] = useState(1)
-    const [load, setLoad] = useState(false)
 
-    if (load) PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
-
-    useEffect(() => {
-
-        const script = document.createElement("script")
-        script.setAttribute('src', process.env.REACT_APP_PAYPAL_ID + "&currency=AUD")
-        script.setAttribute('nonce', "xyz123")
-        script.setAttribute('data-csp-nonce', "xyz123")
-        script.async = true;
-        script.onload = () => {
-
-            setLoad(true)
-        };
-        document.head.appendChild(script);
-    }, [])
+    const [count, setCount] = useState(1);
 
     const createOrder = (data, actions) => {
 
@@ -101,6 +82,7 @@ const Admin = () => {
         approved.innerHTML = output
         approved.className = "alert alert-primary"
     };
+
     return (
         <React.Fragment>
             <br />
@@ -111,13 +93,13 @@ const Admin = () => {
             <br />
             <img id="sunflower" src={sunflower} alt="sunflower" />
             <div id="payPal">
-                <div>
+                <div className="counter">
                     <span
                         onClick={() => {
 
-                            count > 1 ? setCount(count - 1) : setCount(count)
+                            if (count > 1) setCount(count - 1)
                         }}
-                        >
+                    >
                         -
                     </span>
                     <input disabled={true} id="quantity" type="text" value={count} />
@@ -126,19 +108,13 @@ const Admin = () => {
 
                             setCount(count + 1)
                         }}
-                        >
+                    >
                         +
                     </span>
                 </div>
-                {load ? (
-                    <PayPalButton
-                        createOrder={(data, actions) => createOrder(data, actions)}
-                        onApprove={(data, actions) => onApprove(data, actions)}
-                    />
-                ) : (
-                    <React.Fragment/>
-                )
-                }
+                <PayPalScriptProvider options={{"client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD"}}>
+                    <PayPalButtons createOrder={createOrder}  onApprove={onApprove}  forceReRender={[count]} />
+                </PayPalScriptProvider>
             </div>
             <div id="approved"></div>
         </React.Fragment>
