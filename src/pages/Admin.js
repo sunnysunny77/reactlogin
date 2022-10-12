@@ -10,6 +10,8 @@ const Admin = () => {
     const [count, setCount] = useState(1)
     const [load, setLoad] = useState(false)
 
+    if (load) PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
+
     useEffect(() => {
 
         const script = document.createElement("script")
@@ -19,11 +21,7 @@ const Admin = () => {
         script.async = true;
         script.onload = () => {
 
-            PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
-            setLoad( <PayPalButton
-                createOrder={(data, actions) => createOrder(data, actions)}
-                onApprove={(data, actions) => onApprove(data, actions)}
-            />)
+            setLoad(true)
         };
         document.head.appendChild(script);
     }, [])
@@ -132,7 +130,15 @@ const Admin = () => {
                         +
                     </span>
                 </div>
-                {load}
+                {load ? (
+                    <PayPalButton
+                        createOrder={(data, actions) => createOrder(data, actions)}
+                        onApprove={(data, actions) => onApprove(data, actions)}
+                    />
+                ) : (
+                    <React.Fragment/>
+                )
+                }
             </div>
             <div id="approved"></div>
         </React.Fragment>
