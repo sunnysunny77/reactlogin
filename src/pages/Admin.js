@@ -1,9 +1,15 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import React, { useState } from "react";
+import React, { useState,  useEffect } from "react";
 import { ClipboardPulse } from 'react-bootstrap-icons';
 import sunflower from "../images/sunflower.jpg";
 
 const Admin = () => {
+
+    useEffect(() => {
+
+        const script = document.querySelector('script[data-sdk-integration-source="react-paypal-js"]');
+        script.setAttribute('nonce', "xyz123")
+    }, [])
 
     const [count, setCount] = useState(1);
 
