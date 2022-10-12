@@ -1,15 +1,9 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import React, { useState,  useEffect } from "react";
+import React, { useState } from "react";
 import { ClipboardPulse } from 'react-bootstrap-icons';
 import sunflower from "../images/sunflower.jpg";
 
 const Admin = () => {
-
-    useEffect(() => {
-
-        const script = document.querySelector('script[data-sdk-integration-source="react-paypal-js"]');
-        script.setAttribute('nonce', "xyz123")
-    }, [])
 
     const [count, setCount] = useState(1);
 
@@ -118,7 +112,7 @@ const Admin = () => {
                         +
                     </span>
                 </div>
-                <PayPalScriptProvider options={{"client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD"}}>
+                <PayPalScriptProvider  options={{"client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD",'data-csp-nonce':'xyz123',"nonce":"xyz123"}} >
                     <PayPalButtons createOrder={createOrder}  onApprove={onApprove}  forceReRender={[count]} />
                 </PayPalScriptProvider>
             </div>
