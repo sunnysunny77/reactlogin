@@ -83,6 +83,11 @@ const Admin = () => {
         approved.className = "alert alert-primary"
     };
 
+    const onError = (err) => {
+
+        document.getElementById("approved").innerHTML = err
+    }
+
     return (
         <React.Fragment>
             <br />
@@ -101,7 +106,7 @@ const Admin = () => {
                 >
                     -
                 </span>
-                <label  htmlFor="count" className="d-none">Quantity</label>
+                <label htmlFor="count" className="d-none">Quantity</label>
                 <input disabled={true} id="count" type="text" value={count} />
                 <span
                     onClick={() => {
@@ -112,7 +117,19 @@ const Admin = () => {
                     +
                 </span>
                 <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': 'xyz123' }} >
-                    <PayPalButtons createOrder={createOrder} onApprove={onApprove} forceReRender={[count]} />
+                    <PayPalButtons
+                        style={{
+                            layout: 'horizontal',
+                            color: 'blue',
+                            shape: 'pill',
+                            label: 'paypal',
+                            tagline: false,
+                        }}
+                        createOrder={createOrder}
+                        onApprove={onApprove}
+                        onError={onError}
+                        forceReRender={[count]} />
+
                 </PayPalScriptProvider>
                 <div id="approved"></div>
             </div>
