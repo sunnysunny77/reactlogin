@@ -124,8 +124,8 @@ const Admin = () => {
                         }}
                         createOrder={createOrder}
                         onApprove={onApprove}
-                        forceReRender={[count]} />
-
+                        forceReRender={[count]} 
+                    />
                 </PayPalScriptProvider>
                 <div id="approved"></div>
             </div>
