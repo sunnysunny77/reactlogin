@@ -99,6 +99,7 @@ const Admin = () => {
             <div id="payPal">
                 <img src={sunflower} alt="sunflower" />
                 <span
+                    role="button"
                     onClick={() => {
 
                         if (count > 1) setCount(count - 1)
@@ -106,9 +107,10 @@ const Admin = () => {
                 >
                     -
                 </span>
-                <label htmlFor="count" className="d-none">Quantity</label>
+                <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
                 <input disabled={true} id="count" type="text" value={count} />
                 <span
+                    role="button"
                     onClick={() => {
 
                         setCount(count + 1)
