@@ -116,7 +116,7 @@ const Admin = () => {
                 >
                     +
                 </span>
-                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': 'xyz123' }} >
+                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
                     <PayPalButtons
                         style={{
                             layout: 'horizontal',
