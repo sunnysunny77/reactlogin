@@ -104,3 +104,10 @@ p + img {
         }
     }
 }
+
+@media screen and (max-width: 40em) {
+    #payPal #approved {
+        font-size: 80%;
+        text-align: center;
+    }
+}
