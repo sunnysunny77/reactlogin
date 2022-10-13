@@ -83,11 +83,6 @@ const Admin = () => {
         approved.className = "alert alert-primary"
     };
 
-    const onError = (err) => {
-
-        document.getElementById("approved").innerHTML = err
-    }
-
     return (
         <React.Fragment>
             <br />
@@ -129,7 +124,6 @@ const Admin = () => {
                         }}
                         createOrder={createOrder}
                         onApprove={onApprove}
-                        onError={onError}
                         forceReRender={[count]} />
 
                 </PayPalScriptProvider>
