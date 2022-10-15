@@ -55,6 +55,7 @@ const Admin = () => {
 
         let address = ""
         for (let x in order.purchase_units[0].shipping.address) {
+            
             address +=
                 order.purchase_units[0].shipping.address[x] + " "
         }
