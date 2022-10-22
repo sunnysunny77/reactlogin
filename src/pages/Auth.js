@@ -73,7 +73,6 @@ const Auth = (props) => {
                 className="form-control mt-1"
                 type="text"
                 id="txtInput"
-                onPaste={e => e.preventDefault()}
               />
             <button
               className="btn btn-secondary mt-1"
