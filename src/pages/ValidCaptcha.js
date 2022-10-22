@@ -1,15 +1,14 @@
-export default function ValidCaptcha() {
+export default function ValidCaptcha(captcha) {
 
     const sub = document.getElementById("submit")
     const pass = document.getElementById("pass")
     const email = document.getElementById("email")
     const cap = document.getElementById("responseCaptcha")
-    const main = document.getElementById("mainCaptcha")
     const txt = document.getElementById('txtInput')
     const refresh = document.getElementById("refresh")
     const capsub = document.getElementById("captchaSubmit")
 
-    let string1 = main.value;
+    let string1 = captcha;
     let string2 = txt.value;
     string1 = string1.split(' ').join('')
     string2 = string2.split(' ').join('')

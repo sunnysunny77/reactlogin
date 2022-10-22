@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Captcha from "./Captcha";
 import ValidCaptcha from "./ValidCaptcha";
 
@@ -22,8 +22,10 @@ const Auth = (props) => {
     passTwo
   } = props;
 
+  const [captcha, setCaptcha] = useState('');
+
   useEffect(() => {
-    Captcha()
+    setCaptcha(Captcha())
   }, []);
 
   return (
@@ -65,7 +67,8 @@ const Auth = (props) => {
           <Accordion.Header>Signup</Accordion.Header>
           <Accordion.Body>
             <p id="responseCaptcha">Please enter captcha</p>
-            <label htmlFor="txtInput" id="mainCaptcha"> </label>
+            <canvas id="mainCaptcha"></canvas>
+            <label className="d-none" htmlFor="txtInput">Captcha</label>
               <input
                 className="form-control mt-1"
                 type="text"
@@ -77,14 +80,14 @@ const Auth = (props) => {
               id="captchaSubmit"
               type="button"
               value="Check"
-              onClick={() => ValidCaptcha()}
+              onClick={() => ValidCaptcha(captcha)}
             >
               Submit
             </button>
             <button
               className="btn btn-secondary mb-3 mt-1"
               id="refresh"
-              onClick={() => Captcha()}
+              onClick={() =>  setCaptcha(Captcha())}
             >
               Refresh
             </button>
