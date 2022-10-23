@@ -32,8 +32,7 @@ const Auth = (props) => {
     const refresh = document.getElementById("refresh")
     const capsub = document.getElementById("captchaSubmit")
 
-    let string = txt.value;
-    string = string.split(' ').join('')
+    const string = txt.value.split(' ').join('')
 
     if (string === captcha) {
 
