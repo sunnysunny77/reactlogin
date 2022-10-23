@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const Auth = (props) => {
 
@@ -65,7 +65,7 @@ const Auth = (props) => {
     return 'rgb(' + r + ',' + g + ',' + b + ')'
   }
 
-  const Captcha = () => {
+  const Captcha = useCallback(() => {
 
     const canvas = document.getElementById("mainCaptcha")
 
@@ -123,12 +123,12 @@ const Auth = (props) => {
     }
 
     setCaptcha(txt)
-  }
+  }, [])
 
   useEffect(() => {
 
     Captcha()
-  }, []);
+  }, [Captcha]);
 
   return (
     <div className="Auth-form-container">
