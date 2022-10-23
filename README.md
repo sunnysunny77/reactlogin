@@ -12,3 +12,10 @@ PayPal:
 Email: sb-iyl4x21604127@personal.example.com
 <br>
 Pass: *]T0%Ae8
+<br>
+<br>
+Login:
+<br>
+Email: daniel@gmail.com
+<br>
+Pass: passwordA1
