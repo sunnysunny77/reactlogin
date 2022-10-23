@@ -20,41 +20,8 @@ const Auth = (props) => {
     passTwo
   } = props;
 
+  const [captchaForm, setCaptchaForm] = useState(true); 
   const [captcha, setCaptcha] = useState('');
-
-  const ValidCaptcha = () => {
-
-    const sub = document.getElementById("submit")
-    const pass = document.getElementById("pass")
-    const email = document.getElementById("email")
-    const cap = document.getElementById("responseCaptcha")
-    const txt = document.getElementById('txtInput')
-    const refresh = document.getElementById("refresh")
-    const capsub = document.getElementById("captchaSubmit")
-
-    const string = txt.value.split(' ').join('')
-
-    if (string === captcha) {
-
-      sub.disabled = false;
-      pass.disabled = false;
-      email.disabled = false;
-      refresh.disabled = true;
-      capsub.disabled = true;
-      cap.innerHTML = "Correct";
-    } else {
-
-      sub.disabled = true;
-      pass.disabled = true;
-      email.disabled = true;
-      cap.innerHTML = "Incorrect";
-
-      setTimeout(function () {
-
-        cap.innerHTML = "Please enter captcha";
-      }, 2500)
-    }
-  }
 
   const randomColor = () => {
 
@@ -168,60 +135,75 @@ const Auth = (props) => {
         <Accordion.Item eventKey="1">
           <Accordion.Header>Signup</Accordion.Header>
           <Accordion.Body>
-            <p id="responseCaptcha">Please enter captcha</p>
-            <canvas id="mainCaptcha"></canvas>
-            <label className="d-none" htmlFor="txtInput">Captcha</label>
-            <input
-              className="form-control mt-1"
-              type="text"
-              id="txtInput"
-            />
-            <button
-              className="btn btn-secondary mt-1"
-              id="captchaSubmit"
-              type="button"
-              value="Check"
-              onClick={() => ValidCaptcha()}
-            >
-              Submit
-            </button>
-            <button
-              className="btn btn-secondary mb-3 mt-1"
-              id="refresh"
-              onClick={() => Captcha()}
-            >
-              Refresh
-            </button>
-            <form onSubmit={onSubTwo} className="Auth-form">
-              <label>Email address
+            {captchaForm ? (
+              <React.Fragment>
+                <p id="responseCaptcha">Please enter captcha</p>
+                <canvas id="mainCaptcha"></canvas>
+                <label className="d-none" htmlFor="txtInput">Captcha</label>
                 <input
-                  type="email"
                   className="form-control mt-1"
-                  placeholder="Enter email"
-                  value={emailTwo} onChange={onEmailTwo}
-                  autoComplete="on"
-                  id="email"
-                  disabled={true}
+                  type="text"
+                  id="txtInput"
                 />
-              </label>
-              <label>Password
-                <input
-                  type="password"
-                  className="form-control mt-1"
-                  placeholder="Enter password"
-                  value={passTwo} onChange={onPassTwo}
-                  autoComplete="on"
-                  id="pass"
-                  disabled={true}
-                />
-              </label>
-              <button disabled={true} id="submit" type="submit" className="btn mt-1 btn-secondary">
-                Submit
-              </button>
-              <p className={"alert alert-secondary " + classesTwo} role="alert">
-                {signup}
-              </p>
-            </form>
+                <button
+                  className="btn btn-secondary mt-1"
+                  onClick={() => {
+
+                    if (document.getElementById('txtInput').value.split(' ').join('') === captcha) {
+                
+                      setCaptchaForm(false)
+                    } else {
+                
+                      const cap = document.getElementById("responseCaptcha")
+                
+                      cap.innerHTML = "Incorrect";
+                
+                      setTimeout(() => {
+                
+                        cap.innerHTML = "Please enter captcha";
+                      }, 2500)
+                    }
+                  }}
+                >
+                  Submit
+                </button>
+                <button
+                  className="btn btn-secondary mb-3 mt-1"
+                  onClick={() => Captcha()}
+                >
+                  Refresh
+                </button>
+              </React.Fragment>
+            ) : (
+              <form onSubmit={onSubTwo} className="Auth-form">
+                <label>Email address
+                  <input
+                    type="email"
+                    className="form-control mt-1"
+                    placeholder="Enter email"
+                    value={emailTwo} onChange={onEmailTwo}
+                    autoComplete="on"
+                    id="email"
+                  />
+                </label>
+                <label>Password
+                  <input
+                    type="password"
+                    className="form-control mt-1"
+                    placeholder="Enter password"
+                    value={passTwo} onChange={onPassTwo}
+                    autoComplete="on"
+                    id="pass"
+                  />
+                </label>
+                <button id="submit" type="submit" className="btn mt-1 btn-secondary">
+                  Submit
+                </button>
+                <p className={"alert alert-secondary " + classesTwo} role="alert">
+                  {signup}
+                </p>
+              </form>
+            )}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
