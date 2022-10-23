@@ -37,29 +37,28 @@ const Auth = (props) => {
 
     if (string === captcha) {
 
-        sub.disabled = false;
-        pass.disabled = false;
-        email.disabled = false;
-        refresh.disabled = true;
-        capsub.disabled = true;
-        cap.innerHTML = "Correct";
+      sub.disabled = false;
+      pass.disabled = false;
+      email.disabled = false;
+      refresh.disabled = true;
+      capsub.disabled = true;
+      cap.innerHTML = "Correct";
     } else {
 
-        sub.disabled = true;
-        pass.disabled = true;
-        email.disabled = true;
-        cap.innerHTML = "Incorrect";
+      sub.disabled = true;
+      pass.disabled = true;
+      email.disabled = true;
+      cap.innerHTML = "Incorrect";
 
-        setTimeout(function () {
+      setTimeout(function () {
 
-            cap.innerHTML = "Please enter captcha";
-        }, 2500)
+        cap.innerHTML = "Please enter captcha";
+      }, 2500)
     }
-}
-
+  }
 
   const randomColor = () => {
-  
+
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
     const b = Math.floor(Math.random() * 256)
@@ -70,36 +69,36 @@ const Auth = (props) => {
   const Captcha = () => {
 
     const canvas = document.getElementById("mainCaptcha")
-  
+
     const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
       'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
       '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-  
+
     let txt = ""
-  
+
     for (let i = 1; i <= 7; i++) {
-  
+
       txt += alpha[Math.floor(Math.random() * alpha.length)]
     }
-  
+
     const context = canvas.getContext('2d')
     canvas.width = 200
-    canvas.height  = 50
+    canvas.height = 50
     context.font = '25px Bold'
-  
+
     for (let i = 0; i < txt.length; i++) {
-  
+
       const sDeg = (Math.random() * 30 * Math.PI) / 180
       const x = 10 + i * 20
       const y = 20 + Math.random() * 8
-  
+
       context.translate(x, y)
       context.rotate(sDeg)
       context.fillStyle = randomColor()
       context.fillText(txt[i], 0, 0)
       context.rotate(-sDeg)
       context.translate(-x, -y)
-  
+
       context.strokeStyle = randomColor();
       context.beginPath();
       context.moveTo(
@@ -112,9 +111,9 @@ const Auth = (props) => {
       )
       context.stroke()
     }
-  
+
     for (let i = 0; i < 30; i++) {
-  
+
       context.strokeStyle = randomColor()
       context.beginPath()
       const x = Math.random() * canvas.width
@@ -123,16 +122,14 @@ const Auth = (props) => {
       context.lineTo(x + 1, y + 1)
       context.stroke()
     }
-  
+
     setCaptcha(txt)
   }
 
   useEffect(() => {
 
-   Captcha()
+    Captcha()
   }, []);
-
-  console.log(captcha)
 
   return (
     <div className="Auth-form-container">
@@ -175,11 +172,11 @@ const Auth = (props) => {
             <p id="responseCaptcha">Please enter captcha</p>
             <canvas id="mainCaptcha"></canvas>
             <label className="d-none" htmlFor="txtInput">Captcha</label>
-              <input
-                className="form-control mt-1"
-                type="text"
-                id="txtInput"
-              />
+            <input
+              className="form-control mt-1"
+              type="text"
+              id="txtInput"
+            />
             <button
               className="btn btn-secondary mt-1"
               id="captchaSubmit"
