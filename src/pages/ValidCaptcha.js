@@ -8,12 +8,10 @@ export default function ValidCaptcha(captcha) {
     const refresh = document.getElementById("refresh")
     const capsub = document.getElementById("captchaSubmit")
 
-    let string1 = captcha;
-    let string2 = txt.value;
-    string1 = string1.split(' ').join('')
-    string2 = string2.split(' ').join('')
+    let string = txt.value;
+    string = string.split(' ').join('')
 
-    if (string1 === string2) {
+    if (string === captcha) {
 
         sub.disabled = false;
         pass.disabled = false;
