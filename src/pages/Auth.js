@@ -48,15 +48,15 @@ const Auth = (props) => {
     }
 
     const context = canvas.getContext('2d')
-    canvas.width = 200
+    canvas.width = 140
     canvas.height = 50
     context.font = '25px Bold'
 
     for (let i = 0; i < txt.length; i++) {
 
-      const sDeg = (Math.random() * 30 * Math.PI) / 180
-      const x = 10 + i * 20
-      const y = 20 + Math.random() * 8
+      const sDeg = (Math.random() * 45 * Math.PI) / 180
+      const x = 8 + i * 18
+      const y = 25 + Math.random() * 10
 
       context.translate(x, y)
       context.rotate(sDeg)
@@ -64,9 +64,12 @@ const Auth = (props) => {
       context.fillText(txt[i], 0, 0)
       context.rotate(-sDeg)
       context.translate(-x, -y)
+    }
 
-      context.strokeStyle = randomColor();
-      context.beginPath();
+    for (let i = 0; i < 5; i++) {
+
+      context.strokeStyle = randomColor()
+      context.beginPath()
       context.moveTo(
         Math.random() * canvas.width,
         Math.random() * canvas.height
@@ -78,7 +81,7 @@ const Auth = (props) => {
       context.stroke()
     }
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 70; i++) {
 
       context.strokeStyle = randomColor()
       context.beginPath()
@@ -95,7 +98,7 @@ const Auth = (props) => {
   useEffect(() => {
 
     Captcha()
-  }, [Captcha]);
+  }, [Captcha])
 
   return (
     <div className="Auth-form-container">
