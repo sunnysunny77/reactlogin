@@ -15,13 +15,9 @@ const Layout = (props) => {
       </main>
       <footer className="row g-0 justify-content-center align-items-center text-center">
         <ul className="col-6">
-          <li> Login App
-            <ul>
-              <li>
+            <li>
                 &copy;&nbsp;D.C
-              </li>
-            </ul>
-          </li>
+            </li>
         </ul>
       </footer>
     </>

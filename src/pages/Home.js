@@ -5,7 +5,7 @@ import stationaryLandscape from "../images/stationary-landscape.webp";
 
 const Home = () => {
     return (
-        <div className="row g-0 p-3 align-items-start justify-content-around flex-column-reverse flex-sm-row">
+        <div className="row g-0 p-3 align-items-center justify-content-around flex-column-reverse flex-sm-row">
             <img className="col-12 col-sm-6 col-md-4" src={stationary} alt="stationary"/>
             <section className="col-12 col-sm-5 row g-0 text-end justify-content-end">
                 <h1 >Lorem ipsum dolor sit amet</h1>
