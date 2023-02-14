@@ -8,9 +8,9 @@ const Home = () => {
         <div className="row g-0 p-3 align-items-center align-items-lg-end justify-content-between flex-column-reverse flex-sm-row">
             <p className="col-12 col-sm-4 mb-0 ">  
                 <img src={stationary} alt="stationary"/> 
-                <span className="d-block p-3"> 
+                <b className="d-block p-3"> 
                     Ut enim ad minim veniam quis nostrud exercitation ullamco laboris. 
-                </span>   
+                </b>   
             </p>
             <section className="col-12 col-sm-7 row g-0 text-end justify-content-end">
                 <h1 >Lorem ipsum dolor</h1>
