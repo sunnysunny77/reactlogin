@@ -1,22 +1,35 @@
 //scss
 
 @font-face {
-    font-family: NotoSerifTamil-Regular;
-    src: url(./font/NotoSerifTamil-Regular.ttf);
+    font-family: Montserrat-Regular;
+    src: url(./font/Montserrat-Regular.ttf);
     font-display: swap;
 }
 
 body {
     margin: 0;
     background-image: url(./images/back.webp);
-    font-family: NotoSerifTamil-Regular;
+    font-family: Montserrat-Regular;
     font-size: 20px;
+}
+
+//nav
+.nav-link:hover,
+.nav-link:focus {
+    text-decoration: underline;
 }
 
 //main
 main {
     max-width: 1200px;
     margin: auto;
+    min-height: calc(100vh - 162px);
+}
+//section
+
+p {
+    background-color: aliceblue;
+    border-radius: 2.5px;
 }
 
 //not found + output alerts
@@ -31,7 +44,8 @@ main {
 img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 2.5px;
+    border: 1px solid aliceblue;
 }
 
 p + img {
@@ -44,6 +58,15 @@ footer {
     ul {
         list-style-type: none;
         padding: 0;
+        a {
+            color: inherit;
+            text-decoration: none;
+            &:hover,∂∂
+            &:focus {
+                text-decoration: underline;
+                color: inherit;
+            }
+        }
     }
 }
 
@@ -103,10 +126,7 @@ footer {
     table {
         width: calc(100% - 2rem);
         margin: 100px 1rem;
-        font-size: 80%;
-        @media screen and (min-width: 40em) {
-            font-size: unset;
-        }
+        font-size: 70%;
         th {
             position: absolute;
             clip: rect(0 0 0 0);

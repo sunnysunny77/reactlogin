@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { ArrowUpCircle } from 'react-bootstrap-icons';
 import { Link } from "react-router-dom";
+import Logo from "../images/logo.webp";
 
 const Navigation = (props) => {
 
@@ -11,7 +12,7 @@ const Navigation = (props) => {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/" > Login App </Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" > <img  src={Logo} alt="logo"/> </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {logOut ? (
           <Navbar.Collapse id="basic-navbar-nav">
