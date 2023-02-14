@@ -9,7 +9,7 @@ const Navigation = (props) => {
   const { logOut } = props;
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/" > Login App </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -17,7 +17,7 @@ const Navigation = (props) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link accessKey='1' as={Link} to="/" > Home </Nav.Link>
-              <Nav.Link accessKey='2' as={Link} to="admin" > Admin </Nav.Link>
+              <Nav.Link accessKey='2' as={Link} to="store" > Store </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link accessKey='3' onClick={logOut} > Sign out <ArrowUpCircle /> </Nav.Link>

@@ -1,12 +1,12 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import React, { useState } from "react";
-import { ClipboardPulse } from 'react-bootstrap-icons';
-import sunflower from "../images/sunflower.jpg";
+import { Shop } from 'react-bootstrap-icons';
+import Stationary from "../images/stationary-store.webp";
 
-const Admin = () => {
+const Store = () => {
 
     const [count, setCount] = useState(1);
-    const [order, setOrder] = useState(<h2>Sunflower $20</h2>);
+    const [order, setOrder] = useState(<h2>Stationary $20</h2>);
 
     const createOrder = (data, actions) => {
 
@@ -29,7 +29,7 @@ const Admin = () => {
                     },
                     items: [
                         {
-                            name: "Sunflower",
+                            name: "Stationary",
                             unit_amount: {
                                 currency_code: "AUD",
                                 value: "20"
@@ -99,13 +99,12 @@ const Admin = () => {
     return (
         <React.Fragment>
             <br />
-            <h1>Admin</h1>
-            <br />
-            <ClipboardPulse />
+            <h1>Store</h1>
+            <Shop />
             <br />
             <br />
             <div id="payPal">
-                <img src={sunflower} alt="sunflower" />
+                <img src={Stationary} alt="Stationary" />
                 <span
                     role="button"
                     onClick={() => {
@@ -145,4 +144,4 @@ const Admin = () => {
         </React.Fragment>
     );
 }
-export default Admin;
+export default Store;

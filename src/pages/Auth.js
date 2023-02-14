@@ -103,7 +103,7 @@ const Auth = (props) => {
   return (
     <div className="Auth-form-container">
       <h1 className="d-none">Auth</h1>
-      <Accordion >
+      <Accordion className='px-3'>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Login</Accordion.Header>
           <Accordion.Body>
@@ -126,7 +126,7 @@ const Auth = (props) => {
                   autoComplete="on"
                 />
               </label>
-              <button type="submit" className="btn mt-1 btn-secondary">
+              <button type="submit" className="btn mt-1 btn-light">
                 Submit
               </button>
               <p className={"alert alert-secondary " + classes} role="alert">
@@ -149,7 +149,7 @@ const Auth = (props) => {
                   id="txtInput"
                 />
                 <button
-                  className="btn btn-secondary mt-1"
+                  className="btn btn-light mt-1"
                   onClick={() => {
 
                     if (document.getElementById('txtInput').value.split(' ').join('') === captcha) {
@@ -171,7 +171,7 @@ const Auth = (props) => {
                   Submit
                 </button>
                 <button
-                  className="btn btn-secondary mb-3 mt-1"
+                  className="btn btn-light mb-3 mt-1"
                   onClick={() => Captcha()}
                 >
                   Refresh
@@ -199,7 +199,7 @@ const Auth = (props) => {
                     id="pass"
                   />
                 </label>
-                <button id="submit" type="submit" className="btn mt-1 btn-secondary">
+                <button id="submit" type="submit" className="btn mt-1 btn-light">
                   Submit
                 </button>
                 <p className={"alert alert-secondary " + classesTwo} role="alert">

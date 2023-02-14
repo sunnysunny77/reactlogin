@@ -4,11 +4,9 @@ import {
   Route,
   useNavigate
 } from "react-router-dom";
-
-import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css"
-
-import Admin from "./pages/Admin";
+import './App.scss';
+import Store from "./pages/Store";
 import Auth from "./pages/Auth";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -121,7 +119,7 @@ function App() {
         if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
           setAuth(true)
-          navigate('/admin')
+          navigate('/store')
           return
         }
 
@@ -157,7 +155,7 @@ function App() {
         if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
 
           setAuth(true)
-          navigate('/admin')
+          navigate('/store')
           return
         }
 
@@ -185,7 +183,7 @@ function App() {
             />
           }>
             <Route index element={<Home />} />
-            <Route path="admin" element={<Admin />} />
+            <Route path="store" element={<Store />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
