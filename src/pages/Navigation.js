@@ -28,6 +28,7 @@ const Navigation = (props) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link accessKey='1' as={Link} to="/" > Home </Nav.Link>
+              <Nav.Link accessKey='2' as={Link} to="auth" > Store </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link accessKey='2' as={Link} to="auth"  > Sign in <ArrowUpCircle /> </Nav.Link>
