@@ -13,10 +13,10 @@ const Home = () => {
                 </b>   
             </p>
             <section className="col-12 col-sm-7 row g-0 text-end justify-content-end">
-                <h1 >Lorem ipsum dolor</h1>
+                <h1>Lorem ipsum dolor</h1>
                 <HouseDoor className="col-1"/> 
                 <p className="mt-3 mb-sm-0 p-3 order-4 order-sm-3 row g-0 align-items-center justify-content-between">
-                    <b className="col-12 col-lg-4 text-start mb-3">
+                    <b className="col-12 col-lg-4 text-start text-lg-center mb-3">
                         Adipiscing elit
                     </b>
                     <span className="col-12 col-lg-7">
