@@ -97,7 +97,7 @@ const Store = () => {
     };
 
     return (
-        <React.Fragment>
+        <section className="px-3">
             <br />
             <h1>Store</h1>
             <Shop />
@@ -141,7 +141,7 @@ const Store = () => {
                 </PayPalScriptProvider>
                 {order}
             </div>
-        </React.Fragment>
+        </section>
     );
 }
 export default Store;
