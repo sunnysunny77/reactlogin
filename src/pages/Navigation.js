@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { ArrowUpCircle } from 'react-bootstrap-icons';
 import { Link } from "react-router-dom";
-import Logo from "../images/logo.webp";
+
 
 const Navigation = (props) => {
 
@@ -12,7 +12,26 @@ const Navigation = (props) => {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/" > <img  src={Logo} alt="logo"/> </Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" > 
+        <svg aria-label="Furniture Warehouse" 
+           viewBox="0 0 100 100" width="60" height="60">
+           
+            <defs>
+                <path 
+                    id="circle" 
+                    d="M 50, 50
+                    m -37, 0
+                    a 37,37 0 1,1 74,0
+                    a 37,37 0 1,1 -74,0" 
+                />
+            </defs>
+            <text class="font">
+                <textPath href="#circle">
+                Lorem ..... Ipsum ..............
+                </textPath>
+            </text>
+        </svg>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {logOut ? (
           <Navbar.Collapse id="basic-navbar-nav">

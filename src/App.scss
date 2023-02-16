@@ -11,6 +11,7 @@ body {
     background-image: url(./images/back.webp);
     font-family: Montserrat-Regular;
     font-size: 20px;
+    overflow-y: scroll;
 }
 
 h1 {
@@ -27,12 +28,12 @@ h1 {
 main {
     max-width: 1200px;
     margin: auto;
-    min-height: calc(100vh - 162px);
+    min-height: calc(100vh - 186px);
 }
 //section
 
 p {
-    background-color: aliceblue;
+    background-color: powderblue;
     border-radius: 2.5px;
 }
 
@@ -48,11 +49,18 @@ p {
     max-width: 1200px;
 }
 
+//svg
+.font {
+    font-size: 20px;
+    font-weight: 900;
+    fill: black ;
+}
+
 //images
 img {
     width: 100%;
     border-radius: 2.5px;
-    border: 1px solid aliceblue;
+    border: 1px solid powderblue;
 }
 
 p > img {
@@ -93,7 +101,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 258px);
+    min-height: calc(100vh - 282px);
     .accordion {
         max-width: 350px;
         width: 100%;
