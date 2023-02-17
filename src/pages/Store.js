@@ -129,7 +129,7 @@ const Store = () => {
                     <PayPalButtons
                         style={{
                             layout: 'horizontal',
-                            color: 'blue',
+                            color: 'silver',
                             shape: 'pill',
                             label: 'paypal',
                             tagline: false,

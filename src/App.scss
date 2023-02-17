@@ -1,8 +1,8 @@
 //scss
-$c1: darkseagreen;
-$c2: rgb(248, 248, 248);
+$c1: rgb(143, 188, 143);
+$c2: rgba(143, 188, 143,0.5);
 $c3: black;
-$c4: rgb(202, 202, 202);
+$c4: #eee;
 $c5: transparent;
 
 @font-face {
@@ -129,7 +129,6 @@ footer {
     }
 }
 
-//paypal
 #payPal {
     text-align: center;
     font-size: larger;
@@ -165,6 +164,7 @@ footer {
         tr {
             display: block;
             border-top: 1px solid $c4;
+            background-color: $c4;
         }
         thead tr,
         tr:nth-child(1) {
