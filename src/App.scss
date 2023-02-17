@@ -1,4 +1,9 @@
 //scss
+$c1: darkseagreen;
+$c2: rgb(248, 248, 248);
+$c3: black;
+$c4: rgb(202, 202, 202);
+$c5: transparent;
 
 @font-face {
     font-family: Montserrat-Regular;
@@ -30,10 +35,10 @@ main {
     margin: auto;
     min-height: calc(100vh - 186px);
 }
-//section
 
+//section
 p {
-    background-color: powderblue;
+    background-color: $c1;
     border-radius: 2.5px;
 }
 
@@ -45,21 +50,21 @@ p {
 }
 
 .alert-light {
-    background-color: transparent;
+    background-color: $c5;
     max-width: 1200px;
 }
 
 //svg
 .font {
     font-size: 20px;
-    fill: black ;
+    fill: $c3;
 }
 
 //images
 img {
     width: 100%;
     border-radius: 2.5px;
-    border: 1px solid powderblue;
+    border: 1px solid $c1;
 }
 
 p > img {
@@ -68,7 +73,6 @@ p > img {
     @media only Screen and (min-width: 576px) {
         height: unset;
         object-fit: unset;
-      
     }
 }
 
@@ -86,7 +90,7 @@ footer {
             color: inherit;
             text-decoration: none;
             &:hover,
-            ∂∂ &:focus {
+            &:focus {
                 text-decoration: underline;
                 color: inherit;
             }
@@ -119,6 +123,9 @@ footer {
         .displayNone {
             display: none;
         }
+        #responseCaptcha {
+            background-color: unset;
+        }
     }
 }
 
@@ -133,7 +140,7 @@ footer {
     img {
         width: 200px;
         border-radius: 100%;
-        border: 2px solid black;
+        border: 2px solid $c3;
         display: block;
         margin: auto auto 100px auto;
     }
@@ -141,7 +148,7 @@ footer {
         width: 50px;
         text-align: center;
         margin: 20px;
-        background: transparent;
+        background: $c5;
         border: none;
     }
     h2 {
@@ -157,7 +164,7 @@ footer {
         }
         tr {
             display: block;
-            border-top: 1px solid rgb(202, 202, 202);
+            border-top: 1px solid $c4;
         }
         thead tr,
         tr:nth-child(1) {
@@ -177,7 +184,7 @@ footer {
                 right: 40px;
             }
             &:nth-child(odd) {
-                background-color: rgb(248, 248, 248);
+                background-color: $c2;
             }
         }
     }

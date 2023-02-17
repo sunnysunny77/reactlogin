@@ -1,6 +1,6 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import React, { useState } from "react";
-import { Shop } from 'react-bootstrap-icons';
+import { Bag } from 'react-bootstrap-icons';
 import Stationary from "../images/stationary-store.webp";
 
 const Store = () => {
@@ -100,7 +100,7 @@ const Store = () => {
         <section className="px-3">
             <br />
             <h1>Store</h1>
-            <Shop />
+            <Bag />
             <br />
             <br />
             <div id="payPal">
