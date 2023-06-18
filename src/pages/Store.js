@@ -133,7 +133,9 @@ const Store = () => {
                             shape: 'pill',
                             label: 'paypal',
                             tagline: false,
+                            disableMaxWidth: true,
                         }}
+                        className="outer"
                         createOrder={createOrder}
                         onApprove={onApprove}
                         forceReRender={[count]}
