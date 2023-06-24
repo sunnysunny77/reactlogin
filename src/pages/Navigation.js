@@ -11,7 +11,7 @@ const Navigation = (props) => {
 
   return (
     <Navbar expand="lg">
-      <Container>
+      <Container fluid className='px-lg-5'>
         <Navbar.Brand as={Link} to="/" > 
         <svg aria-label="Furniture Warehouse" 
            viewBox="0 0 100 100" width="60" height="60">

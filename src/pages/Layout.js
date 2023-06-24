@@ -16,7 +16,7 @@ const Layout = (props) => {
       <footer className="row g-0 justify-content-center align-items-center text-center">
         <ul className="col-6">
             <li>
-                &copy;&nbsp;D.C
+                &copy;
             </li>
             <li className="d-sm-none">
                 <a href="#">Return to top</a>
