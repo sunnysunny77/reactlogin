@@ -1,6 +1,6 @@
 //scss
-$c1: rgb(143, 188, 143);
-$c2: rgba(143, 188, 143,0.5);
+$c1: rgb(119, 136, 153);
+$c2: rgba(119, 136, 153,0.5);
 $c3: black;
 $c4: #eee;
 $c5: transparent;
@@ -40,6 +40,7 @@ main {
 //section
 p {
     background-color: $c1;
+    color: $c4;
 }
 
 //not found + output alerts
