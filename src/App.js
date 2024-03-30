@@ -33,6 +33,8 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
+  const [order, setOrder] = useState(<h2>Stationary $20</h2>);
+
   useEffect(() => {
 
     fetch("/api/initialauthorization/?controller=initialauthorization", {
@@ -183,7 +185,7 @@ function App() {
             />
           }>
             <Route index element={<Home />} />
-            <Route path="store" element={<Store />} />
+            <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,13 +1,40 @@
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import React, { useState } from "react";
 import { Bag } from 'react-bootstrap-icons';
 import Stationary from "../images/stationary-store.webp";
+import Spinner from "../images/load.gif";
 
-const Store = () => {
+const Store = (props) => {
+
+    const { order } = props;
 
     const [count, setCount] = useState(1);
-    const [order, setOrder] = useState(<h2>Stationary $20</h2>);
+   
+    const ButtonWrapper = ({ showSpinner }) => {
 
+        const [{ isPending }] = usePayPalScriptReducer();
+    
+        return (
+            <>
+                { (showSpinner && isPending) && <img id="spinner" src={Spinner} alt="Spinner" /> }
+                <PayPalButtons
+                    style={{
+                        layout: 'horizontal',
+                        color: 'silver',
+                        shape: 'pill',
+                        label: 'paypal',
+                        tagline: false,
+                        disableMaxWidth: true,
+                    }}
+                    className="outer"
+                    createOrder={createOrder}
+                    onApprove={onApprove}
+                    forceReRender={[count]}
+                />
+            </>
+        );
+    }
+    
     const createOrder = (data, actions) => {
 
         const value = count * 20
@@ -93,7 +120,7 @@ const Store = () => {
             </tbody>
         </table>
 
-        setOrder(output)
+        props.setOrder(output)
     };
 
     return (
@@ -104,7 +131,7 @@ const Store = () => {
             <br />
             <br />
             <div id="payPal">
-                <img src={Stationary} alt="Stationary" />
+                <img id="stationary" src={Stationary} alt="Stationary" />
                 <span
                     role="button"
                     onClick={() => {
@@ -126,20 +153,7 @@ const Store = () => {
                     +
                 </span>
                 <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
-                    <PayPalButtons
-                        style={{
-                            layout: 'horizontal',
-                            color: 'silver',
-                            shape: 'pill',
-                            label: 'paypal',
-                            tagline: false,
-                            disableMaxWidth: true,
-                        }}
-                        className="outer"
-                        createOrder={createOrder}
-                        onApprove={onApprove}
-                        forceReRender={[count]}
-                    />
+                    <ButtonWrapper showSpinner={true} /> 
                 </PayPalScriptProvider>
                 {order}
             </div>

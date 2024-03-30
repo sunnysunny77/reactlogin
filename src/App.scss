@@ -137,12 +137,22 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    img {
+    .outer {
+        display: flex;
+    }
+    #stationary {
         width: 200px;
         border-radius: 100%;
         border: 2px solid $c3;
         display: block;
         margin: auto auto 20px auto;
+    }
+    #spinner {
+        height: 55px;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        border: none;
     }
     input {
         width: 50px;
