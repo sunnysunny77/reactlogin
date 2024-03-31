@@ -1,6 +1,6 @@
 //scss
 $c1: rgb(47, 79, 79);
-$c2: rgba(47, 79, 79,0.5);
+$c2: rgba(47, 79, 79, 0.5);
 $c3: black;
 $c4: #eee;
 $c5: transparent;
@@ -25,9 +25,13 @@ h1 {
 }
 
 //nav
-.nav-link:hover,
-.nav-link:focus {
-    text-decoration: underline;
+
+.nav-link {
+    transition: text-decoration 0.2s;
+    text-decoration: underline transparent;
+    &:hover {
+        text-decoration: underline $c3;
+    }
 }
 
 //main
@@ -62,7 +66,8 @@ p {
 }
 
 //images
-img {
+p > img,
+p + div {
     width: 100%;
     border: 1px solid $c1;
 }
@@ -76,8 +81,19 @@ p > img {
     }
 }
 
-p + img {
-    height: unset;
+p + div {
+    padding: 25%;
+    background-color: $c4;
+    border-bottom-left-radius: 20%;
+    &::before {
+        content: "";
+        position: absolute;
+        border-bottom-left-radius: 100%;
+        border-right: 75rem solid $c1;
+        top: 0;
+        bottom: 0;
+        left: -2px;
+    }
 }
 
 //footer
