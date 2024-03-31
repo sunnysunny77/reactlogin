@@ -57,6 +57,7 @@ b {
 
 .store h1 {
     font-weight: 400;
+    display: inline-block;
 }
 
 //not found + output alerts
@@ -72,9 +73,10 @@ b {
 }
 
 //svg
-.font {
+svg {
     font-size: 20px;
     fill: $c3;
+    vertical-align: text-top;
 }
 
 //images
@@ -169,11 +171,20 @@ footer {
         display: flex;
     }
     #stationary {
-        width: 200px;
-        border-radius: 100%;
-        border: 2px solid $c3;
-        display: block;
         margin: auto auto 20px auto;
+        background-color: $c4;
+        height: 170px;
+        width: 200px;
+        clip-path: circle(40%);
+        img {
+            display: block;
+            margin: auto;
+            top: 5px;
+            left: 5px;
+            height: 160px;
+            width: 190px;
+            clip-path: circle(40%);
+        }
     }
     #spinner {
         height: 55px;
@@ -212,15 +223,15 @@ footer {
         td {
             display: block;
             text-align: right;
-            padding: 20px 20px 20px 50px;
+            padding: 20px;
             word-break: break-word;
             &::before {
                 content: attr(headers);
-                float: left;
+                text-align: left;
+                display: block;
                 font-weight: 600;
                 text-transform: capitalize;
-                position: relative;
-                right: 40px;
+                height: 100%;
             }
             &:nth-child(odd) {
                 background-color: $c2;

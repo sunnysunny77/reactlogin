@@ -101,7 +101,7 @@ const Auth = (props) => {
   }, [Captcha])
 
   return (
-    <div className="Auth-form-container">
+    <div className="Auth-form-container w-100">
       <h1 className="d-none">Auth</h1>
       <Accordion className='px-3'>
         <Accordion.Item eventKey="0">

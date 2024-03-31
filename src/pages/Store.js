@@ -100,7 +100,7 @@ const Store = (props) => {
             <caption>{description}</caption>
             <thead>
                 <tr>
-                    <th id="id">ID:</th>
+                    <th id="transaction">Transaction</th>
                     <th id="email">Email:</th>
                     <th id="name">Name:</th>
                     <th id="address">Address:</th>
@@ -110,7 +110,7 @@ const Store = (props) => {
             </thead>
             <tbody>
                 <tr>
-                    <td headers="id">{orderID}</td>
+                    <td headers="transaction">{orderID}</td>
                     <td headers="email">{email}</td>
                     <td headers="name">{name}</td>
                     <td headers="address">{address}</td>
@@ -126,12 +126,14 @@ const Store = (props) => {
     return (
         <section className="store px-3 col-11 mx-auto align-self-start">
             <br />
-            <h1>Store</h1>
-            <Bag />
+            <h1 className="m-0" >Store</h1>
+            <Bag className="ms-2" />
             <br />
             <br />
             <div id="payPal">
-                <img id="stationary" src={Stationary} alt="Stationary" />
+                <div id="stationary" className="position-relative">
+                    <img className="position-absolute" src={Stationary} alt="Stationary" />
+                </div>
                 <span
                     role="button"
                     onClick={() => {
