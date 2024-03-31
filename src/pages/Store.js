@@ -124,7 +124,7 @@ const Store = (props) => {
     };
 
     return (
-        <section className="px-3">
+        <section className="store px-3 col-11 mx-auto align-self-start">
             <br />
             <h1>Store</h1>
             <Bag />

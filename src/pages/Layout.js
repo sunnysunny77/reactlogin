@@ -10,7 +10,7 @@ const Layout = (props) => {
     <>
       <a className="d-none" accessKey="s" href="#main">skip navigation</a>
       <Navigation logOut={logOut} />
-      <main id="main" className="py-sm-4">
+      <main id="main" className="py-sm-4 d-flex flex-wrap align-items-center">
         <Outlet />
       </main>
       <footer className="row g-0 justify-content-center align-items-center text-center">
