@@ -21,7 +21,7 @@ body {
 
 h1 {
     font-size: inherit;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 //nav
@@ -45,6 +45,10 @@ main {
 p {
     background-color: $c1;
     color: $c4;
+}
+
+b {
+    font-weight: 500;
 }
 
 //not found + output alerts
