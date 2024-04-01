@@ -60,12 +60,17 @@ function App() {
 
         setToken(data)
         setLoad(false)
+
       })
       .catch(err => {
-
-        setLoad("Error: " + err.statusText)
+        
+        if (err.statusText) return err.statusText
+        return err.text()
       })
+      .then(err => {
 
+        setLoad(err)
+      })
   }, [])
 
   const logout = () => {
@@ -93,7 +98,12 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.statusText)
+        if (err.statusText) return err.statusText
+        return err.text()
+      })
+      .then(err => {
+
+        setLoad(err)
       })
   }
 
@@ -129,7 +139,12 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.statusText)
+        if (err.statusText) return err.statusText
+        return err.text()
+      })
+      .then(err => {
+
+        setLoad(err)
       })
   }
 
@@ -165,7 +180,12 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.statusText)
+        if (err.statusText) return err.statusText
+        return err.text()
+      })
+      .then(err => {
+
+        setLoad(err)
       })
   }
 
