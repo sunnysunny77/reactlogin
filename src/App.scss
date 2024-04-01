@@ -24,7 +24,7 @@ body {
 h1 {
     font-size: inherit;
     font-weight: 600;
-    &.d-print-block {
+    &.hidden {
         width: 0;
         height: 0;
         overflow: hidden;

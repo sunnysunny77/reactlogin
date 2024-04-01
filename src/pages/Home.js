@@ -13,9 +13,7 @@ const Home = () => {
                 </p>
             </div>
             <section className="col-12 col-md-7 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
-                <h1 className="d-print-block">
-                    Adipiscing elit
-                </h1>
+                <h1 className="hidden">Home</h1>
                 <p className="col-11 col-md-12 mx-auto mb-0 p-5 p-lg-3 row g-0 align-items-center justify-content-between">
                     <span className="col-12 col-lg-4 text-start text-lg-center mb-3">
                       Adipiscing elit
