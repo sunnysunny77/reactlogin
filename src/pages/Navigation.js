@@ -25,7 +25,7 @@ const Navigation = (props) => {
                     a 37,37 0 1,1 -74,0" 
                 />
             </defs>
-            <text class="font">
+            <text className="font">
                 <textPath href="#circle">
                 Lorem ..... Ipsum ..............
                 </textPath>
@@ -36,21 +36,21 @@ const Navigation = (props) => {
         {logOut ? (
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link accessKey='1' as={Link} to="/" > Home </Nav.Link>
-              <Nav.Link accessKey='2' as={Link} to="store" > Store </Nav.Link>
+              <Nav.Link as={Link} to="/" > Home </Nav.Link>
+              <Nav.Link as={Link} to="store" > Store </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link accessKey='3' onClick={logOut} > Sign out <ArrowUpCircle /> </Nav.Link>
+              <Nav.Link onClick={logOut} > Sign out <ArrowUpCircle /> </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         ) : (
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link accessKey='1' as={Link} to="/" > Home </Nav.Link>
-              <Nav.Link accessKey='2' as={Link} to="auth" > Store </Nav.Link>
+              <Nav.Link as={Link} to="/" > Home </Nav.Link>
+              <Nav.Link as={Link} to="auth" > Store </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link accessKey='3' as={Link} to="auth"  > Sign in <ArrowUpCircle /> </Nav.Link>
+              <Nav.Link as={Link} to="auth"  > Sign in <ArrowUpCircle /> </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         )}

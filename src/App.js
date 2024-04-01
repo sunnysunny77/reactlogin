@@ -63,7 +63,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.status)
+        setLoad("Error: " + err.statusText)
       })
 
   }, [])
@@ -93,7 +93,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.status)
+        setLoad("Error: " + err.statusText)
       })
   }
 
@@ -129,7 +129,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.status)
+        setLoad("Error: " + err.statusText)
       })
   }
 
@@ -165,7 +165,7 @@ function App() {
       })
       .catch(err => {
 
-        setLoad("Error: " + err.status)
+        setLoad("Error: " + err.statusText)
       })
   }
 

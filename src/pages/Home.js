@@ -4,17 +4,22 @@ import stationary from "../images/stationary.webp";
 const Home = () => {
     return (
         <div className="row g-0 p-3 align-items-center  justify-content-around justify-content-xl-between align-items-xl-end flex-column flex-sm-row">
-            <p className="col-11 mb-5 mt-3 my-md-0 col-md-4">  
-                <img src={stationary} alt="stationary"/> 
-                <b className="d-block px-3 pb-4 pt-5"> 
-                   Ut enim ad minim veniam quis nostrud exercitation ullamco laboris. 
-                </b>   
-            </p>
+            <div className="blend col-11 mt-3 mb-5 my-md-0 col-md-4">
+                <img  src={stationary} alt="stationary"/> 
+                <p className="m-0">  
+                    <b className="d-block px-3 pb-4 pt-5"> 
+                    Ut enim ad minim veniam quis nostrud exercitation ullamco laboris. 
+                    </b>   
+                </p>
+            </div>
             <section className="col-12 col-md-7 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
+                <h1 className="d-print-block">
+                    Adipiscing elit
+                </h1>
                 <p className="col-11 col-md-12 mx-auto mb-0 p-5 p-lg-3 row g-0 align-items-center justify-content-between">
-                    <h1 className="col-12 col-lg-4 text-start text-lg-center mb-3">
+                    <span className="col-12 col-lg-4 text-start text-lg-center mb-3">
                       Adipiscing elit
-                    </h1>
+                    </span>
                     <span className="col-12 col-lg-7">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
