@@ -93,13 +93,13 @@ section > {
 }
 
 .blend {
-    background-color: rgba($c1, 0.05);
+    background-color: $c4;
     > img {
         object-fit: cover;
         height: 300px;
         border: 1px solid $c1;
         width: 100%;
-        mix-blend-mode: multiply;
+        mix-blend-mode: luminosity;
         @media only Screen and (min-width: 576px) {
             height: unset;
             object-fit: unset;
@@ -194,16 +194,16 @@ footer {
         height: 220px;
         width: 250px;
         clip-path: circle(40%);
-        background-color: rgba($c1, 0.05);
+        background-color: $c4;
         img {
             display: block;
             margin: auto;
-            top: 5px;
-            left: 5px;
-            height: 210px;
-            width: 240px;
+            top: 10px;
+            left: 10px;
+            height: 200px;
+            width: 230px;
             clip-path: circle(40%);
-            mix-blend-mode: multiply;
+            mix-blend-mode: luminosity;
         }
     }
     #spinner {
