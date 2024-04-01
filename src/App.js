@@ -64,7 +64,6 @@ function App() {
       })
       .catch(err => {
         
-        if (err.statusText) return err.statusText
         return err.text()
       })
       .then(err => {
@@ -85,20 +84,19 @@ function App() {
         if (!res.ok) { throw res }
         setLoad(false)
         setAuth(false)
-        setClasses("displayNone");
-        setClassesTwo("displayNone");
+        setClasses("displayNone")
+        setClassesTwo("displayNone")
         setToken(token)
-        setLogin(false);
-        setSignup(false);
-        setPass("");
+        setLogin(false)
+        setSignup(false)
+        setPass("")
         setEmail("")
-        setPassTwo("");
+        setPassTwo("")
         setEmailTwo("")
         navigate('/')
       })
       .catch(err => {
 
-        if (err.statusText) return err.statusText
         return err.text()
       })
       .then(err => {
@@ -139,7 +137,6 @@ function App() {
       })
       .catch(err => {
 
-        if (err.statusText) return err.statusText
         return err.text()
       })
       .then(err => {
@@ -180,7 +177,6 @@ function App() {
       })
       .catch(err => {
 
-        if (err.statusText) return err.statusText
         return err.text()
       })
       .then(err => {
