@@ -184,8 +184,21 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    .outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .button-container {
+        min-height: 60px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        .button-container-inner {
+            display: flex;
+            width: 100%;
+        }
     }
     #stationary {
         margin: auto auto 20px auto;

@@ -26,7 +26,7 @@ const Store = (props) => {
                         tagline: false,
                         disableMaxWidth: true,
                     }}
-                    className="outer"
+                    className="button-container-inner"
                     createOrder={createOrder}
                     onApprove={onApprove}
                     forceReRender={[count]}
@@ -134,29 +134,33 @@ const Store = (props) => {
                 <div id="stationary" className="position-relative">
                     <img className="position-absolute" src={Stationary} alt="Stationary" />
                 </div>
-                <span
-                    role="button"
-                    onClick={() => {
+                <div>
+                    <span
+                        role="button"
+                        onClick={() => {
 
-                        if (count > 1) setCount(count - 1)
-                    }}
-                >
-                    -
-                </span>
-                <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
-                <input disabled={true} id="count" type="text" value={count} />
-                <span
-                    role="button"
-                    onClick={() => {
+                            if (count > 1) setCount(count - 1)
+                        }}
+                    >
+                        -
+                    </span>
+                    <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
+                    <input disabled={true} id="count" type="text" value={count} />
+                    <span
+                        role="button"
+                        onClick={() => {
 
-                        setCount(count + 1)
-                    }}
-                >
-                    +
-                </span>
-                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
-                    <ButtonWrapper showSpinner={true} /> 
-                </PayPalScriptProvider>
+                            setCount(count + 1)
+                        }}
+                    >
+                        +
+                    </span>
+                </div>    
+                <div className="button-container">
+                    <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
+                        <ButtonWrapper showSpinner={true} /> 
+                    </PayPalScriptProvider>
+                </div>
                 {order}
             </div>
         </section>
