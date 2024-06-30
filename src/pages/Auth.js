@@ -45,6 +45,7 @@ const Auth = (props) => {
 
       txt += alpha[Math.floor(Math.random() * alpha.length)]
     }
+    
     const context = canvas.getContext('2d')
     canvas.width = 140
     canvas.height = 50
