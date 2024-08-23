@@ -1,0 +1,50 @@
+
+.navbar-collapse {
+    padding: 0 0 0 1rem;
+}
+
+.nav-link {
+    transition: text-decoration 0.2s;
+    text-decoration: underline transparent;
+    &:hover {
+        text-decoration: underline $c3;
+    }
+}
+
+.navbar-toggler {
+    padding: 0 24px;
+    border: none;
+    height: 72px;
+    border-radius: 0;
+    &:focus {
+        box-shadow: none;
+    }
+    &.collapsed {
+        .slider_8-bar1,
+        .slider_8-bar3 {
+            transform: none;
+        }
+        .slider_8-bar2 {
+            opacity: 1;
+        }
+    }
+    .slider_8-bar1,
+    .slider_8-bar2,
+    .slider_8-bar3 {
+        width: 24px;
+        height: 3px;
+        background-color: $c1;
+        margin: 4px 0;
+        transition: 0.4s;
+        border-radius: 1.5px;
+    }
+    .slider_8-bar1 {
+        transform: translate(0, 7px) rotate(-45deg);
+    }
+    .slider_8-bar2 {
+        opacity: 0;
+    }
+    .slider_8-bar3 {
+        transform: translate(0, -7px) rotate(45deg);
+    }
+}

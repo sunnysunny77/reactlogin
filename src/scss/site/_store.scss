@@ -1,0 +1,128 @@
+
+.store h1 {
+    font-weight: 400;
+    display: inline-block;
+}
+
+#payPal {
+    text-align: center;
+    font-size: larger;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: $c1;
+    @include min_md { 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    .button-container {
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        @include min_md { 
+            width: 75%;
+        }
+        .button-container-inner {
+            display: flex;
+            width: 100%;
+        }
+    }
+    #stationary {
+        width: 100%;
+        clip-path: circle(40%);
+        background-color: $c4;
+        position: relative;
+        min-width: 182px;
+        @include min_md { 
+            width: 25%;
+
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            clip-path: circle(38%);
+            mix-blend-mode: darken;
+            object-fit: cover;
+            margin: auto;
+            @include min_md { 
+                position: absolute;
+                top: 0.25%;
+                right: 4%;
+                width: 92%;
+            }
+        }
+    }
+    #counter {
+        width: 100%;
+        color: $c4;
+        @include min_md { 
+            width: 95px;
+        }
+    }
+    #spinner {
+        height: 55px;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        border: none;
+        background-color: $c4;
+        border-radius: 50%;
+        padding: 0.2rem;
+    }
+    input {
+        width: 50px;
+        text-align: center;
+        margin: 20px;
+        color: $c4;
+        border: none;
+        background: none;
+    }
+}
+
+table {
+    width: 100%;
+    margin: 50px auto;
+    font-size: 70%;
+    th {
+        position: absolute;
+        clip: rect(0 0 0 0);
+    }
+    tr {
+        display: block;
+        border-top: 1px solid $c4;
+        background-color: $c4;
+    }
+    thead tr,
+    tr:nth-child(1) {
+        border: none;
+    }
+    td {
+        display: block;
+        text-align: right;
+        padding: 20px;
+        word-break: break-word;
+        &::before {
+            content: attr(headers);
+            text-align: left;
+            display: block;
+            font-weight: 600;
+            text-transform: capitalize;
+            height: 100%;
+            margin: 0 0 1rem 0;
+        }
+        &:nth-child(odd) {
+            background-color: $c2;
+        }
+    }
+}

@@ -15,11 +15,8 @@ const Layout = (props) => {
       </main>
       <footer className="row g-0 justify-content-center align-items-center text-center">
         <ul className="col-6">
-            <li>
-                &copy;
-            </li>
-            <li className="d-sm-none">
-                <a href="#">Return to top</a>
+            <li className="d-md-none">
+                <a aria-label="Return to top" href="#top">&#8593;</a>
             </li>
         </ul>
       </footer>

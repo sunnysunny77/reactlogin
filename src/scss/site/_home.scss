@@ -1,0 +1,38 @@
+
+section > {
+    p {
+        + div {
+            padding: 25%;
+            background-color: $c4;
+            border-bottom-left-radius: 20%;
+            border: 1px solid $c1;
+            &::before {
+                content: "";
+                position: absolute;
+                border-bottom-left-radius: 100%;
+                border-left: 75rem solid $c1;
+                top: 0;
+                bottom: 0;
+                left: -5px;
+            }
+        }
+    }
+    p > span {
+        font-weight: 600;
+        + span {
+            font-weight: initial;
+        }
+    }
+}
+
+.blend {
+    background-color: rgba($c4, 0.25);
+    img {
+        border: 1px solid $c1;
+        width: 100%;
+        mix-blend-mode: darken;
+        + p {
+            background-color: $c1;
+        }
+    }
+}

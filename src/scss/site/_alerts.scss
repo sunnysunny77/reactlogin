@@ -1,0 +1,16 @@
+.alert-secondary,
+.alert-light {
+    text-align: center;
+    margin: auto;
+}
+
+.alert-light {
+    background-color: $c5;
+    max-width: 1200px;
+    border: none;
+    .fa-question-circle {
+        max-width: 200px;
+        margin: auto;
+        display: block;
+    }
+}

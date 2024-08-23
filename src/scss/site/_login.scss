@@ -1,0 +1,39 @@
+
+.accordion-button:not(.collapsed)  {
+    background-color: $c2;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.Auth-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 282px);
+    .accordion {
+        max-width: 350px;
+        width: 100%;
+        .btn,
+        input {
+            width: 100%;
+        }
+        label {
+            display: block;
+        }
+        .display {
+            display: block;
+            margin-top: 16px;
+            width: 100%;
+        }
+        .displayNone {
+            display: none;
+        }
+        #responseCaptcha {
+            background-color: unset;
+            color: $c3;
+        }
+    }
+}

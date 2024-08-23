@@ -126,15 +126,15 @@ const Store = (props) => {
     return (
         <section className="store px-3 col-11 mx-auto align-self-start">
             <br />
+            <Bag />
             <h1 className="m-0" >Store</h1>
-            <Bag className="ms-2" />
             <br />
             <br />
             <div id="payPal">
-                <div id="stationary" className="position-relative">
-                    <img className="position-absolute" src={Stationary} alt="Stationary" />
+                <div id="stationary" className="py-5">
+                    <img src={Stationary} alt="Stationary" />
                 </div>
-                <div>
+                <div id="counter" className="my-5">
                     <span
                         role="button"
                         onClick={() => {
@@ -156,13 +156,13 @@ const Store = (props) => {
                         +
                     </span>
                 </div>    
-                <div className="button-container">
+                <div className="button-container ps-md-3">
                     <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
                         <ButtonWrapper showSpinner={true} /> 
                     </PayPalScriptProvider>
                 </div>
-                {order}
             </div>
+            {order}
         </section>
     );
 }

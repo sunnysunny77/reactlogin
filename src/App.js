@@ -5,7 +5,7 @@ import {
   useNavigate
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import './App.scss';
+import './scss/App.scss';
 import Store from "./pages/Store";
 import Auth from "./pages/Auth";
 import Layout from "./pages/Layout";
@@ -33,7 +33,7 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
-  const [order, setOrder] = useState(<h2>Stationary $20</h2>);
+  const [order, setOrder] = useState(<h2 className="my-5">Stationary $20</h2>);
 
   useEffect(() => {
 

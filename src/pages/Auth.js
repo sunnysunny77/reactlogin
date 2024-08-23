@@ -102,7 +102,7 @@ const Auth = (props) => {
   return (
     <div className="Auth-form-container w-100">
       <h1 className="hidden">Auth</h1>
-      <Accordion className='px-3'>
+      <Accordion defaultActiveKey="0" className='px-3'>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Login</Accordion.Header>
           <Accordion.Body>
