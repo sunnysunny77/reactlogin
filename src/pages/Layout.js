@@ -13,9 +13,9 @@ const Layout = (props) => {
       <main id="main" className="py-sm-4 d-flex flex-wrap align-items-center">
         <Outlet />
       </main>
-      <footer className="row g-0 justify-content-center align-items-center text-center">
+      <footer className="row g-0 d-md-none justify-content-center align-items-center text-center">
         <ul className="col-6">
-            <li className="d-md-none">
+            <li>
                 <a aria-label="Return to top" href="#top">&#8593;</a>
             </li>
         </ul>
