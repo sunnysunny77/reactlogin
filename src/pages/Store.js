@@ -27,101 +27,97 @@ const Store = (props) => {
                         disableMaxWidth: true,
                     }}
                     className="button-container-inner"
-                    createOrder={createOrder}
-                    onApprove={onApprove}
+                    createOrder={(data, actions) => {
+
+                        const value = count * 20
+                
+                        return actions.order.create({
+                
+                            purchase_units: [
+                                {
+                                    description: "Securewebsite Transaction",
+                                    amount: {
+                                        currency_code: "AUD",
+                                        value: value,
+                                        breakdown: {
+                                            item_total: {
+                                                currency_code: "AUD",
+                                                value: value
+                                            }
+                                        }
+                                    },
+                                    items: [
+                                        {
+                                            name: "Stationary",
+                                            unit_amount: {
+                                                currency_code: "AUD",
+                                                value: "20"
+                                            },
+                                            quantity: count,
+                                        },
+                                    ]
+                                }],
+                        });
+                    }}
+                    onApprove={ async (data, actions) => {
+
+                        const order = await actions.order.capture()
+                
+                        const description = order.purchase_units[0].description
+                
+                        const orderID = order.id
+                
+                        const email = order.payer.email_address
+                
+                        const name = order.purchase_units[0].shipping.name.full_name
+                
+                        let address = ""
+                        for (let x in order.purchase_units[0].shipping.address) {
+                            
+                            address +=
+                                order.purchase_units[0].shipping.address[x] + " "
+                        }
+                
+                        const purchase =
+                            order.purchase_units[0].items[0].quantity +
+                            " x " +
+                            order.purchase_units[0].items[0].name +
+                            " $" +
+                            order.purchase_units[0].items[0].unit_amount.value
+                
+                        const total = "$" + order.purchase_units[0].amount.value
+                
+                        const output = <table className="alert alert-primary">
+                            <caption>{description}</caption>
+                            <thead>
+                                <tr>
+                                    <th id="transaction">Transaction</th>
+                                    <th id="email">Email:</th>
+                                    <th id="name">Name:</th>
+                                    <th id="address">Address:</th>
+                                    <th id="purchase">Purchase:</th>
+                                    <th id="total">Total:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td headers="transaction">{orderID}</td>
+                                    <td headers="email">{email}</td>
+                                    <td headers="name">{name}</td>
+                                    <td headers="address">{address}</td>
+                                    <td headers="purchase">{purchase}</td>
+                                    <td headers="total">{total}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                
+                        props.setOrder(output)
+                    }}
                     forceReRender={[count]}
                 />
             </>
         );
     }
-    
-    const createOrder = (data, actions) => {
-
-        const value = count * 20
-
-        return actions.order.create({
-
-            purchase_units: [
-                {
-                    description: "Securewebsite Transaction",
-                    amount: {
-                        currency_code: "AUD",
-                        value: value,
-                        breakdown: {
-                            item_total: {
-                                currency_code: "AUD",
-                                value: value
-                            }
-                        }
-                    },
-                    items: [
-                        {
-                            name: "Stationary",
-                            unit_amount: {
-                                currency_code: "AUD",
-                                value: "20"
-                            },
-                            quantity: count,
-                        },
-                    ]
-                }],
-        });
-    };
-
-    const onApprove = async (data, actions) => {
-
-        const order = await actions.order.capture()
-
-        const description = order.purchase_units[0].description
-
-        const orderID = order.id
-
-        const email = order.payer.email_address
-
-        const name = order.purchase_units[0].shipping.name.full_name
-
-        let address = ""
-        for (let x in order.purchase_units[0].shipping.address) {
-            
-            address +=
-                order.purchase_units[0].shipping.address[x] + " "
-        }
-
-        const purchase =
-            order.purchase_units[0].items[0].quantity +
-            " x " +
-            order.purchase_units[0].items[0].name +
-            " $" +
-            order.purchase_units[0].items[0].unit_amount.value
-
-        const total = "$" + order.purchase_units[0].amount.value
-
-        const output = <table className="alert alert-primary">
-            <caption>{description}</caption>
-            <thead>
-                <tr>
-                    <th id="transaction">Transaction</th>
-                    <th id="email">Email:</th>
-                    <th id="name">Name:</th>
-                    <th id="address">Address:</th>
-                    <th id="purchase">Purchase:</th>
-                    <th id="total">Total:</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td headers="transaction">{orderID}</td>
-                    <td headers="email">{email}</td>
-                    <td headers="name">{name}</td>
-                    <td headers="address">{address}</td>
-                    <td headers="purchase">{purchase}</td>
-                    <td headers="total">{total}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        props.setOrder(output)
-    };
 
     return (
         <section className="store px-3 col-11 mx-auto align-self-start">
