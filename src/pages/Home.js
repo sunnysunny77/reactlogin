@@ -3,7 +3,7 @@ import stationary from "../images/stationary.webp";
 
 const Home = () => {
     return (
-        <div className="row g-0 p-3 mt-md-5 align-items-center justify-content-around justify-content-xl-between align-items-xl-end flex-column flex-sm-row">
+        <div className="row g-0 p-3 align-items-center justify-content-around justify-content-xl-between align-items-xl-end flex-column flex-sm-row">
             <div className="blend col-11 mt-3 mb-5 my-md-0 col-md-4">
                 <img  src={stationary} alt="stationary"/> 
                 <p className="m-0">  
