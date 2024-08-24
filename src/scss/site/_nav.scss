@@ -6,6 +6,7 @@
 .nav-link {
     transition: text-decoration 0.2s;
     text-decoration: underline transparent;
+    width: fit-content;
     &:hover {
         text-decoration: underline $c3;
     }
