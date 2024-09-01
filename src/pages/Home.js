@@ -1,24 +1,25 @@
 import React from "react";
-import stationary from "../images/stationary.webp";
+import Store from "../images/store.webp";
+import { House } from 'react-bootstrap-icons';
 
 const Home = () => {
     return (
-        <div className="row g-0 p-3 align-items-center justify-content-around justify-content-xl-between align-items-xl-end flex-column flex-sm-row">
-            <div className="blend col-12 col-md-4 mt-3 mb-5 my-md-0">
-                <img  src={stationary} alt="stationary"/> 
+        <div className="row g-0 p-3 align-items-center justify-content-around justify-content-xl-between flex-column flex-sm-row">
+            <h1 className="col-12 py-3 ps-4 p-md-0"><House />Home</h1>
+            <div className="blend col-11 col-md-6 mb-5 my-md-0">
+                <img  src={Store} alt="store"/> 
                 <p className="m-0">  
                     <b className="d-block px-3 pb-4 pt-5"> 
                     Ut enim ad minim veniam quis nostrud exercitation ullamco laboris. 
                     </b>   
                 </p>
             </div>
-            <section className="col-12 col-md-7 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
-                <h1 className="hidden">Home</h1>
+            <section className="col-11 col-md-5 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
                 <p className="col-12 mx-auto mb-0 px-3 py-5 p-md-3 row g-0 align-items-center justify-content-between">
-                    <span className="col-12 col-lg-4 text-start text-lg-center mb-3">
+                    <span className="col-12 col-xl-4 text-start text-xl-center mb-3">
                       Adipiscing elit
                     </span>
-                    <span className="col-12 col-lg-7">
+                    <span className="col-12 col-xl-7">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
@@ -26,7 +27,7 @@ const Home = () => {
                         reprehender.
                     </span>
                 </p>
-                <div className="col-12 mx-auto position-relative overflow-hidden">
+                <div className="col-11 col-md-12 mx-auto position-relative overflow-hidden">
                 </div>
             </section>
         </div>

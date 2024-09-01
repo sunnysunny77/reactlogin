@@ -1,9 +1,3 @@
-
-.store h1 {
-    font-weight: 400;
-    display: inline-block;
-}
-
 #payPal {
     text-align: center;
     font-size: larger;
@@ -17,7 +11,7 @@
     flex-direction: column;
     padding: 2rem;
     background-color: $c1;
-    @include min_md { 
+    @include min_md {
         flex-direction: row;
         justify-content: space-between;
         align-items: stretch;
@@ -29,7 +23,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        @include min_md { 
+        @include min_md {
             width: 75%;
         }
         .button-container-inner {
@@ -37,28 +31,28 @@
             width: 100%;
         }
     }
-    #stationary {
+    #store {
         width: 100%;
+        padding: 2%;
         clip-path: circle(40%);
         background-color: $c4;
         min-width: 182px;
-        @include min_md { 
+        @include min_md {
             width: 25%;
-
         }
         img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: cover;
-            margin: auto; 
+            margin: auto;
             clip-path: circle(39%);
         }
     }
     #counter {
         width: 100%;
         color: $c4;
-        @include min_md { 
+        @include min_md {
             width: 95px;
         }
     }
@@ -79,9 +73,9 @@
         color: $c4;
         border: none;
         background: none;
-        &:disabled {
-            color: $c4;
-        }
+    }
+    input:disabled {
+        color: $c4;
     }
 }
 

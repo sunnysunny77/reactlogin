@@ -1,7 +1,7 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import React, { useState } from "react";
 import { Bag } from 'react-bootstrap-icons';
-import Stationary from "../images/stationary-store.webp";
+import Food from "../images/food.webp";
 import Spinner from "../images/load.gif";
 
 const Store = (props) => {
@@ -48,7 +48,7 @@ const Store = (props) => {
                                     },
                                     items: [
                                         {
-                                            name: "Stationary",
+                                            name: "Food",
                                             unit_amount: {
                                                 currency_code: "AUD",
                                                 value: "20"
@@ -120,15 +120,15 @@ const Store = (props) => {
     }
 
     return (
-        <section className="store px-3 col-11 mx-auto align-self-start">
+        <section className="store px-3 col-11 mx-auto">
             <br />
             <Bag />
             <h1 className="m-0" >Store</h1>
             <br />
             <br />
             <div id="payPal">
-                <div id="stationary" className="py-5">
-                    <img src={Stationary} alt="Stationary" />
+                <div id="store" className="py-5">
+                    <img src={Food} alt="Stationary" />
                 </div>
                 <div id="counter" className="my-5">
                     <span

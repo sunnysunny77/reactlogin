@@ -1,14 +1,24 @@
+.nav-container {
+    background-color: $c1;
+}
+ 
+.navbar-brand svg {
+    fill: $c4;
+}
 
 .navbar-collapse {
-    padding: 0 0 0 1rem;
+    padding: 0 0 1rem 1rem;
 }
 
 .nav-link {
     transition: text-decoration 0.2s;
     text-decoration: underline transparent;
     width: fit-content;
-    &:hover {
-        text-decoration: underline $c3;
+    color: $c4;
+    &:hover,
+    &:focus {
+        text-decoration: underline $c4;
+        color: $c4;
     }
 }
 
@@ -34,7 +44,7 @@
     .slider_8-bar3 {
         width: 24px;
         height: 3px;
-        background-color: $c1;
+        background-color: $c4;
         margin: 4px 0;
         transition: 0.4s;
         border-radius: 1.5px;

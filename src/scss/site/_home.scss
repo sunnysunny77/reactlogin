@@ -3,8 +3,8 @@ section > {
     p {
         + div {
             padding: 25%;
-            background-color: $c4;
-            border-bottom-left-radius: 20%;
+            background-color: $c8;
+            border-bottom-left-radius: 29%;
             border: 1px solid $c1;
             &::before {
                 content: "";
@@ -34,5 +34,8 @@ section > {
         + p {
             background-color: $c1;
         }
+    }
+    b {
+        font-weight: 500;
     }
 }

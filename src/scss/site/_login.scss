@@ -7,6 +7,10 @@
     box-shadow: none;
 }
 
+.accordion-button {
+    background-color: $c7;
+}
+
 .Auth-form-container {
     display: flex;
     flex-direction: column;

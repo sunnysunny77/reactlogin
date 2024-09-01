@@ -33,7 +33,7 @@ function App() {
   const [passTwo, setPassTwo] = useState("");
   const [emailTwo, setEmailTwo] = useState("");
 
-  const [order, setOrder] = useState(<h2 className="my-5">Stationary $20</h2>);
+  const [order, setOrder] = useState(<h2 className="my-5">Food $20</h2>);
 
   useEffect(() => {
 
