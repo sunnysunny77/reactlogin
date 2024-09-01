@@ -121,11 +121,7 @@ const Store = (props) => {
 
     return (
         <section className="store px-3 col-11 mx-auto">
-            <br />
-            <Bag />
-            <h1 className="m-0" >Store</h1>
-            <br />
-            <br />
+            <h1 className="py-4 m-0"><Bag />Store</h1>
             <div id="payPal">
                 <div id="store" className="py-5">
                     <img src={Food} alt="Stationary" />

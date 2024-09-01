@@ -5,7 +5,7 @@ import { House } from 'react-bootstrap-icons';
 const Home = () => {
     return (
         <div className="row g-0 p-3 align-items-center justify-content-around justify-content-xl-between flex-column flex-sm-row">
-            <h1 className="col-12 py-3 ps-4 p-md-0"><House />Home</h1>
+            <h1 className="ps-3 pb-4 pt-2 p-md-0 m-0"><House />Home</h1>
             <div className="blend col-11 col-md-6 mb-5 my-md-0">
                 <img  src={Store} alt="store"/> 
                 <p className="m-0">  
@@ -27,7 +27,7 @@ const Home = () => {
                         reprehender.
                     </span>
                 </p>
-                <div className="col-11 col-md-12 mx-auto position-relative overflow-hidden">
+                <div className="col-12 col-md-12 mx-auto position-relative overflow-hidden">
                 </div>
             </section>
         </div>
