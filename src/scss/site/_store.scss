@@ -41,7 +41,6 @@
         width: 100%;
         clip-path: circle(40%);
         background-color: $c4;
-        position: relative;
         min-width: 182px;
         @include min_md { 
             width: 25%;
@@ -51,16 +50,9 @@
             width: 100%;
             height: 100%;
             display: block;
-            clip-path: circle(38%);
-            mix-blend-mode: darken;
             object-fit: cover;
-            margin: auto;
-            @include min_md { 
-                position: absolute;
-                top: 0.25%;
-                right: 4%;
-                width: 92%;
-            }
+            margin: auto; 
+            clip-path: circle(39%);
         }
     }
     #counter {
@@ -87,6 +79,9 @@
         color: $c4;
         border: none;
         background: none;
+        &:disabled {
+            color: $c4;
+        }
     }
 }
 

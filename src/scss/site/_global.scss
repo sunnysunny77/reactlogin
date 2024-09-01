@@ -4,10 +4,21 @@ html {
 
 body {
     margin: 0;
-    background-image: url(../../images/back.webp);
     font-family: $font;
     font-size: 20px;
     overflow-y: scroll;
+    position: relative;
+    &::after {
+        content: " ";
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        filter: grayscale(100%);
+        background-image: url(../../images/back.webp);
+    }
 }
 
 h1 {
