@@ -11,10 +11,15 @@ const Output = (props) => {
 
   return (
     <React.Fragment>
+
       <br />
+
       <Alert variant="light" >
+
         <span dangerouslySetInnerHTML={createMarkup()} />
+        
       </Alert>
+
     </React.Fragment>
   );
 }

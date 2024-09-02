@@ -120,14 +120,23 @@ const Store = (props) => {
     }
 
     return (
+
         <div className="row justify-content-center w-100 g-0">
+
             <h1 className="col-11 col-md-10 py-5 m-0"><Bag />Store</h1>
+
             <div className="col-10">
+
                 <div id="payPal">
+
                     <div id="store" className="py-5">
+
                         <img src={Food} alt="Stationary" />
+
                     </div>
+
                     <div id="counter" className="my-5">
+
                         <span
                             role="button"
                             onClick={() => {
@@ -137,8 +146,11 @@ const Store = (props) => {
                         >
                             -
                         </span>
+
                         <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
+
                         <input disabled={true} id="count" type="text" value={count} />
+
                         <span
                             role="button"
                             onClick={() => {
@@ -148,16 +160,27 @@ const Store = (props) => {
                         >
                             +
                         </span>
+
                     </div>    
+
                     <div className="button-container ps-md-3">
+
                         <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
+                            
                             <ButtonWrapper showSpinner={true} /> 
+
                         </PayPalScriptProvider>
+
                     </div>
+
                 </div>
+
                 {order}
+
             </div>
+
         </div>
+        
     );
 }
 export default Store;

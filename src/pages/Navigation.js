@@ -11,9 +11,12 @@ const Navigation = (props) => {
       <div class="row w-100 justify-content-between m-0 g-0">
 
         <div onClick={ () => {
+
             const navbar_toggler = document.querySelector(".navbar-toggler");
             const navbar_collapse = document.querySelector(".navbar-collapse");
+
             let max_height;
+
             navbar_toggler.classList.toggle("has-collapsed");
         
             if (navbar_toggler.classList.contains("has-collapsed")) {
@@ -26,36 +29,46 @@ const Navigation = (props) => {
           }} 
           role="button" class="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed px-3 py-4"
           >
+
           <div>
+
             <div class="slider_8-bar1"></div>
+
             <div class="slider_8-bar2"></div>
+
             <div class="slider_8-bar3"></div>
+
           </div>
+
         </div>
 
-        <svg class="col-auto m-3" aria-label="Furniture Warehouse" viewBox="0 0 100 100" width="60" height="60">
+        <Link class="col-auto m-2 me-3"  to="/" >
 
-          <defs>
-              <path 
-                  id="circle" 
-                  d="M 50, 50
-                  m -37, 0
-                  a 37,37 0 1,1 74,0
-                  a 37,37 0 1,1 -74,0" 
-              />
-          </defs>
+          <svg aria-label="Furniture Warehouse" viewBox="0 0 100 100" width="60" height="60">
 
-          <text className="font">
+            <defs>
+                <path 
+                    id="circle" 
+                    d="M 50, 50
+                    m -37, 0
+                    a 37,37 0 1,1 74,0
+                    a 37,37 0 1,1 -74,0" 
+                />
+            </defs>
 
-              <textPath href="#circle">
+            <text className="font">
 
-              Lorem ..... Ipsum ..............
+                <textPath href="#circle">
 
-              </textPath>
+                Lorem ..... Ipsum ..............
 
-          </text>
+                </textPath>
 
-        </svg>
+            </text>
+
+          </svg>
+
+        </Link>
 
         {logOut ? (
 
@@ -94,7 +107,9 @@ const Navigation = (props) => {
       </div>
 
     </nav>
+
   )
+  
 }
 
 export default Navigation;

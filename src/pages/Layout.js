@@ -23,19 +23,33 @@ const Layout = (props) => {
   }, [navigate])
 
   return (
+
     <>
+    
       <Navigation id="top" logOut={logOut} />
+
       <main className="d-flex flex-wrap align-items-center justify-content-center">
+
         <Outlet />
+
       </main>
+
       <footer className="row g-0 d-md-none justify-content-center align-items-center text-center">
+
         <ul className="col-6">
+
             <li>
+
                 <a aria-label="Return to top" href="#top">&#8593;</a>
+
             </li>
+
         </ul>
+
       </footer>
+
     </>
+
   )
 };
 

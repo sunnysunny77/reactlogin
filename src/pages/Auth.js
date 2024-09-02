@@ -100,14 +100,23 @@ const Auth = (props) => {
   }, [Captcha])
 
   return (
+
     <div className="Auth-form-container w-100">
+
       <h1 className="hidden">Auth</h1>
+
       <Accordion defaultActiveKey="0" className='px-3'>
+
         <Accordion.Item eventKey="0">
+
           <Accordion.Header>Login</Accordion.Header>
+
           <Accordion.Body>
+
             <form onSubmit={onSub} className="Auth-form">
+
               <label>Email address
+
                 <input
                   type="email"
                   className="form-control mt-1"
@@ -115,8 +124,11 @@ const Auth = (props) => {
                   value={email} onChange={onEmail}
                   autoComplete="on"
                 />
+
               </label>
+
               <label>Password
+
                 <input
                   type="password"
                   className="form-control mt-1"
@@ -124,29 +136,49 @@ const Auth = (props) => {
                   value={pass} onChange={onPass}
                   autoComplete="on"
                 />
+
               </label>
+
               <button type="submit" className="btn mt-1 btn-light">
+
                 Submit
+
               </button>
+
               <p className={"alert alert-secondary " + classes} role="alert">
+
                 {login}
+
               </p>
+
             </form>
+
           </Accordion.Body>
+
         </Accordion.Item>
+
         <Accordion.Item eventKey="1">
+
           <Accordion.Header>Signup</Accordion.Header>
+
           <Accordion.Body>
+
             {captchaForm ? (
+
               <React.Fragment>
+
                 <p id="responseCaptcha">Please enter captcha</p>
+
                 <canvas id="mainCaptcha"></canvas>
+
                 <label className="d-none" htmlFor="txtInput">Captcha</label>
+
                 <input
                   className="form-control mt-1"
                   type="text"
                   id="txtInput"
                 />
+
                 <button
                   className="btn btn-light mt-1"
                   onClick={() => {
@@ -167,18 +199,28 @@ const Auth = (props) => {
                     }
                   }}
                 >
+
                   Submit
+
                 </button>
+
                 <button
                   className="btn btn-light mb-3 mt-1"
                   onClick={() => Captcha()}
                 >
+
                   Refresh
+
                 </button>
+
               </React.Fragment>
+
             ) : (
+
               <form onSubmit={onSubTwo} className="Auth-form">
+
                 <label>Email address
+                  
                   <input
                     type="email"
                     className="form-control mt-1"
@@ -187,8 +229,11 @@ const Auth = (props) => {
                     autoComplete="on"
                     id="email"
                   />
+
                 </label>
+
                 <label>Password
+
                   <input
                     type="password"
                     className="form-control mt-1"
@@ -197,19 +242,33 @@ const Auth = (props) => {
                     autoComplete="on"
                     id="pass"
                   />
+
                 </label>
+
                 <button id="submit" type="submit" className="btn mt-1 btn-light">
+
                   Submit
+
                 </button>
+
                 <p className={"alert alert-secondary " + classesTwo} role="alert">
+
                   {signup}
+
                 </p>
+
               </form>
+
             )}
+
           </Accordion.Body>
+
         </Accordion.Item>
+
       </Accordion>
+
     </div>
+    
   )
 }
 export default Auth;
