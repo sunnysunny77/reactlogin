@@ -1,74 +1,100 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
-import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const Navigation = (props) => {
 
   const { logOut } = props;
 
   return (  
-    <Container fluid className="p-0">
-        <Navbar id="top" expand={false} className="p-0">
-          <Navbar.Toggle> 
-            <div>
-              <div className="slider_8-bar1"></div>
-              <div className="slider_8-bar2"></div>
-              <div className="slider_8-bar3"></div>
+
+    <nav class="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
+
+      <div class="row w-100 justify-content-between m-0 g-0">
+
+        <div onClick={ () => {
+            const navbar_toggler = document.querySelector(".navbar-toggler");
+            const navbar_collapse = document.querySelector(".navbar-collapse");
+            let max_height;
+            navbar_toggler.classList.toggle("has-collapsed");
+        
+            if (navbar_toggler.classList.contains("has-collapsed")) {
+              max_height = 0;
+            }  else {
+              max_height = navbar_collapse.scrollHeight;
+            }
+        
+            navbar_collapse.style.maxHeight = `${max_height}px`;
+          }} 
+          role="button" class="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed px-3 py-4"
+          >
+          <div>
+            <div class="slider_8-bar1"></div>
+            <div class="slider_8-bar2"></div>
+            <div class="slider_8-bar3"></div>
+          </div>
+        </div>
+
+        <svg class="col-auto m-3" aria-label="Furniture Warehouse" viewBox="0 0 100 100" width="60" height="60">
+
+          <defs>
+              <path 
+                  id="circle" 
+                  d="M 50, 50
+                  m -37, 0
+                  a 37,37 0 1,1 74,0
+                  a 37,37 0 1,1 -74,0" 
+              />
+          </defs>
+
+          <text className="font">
+
+              <textPath href="#circle">
+
+              Lorem ..... Ipsum ..............
+
+              </textPath>
+
+          </text>
+
+        </svg>
+
+        {logOut ? (
+
+            <div class="col-12 slider_8-navbar-collapse navbar-collapse">
+
+              <ul class="list-unstyled ms-3 my-3">
+
+                <li class="mb-3"><Link to="/" > Home </Link></li>
+
+                <li class="mb-3"><Link to="store" > Store </Link></li>
+
+                <li><Link onClick={logOut} > Sign out </Link></li>
+            
+              </ul>
+
             </div>
-          </Navbar.Toggle>
-          <Navbar.Brand as={Link} to="/" > 
-            <svg aria-label="Furniture Warehouse" 
-              viewBox="0 0 100 100" width="60" height="60">
-              
-                <defs>
-                    <path 
-                        id="circle" 
-                        d="M 50, 50
-                        m -37, 0
-                        a 37,37 0 1,1 74,0
-                        a 37,37 0 1,1 -74,0" 
-                    />
-                </defs>
-                <text className="font">
-                    <textPath href="#circle">
-                    Lorem ..... Ipsum ..............
-                    </textPath>
-                </text>
-            </svg>
-          </Navbar.Brand>
-          {logOut ? (
-            <Navbar.Offcanvas bg="dark" data-bs-theme="dark" placement="end">
-              <Offcanvas.Header closeButton />
-              <Offcanvas.Body>
-                <Nav>
-                  <Nav.Link as={Link} to="/" > Home </Nav.Link>
-                  <Nav.Link as={Link} to="store" > Store </Nav.Link>
-                </Nav>
-                <Nav>
-                  <Nav.Link onClick={logOut} > Sign out </Nav.Link>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
+
           ) : (
-            <Navbar.Offcanvas bg="dark" data-bs-theme="dark" placement="end">
-              <Offcanvas.Header closeButton />
-                <Offcanvas.Body>
-                <Nav>
-                  <Nav.Link as={Link} to="/" > Home </Nav.Link>
-                  <Nav.Link as={Link} to="auth" > Store </Nav.Link>
-                </Nav>
-                <Nav>
-                  <Nav.Link as={Link} to="auth"  > Sign in </Nav.Link>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          )
-        }
-      </Navbar>
-    </Container>
-  );
+
+            <div class="col-12 slider_8-navbar-collapse navbar-collapse">
+
+              <ul class="list-unstyled ms-3 my-3">
+
+                <li class="mb-3"><Link to="/" > Home </Link></li>
+
+                <li class="mb-3"><Link to="auth" > Store </Link></li>
+
+                <li><Link to="auth"  > Sign in </Link></li>
+                            
+              </ul>
+
+            </div>
+
+          )}
+
+      </div>
+
+    </nav>
+  )
 }
 
 export default Navigation;

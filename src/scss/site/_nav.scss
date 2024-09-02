@@ -1,42 +1,36 @@
-.navbar {
+.slider_8-navigation {
     background-color: $c1;
-}
-
-.navbar-brand svg {
-    fill: $c4;
-}
-
-.offcanvas{
-    padding: 0 0 1rem 1rem;
-    background-color: $c1;
-}
-.btn-close,
-.btn-close:hover,
---bs-btn-close-color {
-    color: $c4;
-}
-
-.nav-link {
-    transition: text-decoration 0.2s;
-    text-decoration: underline transparent;
-    width: fit-content;
-    color: $c4;
-    &:hover,
-    &:focus {
-        text-decoration: underline $c4;
+    min-height: 74px;
+    .navbar-collapse {
+        background-color: inherit;
+        transition: max-height 0.4s;
+        will-change: max-height;
+        overflow: hidden;
+        max-height: 0;
+    }
+    a {
         color: $c4;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 0.2s;
+        &:hover,
+        &:focus {
+            text-decoration-color: $c4;
+        }
+    }
+    button.navbar-toggler {
+        outline: none;
+        border: none;
+        box-shadow: none;
+        background-color: initial;
+    }
+    svg {
+        fill: $c4;
     }
 }
 
-.navbar-toggler {
-    padding: 0 24px;
-    border: none;
-    height: 72px;
-    border-radius: 0;
-    &:focus {
-        box-shadow: none;
-    }
-    &.collapsed {
+.slider_8-navbar-toggler {
+    &.has-collapsed {
         .slider_8-bar1,
         .slider_8-bar3 {
             transform: none;
