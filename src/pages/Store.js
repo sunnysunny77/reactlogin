@@ -129,7 +129,7 @@ const Store = (props) => {
 
                 <div id="payPal">
 
-                    <div id="store" className="py-5">
+                    <div id="store" className="my-5 p-0">
 
                         <img src={Food} alt="Stationary" />
 

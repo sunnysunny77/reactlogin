@@ -13,8 +13,6 @@
     background-color: $c1;
     @include min_md {
         flex-direction: row;
-        justify-content: space-between;
-        align-items: stretch;
     }
     .button-container {
         min-height: 60px;
@@ -33,20 +31,16 @@
     }
     #store {
         width: 100%;
-        padding: 2%;
         clip-path: circle(40%);
         background-color: $c4;
         min-width: 182px;
+        overflow: hidden;
         @include min_md {
             width: 25%;
         }
         img {
             width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            margin: auto;
-            clip-path: circle(39%);
+            clip-path: circle(35%);
         }
     }
     #counter {
