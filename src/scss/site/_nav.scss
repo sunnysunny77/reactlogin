@@ -1,4 +1,4 @@
-.nav-container {
+.navbar {
     background-color: $c1;
 }
 
@@ -6,8 +6,14 @@
     fill: $c4;
 }
 
-.navbar-collapse {
+.offcanvas{
     padding: 0 0 1rem 1rem;
+    background-color: $c1;
+}
+.btn-close,
+.btn-close:hover,
+--bs-btn-close-color {
+    color: $c4;
 }
 
 .nav-link {

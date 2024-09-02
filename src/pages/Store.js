@@ -120,7 +120,7 @@ const Store = (props) => {
     }
 
     return (
-        <div className="row justify-content-center g-0">
+        <div className="row justify-content-center w-100 g-0">
             <h1 className="col-11 col-md-10 py-5 m-0"><Bag />Store</h1>
             <div className="col-10">
                 <div id="payPal">
