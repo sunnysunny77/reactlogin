@@ -87,7 +87,7 @@ const Store = (props) => {
                 
                         const total = "$" + order.purchase_units[0].amount.value
                 
-                        const output = <table className="alert alert-primary">
+                        const output = <table className="mb-md-5">
                             <caption>{description}</caption>
                             <thead>
                                 <tr>
