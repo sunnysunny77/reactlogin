@@ -6,9 +6,9 @@ const Navigation = (props) => {
 
   return (  
 
-    <nav class="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
+    <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
 
-      <div class="row w-100 justify-content-between m-0 g-0">
+      <div className="row w-100 justify-content-between m-0 g-0">
 
         <div onClick={ () => {
 
@@ -27,22 +27,22 @@ const Navigation = (props) => {
         
             navbar_collapse.style.maxHeight = `${max_height}px`;
           }} 
-          role="button" class="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed px-3 py-4"
+          role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed px-3 py-4"
           >
 
           <div>
 
-            <div class="slider_8-bar1"></div>
+            <div className="slider_8-bar1"></div>
 
-            <div class="slider_8-bar2"></div>
+            <div className="slider_8-bar2"></div>
 
-            <div class="slider_8-bar3"></div>
+            <div className="slider_8-bar3"></div>
 
           </div>
 
         </div>
 
-        <Link class="col-auto m-2 me-3"  to="/" >
+        <Link className="col-auto m-2 me-3"  to="/" >
 
           <svg aria-label="Furniture Warehouse" viewBox="0 0 100 100" width="60" height="60">
 
@@ -72,13 +72,13 @@ const Navigation = (props) => {
 
         {logOut ? (
 
-            <div class="col-12 slider_8-navbar-collapse navbar-collapse">
+            <div className="col-12 slider_8-navbar-collapse navbar-collapse">
 
-              <ul class="list-unstyled ms-3 my-3">
+              <ul className="list-unstyled ms-3 my-3">
 
-                <li class="mb-3"><Link to="/" > Home </Link></li>
+                <li className="mb-3"><Link to="/" > Home </Link></li>
 
-                <li class="mb-3"><Link to="store" > Store </Link></li>
+                <li className="mb-3"><Link to="store" > Store </Link></li>
 
                 <li><Link onClick={logOut} > Sign out </Link></li>
             
@@ -88,13 +88,13 @@ const Navigation = (props) => {
 
           ) : (
 
-            <div class="col-12 slider_8-navbar-collapse navbar-collapse">
+            <div className="col-12 slider_8-navbar-collapse navbar-collapse">
 
-              <ul class="list-unstyled ms-3 my-3">
+              <ul className="list-unstyled ms-3 my-3">
 
-                <li class="mb-3"><Link to="/" > Home </Link></li>
+                <li className="mb-3"><Link to="/" > Home </Link></li>
 
-                <li class="mb-3"><Link to="auth" > Store </Link></li>
+                <li className="mb-3"><Link to="auth" > Store </Link></li>
 
                 <li><Link to="auth"  > Sign in </Link></li>
                             

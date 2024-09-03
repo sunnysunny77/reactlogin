@@ -6,18 +6,26 @@ const Auth = (props) => {
   const {
     classes,
     login,
+    email,
+    pass,
     onPass,
     onEmail,
     onSub,
-    email,
-    pass,
-    classesTwo,
+    classesInitialauthentication,
+    factor,
+    emailNew,
+    onEmailNew,
+    onSubInitialauthentication,
+    classesAuthentication,
+    code,
+    security,
+    onSecurity,
+    onSubAuthentication,
+    classesRegistration,
     signup,
-    onPassTwo,
-    onEmailTwo,
-    onSubTwo,
-    emailTwo,
-    passTwo
+    passRegistration,
+    onPassRegistration,
+    onSubRegistration,
   } = props;
 
   const [captchaForm, setCaptchaForm] = useState(true); 
@@ -139,7 +147,7 @@ const Auth = (props) => {
 
               </label>
 
-              <button type="submit" className="btn mt-1 btn-light">
+              <button type="submit" className="btn mt-2 btn-light">
 
                 Submit
 
@@ -180,7 +188,7 @@ const Auth = (props) => {
                 />
 
                 <button
-                  className="btn btn-light mt-1"
+                  className="btn btn-light mt-2"
                   onClick={() => {
 
                     if (document.getElementById('txtInput').value.split(' ').join('') === captcha) {
@@ -205,7 +213,7 @@ const Auth = (props) => {
                 </button>
 
                 <button
-                  className="btn btn-light mb-3 mt-1"
+                  className="btn btn-light mb-3 mt-2"
                   onClick={() => Captcha()}
                 >
 
@@ -215,49 +223,102 @@ const Auth = (props) => {
 
               </React.Fragment>
 
-            ) : (
+            ) : ( factor ? (
 
-              <form onSubmit={onSubTwo} className="Auth-form">
+                <form onSubmit={onSubInitialauthentication} className="Auth-form">
 
-                <label>Email address
+                  <label>Get authentication code
+                    
+                    <input
+                      type="email"
+                      className="form-control mt-1"
+                      placeholder="Enter email"
+                      value={emailNew} onChange={onEmailNew}
+                      autoComplete="on"
+                      id="email"
+                    />
+
+                  </label>
+
+                  <button id="submit" type="submit" className="btn mt-2 btn-light">
+
+                    Submit
+
+                  </button>
+
+                  <p className={"alert alert-secondary " + classesInitialauthentication} role="alert">
+
+                    {factor}
+
+                  </p>
+
+                </form> 
+
+              ) : ( code ? (
+
+                  <form onSubmit={onSubAuthentication} className="Auth-form">
+
+                    <label>Enter authentication code
+                      
+                      <input
+                        type="text"
+                        className="form-control mt-1"
+                        placeholder="Paste code"
+                        value={security}
+                        onChange={onSecurity}
+                        id="code"
+                      />
+
+                    </label>
+
+                    <button id="submit" type="submit" className="btn mt-2 btn-light">
+
+                      Submit
+
+                    </button>
+
+                    <p className={"alert alert-secondary " + classesAuthentication} role="alert">
+
+                      {code}
+
+                    </p>
+
+                  </form>
+
+                ) : (
+
+                  <form onSubmit={onSubRegistration} className="Auth-form">
+
+                    <label>Create Password
+
+                      <input
+                        type="password"
+                        className="form-control mt-1"
+                        placeholder="Enter password"
+                        value={passRegistration} onChange={onPassRegistration}
+                        autoComplete="on"
+                        id="pass"
+                      />
+
+                    </label>
+
+                    <button id="submit" type="submit" className="btn mt-2 btn-light">
+
+                      Submit
+
+                    </button>
+
+                    <p className={"alert alert-secondary " + classesRegistration} role="alert">
+
+                      {signup}
+
+                    </p>
+
+                  </form>
                   
-                  <input
-                    type="email"
-                    className="form-control mt-1"
-                    placeholder="Enter email"
-                    value={emailTwo} onChange={onEmailTwo}
-                    autoComplete="on"
-                    id="email"
-                  />
+                )
 
-                </label>
-
-                <label>Password
-
-                  <input
-                    type="password"
-                    className="form-control mt-1"
-                    placeholder="Enter password"
-                    value={passTwo} onChange={onPassTwo}
-                    autoComplete="on"
-                    id="pass"
-                  />
-
-                </label>
-
-                <button id="submit" type="submit" className="btn mt-1 btn-light">
-
-                  Submit
-
-                </button>
-
-                <p className={"alert alert-secondary " + classesTwo} role="alert">
-
-                  {signup}
-
-                </p>
-
-              </form>
+              )
 
             )}
 

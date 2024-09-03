@@ -21,17 +21,22 @@ function App() {
   const [auth, setAuth] = useState(false);
 
   const [classes, setClasses] = useState("displayNone");
-  const [classesTwo, setClassesTwo] = useState("displayNone");
+  const [classesInitialauthentication, setClassesInitialauthentication] = useState("displayNone");
+  const [classesAuthentication, setClassesAuthentication] = useState("displayNone");
+  const [classesRegistration, setClassesRegistration] = useState("displayNone");
 
   const [token, setToken] = useState(false);
   const [login, setLogin] = useState(false);
+  const [factor, setFactor] = useState(true);
+  const [code, setCode] = useState(true);
   const [signup, setSignup] = useState(false);
 
   const [pass, setPass] = useState("");
   const [email, setEmail] = useState("");
-
-  const [passTwo, setPassTwo] = useState("");
-  const [emailTwo, setEmailTwo] = useState("");
+  
+  const [emailNew, setEmailNew] = useState("");
+  const [security, setSecurity] = useState("");
+  const [passRegistration, setPassRegistration] = useState("");
 
   const [order, setOrder] = useState(<h2 className="my-5">Food $20</h2>);
 
@@ -85,14 +90,19 @@ function App() {
         setLoad(false)
         setAuth(false)
         setClasses("displayNone")
-        setClassesTwo("displayNone")
+        setClassesRegistration("displayNone")
+        setClassesInitialauthentication("displayNone")
+        setClassesAuthentication("displayNone")
         setToken(token)
         setLogin(false)
+        setFactor(true)
+        setCode(true)
         setSignup(false)
         setPass("")
         setEmail("")
-        setPassTwo("")
-        setEmailTwo("")
+        setEmailNew("")
+        setSecurity("")
+        setPassRegistration("")
         navigate('/')
       })
       .catch(err => {
@@ -145,18 +155,92 @@ function App() {
       })
   }
 
+  const initialauthentication = (e) => {
+
+    e.preventDefault()
+    setFactor("Loading...")
+    setClassesInitialauthentication("display")
+
+    fetch("/api/?email=" + btoa(emailNew) + "&model=factor&controller=initialauthentication&token=" + token, {
+
+      method: 'GET',
+      mode: 'cors',
+
+    })
+      .then(res => {
+
+        if (!res.ok) { throw res }
+        return res.json()
+      })
+      .then(data => {
+
+        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
+
+          setFactor(false)
+          return
+        }
+
+        setFactor(data)
+      })
+      .catch(err => {
+
+        return err.text()
+      })
+      .then(err => {
+
+        setLoad(err)
+      })
+  }
+
+  const authentication = (e) => {
+
+    e.preventDefault()
+    setCode("Loading...")
+    setClassesAuthentication("display")
+
+    fetch("/api/?security=" + btoa(security) + "&controller=authentication&token=" + token, {
+
+      method: 'GET',
+      mode: 'cors',
+
+    })
+      .then(res => {
+
+        if (!res.ok) { throw res }
+        return res.json()
+      })
+      .then(data => {
+
+        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
+
+          setCode(false)
+          return
+        }
+
+        setCode(data)
+      })
+      .catch(err => {
+
+        return err.text()
+      })
+      .then(err => {
+
+        setLoad(err)
+      })
+  }
+
   const registration = (e) => {
 
     e.preventDefault()
     setSignup("Loading...")
-    setClassesTwo("display")
+    setClassesRegistration("display")
 
-    fetch("/api/?model=signup&controller=registration&token=" + token, {
+    fetch("/api/?security=" + btoa(security) + "&model=signup&controller=registration&token=" + token, {
 
       method: 'OPTIONS',
       mode: 'cors',
       headers: {
-        'Authorization': 'Basic ' + btoa(emailTwo + ":" + passTwo)
+        'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
       }
     })
       .then(res => {
@@ -215,16 +299,24 @@ function App() {
                 login={login}
                 pass={pass}
                 email={email}
-                onSub={e => authorization(e)}
                 onPass={e => setPass(e.target.value)}
                 onEmail={e => setEmail(e.target.value)}
-                classesTwo={classesTwo}
+                onSub={e => authorization(e)}
+                classesInitialauthentication={classesInitialauthentication}
+                factor={factor}
+                emailNew={emailNew}
+                onEmailNew={e => setEmailNew(e.target.value)}
+                onSubInitialauthentication={e => initialauthentication(e)}
+                classesAuthentication={classesAuthentication}
+                code={code}
+                security={security}
+                onSecurity={e => setSecurity(e.target.value)}
+                onSubAuthentication ={e => authentication(e)}
+                classesRegistration={classesRegistration}
                 signup={signup}
-                passTwo={passTwo}
-                emailTwo={emailTwo}
-                onSubTwo={e => registration(e)}
-                onPassTwo={e => setPassTwo(e.target.value)}
-                onEmailTwo={e => setEmailTwo(e.target.value)}
+                passRegistration={passRegistration}
+                onPassRegistration={e => setPassRegistration(e.target.value)}
+                onSubRegistration={e => registration(e)}
               />}
             />
           </Route>
