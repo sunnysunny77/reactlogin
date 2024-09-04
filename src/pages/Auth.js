@@ -277,6 +277,12 @@ const Auth = (props) => {
 
                     </button>
 
+                    <p className="alert alert-secondary mt-2" role="alert">
+
+                      Check your inbox
+
+                    </p>
+
                     <p className={"alert alert-secondary " + classesAuthentication} role="alert">
 
                       {code}
