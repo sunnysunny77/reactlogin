@@ -27,7 +27,7 @@ const Navigation = (props) => {
         
             navbar_collapse.style.maxHeight = `${max_height}px`;
           }} 
-          role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed px-3 py-4"
+          aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed px-3 py-4"
           >
 
           <div>
