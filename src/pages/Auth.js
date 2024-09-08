@@ -113,7 +113,7 @@ const Auth = (props) => {
 
       <h1 className="hidden">Auth</h1>
 
-      <Accordion defaultActiveKey="0" className='px-3'>
+      <Accordion defaultActiveKey="0" className='px-3 py-5 my-5'>
 
         <Accordion.Item eventKey="0">
 
