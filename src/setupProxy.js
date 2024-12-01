@@ -8,4 +8,12 @@ module.exports = function(app) {
       changeOrigin: true,
     })
   );
+  app.use(
+    '/captcha',
+    createProxyMiddleware({
+      target: 'https://localhost:3006',
+      changeOrigin: true,
+      secure: false,
+    })
+  );
 };

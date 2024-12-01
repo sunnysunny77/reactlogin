@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 
 const Auth = (props) => {
 
@@ -28,84 +28,31 @@ const Auth = (props) => {
     onSubRegistration,
   } = props;
 
-  const [captchaForm, setCaptchaForm] = useState(true); 
+  const [captchaForm, setCaptchaForm] = useState(true);
   const [captcha, setCaptcha] = useState('');
 
-  const randomColor = () => {
-
-    const r = Math.floor(Math.random() * 256)
-    const g = Math.floor(Math.random() * 256)
-    const b = Math.floor(Math.random() * 256)
-
-    return 'rgb(' + r + ',' + g + ',' + b + ')'
-  }
-
-  const Captcha = useCallback(() => {
-
-    const canvas = document.getElementById("mainCaptcha")
-
-    const alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-    let txt = ""
-
-    for (let i = 1; i <= 7; i++) {
-
-      txt += alpha[Math.floor(Math.random() * alpha.length)]
-    }
+  const fetchCaptcha =  async () => { 
     
-    const context = canvas.getContext('2d')
-    canvas.width = 140
-    canvas.height = 50
-    context.font = '25px Bold'
+    const res = await fetch("/captcha/init", {
 
-    for (let i = 0; i < txt.length; i++) {
+      credentials: "include",
+      method: 'POST',
+      mode: 'cors',
+    })
 
-      const sDeg = (Math.random() * 45 * Math.PI) / 180
-      const x = 8 + i * 18
-      const y = 25 + Math.random() * 10
+    if (!res.ok) {
 
-      context.translate(x, y)
-      context.rotate(sDeg)
-      context.fillStyle = randomColor()
-      context.fillText(txt[i], 0, 0)
-      context.rotate(-sDeg)
-      context.translate(-x, -y)
+      throw new Error(`Response status: ${res.status}`);
     }
 
-    for (let i = 0; i < 5; i++) {
-
-      context.strokeStyle = randomColor()
-      context.beginPath()
-      context.moveTo(
-        Math.random() * canvas.width,
-        Math.random() * canvas.height
-      )
-      context.lineTo(
-        Math.random() * canvas.width,
-        Math.random() * canvas.height
-      )
-      context.stroke()
-    }
-
-    for (let i = 0; i < 70; i++) {
-
-      context.strokeStyle = randomColor()
-      context.beginPath()
-      const x = Math.random() * canvas.width
-      const y = Math.random() * canvas.height
-      context.moveTo(x, y)
-      context.lineTo(x + 1, y + 1)
-      context.stroke()
-    }
-
-    setCaptcha(txt)
-  }, [])
+    const json = await res.json();
+    setCaptcha(json.Canvas)
+  }
 
   useEffect(() => {
 
-    Captcha()
-  }, [Captcha])
+    fetchCaptcha();
+  }, [])
 
   return (
 
@@ -177,7 +124,7 @@ const Auth = (props) => {
 
                 <p id="responseCaptcha">Please enter captcha</p>
 
-                <canvas id="mainCaptcha"></canvas>
+                <img src={captcha} alt="canvas" ></img>
 
                 <label className="d-none" htmlFor="txtInput">Captcha</label>
 
@@ -189,17 +136,36 @@ const Auth = (props) => {
 
                 <button
                   className="btn btn-light mt-2"
-                  onClick={() => {
+                  onClick={ async () => {
 
-                    if (document.getElementById('txtInput').value.split(' ').join('') === captcha) {
+                    const res = await fetch("/captcha/authorization", {
+
+                      credentials: "include",
+                      method: 'POST',
+                      mode: 'cors',
+                      headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify({ Txt: document.getElementById('txtInput').value.split(' ').join('') }),
+                    })
+
+                    if (!res.ok) {
+
+                      throw new Error(`Response status: ${res.status}`);
+                    }
                 
+                    const json = await res.json();
+                   
+                    if (!json.CaptchaForm) {
+
                       setCaptchaForm(false)
                     } else {
-                
-                      const cap = document.getElementById("responseCaptcha")
-                
-                      cap.innerHTML = "Incorrect";
-                
+
+                      const cap = document.getElementById("responseCaptcha");
+
+                      cap.innerHTML = json.CaptchaForm;
+            
                       setTimeout(() => {
                 
                         cap.innerHTML = "Please enter captcha";
@@ -214,7 +180,7 @@ const Auth = (props) => {
 
                 <button
                   className="btn btn-light mb-3 mt-2"
-                  onClick={() => Captcha()}
+                  onClick={() => fetchCaptcha()}
                 >
 
                   Refresh
