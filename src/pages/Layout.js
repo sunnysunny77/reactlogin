@@ -20,6 +20,7 @@ const Layout = (props) => {
       navbar_toggler.classList.add("has-collapsed");
     }
 
+    window.scrollTo(0,0);
   }, [navigate])
 
   return (
