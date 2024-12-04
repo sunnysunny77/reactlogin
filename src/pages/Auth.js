@@ -1,5 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion';
 import React, { useState, useEffect } from "react";
+import Header from "./Header";
 
 const Auth = (props) => {
 
@@ -56,22 +57,7 @@ const Auth = (props) => {
 
   return (
     <>
-
-      <header className="container-fluid row g-0">
-
-        <div className="row position-relative overflow-hidden g-0">
-
-            <div className="col-12 bg-1">
-
-                <h1 className="py-3 px-4 m-0">AUTH</h1>
-
-            </div>
-
-            <div className="shunt"></div>
-
-        </div>
-
-      </header>
+      <Header heading="AUTH" />
 
       <div className="Auth-form-container w-100">
 

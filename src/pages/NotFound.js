@@ -2,23 +2,23 @@ import React from "react";
 import Alert from 'react-bootstrap/Alert';
 
 const NotFound = () => {
-    return (
-        <React.Fragment> 
+  return (
+    <React.Fragment> 
 
-            <br/>
+      <br/>
 
-            <Alert  variant="secondary">
+      <Alert  variant="secondary">
 
-                <h1>404 Not Found</h1>
-                
-                <br/>
+        <h1>404 Not Found</h1>
+        
+        <br/>
 
-                <Alert.Link href="./">Return</Alert.Link>
+        <Alert.Link href="./">Return</Alert.Link>
 
-            </Alert>
-            
-        </React.Fragment>
-    );
+      </Alert>
+        
+    </React.Fragment>
+  );
 }
 
 export default NotFound;

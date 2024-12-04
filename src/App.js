@@ -39,12 +39,12 @@ function App() {
   const [passRegistration, setPassRegistration] = useState("");
 
   const [order, setOrder] = useState(
-    <secton>
+    <section>
       <h2 className="my-5">Food $20</h2> 
       <p className='rady p-3 mb-5'>
         Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
       </p>
-    </secton>
+    </section>
   );
 
   useEffect(() => {

@@ -2,7 +2,7 @@
     p {
         + div {
             padding: 25%;
-            background-color: $c8;
+            background-color: $c12;
             border-bottom-left-radius: 29%;
             border: 1px solid $c1;
             &::before {
@@ -31,7 +31,7 @@
         width: 100%;
         mix-blend-mode: darken;
         + p {
-            background-color: $c8;
+            background-color: $c12;
         }
     }
     b {

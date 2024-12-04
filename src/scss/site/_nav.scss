@@ -18,7 +18,7 @@
     a {
         color: $c4;
         text-decoration: underline;
-        text-decoration-color: transparent;
+        text-decoration-color: $c5;
         transition: text-decoration-color 0.2s;
         &:hover,
         &:focus {

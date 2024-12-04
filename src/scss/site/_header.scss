@@ -14,17 +14,17 @@ header {
         }
     }
     .shunt {
-        border-top: 0 solid transparent;
-        border-right: 0 solid transparent;
+        border-top: 0 solid $c5;
+        border-right: 0 solid $c5;
         border-bottom: 25rem solid $c11;
-        border-left: 17rem solid transparent;
+        border-left: 17rem solid $c5;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         @include min_md {
-            border-left: 25rem solid transparent;
+            border-left: 25rem solid $c5;
         }
         @include min_xl {
             left: 33.333333%;
@@ -50,6 +50,18 @@ header {
                 margin: auto;
                 align-items: center;
             }
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $c10;
+        transition:
+            color 0.2s ease-in-out,
+            background-color 0.2s ease-in-out;
+        &:hover,
+        &:focus {
+            color: $c6;
+            background-color: $c10;
         }
     }
 }

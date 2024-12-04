@@ -24,9 +24,7 @@ const Layout = (props) => {
   }, [navigate])
 
   return (
-
     <>
-    
       <Navigation id="top" logOut={logOut} />
 
       <main className="d-flex flex-column">
@@ -55,9 +53,7 @@ const Layout = (props) => {
         </ul>
 
       </footer>
-
     </>
-
   )
 };
 

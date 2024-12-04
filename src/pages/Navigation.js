@@ -5,7 +5,6 @@ const Navigation = (props) => {
   const { logOut } = props;
 
   return (  
-
     <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
 
       <div className="row w-100 justify-content-between m-0 g-0">
@@ -107,7 +106,6 @@ const Navigation = (props) => {
       </div>
 
     </nav>
-
   )
   
 }
