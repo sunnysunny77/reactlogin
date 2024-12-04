@@ -86,7 +86,7 @@ const Store = (props) => {
                 
                         const total = "$" + order.purchase_units[0].amount.value
                 
-                        const output = <table className="mb-5">
+                        const output = <table className="mt-5">
                             <caption>{description}</caption>
                             <thead>
                                 <tr>
@@ -137,7 +137,7 @@ const Store = (props) => {
     
             </header>
   
-            <div className="container min-md-height d-flex align-items-center pt-5 mt-md-5">
+            <div className="container min-md-height d-flex align-items-center pt-5 my-5">
             
                 <div className="row justify-content-center w-100 g-0">
 

@@ -25,7 +25,7 @@ const Home = () => {
 
             <div className="col-12 row justify-content-between bg-11 g-0 p-4 p-sm-5">
 
-                <p className="col-12 col-sm-8 col-lg-5 d-flex align-items-center p-4">
+                <p className="col-12 col-sm-8 col-lg-7 col-xl-5 d-flex align-items-center p-4">
 
                     Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 
