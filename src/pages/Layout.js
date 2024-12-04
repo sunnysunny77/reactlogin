@@ -11,6 +11,10 @@ const Layout = (props) => {
 
   useEffect(() => {
 
+    const date = new Date();
+    const year = date.getFullYear();
+    document.getElementById("year").innerHTML = year;
+
     const navbar_toggler = document.querySelector(".navbar-toggler");
     const navbar_collapse = document.querySelector(".navbar-collapse");
 
@@ -39,16 +43,15 @@ const Layout = (props) => {
 
             <li className="top">
 
-                <a aria-label="Return to top" href="#top">&#8593;</a>
+              <a aria-label="Return to top" href="#top">&#8593;</a>
 
             </li>
 
             <li className="py-3">
 
-              &copy;&nbsp;2024
+              &copy;&nbsp;<span id="year"></span>
 
             </li>
-
 
         </ul>
 
