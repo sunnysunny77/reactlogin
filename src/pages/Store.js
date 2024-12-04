@@ -1,6 +1,5 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import React, { useState } from "react";
-import { Bag } from 'react-bootstrap-icons';
 import Food from "../images/food.webp";
 import Spinner from "../images/load.gif";
 
@@ -87,7 +86,7 @@ const Store = (props) => {
                 
                         const total = "$" + order.purchase_units[0].amount.value
                 
-                        const output = <table className="mb-md-5">
+                        const output = <table className="mb-5">
                             <caption>{description}</caption>
                             <thead>
                                 <tr>
@@ -120,67 +119,86 @@ const Store = (props) => {
     }
 
     return (
+        <>
 
-        <div className="row justify-content-center w-100 g-0">
-
-            <h1 className="col-11 col-md-10 py-5 m-0"><Bag />Store</h1>
-
-            <div className="col-10">
-
-                <div id="payPal">
-
-                    <div id="store" className="my-5 p-0">
-
-                        <img src={Food} alt="Stationary" />
-
+            <header className="container-fluid row g-0">
+    
+                <div className="row position-relative overflow-hidden g-0">
+        
+                    <div className="col-12 bg-1">
+        
+                        <h1 className="py-3 px-4 m-0">STORE</h1>
+        
                     </div>
+        
+                    <div className="shunt"></div>
+        
+                </div>
+    
+            </header>
+  
+            <div className="container min-md-height d-flex align-items-center pt-5 mt-md-5">
+            
+                <div className="row justify-content-center w-100 g-0">
 
-                    <div id="counter" className="my-5">
+                    <div className="col-10">
 
-                        <span
-                            role="button"
-                            onClick={() => {
+                        <div id="payPal">
 
-                                if (count > 1) setCount(count - 1)
-                            }}
-                        >
-                            -
-                        </span>
+                            <div id="store" className="my-5 p-0">
 
-                        <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
+                                <img src={Food} alt="Stationary" />
 
-                        <input disabled={true} id="count" type="text" value={count} />
+                            </div>
 
-                        <span
-                            role="button"
-                            onClick={() => {
+                            <div id="counter" className="my-5">
 
-                                setCount(count + 1)
-                            }}
-                        >
-                            +
-                        </span>
+                                <span
+                                    role="button"
+                                    onClick={() => {
 
-                    </div>    
+                                        if (count > 1) setCount(count - 1)
+                                    }}
+                                >
+                                    -
+                                </span>
 
-                    <div className="button-container ps-md-3">
+                                <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
 
-                        <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
-                            
-                            <ButtonWrapper showSpinner={true} /> 
+                                <input disabled={true} id="count" type="text" value={count} />
 
-                        </PayPalScriptProvider>
+                                <span
+                                    role="button"
+                                    onClick={() => {
+
+                                        setCount(count + 1)
+                                    }}
+                                >
+                                    +
+                                </span>
+
+                            </div>    
+
+                            <div className="button-container ps-md-3">
+
+                                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
+                                    
+                                    <ButtonWrapper showSpinner={true} /> 
+
+                                </PayPalScriptProvider>
+
+                            </div>
+
+                        </div>
+
+                        {order}
 
                     </div>
 
                 </div>
 
-                {order}
-
             </div>
-
-        </div>
-        
+        </>                            
     );
 }
 export default Store;

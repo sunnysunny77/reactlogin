@@ -8,7 +8,8 @@ body {
     font-size: 20px;
     overflow-y: scroll;
     position: relative;
-    background-color: $c7;
+    background-color: $c10;
+    width: 100%;
     @include min_hd {
         max-width: 1920px;
         margin: auto;
@@ -44,12 +45,6 @@ p {
 
 b {
     font-weight: 500;
-}
-
-main {
-    max-width: 1200px;
-    margin: auto;
-    min-height: calc(100vh - 73px);
 }
 
 .hidden {

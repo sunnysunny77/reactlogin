@@ -15,7 +15,10 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: calc(100vh - 282px);
+    min-height: calc(100vh - 403px);
+    @include min_md {
+        min-height: calc(100vh - 369px);
+    }
     .accordion {
         max-width: 350px;
         width: 100%;
@@ -38,5 +41,8 @@
             background-color: unset;
             color: $c3;
         }
+    }
+    .rady {
+        border-radius: 6px;
     }
 }

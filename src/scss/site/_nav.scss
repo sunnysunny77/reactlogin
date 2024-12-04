@@ -1,6 +1,13 @@
 .slider_8-navigation {
     background-color: $c1;
     min-height: 74px;
+    @include min_md {
+        width: 300px;
+        position: absolute;
+        z-index: 999;
+        right: 0;
+        border-left: 1px solid $c10;
+    }
     .navbar-collapse {
         background-color: inherit;
         transition: max-height 0.4s;

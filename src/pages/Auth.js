@@ -55,221 +55,168 @@ const Auth = (props) => {
   }, [])
 
   return (
+    <>
 
-    <div className="Auth-form-container w-100">
+      <header className="container-fluid row g-0">
 
-      <h1 className="hidden">Auth</h1>
+        <div className="row position-relative overflow-hidden g-0">
 
-      <Accordion defaultActiveKey="0" className='px-3 py-5 my-5'>
+            <div className="col-12 bg-1">
 
-        <Accordion.Item eventKey="0">
+                <h1 className="py-3 px-4 m-0">AUTH</h1>
 
-          <Accordion.Header>Login</Accordion.Header>
+            </div>
 
-          <Accordion.Body>
+            <div className="shunt"></div>
 
-            <form onSubmit={onSub} className="Auth-form">
+        </div>
 
-              <label>Email address
+      </header>
 
-                <input
-                  type="email"
-                  className="form-control mt-1"
-                  placeholder="Enter email"
-                  value={email} onChange={onEmail}
-                  autoComplete="on"
-                />
+      <div className="Auth-form-container w-100">
 
-              </label>
+        <Accordion defaultActiveKey="0" className='px-3 py-5 my-5'>
 
-              <label>Password
+          <Accordion.Item eventKey="0">
 
-                <input
-                  type="password"
-                  className="form-control mt-1"
-                  placeholder="Enter password"
-                  value={pass} onChange={onPass}
-                  autoComplete="on"
-                />
+            <Accordion.Header>Login</Accordion.Header>
 
-              </label>
+            <Accordion.Body className='p-5'>
 
-              <button type="submit" className="btn mt-2 btn-light">
+              <form onSubmit={onSub} className="Auth-form">
 
-                Submit
+                <label>Email address
 
-              </button>
+                  <input
+                    type="email"
+                    className="form-control mt-1"
+                    placeholder="Enter email"
+                    value={email} onChange={onEmail}
+                    autoComplete="on"
+                  />
 
-              <p className={"alert alert-secondary " + classes} role="alert">
+                </label>
 
-                {login}
+                <label>Password
 
-              </p>
+                  <input
+                    type="password"
+                    className="form-control mt-1"
+                    placeholder="Enter password"
+                    value={pass} onChange={onPass}
+                    autoComplete="on"
+                  />
 
-            </form>
+                </label>
 
-          </Accordion.Body>
-
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="1">
-
-          <Accordion.Header>Signup</Accordion.Header>
-
-          <Accordion.Body>
-
-            {captchaForm ? (
-
-              <React.Fragment>
-
-                <p id="responseCaptcha">Please enter captcha</p>
-
-                <img src={captcha} alt="canvas" ></img>
-
-                <label className="d-none" htmlFor="txtInput">Captcha</label>
-
-                <input
-                  className="form-control mt-1"
-                  type="text"
-                  id="txtInput"
-                />
-
-                <button
-                  className="btn btn-light mt-2"
-                  onClick={ async () => {
-
-                    const res = await fetch("/captcha/authorization", {
-
-                      credentials: "include",
-                      method: 'POST',
-                      mode: 'cors',
-                      headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify({ Txt: document.getElementById('txtInput').value.split(' ').join('') }),
-                    })
-
-                    if (!res.ok) {
-
-                      throw new Error(`Response status: ${res.status}`);
-                    }
-                
-                    const json = await res.json();
-                   
-                    if (!json.CaptchaForm) {
-
-                      setCaptchaForm(false)
-                    } else {
-
-                      const cap = document.getElementById("responseCaptcha");
-
-                      cap.innerHTML = json.CaptchaForm;
-            
-                      setTimeout(() => {
-                
-                        cap.innerHTML = "Please enter captcha";
-                      }, 2500)
-                    }
-                  }}
-                >
+                <button type="submit" className="btn mt-2 btn-light">
 
                   Submit
 
                 </button>
 
-                <button
-                  className="btn btn-light mb-3 mt-2"
-                  onClick={() => fetchCaptcha()}
-                >
+                <p className={"alert alert-secondary " + classes} role="alert">
 
-                  Refresh
+                  {login}
 
-                </button>
+                </p>
 
-              </React.Fragment>
+              </form>
 
-            ) : ( factor ? (
+            </Accordion.Body>
 
-                <form onSubmit={onSubInitialauthentication} className="Auth-form">
+          </Accordion.Item>
 
-                  <label>Get authentication code
+          <Accordion.Item eventKey="1">
+
+            <Accordion.Header>Signup</Accordion.Header>
+
+            <Accordion.Body className='p-5'>
+
+              {captchaForm ? (
+
+                <React.Fragment>
+
+                  <p id="responseCaptcha">Please enter captcha</p>
+
+                  <img src={captcha} alt="canvas" ></img>
+
+                  <label className="d-none" htmlFor="txtInput">Captcha</label>
+
+                  <input
+                    className="form-control mt-1"
+                    type="text"
+                    id="txtInput"
+                  />
+
+                  <button
+                    className="btn btn-light mt-2"
+                    onClick={ async () => {
+
+                      const res = await fetch("/captcha/authorization", {
+
+                        credentials: "include",
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: {
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ Txt: document.getElementById('txtInput').value.split(' ').join('') }),
+                      })
+
+                      if (!res.ok) {
+
+                        throw new Error(`Response status: ${res.status}`);
+                      }
+                  
+                      const json = await res.json();
                     
-                    <input
-                      type="email"
-                      className="form-control mt-1"
-                      placeholder="Enter email"
-                      value={emailNew} onChange={onEmailNew}
-                      autoComplete="on"
-                      id="email"
-                    />
+                      if (!json.CaptchaForm) {
 
-                  </label>
+                        setCaptchaForm(false)
+                      } else {
 
-                  <button id="submit" type="submit" className="btn mt-2 btn-light">
+                        const cap = document.getElementById("responseCaptcha");
+
+                        cap.innerHTML = json.CaptchaForm;
+              
+                        setTimeout(() => {
+                  
+                          cap.innerHTML = "Please enter captcha";
+                        }, 2500)
+                      }
+                    }}
+                  >
 
                     Submit
 
                   </button>
 
-                  <p className={"alert alert-secondary " + classesInitialauthentication} role="alert">
+                  <button
+                    className="btn btn-light mb-3 mt-2"
+                    onClick={() => fetchCaptcha()}
+                  >
 
-                    {factor}
+                    Refresh
 
-                  </p>
+                  </button>
 
-                </form> 
+                </React.Fragment>
 
-              ) : ( code ? (
+              ) : ( factor ? (
 
-                  <form onSubmit={onSubAuthentication} className="Auth-form">
+                  <form onSubmit={onSubInitialauthentication} className="Auth-form">
 
-                    <label>Enter authentication code
+                    <label>Get authentication code
                       
                       <input
-                        type="text"
+                        type="email"
                         className="form-control mt-1"
-                        placeholder="Paste code"
-                        value={security}
-                        onChange={onSecurity}
-                        id="code"
-                      />
-
-                    </label>
-
-                    <button id="submit" type="submit" className="btn mt-2 btn-light">
-
-                      Submit
-
-                    </button>
-
-                    <p className="alert alert-secondary mt-2" role="alert">
-
-                      Check your inbox
-
-                    </p>
-
-                    <p className={"alert alert-secondary " + classesAuthentication} role="alert">
-
-                      {code}
-
-                    </p>
-
-                  </form>
-
-                ) : (
-
-                  <form onSubmit={onSubRegistration} className="Auth-form">
-
-                    <label>Create Password
-
-                      <input
-                        type="password"
-                        className="form-control mt-1"
-                        placeholder="Enter password"
-                        value={passRegistration} onChange={onPassRegistration}
+                        placeholder="Enter email"
+                        value={emailNew} onChange={onEmailNew}
                         autoComplete="on"
-                        id="pass"
+                        id="email"
                       />
 
                     </label>
@@ -280,28 +227,100 @@ const Auth = (props) => {
 
                     </button>
 
-                    <p className={"alert alert-secondary " + classesRegistration} role="alert">
+                    <p className={"alert alert-secondary " + classesInitialauthentication} role="alert">
 
-                      {signup}
+                      {factor}
 
                     </p>
 
-                  </form>
-                  
+                  </form> 
+
+                ) : ( code ? (
+
+                    <form onSubmit={onSubAuthentication} className="Auth-form">
+
+                      <label>Enter authentication code
+                        
+                        <input
+                          type="text"
+                          className="form-control mt-1"
+                          placeholder="Paste code"
+                          value={security}
+                          onChange={onSecurity}
+                          id="code"
+                        />
+
+                      </label>
+
+                      <button id="submit" type="submit" className="btn mt-2 btn-light">
+
+                        Submit
+
+                      </button>
+
+                      <p className="alert alert-secondary mt-2" role="alert">
+
+                        Check your inbox
+
+                      </p>
+
+                      <p className={"alert alert-secondary " + classesAuthentication} role="alert">
+
+                        {code}
+
+                      </p>
+
+                    </form>
+
+                  ) : (
+
+                    <form onSubmit={onSubRegistration} className="Auth-form">
+
+                      <label>Create Password
+
+                        <input
+                          type="password"
+                          className="form-control mt-1"
+                          placeholder="Enter password"
+                          value={passRegistration} onChange={onPassRegistration}
+                          autoComplete="on"
+                          id="pass"
+                        />
+
+                      </label>
+
+                      <button id="submit" type="submit" className="btn mt-2 btn-light">
+
+                        Submit
+
+                      </button>
+
+                      <p className={"alert alert-secondary " + classesRegistration} role="alert">
+
+                        {signup}
+
+                      </p>
+
+                    </form>
+                    
+                  )
+
                 )
 
-              )
+              )}
 
-            )}
+            </Accordion.Body>
 
-          </Accordion.Body>
+          </Accordion.Item>
 
-        </Accordion.Item>
+          <p className='rady p-3 mt-3'>
+            Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+          </p>
 
-      </Accordion>
+        </Accordion>
 
-    </div>
-    
+      </div>
+  </>
   )
 }
 export default Auth;

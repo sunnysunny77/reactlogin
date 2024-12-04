@@ -111,3 +111,9 @@ table {
         }
     }
 }
+
+.min-md-height {
+    @include min_md {
+        min-height: calc(100vh - 369px);
+    }
+}
