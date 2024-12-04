@@ -7,7 +7,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import Header from "./Header";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = (props) => {
+
+  const { logOut } = props;
+
     return (
     <>
       <Header heading="HOME" >
@@ -18,7 +21,15 @@ const Home = () => {
 
             <span className="col-11 col-md-9">Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>
 
-            <Link to="auth" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > store </Link>
+            {logOut ? (
+
+              <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > store </Link>
+
+            ) : (
+
+              <Link to="auth" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > store </Link>
+
+            )}
 
           </p>
 

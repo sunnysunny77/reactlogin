@@ -291,7 +291,7 @@ function App() {
               }}
             />
           }>
-            <Route index element={<Home />} />
+            <Route index element={<Home logOut={true} />} />
             <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
@@ -299,7 +299,7 @@ function App() {
       ) : (
         <Routes>
           <Route path="/" element={<Layout logOut={false} />}>
-            <Route index element={<Home />} />
+            <Route index element={<Home logOut={false} />} />
             <Route path="auth" element={
               <Auth
                 classes={classes}
