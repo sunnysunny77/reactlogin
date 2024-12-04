@@ -157,7 +157,7 @@ const Store = (props) => {
                     -
                   </span>
 
-                  <label aria-label="Quantity" htmlFor="count" className="d-none">Quantity</label>
+                  <label aria-label="Quantity" htmlFor="count" className="hidden">Quantity</label>
 
                   <input disabled={true} id="count" type="text" value={count} />
 
