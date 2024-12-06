@@ -5,18 +5,12 @@ const Output = (props) => {
 
   const { load } = props;
   
-  function createMarkup() {
-    return {__html: load};
-  }
-
   return (
     <React.Fragment>
 
-      <br />
-
       <Alert variant="light" >
 
-        <span dangerouslySetInnerHTML={createMarkup()} />
+        {load}
         
       </Alert>
 
