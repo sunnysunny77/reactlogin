@@ -2,7 +2,7 @@ import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@pa
 import React, { useState } from "react";
 import Food from "../images/food.webp";
 import Spinner from "../images/load.gif";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const Store = (props) => {
 

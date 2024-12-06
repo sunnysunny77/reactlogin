@@ -8,10 +8,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './scss/App.scss';
 import Store from "./pages/Store";
 import Auth from "./pages/Auth";
-import Layout from "./pages/Layout";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Output from "./pages/Output";
-import NotFound from "./pages/NotFound";
+import Output from "./components/Output";
+import NotFound from "./components/NotFound";
 
 function App() {
 

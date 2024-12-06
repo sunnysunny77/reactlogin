@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Store from "../images/store.webp";
 import Finance from "../images/finance.webp";
 import Transport from "../images/transport.webp";
@@ -7,13 +7,102 @@ import Vegies from "../images/vegies.webp";
 import Day from "../images/day.webp";
 import Greens from "../images/greens.webp";
 import Carousel from 'react-bootstrap/Carousel';
-import Header from "./Header";
-import Slider from "./Slider";
+import Header from "../components/Header";
+import Slider from "../components/Slider";
 import { Link } from "react-router-dom";
 
 const Home = (props) => {
 
   const { logOut } = props;
+
+  const resRef = useRef();
+  const nameRef = useRef();
+  const telRef = useRef();
+  const emailRef = useRef();
+  const textRef = useRef();
+
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [email, setEmail] = useState("");
+  const [text, setText] = useState("");
+
+  const handleSubmit = async (event) => {
+
+    event.preventDefault();
+    
+    let error = false;
+
+    if (!/^[ '.a-z-]{2,40}$/i.test(name)) {
+
+      error = true;
+      nameRef.current.innerHTML = "Enter your name";
+      event.target.name.classList.add("error");
+    } else {
+
+      nameRef.current.innerHTML = "";
+      event.target.name.classList.remove("error");
+    }
+
+    if (!/^\+?\d{3,15}$/.test(tel)) {
+
+      error = true;
+      telRef.current.innerHTML = "+###############";
+      event.target.tel.classList.add("error");
+    } else {
+
+      telRef.current.innerHTML = "";
+      event.target.tel.classList.remove("error");
+    }
+
+    if (!/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/.test(email)) {
+
+      error = true;
+      emailRef.current.innerHTML = "Enter your email";
+      event.target.email.classList.add("error");
+    } else {
+
+      emailRef.current.innerHTML = "";
+      event.target.email.classList.remove("error");
+    }
+
+
+    if (!/[\dA-Za-z]/.test(text)) {
+
+      error = true;
+      textRef.current.innerHTML = "Enter your message";
+      event.target.text.classList.add("error");
+    } else {
+
+      textRef.current.innerHTML = "";
+      event.target.text.classList.remove("error");
+    }
+
+    if (error) return;
+
+    const form_data = new FormData();
+
+    form_data.append("name", name);
+    form_data.append("tel", tel);
+    form_data.append("email", email);
+    form_data.append("text", text);
+
+    let res = await fetch("./enquiry.php", { method: "POST", body: form_data});
+
+    if (!res.ok) return resRef.current.innerHTML = "Mail failure.";
+
+    res = await res.text();
+
+    resRef.current.innerHTML = res;
+
+    setTimeout(() => {
+      
+      resRef.current.innerHTML = "";
+      setName("");
+      setTel("");
+      setEmail("");
+      setText("");
+    }, 6000);
+  }
 
   return (
   <>
@@ -63,11 +152,11 @@ const Home = (props) => {
 
     </Header>
 
-    <div className="container py-sm-5 my-5">
+    <div className="container-lg py-md-5 my-5 g-0">
 
-      <div className="row g-0 align-items-center justify-content-around flex-column flex-sm-row">
+      <div className="row g-0 align-items-center justify-content-between flex-column flex-sm-row px-4 px-xxl-0">
 
-        <div className="blend col-11 col-md-5 mb-5 my-md-0">
+        <div className="blend col-12 col-md-5 mb-5 my-md-0">
 
           <img  src={Store} alt="store"/> 
 
@@ -83,7 +172,7 @@ const Home = (props) => {
 
         </div>
 
-        <div className="homeLeft col-11 col-md-6 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
+        <div className="homeLeft col-12 col-md-6 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
 
           <p className="col-12 mx-auto mb-0 px-3 py-5 p-md-3 row g-0 align-items-center justify-content-between">
 
@@ -113,13 +202,155 @@ const Home = (props) => {
 
     <Slider>
 
-      <img className="has-current counters" src={Day} width="950" height="574" alt="Day" />
+      <img className="has-current counters" src={Day} width="658" height="658" alt="Day" />
 
-      <img className="counters" src={Vegies} width="950" height="574" alt="Vegies" />
+      <img className="counters" src={Vegies} width="658" height="658" alt="Vegies" />
 
-      <img className="counters" src={Greens} width="950" height="574" alt="Greens" />
+      <img className="counters" src={Greens} width="658" height="658" alt="Greens" />
 
     </Slider>
+
+    <div className="container-lg pb-5 mb-5 g-0 px-4 px-xxl-0">
+
+      <form id="enquiry" onSubmit={handleSubmit}>
+
+        <fieldset>
+
+          <div className="row justify-content-between g-0">
+
+            <div className="col-12">
+
+              <legend className="mb-4">Enquiry<b ref={resRef} className="ms-4"></b></legend>
+
+              <p className="m-0">Required fields are marked *</p>
+
+            </div>
+
+            <div className="col-12 col-sm-6">
+
+              <label className="pe-sm-3">
+                
+                <span className="hidden d-block">Name</span>
+
+                <span ref={nameRef}></span>
+
+                <input
+                  className="ps-2"
+                  type="text"
+                  name="name" 
+                  value={name}
+                  placeholder="* Name"
+                  autoComplete=""
+                  onChange={(event) => setName(event.target.value)}
+                />
+
+              </label>
+
+            </div>
+
+            <div className="col-12 col-sm-6">
+
+              <label className="ps-sm-3">
+                
+                <span className="hidden d-block">Phone</span>
+
+                <span ref={telRef}></span>
+
+                <input
+                  className="ps-2"
+                  type="text"
+                  name="tel" 
+                  value={tel}
+                  placeholder="* Phone"
+                  autoComplete=""
+                  onChange={(event) => setTel(event.target.value)}
+                />
+
+              </label>
+
+            </div>
+
+            <div className="col-12 col-sm-6">
+
+              <label className="pe-sm-3">
+                
+                <span className="hidden d-block">Email</span>
+
+                <span ref={emailRef}></span>
+
+                <input
+                  className="ps-2"
+                  type="text"
+                  name="email" 
+                  value={email}
+                  placeholder="* Email"
+                  autoComplete=""
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+
+              </label>
+
+            </div>
+
+            <div className="col-12">
+
+              <label htmlFor="text">
+                
+                <span className="hidden d-block">Message</span>
+
+                <span ref={textRef}></span>
+
+                <textarea
+                  id="text"
+                  className="ps-2"
+                  name="text" 
+                  value={text}
+                  placeholder="* Message"
+                  onChange={(event) => setText(event.target.value)}
+                  rows="6"
+                >
+                </textarea>
+
+              </label>
+
+            </div>
+
+          </div>
+
+        </fieldset>
+
+        <div className="row g-0">
+
+          <div className="col-12 col-sm-9 pt-4">
+
+            <div className="row justify-content-between align-items-center g-0">
+
+              <div className="col-12 col-sm-8">
+
+                <p className="mb-5 m-sm-0">
+
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt.
+
+                </p>
+
+              </div>
+
+              <div className="col-12 col-sm-4 d-flex justify-content-sm-end">
+
+                <input className="rounded" type="submit" value="Send" />
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
 
   </>);
 }

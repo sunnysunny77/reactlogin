@@ -69,25 +69,29 @@ const Slider= (props) => {
   };
 
   return (
-	  <div className="container slider_9-container my-5 pb-5 g-0">
+    <div className="container-fluid mb-md-5 g-0">
 
-      <div className="row justify-content-between align-items-center g-0">
+      <div className="container-md slider_9-container my-5 pb-5 g-0">
 
-        <div className="col-2 d-flex justify-content-center">
+        <div className="row justify-content-between align-items-center g-0">
 
-          <button onClick={prev}  aria-label="prev" className="slider_9-button button-prev"><ArrowLeft /></button>
+          <div className="col-2 d-flex justify-content-center">
 
-        </div>
+            <button onClick={prev}  aria-label="prev" className="slider_9-button button-prev"><ArrowLeft /></button>
 
-        <div ref={counters} className="col-8 slider_9-inner inner-swap position-relative">
+          </div>
 
-          {props.children}
-          
-        </div>
+          <div ref={counters} className="col-8 col-lg-6 slider_9-inner inner-swap position-relative">
 
-        <div className="col-2 d-flex justify-content-center">
+            {props.children}
+            
+          </div>
 
-          <button onClick={next} aria-label="next" className="slider_9-button button-next"><ArrowRight /></button>
+          <div className="col-2 d-flex justify-content-center">
+
+            <button onClick={next} aria-label="next" className="slider_9-button button-next"><ArrowRight /></button>
+
+          </div>
 
         </div>
 

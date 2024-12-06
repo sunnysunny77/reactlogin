@@ -1,7 +1,10 @@
 .slider_9-inner {
-    padding-top: 56.25%;
+    padding-top: 67.25%;
     background-color: $c1;
     border: 1px solid $c1;
+    @include min_lg {
+        padding-top: 50.25%;
+    }
     img {
         width: 0px;
         height: 0px;
