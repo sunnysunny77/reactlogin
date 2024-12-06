@@ -17,7 +17,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const [load, setLoad] = useState("Loading...");
+  const [load, setLoad] = useState("");
   const [auth, setAuth] = useState(false);
 
   const [classes, setClasses] = useState("displayNone");
