@@ -195,7 +195,7 @@ const Home = (props) => {
 
     </section>
 
-    <div id="two-col-curve" className="container-fluid position-relative overflow-hidde g-0">
+    <div id="two-col-curve" className="container-fluid position-relative overflow-hidden g-0">
 
       <div className="row flex-column flex-sm-row justify-content-end g-0">
 
