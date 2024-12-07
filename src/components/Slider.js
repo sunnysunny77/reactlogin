@@ -108,7 +108,7 @@ const Slider= (props) => {
 
               <div className="slider_9-large-col col-8 col-lg-10 h-100 d-flex justify-content-center align-items-center">
 
-              {props.children[1]}
+                {props.children[1]}
 
               </div>
 
