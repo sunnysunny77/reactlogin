@@ -181,10 +181,13 @@ const Home = (props) => {
               
               Interdum et malesuada fames ac ante
               ipsum primis in faucibus. Mauris iaculis varius lectus auctor pharetra. Cras risus odio, dignissim et
-              viverra non, aliquam eget ligula. Maecenas convallis eget felis sit amet commodo. Integer euilgod eros
-              ex, id posuere lorem aliquam eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
-              rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
-              suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit. 
+              viverra non, aliquam eget ligula. Maecenas convallis eget felis sit amet commodo. 
+              
+              <br/>
+              <br/>
+              
+              Integer euilgod eros
+              ex, id posuere lorem aliquam eget. Lorem ipsum dolor sit amet. 
               
 
             </p>
@@ -199,7 +202,7 @@ const Home = (props) => {
 
       <div className="row flex-column flex-sm-row justify-content-end g-0">
 
-        <div className="curve col-12 col-md-9 col-lg-7 d-flex justify-content-end">
+        <div className="curve col-12 col-md-9 col-lg-7 d-flex justify-content-end px-3 px-md-4 py-sm-5 px-lg-5">
 
           <div className="inner-curve col-11 col-md-10 col-xl-12 d-flex flex-column g-0 text-end">  
 

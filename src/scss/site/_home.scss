@@ -47,9 +47,9 @@
         .inner-curve {
             position: relative;
             z-index: 2;
-            padding: 5% 5% 15% 5%;
+
             @include min_md {
-                padding: 5% 5% 33% 5%;
+                padding: 5% 0 33% 0;
             }
         }
     }
@@ -127,7 +127,7 @@
     }
     input[type="text"],
     textarea {
-        color: $c10;
+        color: $c4;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         border-bottom-left-radius: 0;
@@ -150,15 +150,16 @@
     }
     input[type="submit"] {
         width: fit-content;
-        color: $c10;
-        background-color: $c14 !important;
+        color: $c4;
+        background-color: $c14;
+        font-weight: 400;
         border: 1px solid $c1;
         transition:
             color 0.2s ease-in-out,
             background-color 0.2s ease-in-out;
         &:hover,
         &:focus {
-            color: $c10;
+            color: $c4;
             background-color: $c1;
         }
     }
@@ -166,16 +167,7 @@
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
-        border: 1px solid $c1;
-        -webkit-text-fill-color: $c10;
-        -webkit-box-shadow: 0 0 0px 1000px $c14;
-        transition: background-color 5000s ease-in-out 0s;
-    }
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-        -webkit-text-fill-color: $c10;
+        -webkit-text-fill-color: $c4;
         -webkit-box-shadow: 0 0 0 5rem $c14 inset;
         -webkit-background-clip: text;
     }
