@@ -141,7 +141,7 @@ const Store = (props) => {
 
                 <div id="store" className="my-5 p-0">
 
-                    <img src={Food} alt="Stationary" />
+                    <img src={Food} alt="Food" width="366" height="366" />
 
                 </div>
 

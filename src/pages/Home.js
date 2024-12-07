@@ -130,19 +130,19 @@ const Home = (props) => {
 
           <Carousel.Item>
 
-            <img src={Finance} alt="Finance" />
+            <img src={Finance} alt="Finance" width="150" height="150" />
 
           </Carousel.Item>
 
           <Carousel.Item>
 
-            <img src={Transport} alt="Transport" />
+            <img src={Transport} alt="Transport" width="150" height="120" />
 
           </Carousel.Item>
 
           <Carousel.Item>
 
-            <img src={Warehouse} alt="Warehouse" />
+            <img src={Warehouse} alt="Warehouse" width="150" height="150" />
 
           </Carousel.Item>
 
@@ -232,7 +232,7 @@ const Home = (props) => {
 
         </div>
 
-        <img src={Store} alt="store"/> 
+        <img src={Store} alt="store"  width="920" height="839" /> 
 
       </div>
 
@@ -242,9 +242,9 @@ const Home = (props) => {
 
       <div>
 
-        <img className="has-current counters"  src={Vegies} width="658" height="658" alt="Vegies" />
+        <img className="has-current counters" src={Vegies} width="847" height="565" alt="Vegies" />
 
-        <img className="counters" src={Greens} width="658" height="658" alt="Greens" />
+        <img className="counters" src={Greens} width="847" height="565" alt="Greens" />
 
       </div>
 
@@ -294,7 +294,7 @@ const Home = (props) => {
 
         <div className="col-12 col-md-6 mx-auto mt-3 mt-md-0">
 
-          <img src={Roast} alt="Roast"/>
+          <img src={Roast} alt="Roast" width="929" height="619"/>
                     
         </div>
 
