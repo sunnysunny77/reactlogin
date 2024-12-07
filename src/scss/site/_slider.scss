@@ -1,10 +1,15 @@
-.slider_9-inner {
-    padding-top: 67.25%;
+.slider_9-container {
+    background-color: $c11;
+}
+
+.slider_9-small-col {
     background-color: $c1;
-    border: 1px solid $c1;
-    @include min_lg {
-        padding-top: 50.25%;
-    }
+}
+
+.slider_9-inner {
+    background-color: $c10;
+    height: 100%;
+    padding: 33%;
     img {
         width: 0px;
         height: 0px;
@@ -33,6 +38,21 @@
     }
 }
 
+.slider_9-large-col {
+    p {
+        background-color: $c5;
+    }
+}
+
+.slider_9-button-container {
+    background-color: $c1;
+    border-top: 1px solid $c10;;
+    border-bottom: 1px solid $c10;;
+    @include min_md {
+        border: none;
+    }
+}
+
 .slider_9-button {
     outline: none;
     border: none;
@@ -43,7 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $c1;
+    border: 1px solid $c10;
     transition: transform 0.5s;
     transform: scale(1);
     will-change: transform;
@@ -55,8 +75,7 @@
         will-change: opacity;
         opacity: 1;
     }
-    &:hover,
-    &:focus {
+    &:hover {
         transform: scale(0.94);
         svg {
             opacity: 0.5;

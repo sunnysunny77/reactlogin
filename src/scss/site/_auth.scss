@@ -1,5 +1,6 @@
 .accordion-button:not(.collapsed) {
     background-color: $c2;
+    color: $c6;
 }
 
 .accordion-button:focus {
@@ -8,6 +9,10 @@
 
 .accordion-button {
     background-color: $c7;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../../images/accordian.svg");
 }
 
 .Auth-form-container {
@@ -25,9 +30,11 @@
         .btn,
         input {
             width: 100%;
+            color: $c6;
         }
         label {
             display: block;
+            color: $c6;
         }
         .display {
             display: block;
@@ -39,7 +46,7 @@
         }
         #responseCaptcha {
             background-color: unset;
-            color: $c3;
+            color: $c6;
         }
     }
     .rady {

@@ -3,8 +3,8 @@ import Store from "../images/store.webp";
 import Finance from "../images/finance.webp";
 import Transport from "../images/transport.webp";
 import Warehouse from "../images/warehouse.webp";
+import Roast from "../images/roast.webp";
 import Vegies from "../images/vegies.webp";
-import Day from "../images/day.webp";
 import Greens from "../images/greens.webp";
 import Carousel from 'react-bootstrap/Carousel';
 import Header from "../components/Header";
@@ -86,7 +86,7 @@ const Home = (props) => {
     form_data.append("email", email);
     form_data.append("text", text);
 
-    let res = await fetch("./enquiry.php", { method: "POST", body: form_data});
+    let res = await fetch("/api/?controller=enquiry", { method: "POST", body: form_data});
 
     if (!res.ok) return resRef.current.innerHTML = "Mail failure.";
 
@@ -152,49 +152,87 @@ const Home = (props) => {
 
     </Header>
 
-    <div className="container-lg py-md-5 my-5 g-0">
+    <section id="two-col-text" className="row justify-content-between justify-content-xxl-around mx-auto my-5 px-4 pb-4 p-lg-5 g-0">
+      
+        <div className="col-12 col-lg-3 my-xl-5">
 
-      <div className="row g-0 align-items-center justify-content-between flex-column flex-sm-row px-4 px-xxl-0">
+          <h2 className="pt-4 ps-4">
 
-        <div className="blend col-12 col-md-5 mb-5 my-md-0">
+            Lorem 
+            <br/>
+            ipsum dolor
 
-          <img  src={Store} alt="store"/> 
-
-          <p className="m-0">  
-
-            <b className="d-block px-3 pb-4 pt-5"> 
-
-              Ut enim ad minim veniam quis nostrud exercitation ullamco laboris. 
-
-            </b>
-
-          </p>
+          </h2>
 
         </div>
+        
+        <div className="row col-12 col-lg-8 my-xl-5">
 
-        <div className="homeLeft col-12 col-md-6 row d-flex flex-column flex-sm-row g-0 text-end justify-content-end">
+          <div className="col-12 col-xxl-11 pt-4">
 
-          <p className="col-12 mx-auto mb-0 px-3 py-5 p-md-3 row g-0 align-items-center justify-content-between">
+            <p className="m-0">
 
-            <span className="col-12 col-xl-4 text-start text-xl-center mb-3">
-
-              Adipiscing elit
-
-            </span>
-
-            <span className="col-12 col-xl-7">
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+              rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
+              suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit. 
               
-            </span>
+              <br/>
+              <br/>
+              
+              Interdum et malesuada fames ac ante
+              ipsum primis in faucibus. Mauris iaculis varius lectus auctor pharetra. Cras risus odio, dignissim et
+              viverra non, aliquam eget ligula. Maecenas convallis eget felis sit amet commodo. Integer euilgod eros
+              ex, id posuere lorem aliquam eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+              rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
+              suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit. 
+              
 
-          </p>
-
-          <div className="col-12 col-md-12 mx-auto position-relative overflow-hidden"></div>
+            </p>
 
         </div>
+
+      </div>
+
+    </section>
+
+    <div id="two-col-curve" className="container-fluid position-relative overflow-hidde g-0">
+
+      <div className="row flex-column flex-sm-row justify-content-end g-0">
+
+        <div className="curve col-12 col-md-9 col-lg-7 d-flex justify-content-end">
+
+          <div className="inner-curve col-11 col-md-10 col-xl-12 d-flex flex-column g-0 text-end">  
+
+            <div className="row align-items-center justify-content-end mb-0 px-3 py-5 p-md-3 g-0">
+
+              <b className="col-12 col-xl-4 text-start text-xl-center mb-3">
+
+                Adipiscing elit
+
+              </b>
+
+              <p className="col-12 col-xl-7 m-0">
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation.
+
+                <br/>
+                <br/>
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <img src={Store} alt="store"/> 
 
       </div>
 
@@ -202,15 +240,67 @@ const Home = (props) => {
 
     <Slider>
 
-      <img className="has-current counters" src={Day} width="658" height="658" alt="Day" />
+      <div>
 
-      <img className="counters" src={Vegies} width="658" height="658" alt="Vegies" />
+        <img className="has-current counters"  src={Vegies} width="658" height="658" alt="Vegies" />
 
-      <img className="counters" src={Greens} width="658" height="658" alt="Greens" />
+        <img className="counters" src={Greens} width="658" height="658" alt="Greens" />
+
+      </div>
+
+      <p className="m-0">
+
+        Interdum et malesuada fames ac ante
+        ipsum primis in faucibus. Mauris iaculis varius lectus auctor pharetra. Cras risus odio, dignissim et
+        viverra non, aliquam eget ligula. Maecenas convallis eget felis sit amet commodo. Integer euilgod eros
+        ex, id posuere lorem aliquam eget.    
+
+        <br/>
+        <br/>
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+        rhoncus sapien congue non. 
+
+      </p>
 
     </Slider>
 
-    <div className="container-lg pb-5 mb-5 g-0 px-4 px-xxl-0">
+    <section id="two-col-image" className="row p-5 ps-md-0 pt-md-0 pb-md-0 pe-md-0 mb-5 ps-xl-5 g-0" >
+
+        <div className="row col-12 col-md-6 ps-lg-5 pt-md-5 pb-md-5 ps-md-5 g-0">
+
+            <h2 className="pb-3 mt-lg-5">
+              
+              Lorem ipsum
+
+            </h2>
+
+            <hr className="pb-2"/>
+
+            <div className="col-12 col-md-10">
+
+              <p className="mb-md-5 pe-md-4">
+
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu gravida velit.
+                  Vestibulum eu posuere
+                  elit. Cras bibendum velit dui, eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
+                  scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+
+              </p>
+
+            </div>
+            
+        </div>
+
+        <div className="col-12 col-md-6 mx-auto mt-3 mt-md-0">
+
+          <img src={Roast} alt="Roast"/>
+                    
+        </div>
+
+    </section>
+
+    <div className="container-lg pb-5 my-5 g-0 px-4 px-xxl-0">
 
       <form id="enquiry" onSubmit={handleSubmit}>
 
