@@ -86,7 +86,7 @@ function App() {
 
   const logout = () => {
 
-    fetch("/api/?controller=logout", {
+    fetch("/api/?controller=logout&token=" + token, {
 
       method: 'GET',
       mode: 'cors',
@@ -291,7 +291,7 @@ function App() {
               }}
             />
           }>
-            <Route index element={<Home logOut={true} />} />
+            <Route index element={<Home token={token} logOut={true} />} />
             <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
@@ -299,7 +299,7 @@ function App() {
       ) : (
         <Routes>
           <Route path="/" element={<Layout logOut={false} />}>
-            <Route index element={<Home logOut={false} />} />
+            <Route index element={<Home token={token} logOut={false} />} />
             <Route path="auth" element={
               <Auth
                 classes={classes}
