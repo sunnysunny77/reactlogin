@@ -41,7 +41,6 @@ const Auth = (props) => {
     
     const res = await fetch("/captcha/init", {
 
-      credentials: "include",
       method: 'POST',
       mode: 'cors',
     })

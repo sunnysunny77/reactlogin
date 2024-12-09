@@ -86,7 +86,11 @@ const Home = (props) => {
     form_data.append("email", email);
     form_data.append("text", text);
 
-    let res = await fetch("/api/?controller=enquiry&token=" + props.token, { method: "POST", body: form_data});
+    let res = await fetch("/api/?controller=enquiry&token=" + props.token, { 
+      
+      method: "POST", 
+      body: form_data
+    });
 
     if (!res.ok) return resRef.current.innerHTML = "Mail failure.";
 
