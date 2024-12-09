@@ -49,86 +49,80 @@ function App() {
 
   useEffect(() => {
 
-    fetch("/api/initialauthorization/?controller=initialauthorization", {
+    initialauthorization();
+  }, [])
+
+  const initialauthorization = async () => {
+
+    let res = await fetch("/api/initialauthorization/?controller=initialauthorization", {
 
       credentials: "include",
       method: 'GET',
       mode: 'cors',
     })
-      .then(res => {
 
-        if (!res.ok) { throw res }
-        return res.json()
-      })
-      .then(data => {
+    if (!res.ok) { 
+      
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+      
+    let json = await res.json();
+ 
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
-        if (data.key === btoa(process.env.REACT_APP_KEY)) {
+      setToken(json.token);
+      setAuth(true);
+      setLoad(false);
+      return;
+    }
 
-          setToken(data.token)
-          setAuth(true)
-          setLoad(false)
-          return
-        }
+    setToken(json);
+    setLoad(false);
+  }
 
-        setToken(data)
-        setLoad(false)
+  const logout = async () => {
 
-      })
-      .catch(err => {
-        
-        return err.text()
-      })
-      .then(err => {
-
-        setLoad(err)
-      })
-  }, [])
-
-  const logout = () => {
-
-    fetch("/api/?controller=logout&token=" + token, {
+    let res = await fetch(`/api/?controller=logout&token=${token}`, {
 
       method: 'GET',
       mode: 'cors',
     })
-      .then(res => {
 
-        if (!res.ok) { throw res }
-        setLoad(false)
-        setAuth(false)
-        setClasses("displayNone")
-        setClassesRegistration("displayNone")
-        setClassesInitialauthentication("displayNone")
-        setClassesAuthentication("displayNone")
-        setToken(token)
-        setLogin(false)
-        setFactor(true)
-        setCode(true)
-        setSignup(false)
-        setPass("")
-        setEmail("")
-        setEmailNew("")
-        setSecurity("")
-        setPassRegistration("")
-        navigate('/')
-      })
-      .catch(err => {
+    if (!res.ok) { 
 
-        return err.text()
-      })
-      .then(err => {
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
 
-        setLoad(err)
-      })
+    setLoad(false);
+    setAuth(false);
+    setClasses("displayNone");
+    setClassesRegistration("displayNone");
+    setClassesInitialauthentication("displayNone");
+    setClassesAuthentication("displayNone");
+    setToken(token);
+    setLogin(false);
+    setFactor(true);
+    setCode(true);
+    setSignup(false);
+    setPass("");
+    setEmail("");
+    setEmailNew("");
+    setSecurity("");
+    setPassRegistration("");
+    navigate('/');
   }
 
-  const authorization = (e) => {
+  const authorization = async (e) => {
 
-    e.preventDefault()
-    setLogin("Loading...")
-    setClasses("display")
+    e.preventDefault();
+    setLogin("Loading...");
+    setClasses("display");
 
-    fetch("/api/?model=login&controller=authorization&token=" + token, {
+    let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -136,113 +130,94 @@ function App() {
         'Authorization': 'Basic ' + btoa(email + ":" + pass)
       }
     })
-      .then(res => {
 
-        if (!res.ok) { throw res }
-        return res.json()
-      })
-      .then(data => {
+    if (!res.ok) { 
 
-        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
 
-          setAuth(true)
-          navigate('/store')
-          return
-        }
+    let json = await res.json();
 
-        setLogin(data)
-      })
-      .catch(err => {
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
 
-        return err.text()
-      })
-      .then(err => {
+      setAuth(true);
+      navigate('/store');
+      return;
+    }
 
-        setLoad(err)
-      })
+    setLogin(json);
   }
 
-  const initialauthentication = (e) => {
+  const initialauthentication = async (e) => {
 
-    e.preventDefault()
-    setFactor("Loading...")
-    setClassesInitialauthentication("display")
+    e.preventDefault();
+    setFactor("Loading...");
+    setClassesInitialauthentication("display");
 
-    fetch("/api/?email=" + btoa(emailNew) + "&model=factor&controller=initialauthentication&token=" + token, {
+    let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
+
+      method: 'GET',
+      mode: 'cors',
+    })
+
+    if (!res.ok) { 
+
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+
+    let json = await res.json();
+
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+
+      setFactor(false);
+      return;
+    }
+
+    setFactor(json);
+  }
+
+  const authentication = async (e) => {
+
+    e.preventDefault();
+    setCode("Loading...");
+    setClassesAuthentication("display");
+
+    let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
 
       method: 'GET',
       mode: 'cors',
 
     })
-      .then(res => {
 
-        if (!res.ok) { throw res }
-        return res.json()
-      })
-      .then(data => {
+    if (!res.ok) { 
 
-        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
 
-          setFactor(false)
-          return
-        }
+    let json = await res.json();
 
-        setFactor(data)
-      })
-      .catch(err => {
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
 
-        return err.text()
-      })
-      .then(err => {
+      setCode(false);
+      return;
+    }
 
-        setLoad(err)
-      })
+    setCode(json);
   }
 
-  const authentication = (e) => {
+  const registration = async (e) => {
 
-    e.preventDefault()
-    setCode("Loading...")
-    setClassesAuthentication("display")
+    e.preventDefault();
+    setSignup("Loading...");
+    setClassesRegistration("display");
 
-    fetch("/api/?security=" + btoa(security) + "&controller=authentication&token=" + token, {
-
-      method: 'GET',
-      mode: 'cors',
-
-    })
-      .then(res => {
-
-        if (!res.ok) { throw res }
-        return res.json()
-      })
-      .then(data => {
-
-        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
-
-          setCode(false)
-          return
-        }
-
-        setCode(data)
-      })
-      .catch(err => {
-
-        return err.text()
-      })
-      .then(err => {
-
-        setLoad(err)
-      })
-  }
-
-  const registration = (e) => {
-
-    e.preventDefault()
-    setSignup("Loading...")
-    setClassesRegistration("display")
-
-    fetch("/api/?security=" + btoa(security) + "&model=signup&controller=registration&token=" + token, {
+    let res = await fetch(`/api/?security=${btoa(security)}&model=signup&controller=registration&token=${token}`, {
 
       method: 'OPTIONS',
       mode: 'cors',
@@ -250,30 +225,24 @@ function App() {
         'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
       }
     })
-      .then(res => {
 
-        if (!res.ok) { throw res }
-        return res.json()
-      })
-      .then(data => {
+    if (!res.ok) { 
 
-        if (data.key === btoa(process.env.REACT_APP_KEY) && data.token === token) {
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
 
-          setAuth(true)
-          navigate('/store')
-          return
-        }
+    let json = await res.json();
 
-        setSignup(data)
-      })
-      .catch(err => {
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
 
-        return err.text()
-      })
-      .then(err => {
+      setAuth(true);
+      navigate('/store');
+      return;
+    }
 
-        setLoad(err)
-      })
+    setSignup(json);
   }
 
   return load ?
@@ -284,13 +253,7 @@ function App() {
     ) : (
       auth === true ? (
         <Routes>
-          <Route path="/" element={
-            <Layout
-              logOut={() => {
-                logout();
-              }}
-            />
-          }>
+          <Route path="/" element={<Layout logOut={() => logout()}/> }>
             <Route index element={<Home token={token} logOut={true} />} />
             <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
           </Route>

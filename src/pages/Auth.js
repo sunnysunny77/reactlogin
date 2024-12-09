@@ -32,6 +32,11 @@ const Auth = (props) => {
   const [captchaForm, setCaptchaForm] = useState(true);
   const [captcha, setCaptcha] = useState('');
 
+  useEffect(() => {
+
+    fetchCaptcha();
+  }, [])
+
   const fetchCaptcha =  async () => { 
     
     const res = await fetch("/captcha/init", {
@@ -49,11 +54,6 @@ const Auth = (props) => {
     const json = await res.json();
     setCaptcha(json.Canvas)
   }
-
-  useEffect(() => {
-
-    fetchCaptcha();
-  }, [])
 
   return (
     <>
@@ -101,7 +101,7 @@ const Auth = (props) => {
 
                 </button>
 
-                <p className={"alert alert-secondary " + classes} role="alert">
+                <p className={`alert alert-secondary ${classes}`} role="alert">
 
                   {login}
 
@@ -213,7 +213,7 @@ const Auth = (props) => {
 
                     </button>
 
-                    <p className={"alert alert-secondary " + classesInitialauthentication} role="alert">
+                    <p className={`alert alert-secondary ${classesInitialauthentication}`} role="alert">
 
                       {factor}
 
@@ -250,7 +250,7 @@ const Auth = (props) => {
 
                       </p>
 
-                      <p className={"alert alert-secondary " + classesAuthentication} role="alert">
+                      <p className={`alert alert-secondary ${classesAuthentication}`} role="alert">
 
                         {code}
 
@@ -281,7 +281,7 @@ const Auth = (props) => {
 
                       </button>
 
-                      <p className={"alert alert-secondary " + classesRegistration} role="alert">
+                      <p className={`alert alert-secondary ${classesRegistration}`} role="alert">
 
                         {signup}
 
