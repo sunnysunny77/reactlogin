@@ -14,6 +14,7 @@ const Auth = (props) => {
   const navigate = useNavigate();
   const ref = useRef();
 
+  const [captchaToken, setCaptchaToken] = useState(true);
   const [captchaForm, setCaptchaForm] = useState(true);
   const [captcha, setCaptcha] = useState("");
   const [text, setText] = useState("");
@@ -57,6 +58,7 @@ const Auth = (props) => {
       setLoad(err);
       return;
     }
+
     let json = await res.json();
 
     if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
@@ -81,7 +83,7 @@ const Auth = (props) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ Text: ref.current.value.split(' ').join('') }),
+      body: JSON.stringify({ Text: ref.current.value.split(' ').join(''), CaptchaToken: captchaToken}),
     })
 
     if (!res.ok) { 
@@ -93,7 +95,7 @@ const Auth = (props) => {
 
     const json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY)) {
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.CaptchaToken === captchaToken) {
 
       if (!json.CaptchaForm) {
 
@@ -219,6 +221,7 @@ const Auth = (props) => {
     
     if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
+      setCaptchaToken(json.CaptchaToken)
       setCaptcha(json.Canvas);
     }
   }, [setLoad])
