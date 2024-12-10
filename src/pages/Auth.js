@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback  } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -33,14 +33,8 @@ const Auth = (props) => {
   const [security, setSecurity] = useState("");
   const [passRegistration, setPassRegistration] = useState("");
 
+  const fetchCaptcha = useCallback( async () => {
 
-  useEffect(() => {
-
-    fetchCaptcha();
-  }, [])
-
-  const fetchCaptcha =  async () => { 
-    
     const res = await fetch("/captcha/init", {
 
       method: 'POST',
@@ -55,7 +49,12 @@ const Auth = (props) => {
 
     const json = await res.json();
     setCaptcha(json.Canvas)
-  }
+  }, [setLoad])
+
+  useEffect(() => {
+
+    fetchCaptcha();
+  }, [fetchCaptcha])
 
   const authorization = async (e) => {
 
