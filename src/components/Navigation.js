@@ -1,8 +1,42 @@
 import { Link } from "react-router-dom";
+import React, { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = (props) => {
 
   const { auth, setAuth } = props;
+
+  const navigate = useNavigate();
+
+  const navbar_toggler = useRef();
+  const navbar_collapse = useRef();
+
+  const toogle = () => {
+
+    let max_height;
+
+    navbar_toggler.current.classList.toggle("has-collapsed");
+
+    if (navbar_toggler.current.classList.contains("has-collapsed")) {
+      max_height = 0;
+    }  else {
+      max_height = navbar_collapse.current.scrollHeight;
+    }
+
+    navbar_collapse.current.style.maxHeight = `${max_height}px`;
+  }
+
+  useEffect(() => {
+
+    if (!navbar_toggler.current.classList.contains("has-collapsed")) {
+
+      navbar_collapse.current.style.maxHeight = "0px";
+      navbar_toggler.current.classList.add("has-collapsed");
+    }
+
+    window.scrollTo(0,0);
+  }, [navigate])
+
 
   return (  
     <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
@@ -37,23 +71,7 @@ const Navigation = (props) => {
 
         </Link>
 
-        <div onClick={ () => {
-
-          const navbar_toggler = document.querySelector(".navbar-toggler");
-          const navbar_collapse = document.querySelector(".navbar-collapse");
-
-          let max_height;
-
-          navbar_toggler.classList.toggle("has-collapsed");
-
-          if (navbar_toggler.classList.contains("has-collapsed")) {
-            max_height = 0;
-          }  else {
-            max_height = navbar_collapse.scrollHeight;
-          }
-
-          navbar_collapse.style.maxHeight = `${max_height}px`;
-          }} 
+        <div ref={navbar_toggler} onClick={toogle} 
           aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed border-start p-4"
           >
 
@@ -71,7 +89,7 @@ const Navigation = (props) => {
 
         {auth ? (
 
-            <div className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
+            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
 
               <ul className="list-unstyled ms-3 my-3">
 
@@ -87,7 +105,7 @@ const Navigation = (props) => {
 
           ) : (
 
-            <div className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
+            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
 
               <ul className="list-unstyled ms-3 my-3">
 

@@ -68,30 +68,25 @@ const Store = (props) => {
 
           onApprove={ async (data, actions) => {
 
-            const order = await actions.order.capture()
+            const order = await actions.order.capture();
     
-            const description = order.purchase_units[0].description
+            const description = order.purchase_units[0].description;
     
-            const transaction = order.id
+            const transaction = order.id;
     
-            const email = order.payer.email_address
+            const email = order.payer.email_address;
+
+            const name = order.purchase_units[0].shipping.name.full_name;
     
-            const name = order.purchase_units[0].shipping.name.full_name
-    
-            let address = ""
-            for (let x in order.purchase_units[0].shipping.address) {
+            let address = "";
+            for (const index in order.purchase_units[0].shipping.address) {
                 
-              address += order.purchase_units[0].shipping.address[x] + " "
+              address += `${order.purchase_units[0].shipping.address[index]} `;
             }
     
-            const purchase =
-              order.purchase_units[0].items[0].quantity +
-              " x " +
-              order.purchase_units[0].items[0].name +
-              " $" +
-              order.purchase_units[0].items[0].unit_amount.value
+            const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
         
-            const total = "$" + order.purchase_units[0].amount.value
+            const total = `$ ${order.purchase_units[0].amount.value}`;
         
             const output = <table className="mt-5">
               <caption>{description}</caption>
@@ -115,9 +110,9 @@ const Store = (props) => {
                   <td headers="total">{total}</td>
                 </tr>
               </tbody>
-            </table>
+            </table>;
         
-            props.setOrder(output)
+            props.setOrder(output);
 
           }}
 
@@ -131,7 +126,7 @@ const Store = (props) => {
     <>
       <Header heading="STORE" />
   
-        <div className="container min-md-height d-flex align-items-center pt-5 my-5">
+        <div className="container d-flex align-items-center pt-5 my-5">
             
           <div className="row justify-content-center w-100 g-0">
 
