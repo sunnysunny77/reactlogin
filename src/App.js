@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Routes,
-  Route,
-  useNavigate
-} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import './scss/App.scss';
 import Store from "./pages/Store";
@@ -18,25 +14,10 @@ function App() {
   const navigate = useNavigate();
 
   const [load, setLoad] = useState("");
+
   const [auth, setAuth] = useState(false);
 
-  const [classes, setClasses] = useState("displayNone");
-  const [classesInitialauthentication, setClassesInitialauthentication] = useState("displayNone");
-  const [classesAuthentication, setClassesAuthentication] = useState("displayNone");
-  const [classesRegistration, setClassesRegistration] = useState("displayNone");
-
   const [token, setToken] = useState(false);
-  const [login, setLogin] = useState(false);
-  const [factor, setFactor] = useState(true);
-  const [code, setCode] = useState(true);
-  const [signup, setSignup] = useState(false);
-
-  const [pass, setPass] = useState("");
-  const [email, setEmail] = useState("");
-  
-  const [emailNew, setEmailNew] = useState("");
-  const [security, setSecurity] = useState("");
-  const [passRegistration, setPassRegistration] = useState("");
 
   const [order, setOrder] = useState(
     <section>
@@ -99,150 +80,8 @@ function App() {
 
     setLoad(false);
     setAuth(false);
-    setClasses("displayNone");
-    setClassesRegistration("displayNone");
-    setClassesInitialauthentication("displayNone");
-    setClassesAuthentication("displayNone");
     setToken(token);
-    setLogin(false);
-    setFactor(true);
-    setCode(true);
-    setSignup(false);
-    setPass("");
-    setEmail("");
-    setEmailNew("");
-    setSecurity("");
-    setPassRegistration("");
     navigate('/');
-  }
-
-  const authorization = async (e) => {
-
-    e.preventDefault();
-    setLogin("Loading...");
-    setClasses("display");
-
-    let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
-
-      method: 'OPTIONS',
-      mode: 'cors',
-      headers: {
-        'Authorization': 'Basic ' + btoa(email + ":" + pass)
-      }
-    })
-
-    if (!res.ok) { 
-
-      let err = await res.text();
-      setLoad(err);
-      return;
-    }
-
-    let json = await res.json();
-
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
-
-      setAuth(true);
-      navigate('/store');
-      return;
-    }
-
-    setLogin(json);
-  }
-
-  const initialauthentication = async (e) => {
-
-    e.preventDefault();
-    setFactor("Loading...");
-    setClassesInitialauthentication("display");
-
-    let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
-
-      method: 'GET',
-      mode: 'cors',
-    })
-
-    if (!res.ok) { 
-
-      let err = await res.text();
-      setLoad(err);
-      return;
-    }
-
-    let json = await res.json();
-
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
-
-      setFactor(false);
-      return;
-    }
-
-    setFactor(json);
-  }
-
-  const authentication = async (e) => {
-
-    e.preventDefault();
-    setCode("Loading...");
-    setClassesAuthentication("display");
-
-    let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
-
-      method: 'GET',
-      mode: 'cors',
-
-    })
-
-    if (!res.ok) { 
-
-      let err = await res.text();
-      setLoad(err);
-      return;
-    }
-
-    let json = await res.json();
-
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
-
-      setCode(false);
-      return;
-    }
-
-    setCode(json);
-  }
-
-  const registration = async (e) => {
-
-    e.preventDefault();
-    setSignup("Loading...");
-    setClassesRegistration("display");
-
-    let res = await fetch(`/api/?security=${btoa(security)}&model=signup&controller=registration&token=${token}`, {
-
-      method: 'OPTIONS',
-      mode: 'cors',
-      headers: {
-        'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
-      }
-    })
-
-    if (!res.ok) { 
-
-      let err = await res.text();
-      setLoad(err);
-      return;
-    }
-
-    let json = await res.json();
-
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
-
-      setAuth(true);
-      navigate('/store');
-      return;
-    }
-
-    setSignup(json);
   }
 
   return load ?
@@ -253,42 +92,17 @@ function App() {
     ) : (
       auth === true ? (
         <Routes>
-          <Route path="/" element={<Layout logOut={() => logout()}/> }>
-            <Route index element={<Home token={token} logOut={true} />} />
+          <Route path="/" element={<Layout auth={auth} setAuth={logout}/> }>
+            <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
             <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Layout logOut={false} />}>
-            <Route index element={<Home token={token} logOut={false} />} />
-            <Route path="auth" element={
-              <Auth
-                classes={classes}
-                login={login}
-                pass={pass}
-                email={email}
-                onPass={e => setPass(e.target.value)}
-                onEmail={e => setEmail(e.target.value)}
-                onSub={e => authorization(e)}
-                classesInitialauthentication={classesInitialauthentication}
-                factor={factor}
-                emailNew={emailNew}
-                onEmailNew={e => setEmailNew(e.target.value)}
-                onSubInitialauthentication={e => initialauthentication(e)}
-                classesAuthentication={classesAuthentication}
-                code={code}
-                security={security}
-                onSecurity={e => setSecurity(e.target.value)}
-                onSubAuthentication ={e => authentication(e)}
-                classesRegistration={classesRegistration}
-                signup={signup}
-                passRegistration={passRegistration}
-                onPassRegistration={e => setPassRegistration(e.target.value)}
-                onSubRegistration={e => registration(e)}
-              />}
-            />
+          <Route path="/" element={<Layout auth={auth} />}>
+            <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
+            <Route path="auth" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

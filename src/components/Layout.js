@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Layout = (props) => {
 
-  const { logOut } = props;
+  const { auth, setAuth } = props;
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Layout = (props) => {
 
   return (
     <>
-      <Navigation id="top" logOut={logOut} />
+      <Navigation id="top" auth={auth} setAuth={setAuth} />
 
       <main className="d-flex flex-column">
 

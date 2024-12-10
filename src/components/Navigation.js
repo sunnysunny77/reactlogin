@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = (props) => {
 
-  const { logOut } = props;
+  const { auth, setAuth } = props;
 
   return (  
     <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
@@ -69,7 +69,7 @@ const Navigation = (props) => {
 
           </div>
 
-        {logOut ? (
+        {auth ? (
 
             <div className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
 
@@ -79,7 +79,7 @@ const Navigation = (props) => {
 
                 <li className="mb-1"><Link to="store" > Store </Link></li>
 
-                <li><Link onClick={logOut} > Sign out </Link></li>
+                <li><Link onClick={setAuth} > Sign out </Link></li>
             
               </ul>
 

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const Home = (props) => {
 
-  const { logOut } = props;
+  const { auth, setLoad } = props;
 
   const resRef = useRef();
   const nameRef = useRef();
@@ -92,7 +92,12 @@ const Home = (props) => {
       body: form_data
     });
 
-    if (!res.ok) return resRef.current.innerHTML = "Mail failure.";
+    if (!res.ok) {
+
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
 
     res = await res.json();
 
@@ -118,7 +123,7 @@ const Home = (props) => {
 
           <span className="col-11 col-md-9">Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>
 
-          {logOut ? (
+          {auth ? (
 
             <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > store </Link>
 

@@ -1,36 +1,38 @@
 import Accordion from 'react-bootstrap/Accordion';
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
 const Auth = (props) => {
 
   const {
-    classes,
-    login,
-    email,
-    pass,
-    onPass,
-    onEmail,
-    onSub,
-    classesInitialauthentication,
-    factor,
-    emailNew,
-    onEmailNew,
-    onSubInitialauthentication,
-    classesAuthentication,
-    code,
-    security,
-    onSecurity,
-    onSubAuthentication,
-    classesRegistration,
-    signup,
-    passRegistration,
-    onPassRegistration,
-    onSubRegistration,
+    token,
+    setLoad,
+    setAuth
   } = props;
 
+  const navigate = useNavigate();
+
   const [captchaForm, setCaptchaForm] = useState(true);
-  const [captcha, setCaptcha] = useState('');
+  const [captcha, setCaptcha] = useState("");
+
+  const [classes, setClasses] = useState("displayNone");
+  const [classesInitialauthentication, setClassesInitialauthentication] = useState("displayNone");
+  const [classesAuthentication, setClassesAuthentication] = useState("displayNone");
+  const [classesRegistration, setClassesRegistration] = useState("displayNone");
+
+  const [login, setLogin] = useState(false);
+  const [factor, setFactor] = useState(true);
+  const [code, setCode] = useState(true);
+  const [signup, setSignup] = useState(false);
+
+  const [pass, setPass] = useState("");
+  const [email, setEmail] = useState("");
+  
+  const [emailNew, setEmailNew] = useState("");
+  const [security, setSecurity] = useState("");
+  const [passRegistration, setPassRegistration] = useState("");
+
 
   useEffect(() => {
 
@@ -47,11 +49,141 @@ const Auth = (props) => {
 
     if (!res.ok) {
 
-      throw new Error(`Response status: ${res.status}`);
+      setLoad(res.statusText);
+      return;
     }
 
     const json = await res.json();
     setCaptcha(json.Canvas)
+  }
+
+  const authorization = async (e) => {
+
+    e.preventDefault();
+    setLogin("Loading...");
+    setClasses("display");
+
+    let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
+
+      method: 'OPTIONS',
+      mode: 'cors',
+      headers: {
+        'Authorization': 'Basic ' + btoa(email + ":" + pass)
+      }
+    })
+
+    if (!res.ok) { 
+
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+
+    let json = await res.json();
+
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+
+      setAuth(true);
+      navigate('/store');
+      return;
+    }
+
+    setLogin(json);
+  }
+
+  const initialauthentication = async (e) => {
+
+    e.preventDefault();
+    setFactor("Loading...");
+    setClassesInitialauthentication("display");
+
+    let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
+
+      method: 'GET',
+      mode: 'cors',
+    })
+
+    if (!res.ok) { 
+
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+
+    let json = await res.json();
+
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+
+      setFactor(false);
+      return;
+    }
+
+    setFactor(json);
+  }
+
+  const authentication = async (e) => {
+
+    e.preventDefault();
+    setCode("Loading...");
+    setClassesAuthentication("display");
+
+    let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
+
+      method: 'GET',
+      mode: 'cors',
+
+    })
+
+    if (!res.ok) { 
+
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+
+    let json = await res.json();
+
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+
+      setCode(false);
+      return;
+    }
+
+    setCode(json);
+  }
+
+  const registration = async (e) => {
+
+    e.preventDefault();
+    setSignup("Loading...");
+    setClassesRegistration("display");
+
+    let res = await fetch(`/api/?security=${btoa(security)}&model=signup&controller=registration&token=${token}`, {
+
+      method: 'OPTIONS',
+      mode: 'cors',
+      headers: {
+        'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
+      }
+    })
+
+    if (!res.ok) { 
+
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+
+    let json = await res.json();
+
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+
+      setAuth(true);
+      navigate('/store');
+      return;
+    }
+
+    setSignup(json);
   }
 
   return (
@@ -68,7 +200,7 @@ const Auth = (props) => {
 
             <Accordion.Body className='p-5'>
 
-              <form onSubmit={onSub} className="Auth-form">
+              <form onSubmit={authorization} className="Auth-form">
 
                 <label>Email address
 
@@ -76,7 +208,7 @@ const Auth = (props) => {
                     type="email"
                     className="form-control mt-1"
                     placeholder="Enter email"
-                    value={email} onChange={onEmail}
+                    value={email} onChange={e => setEmail(e.target.value)}
                     autoComplete="on"
                   />
 
@@ -88,7 +220,7 @@ const Auth = (props) => {
                     type="password"
                     className="form-control mt-1"
                     placeholder="Enter password"
-                    value={pass} onChange={onPass}
+                    value={pass} onChange={e => setPass(e.target.value)}
                     autoComplete="on"
                   />
 
@@ -191,7 +323,7 @@ const Auth = (props) => {
 
               ) : ( factor ? (
 
-                  <form onSubmit={onSubInitialauthentication} className="Auth-form">
+                  <form onSubmit={initialauthentication} className="Auth-form">
 
                     <label>Get authentication code
                       
@@ -199,7 +331,7 @@ const Auth = (props) => {
                         type="email"
                         className="form-control mt-1"
                         placeholder="Enter email"
-                        value={emailNew} onChange={onEmailNew}
+                        value={emailNew} onChange={e => setEmailNew(e.target.value)}
                         autoComplete="on"
                         id="email"
                       />
@@ -222,7 +354,7 @@ const Auth = (props) => {
 
                 ) : ( code ? (
 
-                    <form onSubmit={onSubAuthentication} className="Auth-form">
+                    <form onSubmit={authentication} className="Auth-form">
 
                       <label>Enter authentication code
                         
@@ -231,7 +363,7 @@ const Auth = (props) => {
                           className="form-control mt-1"
                           placeholder="Paste code"
                           value={security}
-                          onChange={onSecurity}
+                          onChange={e => setSecurity(e.target.value)}
                           id="code"
                         />
 
@@ -259,7 +391,7 @@ const Auth = (props) => {
 
                   ) : (
 
-                    <form onSubmit={onSubRegistration} className="Auth-form">
+                    <form onSubmit={registration} className="Auth-form">
 
                       <label>Create Password
 
@@ -267,7 +399,7 @@ const Auth = (props) => {
                           type="password"
                           className="form-control mt-1"
                           placeholder="Enter password"
-                          value={passRegistration} onChange={onPassRegistration}
+                          value={passRegistration} onChange={e => setPassRegistration(e.target.value)}
                           autoComplete="on"
                           id="pass"
                         />
