@@ -116,6 +116,7 @@ function App() {
       <Route path="/" element={<Layout auth={auth} />}>
         <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
         <Route path="auth" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
+        <Route path="store" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
