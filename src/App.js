@@ -34,7 +34,6 @@ function App() {
 
       credentials: "include",
       method: 'GET',
-      mode: 'cors',
     })
 
     if (!res.ok) { 
@@ -68,7 +67,6 @@ function App() {
     let res = await fetch(`/api/?controller=logout&token=${token}`, {
 
       method: 'GET',
-      mode: 'cors',
     })
 
     if (!res.ok) { 

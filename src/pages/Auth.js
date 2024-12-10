@@ -46,7 +46,7 @@ const Auth = (props) => {
     let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
 
       method: 'OPTIONS',
-      mode: 'cors',
+
       headers: {
         'Authorization': 'Basic ' + btoa(email + ":" + pass)
       }
@@ -80,7 +80,6 @@ const Auth = (props) => {
 
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ Text: ref.current.value.split(' ').join(''), CaptchaToken: captchaToken}),
@@ -116,7 +115,6 @@ const Auth = (props) => {
     let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
 
       method: 'GET',
-      mode: 'cors',
     })
 
     if (!res.ok) { 
@@ -146,8 +144,6 @@ const Auth = (props) => {
     let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
 
       method: 'GET',
-      mode: 'cors',
-
     })
 
     if (!res.ok) { 
@@ -177,7 +173,6 @@ const Auth = (props) => {
     let res = await fetch(`/api/?security=${btoa(security)}&model=signup&controller=registration&token=${token}`, {
 
       method: 'OPTIONS',
-      mode: 'cors',
       headers: {
         'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
       }
@@ -207,7 +202,6 @@ const Auth = (props) => {
     const res = await fetch("/captcha/init", {
 
       method: 'POST',
-      mode: 'cors',
     })
 
     if (!res.ok) { 
