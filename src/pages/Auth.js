@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -12,11 +12,14 @@ const Auth = (props) => {
   } = props;
 
   const navigate = useNavigate();
+  const ref = useRef();
 
   const [captchaForm, setCaptchaForm] = useState(true);
   const [captcha, setCaptcha] = useState("");
+  const [text, setText] = useState("");
 
-  const [classes, setClasses] = useState("displayNone");
+  const [classesAuthorization, setClassesAuthorization] = useState("displayNone");
+  const [classesCaptchaauthorization, setClassesCaptchaauthorization] = useState("displayNone");
   const [classesInitialauthentication, setClassesInitialauthentication] = useState("displayNone");
   const [classesAuthentication, setClassesAuthentication] = useState("displayNone");
   const [classesRegistration, setClassesRegistration] = useState("displayNone");
@@ -37,7 +40,7 @@ const Auth = (props) => {
 
     e.preventDefault();
     setLogin("Loading...");
-    setClasses("display");
+    setClassesAuthorization("display");
 
     let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
 
@@ -64,6 +67,39 @@ const Auth = (props) => {
     }
 
     setLogin(json);
+  }
+
+  const captchaauthorization = async () => {
+
+    setText("Loading...");
+    setClassesCaptchaauthorization("display");
+
+    const res = await fetch("/captcha/authorization", {
+
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ Txt: ref.current.value.split(' ').join('') }),
+    })
+
+    if (!res.ok) { 
+      
+      let err = await res.text();
+      setLoad(err);
+      return;
+    }
+
+    const json = await res.json();
+
+    if (!json.CaptchaForm) {
+
+      setCaptchaForm(false);
+      return;
+    } 
+
+    setText(json.CaptchaForm);
   }
 
   const initialauthentication = async (e) => {
@@ -161,7 +197,7 @@ const Auth = (props) => {
     setSignup(json);
   }
 
-  const fetchCaptcha = useCallback( async () => {
+  const captchainit = useCallback( async () => {
 
     const res = await fetch("/captcha/init", {
 
@@ -182,8 +218,8 @@ const Auth = (props) => {
 
   useEffect(() => {
 
-    fetchCaptcha();
-  }, [fetchCaptcha])
+    captchainit();
+  }, [captchainit])
 
   return (
     <>
@@ -231,7 +267,7 @@ const Auth = (props) => {
 
                 </button>
 
-                <p className={`alert alert-secondary ${classes}`} role="alert">
+                <p className={`alert alert-secondary ${classesAuthorization}`} role="alert">
 
                   {login}
 
@@ -263,46 +299,12 @@ const Auth = (props) => {
                     className="form-control mt-1"
                     type="text"
                     id="txtInput"
+                    ref={ref}
                   />
 
                   <button
                     className="btn btn-light mt-2"
-                    onClick={ async () => {
-
-                      const res = await fetch("/captcha/authorization", {
-
-                        credentials: "include",
-                        method: 'POST',
-                        mode: 'cors',
-                        headers: {
-                          'Accept': 'application/json',
-                          'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ Txt: document.getElementById('txtInput').value.split(' ').join('') }),
-                      })
-
-                      if (!res.ok) {
-
-                        throw new Error(`Response status: ${res.status}`);
-                      }
-                  
-                      const json = await res.json();
-                    
-                      if (!json.CaptchaForm) {
-
-                        setCaptchaForm(false)
-                      } else {
-
-                        const cap = document.getElementById("responseCaptcha");
-
-                        cap.innerHTML = json.CaptchaForm;
-              
-                        setTimeout(() => {
-                  
-                          cap.innerHTML = "Please enter captcha";
-                        }, 2500)
-                      }
-                    }}
+                    onClick={captchaauthorization}
                   >
 
                     Submit
@@ -311,12 +313,18 @@ const Auth = (props) => {
 
                   <button
                     className="btn btn-light mb-3 mt-2"
-                    onClick={() => fetchCaptcha()}
+                    onClick={() => captchainit()}
                   >
 
                     Refresh
 
                   </button>
+
+                  <p className={`alert alert-secondary ${classesCaptchaauthorization}`} role="alert">
+
+                    {text}
+
+                  </p>
 
                 </>
 
@@ -376,7 +384,7 @@ const Auth = (props) => {
 
                       <p className="alert alert-secondary mt-2" role="alert">
 
-                        Check your inbox
+                        Check Your Inbox
 
                       </p>
 
