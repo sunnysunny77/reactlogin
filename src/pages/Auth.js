@@ -81,7 +81,7 @@ const Auth = (props) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ Txt: ref.current.value.split(' ').join('') }),
+      body: JSON.stringify({ Text: ref.current.value.split(' ').join('') }),
     })
 
     if (!res.ok) { 
@@ -93,13 +93,16 @@ const Auth = (props) => {
 
     const json = await res.json();
 
-    if (!json.CaptchaForm) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
-      setCaptchaForm(false);
-      return;
-    } 
+      if (!json.CaptchaForm) {
 
-    setText(json.CaptchaForm);
+        setCaptchaForm(false);
+        return;
+      } 
+
+      setText(json.CaptchaForm);
+    }
   }
 
   const initialauthentication = async (e) => {
@@ -213,7 +216,11 @@ const Auth = (props) => {
     }
 
     const json = await res.json();
-    setCaptcha(json.Canvas)
+    
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
+
+      setCaptcha(json.Canvas);
+    }
   }, [setLoad])
 
   useEffect(() => {

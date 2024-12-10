@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const Home = (props) => {
 
-  const { auth, setLoad } = props;
+  const { token, auth, setLoad } = props;
 
   const resRef = useRef();
   const nameRef = useRef();
@@ -86,7 +86,7 @@ const Home = (props) => {
     form_data.append("email", email);
     form_data.append("text", text);
 
-    let res = await fetch("/api/?controller=enquiry&token=" + props.token, { 
+    let res = await fetch("/api/?controller=enquiry&token=" + token, { 
       
       method: "POST", 
       body: form_data
@@ -99,18 +99,21 @@ const Home = (props) => {
       return;
     }
 
-    res = await res.json();
+    let json = await res.json();
 
-    resRef.current.innerHTML = res.message;
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
 
-    setTimeout(() => {
-      
-      resRef.current.innerHTML = "";
-      setName("");
-      setTel("");
-      setEmail("");
-      setText("");
-    }, 6000);
+      resRef.current.innerHTML = json.message;
+
+      setTimeout(() => {
+        
+        resRef.current.innerHTML = "";
+        setName("");
+        setTel("");
+        setEmail("");
+        setText("");
+      }, 6000);
+    }
   }
 
   return (

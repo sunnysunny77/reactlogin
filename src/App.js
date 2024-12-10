@@ -78,10 +78,15 @@ function App() {
       return;
     }
 
-    setLoad(false);
-    setAuth(false);
-    setToken(token);
-    navigate('/');
+    let json = await res.json();
+
+    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+
+      setLoad(false);
+      setAuth(false);
+      setToken(token);
+      navigate('/');
+    }
   }
 
   if (load) {
