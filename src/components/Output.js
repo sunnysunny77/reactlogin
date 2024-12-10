@@ -4,10 +4,6 @@ import Alert from 'react-bootstrap/Alert';
 const Output = (props) => {
 
   const { load } = props;
-  
-  function createMarkup() {
-    return {__html: load};
-  }
 
   return (
     <React.Fragment>
@@ -16,8 +12,8 @@ const Output = (props) => {
 
       <Alert variant="light" >
 
-        <span dangerouslySetInnerHTML={createMarkup()} />
-        
+        {load}
+
       </Alert>
 
     </React.Fragment>

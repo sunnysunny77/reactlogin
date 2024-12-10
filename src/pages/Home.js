@@ -94,8 +94,7 @@ const Home = (props) => {
 
     if (!res.ok) {
 
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.statusText);
       return;
     }
 

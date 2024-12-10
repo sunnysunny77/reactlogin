@@ -13,7 +13,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const [load, setLoad] = useState("");
+  const [load, setLoad] = useState(true);
 
   const [auth, setAuth] = useState(false);
 
@@ -44,8 +44,7 @@ function App() {
 
     if (!res.ok) { 
       
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.status);
       return;
     }
       
@@ -73,8 +72,7 @@ function App() {
 
     if (!res.ok) { 
 
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.status);
       return;
     }
 
@@ -84,30 +82,37 @@ function App() {
     navigate('/');
   }
 
-  return load ?
-    (
+  if (load) {
+
+    return (
       <Routes>
         <Route path="*" element={<Output load={load} />} />
       </Routes>
-    ) : (
-      auth === true ? (
-        <Routes>
-          <Route path="/" element={<Layout auth={auth} setAuth={logout}/> }>
-            <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
-            <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/" element={<Layout auth={auth} />}>
-            <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
-            <Route path="auth" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      )
-    );
+    )
+  }
+
+  if (auth) {
+
+    return (
+      <Routes>
+        <Route path="/" element={<Layout auth={auth} setAuth={logout}/> }>
+          <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
+          <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    )
+  }
+
+  return (
+    <Routes>
+      <Route path="/" element={<Layout auth={auth} />}>
+        <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
+        <Route path="auth" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  )
 }
 
 export default App;

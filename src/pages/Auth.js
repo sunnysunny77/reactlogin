@@ -49,7 +49,7 @@ const Auth = (props) => {
 
     if (!res.ok) {
 
-      setLoad(res.statusText);
+      setLoad(res.status);
       return;
     }
 
@@ -74,8 +74,7 @@ const Auth = (props) => {
 
     if (!res.ok) { 
 
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.status);
       return;
     }
 
@@ -105,8 +104,7 @@ const Auth = (props) => {
 
     if (!res.ok) { 
 
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.status);
       return;
     }
 
@@ -136,8 +134,7 @@ const Auth = (props) => {
 
     if (!res.ok) { 
 
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.status);
       return;
     }
 
@@ -169,8 +166,7 @@ const Auth = (props) => {
 
     if (!res.ok) { 
 
-      let err = await res.text();
-      setLoad(err);
+      setLoad(res.status);
       return;
     }
 
