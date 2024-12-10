@@ -28,11 +28,6 @@ function App() {
     </section>
   );
 
-  useEffect(() => {
-
-    initialauthorization();
-  }, [])
-
   const initialauthorization = async () => {
 
     let res = await fetch("/api/initialauthorization/?controller=initialauthorization", {
@@ -61,6 +56,11 @@ function App() {
     setToken(json);
     setLoad(false);
   }
+
+  useEffect(() => {
+
+    initialauthorization();
+  }, [])
 
   const logout = async () => {
 

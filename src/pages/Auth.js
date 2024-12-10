@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import React, { useState, useEffect, useCallback  } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -32,29 +32,6 @@ const Auth = (props) => {
   const [emailNew, setEmailNew] = useState("");
   const [security, setSecurity] = useState("");
   const [passRegistration, setPassRegistration] = useState("");
-
-  const fetchCaptcha = useCallback( async () => {
-
-    const res = await fetch("/captcha/init", {
-
-      method: 'POST',
-      mode: 'cors',
-    })
-
-    if (!res.ok) {
-
-      setLoad(res.status);
-      return;
-    }
-
-    const json = await res.json();
-    setCaptcha(json.Canvas)
-  }, [setLoad])
-
-  useEffect(() => {
-
-    fetchCaptcha();
-  }, [fetchCaptcha])
 
   const authorization = async (e) => {
 
@@ -180,6 +157,29 @@ const Auth = (props) => {
 
     setSignup(json);
   }
+
+  const fetchCaptcha = useCallback( async () => {
+
+    const res = await fetch("/captcha/init", {
+
+      method: 'POST',
+      mode: 'cors',
+    })
+
+    if (!res.ok) {
+
+      setLoad(res.status);
+      return;
+    }
+
+    const json = await res.json();
+    setCaptcha(json.Canvas)
+  }, [setLoad])
+
+  useEffect(() => {
+
+    fetchCaptcha();
+  }, [fetchCaptcha])
 
   return (
     <>
