@@ -49,11 +49,11 @@ const Auth = (props) => {
     })
 
     if (!res.ok) { 
-
-      setLoad(res.status);
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
-
     let json = await res.json();
 
     if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
@@ -79,8 +79,9 @@ const Auth = (props) => {
     })
 
     if (!res.ok) { 
-
-      setLoad(res.status);
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
 
@@ -109,8 +110,9 @@ const Auth = (props) => {
     })
 
     if (!res.ok) { 
-
-      setLoad(res.status);
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
 
@@ -141,8 +143,9 @@ const Auth = (props) => {
     })
 
     if (!res.ok) { 
-
-      setLoad(res.status);
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
 
@@ -166,9 +169,10 @@ const Auth = (props) => {
       mode: 'cors',
     })
 
-    if (!res.ok) {
-
-      setLoad(res.status);
+    if (!res.ok) { 
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
 
@@ -247,7 +251,7 @@ const Auth = (props) => {
 
               {captchaForm ? (
 
-                <React.Fragment>
+                <>
 
                   <p id="responseCaptcha">Please enter captcha</p>
 
@@ -314,7 +318,7 @@ const Auth = (props) => {
 
                   </button>
 
-                </React.Fragment>
+                </>
 
               ) : ( factor ? (
 

@@ -39,7 +39,8 @@ function App() {
 
     if (!res.ok) { 
       
-      setLoad(res.status);
+      let err = await res.text();
+      setLoad(err);
       return;
     }
       
@@ -71,8 +72,9 @@ function App() {
     })
 
     if (!res.ok) { 
-
-      setLoad(res.status);
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
 

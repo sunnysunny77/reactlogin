@@ -92,9 +92,10 @@ const Home = (props) => {
       body: form_data
     });
 
-    if (!res.ok) {
-
-      setLoad(res.statusText);
+    if (!res.ok) { 
+      
+      let err = await res.text();
+      setLoad(err);
       return;
     }
 

@@ -8,4 +8,7 @@
 .alert-light {
     background-color: $c5;
     border: none;
+    svg {
+        width: 25%;
+    }
 }

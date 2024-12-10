@@ -3,21 +3,17 @@ import Alert from 'react-bootstrap/Alert';
 
 const NotFound = () => {
   return (
-    <React.Fragment> 
+    <> 
 
-      <br/>
+      <Alert variant="light">
 
-      <Alert  variant="secondary">
-
-        <h1>404 Not Found</h1>
-        
-        <br/>
+        <h1 className="my-3">404 Not Found</h1>
 
         <Alert.Link href="./">Return</Alert.Link>
 
       </Alert>
         
-    </React.Fragment>
+    </>
   );
 }
 

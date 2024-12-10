@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef} from "react";
 import Alert from 'react-bootstrap/Alert';
 
 const Output = (props) => {
 
   const { load } = props;
 
+  const ref = useRef();
+  
+  useEffect(() => {
+
+    if(load !== true) ref.current.innerHTML = load;
+  }, [load])
+
   return (
-    <React.Fragment>
+    <>
 
-      <br />
+      <Alert className="mt-3" ref={ref} variant="light" />
 
-      <Alert variant="light" >
-
-        {load}
-
-      </Alert>
-
-    </React.Fragment>
+    </>
   );
 }
 
