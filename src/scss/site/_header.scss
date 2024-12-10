@@ -31,7 +31,7 @@ header {
         }
     }
     p {
-        color: $c9;  
+        color: $c9;
     }
     .carousel {
         display: flex;
@@ -67,17 +67,15 @@ header {
             background-color: $c9;
         }
     }
-}
-
-.bg-1 {
-    background-color: $c1;
-    height: 162px;
-    @include min_md {
-        height: 209px;
+    .bg-1 {
+        background-color: $c1;
+        height: 162px;
+        @include min_md {
+            height: 209px;
+        }
     }
-}
-
-.bg-11 {
-    background-color: $c10;
-    color: $c10;
+    .bg-11 {
+        background-color: $c10;
+        color: $c10;
+    }
 }

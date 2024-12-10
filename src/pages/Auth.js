@@ -46,7 +46,6 @@ const Auth = (props) => {
     let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
 
       method: 'OPTIONS',
-
       headers: {
         'Authorization': 'Basic ' + btoa(email + ":" + pass)
       }
