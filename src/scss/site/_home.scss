@@ -1,5 +1,5 @@
 #two-col-curve {
-    background-color: $c12;
+    background-color: $c11;
     img {
         object-fit: cover;
         width: 100%;
@@ -17,7 +17,7 @@
     }
     p,
     b {
-        color: $c10;
+        color: $c4;
         background-color: $c5;
     }
     .curve {
@@ -90,10 +90,10 @@
     background-color: $c1;
     div:nth-child(1) {
         h2 {
-            color: $c10;
+            color: $c4;
         }
         p {
-            color: $c10;
+            color: $c4;
         }
     }
     img {
@@ -102,7 +102,7 @@
         height: 100%;
     }
     hr {
-        color: $c10;
+        color: $c9;
     }
 }
 
@@ -136,13 +136,13 @@
         -webkit-appearance: none;
         appearance: none;
         outline: none;
-        background-color: $c14;
-        scrollbar-color: $c10 transparent;
+        background-color: $c11;
+        scrollbar-color: $c9 transparent;
         &::-webkit-scrollbar {
             width: 15px;
         }
         &::-webkit-scrollbar-thumb {
-            background: $c10;
+            background: $c9;
         }
         &::-webkit-scrollbar-track {
             background: transparent;
@@ -151,7 +151,7 @@
     input[type="submit"] {
         width: fit-content;
         color: $c4;
-        background-color: $c14;
+        background-color: $c11;
         font-weight: 400;
         border: 1px solid $c1;
         transition:
@@ -168,12 +168,12 @@
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
         -webkit-text-fill-color: $c4;
-        -webkit-box-shadow: 0 0 0 5rem $c14 inset;
+        -webkit-box-shadow: 0 0 0 5rem $c11 inset;
         -webkit-background-clip: text;
     }
     input.error,
     textarea.error {
-        border-color: $c13;
+        border-color: $c12;
     }
     p {
         background-color: $c5;

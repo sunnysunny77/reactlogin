@@ -1,5 +1,5 @@
 .slider_9-container {
-    background-color: $c11;
+    background-color: $c10;
 }
 
 .slider_9-small-col {
@@ -7,7 +7,7 @@
 }
 
 .slider_9-inner {
-    background-color: $c10;
+    background-color: $c9;
     height: 100%;
     padding: 33%;
     img {
@@ -46,8 +46,8 @@
 
 .slider_9-button-container {
     background-color: $c1;
-    border-top: 1px solid $c10;;
-    border-bottom: 1px solid $c10;;
+    border-top: 1px solid $c9;;
+    border-bottom: 1px solid $c9;;
     @include min_md {
         border: none;
     }
@@ -63,12 +63,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $c10;
+    border: 1px solid $c9;
     transition: transform 0.5s;
     transform: scale(1);
     will-change: transform;
     svg {
-        fill: $c10;
+        fill: $c4;
         width: 20px;
         margin: 0;
         transition: opacity 0.2s ease;

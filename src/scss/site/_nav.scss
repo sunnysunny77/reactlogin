@@ -6,7 +6,7 @@
         position: absolute;
         z-index: 999;
         right: 0;
-        border-left: 1px solid $c10;
+        border-left: 1px solid $c9;
     }
     .navbar-collapse {
         background-color: inherit;
@@ -16,13 +16,13 @@
         max-height: 0;
     }
     a {
-        color: $c4;
+        color: $c9;
         text-decoration: underline;
         text-decoration-color: $c5;
         transition: text-decoration-color 0.2s;
         &:hover,
         &:focus {
-            text-decoration-color: $c4;
+            text-decoration-color: $c9;
         }
     }
     button.navbar-toggler {
@@ -51,7 +51,7 @@
     .slider_8-bar3 {
         width: 24px;
         height: 3px;
-        background-color: $c4;
+        background-color: $c9;
         margin: 4px 0;
         transition: 0.4s;
         border-radius: 1.5px;
