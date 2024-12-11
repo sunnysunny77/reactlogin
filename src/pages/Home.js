@@ -128,7 +128,7 @@ const Home = (props) => {
   <>
     <Header heading="HOME" >
 
-      <div className="col-12 row justify-content-between bg-11 g-0 p-4 p-sm-5 pe-sm-0 pe-xl-5">
+      <div className="col-12 row align-items-center justify-content-between bg-11 g-0 p-4 p-sm-5 pe-sm-0 pe-xl-5">
 
         <p className="row col-12 col-sm-7 col-lg-7 col-xl-5 d-flex align-items-center justify-content-between p-4 g-0">
 
