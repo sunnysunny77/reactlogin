@@ -6,7 +6,7 @@ const Cta = (props) => {
   return (
     <>  
 
-      <div className="container my-lg-5 cta g-0">
+      <div className="container-xl my-lg-5 px-sm-5 px-xl-0 cta g-0">
 
         <a href="./" className="row justify-content-center justify-content-lg-between my-5 g-0">
 

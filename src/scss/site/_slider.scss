@@ -48,7 +48,7 @@
     background-color: $c1;
     border-top: 1px solid $c9;;
     border-bottom: 1px solid $c9;;
-    @include min_md {
+    @include min_sm {
         border: none;
     }
 }

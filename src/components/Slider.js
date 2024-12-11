@@ -70,7 +70,7 @@ const Slider= (props) => {
   return (
     <div className="slider_9-container g-0">
 
-      <div className="row px-md-3 pb-md-5 pb-lg-0 px-lg-0 g-0">
+      <div className="row px-md-3 pb-sm-5 pb-lg-0 px-lg-0 g-0">
 
         <div className="slider_9-small-col col-lg-1 d-none d-lg-block py-5"></div>
 
@@ -78,13 +78,13 @@ const Slider= (props) => {
 
           <div className="col-12 col-lg-6 col-xl-5 d-flex flex-column order-2 order-lg-1">
 
-            <div ref={counters} className="slider_9-inner inner-swap position-relative mt-md-5 mx-md-5 ms-lg-5 me-lg-0">
+            <div ref={counters} className="slider_9-inner inner-swap position-relative mt-md-5 mx-sm-5 ms-lg-5 me-lg-0">
 
               {props.children}
               
             </div>
 
-            <div className="slider_9-button-container row justify-content-between justify-content-md-evenly mb-md-5 mx-md-5 ms-lg-5 me-lg-0 p-5 p-md-4 g-0">
+            <div className="slider_9-button-container row justify-content-between justify-content-md-evenly mb-md-5 mx-sm-5 ms-lg-5 me-lg-0 p-5 p-md-4 g-0">
 
               <div className="col-4 d-flex justify-content-center align-items-center">
 
@@ -114,7 +114,7 @@ const Slider= (props) => {
                   <br/>
                   <br/>
                   {props.bottomParagraph}
-                  
+
                 </p>
 
               </div>

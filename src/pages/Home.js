@@ -307,106 +307,19 @@ const Home = (props) => {
 
     </section>
 
-    <section id="cards">
+    <section id="cards" className="container-xl mb-5 px-sm-4 px-xl-0 g-0">
 
-      <div className="container mb-5 g-0">
+      <div className="row justify-content-center g-0">
 
-        <div className="row justify-content-center g-0">
+        <div className="col-10 col-sm-11 col-lg-10">
 
-          <div className="col-10 col-sm-11 col-lg-10">
+          <h2 className="mt-3 mb-4 mt-sm-5 mb-sm-4"> Vestibulum eu</h2>
+          
+        </div>
 
-            <h2 className="mt-3 mb-4 mt-sm-5 mb-sm-4"> Vestibulum eu</h2>
-            
-          </div>
+        <div className="col-11 col-sm-12 col-xl-11">
 
-          <div className="col-11 col-sm-12 col-xl-11">
-
-            <div className="row g-0">
-
-                <div className="col-6 col-md-4 pt-4">
-
-                  <div className="row h-100 justify-content-center g-0">
-
-                    <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
-
-                      <div>
-
-                        <img src={Fruits} alt="fruits" width="370" height="246"/>
-
-                        <h3 className="w-100 mt-3 mb-2 ps-2"> 
-
-                          In accumsan
-
-                        </h3>
-
-                        <b className="w-100 ps-2">
-
-                          Nec rutrum
-
-                        </b>
-
-                        <p className="w-100 mt-3 mb-3 p-2">
-
-                          Dolor magna. In accumsan
-                          scelerisque lorem nec rutrum. Phasellus et turpis posuere.
-
-                        </p>
-
-                      </div>
-
-                      <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                        Turpis <ArrowRight className="ms-2" />
-
-                      </button>
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-                <div className="col-6 col-md-4 pt-4">
-
-                  <div className="row h-100 justify-content-center g-0">
-
-                    <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
-
-                      <div>
-
-                        <img src={Broccoli} alt="broccoli" width="370" height="246"/>
-
-                        <h3 className="w-100 mt-3 mb-2 ps-2"> 
-
-                          Eleifend eu
-
-                        </h3>
-
-                        <b className="w-100 ps-2">
-
-                          Dolor magn
-
-                        </b>
-
-                        <p className="w-100 mt-3 mb-3 p-2">
-
-                          Eleifend eu. Mauris et dolor magna. 
-
-                        </p>
-
-                      </div>
-
-                      <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                        Turpis <ArrowRight className="ms-2" />
-
-                      </button>
-
-                    </a>
-
-                </div>
-
-              </div>
+          <div className="row g-0">
 
               <div className="col-6 col-md-4 pt-4">
 
@@ -416,66 +329,23 @@ const Home = (props) => {
 
                     <div>
 
-                      <img src={Basil} alt="basil" width="370" height="246"/>
+                      <img src={Fruits} alt="fruits" width="370" height="246"/>
 
                       <h3 className="w-100 mt-3 mb-2 ps-2"> 
 
-                        Lectus eleifend
+                        In accumsan
 
                       </h3>
 
                       <b className="w-100 ps-2">
 
-                        Lorem nec
+                        Nec rutrum
 
                       </b>
 
                       <p className="w-100 mt-3 mb-3 p-2">
 
-                        Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
-                        Dcelerisque lorem nec rutrum. 
-
-                      </p>
-
-                    </div>
-
-                    <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                      Turpis <ArrowRight className="ms-2" />
-
-                    </button>
-
-                  </a>
-
-                </div>
-
-              </div>
-
-              <div className="col-6 col-md-4 pt-4">
-
-                <div className="row h-100 justify-content-center g-0">
-
-                  <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
-
-                    <div>
-
-                      <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
-
-                      <h3 className="w-100 mt-3 mb-2 ps-2"> 
-
-                        Phasellus et
-
-                      </h3>
-
-                      <b className="w-100 ps-2">
-
-                        Scelerisque lorem
-
-                      </b>
-
-                      <p className="w-100 mt-3 mb-3 p-2">
-
-                        Mauris et dolor magna. In accumsan
+                        Dolor magna. In accumsan
                         scelerisque lorem nec rutrum. Phasellus et turpis posuere.
 
                       </p>
@@ -502,23 +372,23 @@ const Home = (props) => {
 
                     <div>
 
-                      <img src={Schwab} alt="schwab" width="370" height="246"/>
+                      <img src={Broccoli} alt="broccoli" width="370" height="246"/>
 
                       <h3 className="w-100 mt-3 mb-2 ps-2"> 
 
-                        Turpis posuere
+                        Eleifend eu
 
                       </h3>
 
                       <b className="w-100 ps-2">
 
-                        Rutrum nec
+                        Dolor magn
 
                       </b>
 
                       <p className="w-100 mt-3 mb-3 p-2">
 
-                        Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+                        Eleifend eu. Mauris et dolor magna. 
 
                       </p>
 
@@ -531,60 +401,186 @@ const Home = (props) => {
                     </button>
 
                   </a>
-
-                </div>
 
               </div>
 
-              <div className="col-6 col-md-4 pt-4">
+            </div>
 
-                <div className="row h-100 justify-content-center g-0">
+            <div className="col-6 col-md-4 pt-4">
 
-                  <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+              <div className="row h-100 justify-content-center g-0">
 
-                    <div>
+                <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                      <img src={Chitto} alt="chitto" width="370" height="246"/>
+                  <div>
 
-                      <h3 className="w-100 mt-3 mb-2 ps-2"> 
+                    <img src={Basil} alt="basil" width="370" height="246"/>
 
-                        Accumsan In 
+                    <h3 className="w-100 mt-3 mb-2 ps-2"> 
 
-                      </h3>
+                      Lectus eleifend
 
-                      <b className="w-100 ps-2">
+                    </h3>
 
-                        lorem rutrum
+                    <b className="w-100 ps-2">
 
-                      </b>
+                      Lorem nec
 
-                      <p className="w-100 mt-3 mb-3 p-2">
+                    </b>
 
-                        Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
-                        scelerisque lorem nec rutrum. 
+                    <p className="w-100 mt-3 mb-3 p-2">
 
-                      </p>
+                      Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
+                      Dcelerisque lorem nec rutrum. 
 
-                    </div>
+                    </p>
 
-                    <button className="w-100 align-self-end text-start ps-3 py-2">
+                  </div>
 
-                      Turpis <ArrowRight className="ms-2" />
+                  <button className="w-100 align-self-end text-start ps-3 py-2">
 
-                    </button>
+                    Turpis <ArrowRight className="ms-2" />
 
-                  </a>
+                  </button>
 
-                </div>
+                </a>
+
+              </div>
+
+            </div>
+
+            <div className="col-6 col-md-4 pt-4">
+
+              <div className="row h-100 justify-content-center g-0">
+
+                <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+
+                  <div>
+
+                    <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
+
+                    <h3 className="w-100 mt-3 mb-2 ps-2"> 
+
+                      Phasellus et
+
+                    </h3>
+
+                    <b className="w-100 ps-2">
+
+                      Scelerisque lorem
+
+                    </b>
+
+                    <p className="w-100 mt-3 mb-3 p-2">
+
+                      Mauris et dolor magna. In accumsan
+                      scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+
+                    </p>
+
+                  </div>
+
+                  <button className="w-100 align-self-end text-start ps-3 py-2">
+
+                    Turpis <ArrowRight className="ms-2" />
+
+                  </button>
+
+                </a>
+
+              </div>
+
+            </div>
+
+            <div className="col-6 col-md-4 pt-4">
+
+              <div className="row h-100 justify-content-center g-0">
+
+                <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+
+                  <div>
+
+                    <img src={Schwab} alt="schwab" width="370" height="246"/>
+
+                    <h3 className="w-100 mt-3 mb-2 ps-2"> 
+
+                      Turpis posuere
+
+                    </h3>
+
+                    <b className="w-100 ps-2">
+
+                      Rutrum nec
+
+                    </b>
+
+                    <p className="w-100 mt-3 mb-3 p-2">
+
+                      Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+
+                    </p>
+
+                  </div>
+
+                  <button className="w-100 align-self-end text-start ps-3 py-2">
+
+                    Turpis <ArrowRight className="ms-2" />
+
+                  </button>
+
+                </a>
+
+              </div>
+
+            </div>
+
+            <div className="col-6 col-md-4 pt-4">
+
+              <div className="row h-100 justify-content-center g-0">
+
+                <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+
+                  <div>
+
+                    <img src={Chitto} alt="chitto" width="370" height="246"/>
+
+                    <h3 className="w-100 mt-3 mb-2 ps-2"> 
+
+                      Accumsan In 
+
+                    </h3>
+
+                    <b className="w-100 ps-2">
+
+                      lorem rutrum
+
+                    </b>
+
+                    <p className="w-100 mt-3 mb-3 p-2">
+
+                      Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
+                      scelerisque lorem nec rutrum. 
+
+                    </p>
+
+                  </div>
+
+                  <button className="w-100 align-self-end text-start ps-3 py-2">
+
+                    Turpis <ArrowRight className="ms-2" />
+
+                  </button>
+
+                </a>
 
               </div>
 
             </div>
 
           </div>
-  
+
         </div>
-      
+
       </div>
 
     </section>
