@@ -20,7 +20,6 @@ const Cta = (props) => {
 
             </div>
 
-
             <div className="col-10 col-md-8 d-flex align-items-center">
 
                 <p className="m-0 py-3 py-md-5 pe-md-5 ps-lg-5">

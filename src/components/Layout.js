@@ -7,9 +7,9 @@ const Layout = (props) => {
 
   const { auth, setAuth } = props;
 
-
   return (
     <>
+
       <Navigation id="top" auth={auth} setAuth={setAuth} />
 
       <main className="d-flex flex-column">
@@ -19,6 +19,7 @@ const Layout = (props) => {
       </main>
 
       <Footer />
+
     </>
   )
 };

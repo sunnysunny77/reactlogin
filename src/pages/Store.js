@@ -16,6 +16,7 @@ const Store = (props) => {
         
     return (
       <>
+
         { (showSpinner && isPending) && <img id="spinner" src={Spinner} alt="Spinner" /> }
 
         <PayPalButtons
@@ -118,12 +119,14 @@ const Store = (props) => {
 
           forceReRender={[count]}
         />
+
       </>
     );
   }
 
   return (
     <>
+    
       <Header heading="STORE" />
   
         <div className="container d-flex align-items-center pt-5 my-5">
@@ -187,6 +190,7 @@ const Store = (props) => {
         </div>
 
       </div>
+
     </>                            
   );
 }

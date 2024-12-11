@@ -67,7 +67,9 @@ const Slider= (props) => {
 
     last(index + 1)
   };
+
   return (
+
     <div className="slider_9-container g-0">
 
       <div className="row px-md-3 pb-sm-5 pb-lg-0 px-lg-0 g-0">
@@ -128,6 +130,7 @@ const Slider= (props) => {
       </div>
 
     </div>
+    
   )
 }
 

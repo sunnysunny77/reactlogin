@@ -226,6 +226,7 @@ const Auth = (props) => {
 
   return (
     <>
+
       <Header heading="AUTH" />
 
       <div className="Auth-form-container w-100">
@@ -447,6 +448,7 @@ const Auth = (props) => {
         </Accordion>
 
       </div>
+      
   </>
   )
 }

@@ -5,6 +5,7 @@ const Header = (props) => {
   const heading = props.heading;
   
   return (
+    
     <header className="container-fluid row g-0">
     
         <div className="row position-relative overflow-hidden g-0">
@@ -22,6 +23,7 @@ const Header = (props) => {
         {props.children}
 
     </header>
+
   )
 }
 

@@ -12,6 +12,7 @@ const Footer = () => {
   }, [])  
 
   return (
+
     <>  
 
       <footer className="row g-0 justify-content-center align-items-center text-center">
@@ -35,6 +36,7 @@ const Footer = () => {
       </footer>
           
     </>
+    
   );
 }
 
