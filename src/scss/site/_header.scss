@@ -32,6 +32,9 @@ header {
     }
     p {
         color: $c4;
+        @include min_sm {
+            height: 100%;
+        }
     }
     .carousel {
         display: flex;
