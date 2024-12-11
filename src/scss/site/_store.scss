@@ -14,25 +14,31 @@
     @include min_md {
         flex-direction: row;
     }
-    .button-container {
-        min-height: 60px;
+    .button-container-inner {
+        height: min-content;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        width: 100%;
+        margin: 0 0 0 1rem;
+    }
+    #spinner {
+        background-color: $c14;
+        border-radius: 28px;
+        display: flex;
         align-items: center;
         width: 100%;
-        @include min_md {
-            width: 75%;
-        }
-        .button-container-inner {
-            display: flex;
-            width: 100%;
+        height: 100%;
+        max-height: 55px;
+        img {
+            object-fit: scale-down;
+            width: 17%;
+            max-height: 55px;
         }
     }
+
     #store {
         width: 100%;
         clip-path: circle(40%);
-        background-color: $c9;
+        background-color: $c4;
         min-width: 182px;
         overflow: hidden;
         @include min_md {
@@ -53,16 +59,6 @@
         span {
             padding: 5.5px 15.5px;
         }
-    }
-    #spinner {
-        height: 55px;
-        width: fit-content;
-        display: block;
-        margin: auto;
-        border: none;
-        background-color: $c4;
-        border-radius: 50%;
-        padding: 0.2rem;
     }
     input {
         width: 50px;

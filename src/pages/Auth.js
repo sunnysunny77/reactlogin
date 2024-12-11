@@ -2,6 +2,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Spinner from "../images/load.gif";
 
 const Auth = (props) => {
 
@@ -40,7 +41,7 @@ const Auth = (props) => {
   const authorization = async (e) => {
 
     e.preventDefault();
-    setLogin("Loading...");
+    setLogin(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesAuthorization("display");
 
     let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
@@ -72,7 +73,7 @@ const Auth = (props) => {
 
   const captchaauthorization = async () => {
 
-    setText("Loading...");
+    setText(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesCaptchaauthorization("display");
 
     const res = await fetch("/captcha/authorization", {
@@ -108,7 +109,7 @@ const Auth = (props) => {
   const initialauthentication = async (e) => {
 
     e.preventDefault();
-    setFactor("Loading...");
+    setFactor(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesInitialauthentication("display");
 
     let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
@@ -137,7 +138,7 @@ const Auth = (props) => {
   const authentication = async (e) => {
 
     e.preventDefault();
-    setCode("Loading...");
+    setCode(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesAuthentication("display");
 
     let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
@@ -166,7 +167,7 @@ const Auth = (props) => {
   const registration = async (e) => {
 
     e.preventDefault();
-    setSignup("Loading...");
+    setSignup(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesRegistration("display");
 
     let res = await fetch(`/api/?security=${btoa(security)}&model=signup&controller=registration&token=${token}`, {

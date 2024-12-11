@@ -68,15 +68,15 @@ header {
             background-color 0.2s ease-in-out;
         &:hover,
         &:focus {
-            color: $c4;
-            background-color: $c9;
+            color: $c10;
+            background-color: $c4;
         }
     }
     .bg-1 {
         background-color: $c1;
         height: 162px;
         @include min_md {
-            height: 209px;
+            height: 208px;
         }
     }
     .bg-11 {

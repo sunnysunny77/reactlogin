@@ -17,7 +17,7 @@ const Store = (props) => {
     return (
       <>
 
-        { (showSpinner && isPending) && <img id="spinner" src={Spinner} alt="Spinner" /> }
+        { (showSpinner && isPending) && <div id="spinner"><img className="mx-2" src={Spinner} alt="Spinner" /></div> }
 
         <PayPalButtons
 
@@ -171,15 +171,11 @@ const Store = (props) => {
 
                 </div>    
 
-                <div className="button-container ps-md-3">
+                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
+                    
+                  <ButtonWrapper showSpinner={true} /> 
 
-                  <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
-                      
-                    <ButtonWrapper showSpinner={true} /> 
-
-                  </PayPalScriptProvider>
-
-                </div>
+                </PayPalScriptProvider>
 
               </div>
 

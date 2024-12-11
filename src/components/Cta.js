@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from 'react-bootstrap-icons';
+import { ArrowRightCircleFill } from 'react-bootstrap-icons';
 
 const Cta = (props) => {
 
@@ -32,9 +32,9 @@ const Cta = (props) => {
 
             <div className="col-11 col-lg-3 d-flex align-items-end justify-content-md-center py-3 px-sm-2 py-sm-4 p-lg-4">
 
-                <button className="w-100 text-start py-3 px-4">
+                <button className="w-100 d-flex justify-content-between  align-items-center text-start py-3 px-4">
                     
-                    {props.button}  <ArrowRight className="ms-3" />
+                    {props.button}  <ArrowRightCircleFill className="ms-3 me-1" />
                     
                 </button>
 

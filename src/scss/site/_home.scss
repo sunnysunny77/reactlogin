@@ -35,23 +35,25 @@
             bottom: 0;
             left: 0;
             @include min_md {
-                border-bottom-left-radius: 66%;
+                border-bottom-left-radius: 67%;
             }
             @include min_lg {
+                border-bottom-left-radius: 72.5%;
+            }
+            @include min_xl {
                 border-left: 60rem solid $c1;
             }
             @include min_xxl {
                 border-left: 80rem solid $c1;
-                border-bottom-left-radius: 75%;
             }
         }
         .inner-curve {
             position: relative;
             z-index: 2;
             @include min_md {
-                padding: 0 0 25% 0;
+                padding: 0 0 26% 0;
             }
-            @include min_xxl {
+            @include min_xl {
                 padding: 5% 0 34% 0;
             }
         }

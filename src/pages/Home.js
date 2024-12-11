@@ -286,7 +286,7 @@ const Home = (props) => {
 
               <div className="col-12 col-md-10">
 
-                <p className="mb-md-5 pe-md-4">
+                <p className="mb-md-5 pe-md-2 pe-xl-5">
 
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu gravida velit.
                     Vestibulum eu posuere
