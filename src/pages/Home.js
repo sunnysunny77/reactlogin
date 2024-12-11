@@ -321,13 +321,13 @@ const Home = (props) => {
 
             <div className="row g-0">
 
-                <div className="col-6 col-md-4 pt-4">
+                <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
 
                   <div className="row h-100 justify-content-center g-0">
 
                     <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                      <div>
+                      <div className="w-100">
 
                         <img src={Fruits} alt="fruits" width="370" height="246"/>
 
@@ -364,13 +364,13 @@ const Home = (props) => {
 
                 </div>
 
-                <div className="col-6 col-md-4 pt-4">
+                <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
 
                   <div className="row h-100 justify-content-center g-0">
 
                     <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                      <div>
+                      <div className="w-100">
 
                         <img src={Broccoli} alt="broccoli" width="370" height="246"/>
 
@@ -406,13 +406,13 @@ const Home = (props) => {
 
               </div>
 
-              <div className="col-6 col-md-4 pt-4">
+              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
 
                 <div className="row h-100 justify-content-center g-0">
 
                   <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                    <div>
+                    <div className="w-100">
 
                       <img src={Basil} alt="basil" width="370" height="246"/>
 
@@ -449,13 +449,13 @@ const Home = (props) => {
 
               </div>
 
-              <div className="col-6 col-md-4 pt-4">
+              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
 
                 <div className="row h-100 justify-content-center g-0">
 
                   <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                    <div>
+                    <div className="w-100">
 
                       <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
 
@@ -492,13 +492,13 @@ const Home = (props) => {
 
               </div>
 
-              <div className="col-6 col-md-4 pt-4">
+              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
 
                 <div className="row h-100 justify-content-center g-0">
 
                   <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                    <div>
+                    <div className="w-100">
 
                       <img src={Schwab} alt="schwab" width="370" height="246"/>
 
@@ -534,13 +534,13 @@ const Home = (props) => {
 
               </div>
 
-              <div className="col-6 col-md-4 pt-4">
+              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
 
                 <div className="row h-100 justify-content-center g-0">
 
                   <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
 
-                    <div>
+                    <div className="w-100">
 
                       <img src={Chitto} alt="chitto" width="370" height="246"/>
 

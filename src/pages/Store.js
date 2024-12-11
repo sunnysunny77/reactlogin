@@ -48,7 +48,7 @@ const Store = (props) => {
                       item_total: {
                         currency_code: "AUD",
                         value: value
-                    }
+                      }
                     }
                   },
                   items: [
