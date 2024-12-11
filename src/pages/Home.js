@@ -128,9 +128,9 @@ const Home = (props) => {
   <>
     <Header heading="HOME" >
 
-      <div className="col-12 row justify-content-between bg-11 g-0 p-4 p-sm-5">
+      <div className="col-12 row justify-content-between bg-11 g-0 p-4 p-sm-5 pe-sm-0 pe-xl-5">
 
-        <p className="row col-12 col-sm-8 col-lg-7 col-xl-5 d-flex align-items-center justify-content-between p-4 g-0">
+        <p className="row col-12 col-sm-7 col-lg-7 col-xl-5 d-flex align-items-center justify-content-between p-4 g-0">
 
           <span className="col-11 col-md-9">Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>
 
@@ -146,7 +146,7 @@ const Home = (props) => {
 
         </p>
 
-        <Carousel pause={false} interval={1000} controls={false} className="col-12 col-sm-4 ps-sm-5">
+        <Carousel pause={false} interval={1500} controls={false} className="col-6 col-sm-4 mx-auto mx-xl-0">
 
           <Carousel.Item>
 

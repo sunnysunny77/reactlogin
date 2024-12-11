@@ -45,13 +45,15 @@ header {
             display: flex;
             align-items: center;
             order: 1;
-            height: 100%;
-            width: 200px;
-            min-height: 200px;
+            width: 100%;
+            min-height: 180px;
+            max-width: 180px;
             img {
                 display: flex;
                 margin: auto;
                 align-items: center;
+                width: 100%;
+                object-fit: scale-down;
             }
         }
     }
