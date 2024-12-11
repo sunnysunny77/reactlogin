@@ -47,7 +47,6 @@
         .inner-curve {
             position: relative;
             z-index: 2;
-
             @include min_md {
                 padding: 5% 0 33% 0;
             }
