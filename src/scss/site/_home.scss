@@ -106,6 +106,51 @@
     }
 }
 
+#cards {
+    a {
+        text-decoration: none;
+    }
+    img {
+        width: 100%;
+        height: fit-content;
+        object-fit: cover;
+    }
+    h3 {
+        font-weight: 600;
+        font-size: 20px;
+        color: $c4;
+    }
+    b {
+        color: $c4;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    p {
+        color: $c4;
+        font-size: 16px;
+        font-weight: 400; 
+    }
+    button {
+        background-color: $c4;
+        border: none;
+        color: $c8;
+    }
+    svg {
+        transition: transform 0.3s;
+        will-change: transform;
+        transform: translateX(0);
+    }
+    .card-inner {
+        background-color: $c1;
+        &:hover,
+        &:focus {
+            svg {
+                transform: translateX(50%);
+            }
+        }
+    }
+}
+
 #enquiry {
     input,
     label,

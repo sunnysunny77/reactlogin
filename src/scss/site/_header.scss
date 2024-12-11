@@ -31,7 +31,7 @@ header {
         }
     }
     p {
-        color: $c9;
+        color: $c4;
     }
     .carousel {
         display: flex;
@@ -57,13 +57,13 @@ header {
     }
     a {
         text-decoration: none;
-        color: $c9;
+        color: $c4;
         transition:
             color 0.2s ease-in-out,
             background-color 0.2s ease-in-out;
         &:hover,
         &:focus {
-            color: $c9;
+            color: $c4;
             background-color: $c9;
         }
     }

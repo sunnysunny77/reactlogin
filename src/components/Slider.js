@@ -10,12 +10,12 @@ const Slider= (props) => {
 
   const first = (index) => {
 
-    counters.current.children[0].children[index].classList.add("has-fade");
+    counters.current.children[index].classList.add("has-fade");
 
     setTimeout(()=>{
 
-      counters.current.children[0].children[index].classList.remove("has-current");
-      counters.current.children[0].children[index].classList.remove("has-fade");
+      counters.current.children[index].classList.remove("has-current");
+      counters.current.children[index].classList.remove("has-fade");
     },100);
   }
 
@@ -23,11 +23,11 @@ const Slider= (props) => {
 
     setTimeout(()=>{
 
-      counters.current.children[0].children[index].classList.add("has-current");
-      counters.current.children[0].children[index].classList.add("has-fade");
+      counters.current.children[index].classList.add("has-current");
+      counters.current.children[index].classList.add("has-fade");
       setTimeout(()=>{
 
-        counters.current.children[0].children[index].classList.remove("has-fade");
+        counters.current.children[index].classList.remove("has-fade");
       },100);
     },100);
   }
@@ -40,9 +40,9 @@ const Slider= (props) => {
 
     if (index === 0) {
 
-      setIndex(counters.current.children[0].children.length - 1);
+      setIndex(counters.current.children.length - 1);
 
-      last(counters.current.children[0].children.length - 1)
+      last(counters.current.children.length - 1)
 
       return
     }
@@ -56,7 +56,7 @@ const Slider= (props) => {
 
     setIndex(index + 1);
 
-    if (index === counters.current.children[0].children.length - 1) {
+    if (index === counters.current.children.length - 1) {
 
       setIndex(0);
 
@@ -80,7 +80,7 @@ const Slider= (props) => {
 
             <div ref={counters} className="slider_9-inner inner-swap position-relative mt-md-5 mx-md-5 ms-lg-5 me-lg-0">
 
-              {props.children[0]}
+              {props.children}
               
             </div>
 
@@ -108,7 +108,14 @@ const Slider= (props) => {
 
               <div className="slider_9-large-col col-8 col-lg-10 h-100 d-flex justify-content-center align-items-center">
 
-                {props.children[1]}
+                <p className="m-0">
+
+                  {props.topParagraph}
+                  <br/>
+                  <br/>
+                  {props.bottomParagraph}
+                  
+                </p>
 
               </div>
 

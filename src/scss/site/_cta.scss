@@ -1,0 +1,30 @@
+.cta {
+    a {
+        text-decoration: none;
+        background-color: $c10;
+        &:hover,
+        &:focus {
+            background-color: rgba($c10, 0.95);
+            svg {
+                transform: translateX(50%);
+            }
+        }
+    }
+    p {
+        background-color: $c5;
+        color: $c4;
+    }
+    h2 {
+        color: $c4; 
+    }
+    button {
+        background-color: $c11;
+        border: none;
+        color: $c4;
+    }
+    svg {
+        transition: transform 0.3s;
+        will-change: transform;
+        transform: translateX(0);
+    }
+}
