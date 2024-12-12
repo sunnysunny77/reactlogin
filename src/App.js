@@ -17,8 +17,6 @@ function App() {
 
   const [auth, setAuth] = useState(false);
 
-  const [token, setToken] = useState(false);
-
   const [order, setOrder] = useState(
     <section>
       <h2 className="my-5">Food $20</h2> 
@@ -30,7 +28,7 @@ function App() {
 
   const initialauthorization = async () => {
 
-    let res = await fetch("/api/initialauthorization/?controller=initialauthorization", {
+    let res = await fetch(`/api/initialauthorization/?controller=initialauthorization&key=${btoa(process.env.REACT_APP_KEY)}`, {
 
       credentials: "include",
       method: 'GET',
@@ -47,13 +45,13 @@ function App() {
  
     if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
-      setToken(json.token);
+      localStorage.setItem("token", json.token);
       setAuth(true);
       setLoad(false);
       return;
     }
 
-    setToken(json);
+    localStorage.setItem("token", json);
     setLoad(false);
   }
 
@@ -63,6 +61,8 @@ function App() {
   }, [])
 
   const logout = async () => {
+
+    const token = localStorage.getItem("token");
 
     let res = await fetch(`/api/?controller=logout&token=${token}`, {
 
@@ -78,11 +78,10 @@ function App() {
 
     let json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       setLoad(false);
       setAuth(false);
-      setToken(token);
       navigate('/');
     }
   }
@@ -101,7 +100,7 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout}/> }>
-          <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
+          <Route index element={<Home auth={auth} setLoad={e => setLoad(e)} />} />
           <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
         </Route>
         <Route path="*" element={<NotFound />} />
@@ -112,9 +111,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout auth={auth} />}>
-        <Route index element={<Home token={token} auth={auth} setLoad={e => setLoad(e)} />} />
-        <Route path="auth" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
-        <Route path="store" element={<Auth token={token} setToken={e => setToken(e)} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
+        <Route index element={<Home auth={auth} setLoad={e => setLoad(e)} />} />
+        <Route path="auth" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
+        <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

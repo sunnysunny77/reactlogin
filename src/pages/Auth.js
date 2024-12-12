@@ -7,7 +7,6 @@ import Spinner from "../images/load.gif";
 const Auth = (props) => {
 
   const {
-    token,
     setLoad,
     setAuth
   } = props;
@@ -15,7 +14,6 @@ const Auth = (props) => {
   const navigate = useNavigate();
   const ref = useRef();
 
-  const [captchaToken, setCaptchaToken] = useState(true);
   const [captchaForm, setCaptchaForm] = useState(true);
   const [captcha, setCaptcha] = useState("");
   const [text, setText] = useState("");
@@ -44,6 +42,8 @@ const Auth = (props) => {
     setLogin(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesAuthorization("display");
 
+    const token = localStorage.getItem("token");
+
     let res = await fetch(`/api/?model=login&controller=authorization&token=${token}`, {
 
       method: 'OPTIONS',
@@ -61,7 +61,7 @@ const Auth = (props) => {
 
     let json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       setAuth(true);
       navigate('/store');
@@ -76,13 +76,15 @@ const Auth = (props) => {
     setText(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesCaptchaauthorization("display");
 
+    const captchaToken = localStorage.getItem("captchaToken");
+
     const res = await fetch("/captcha/authorization", {
 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ Text: ref.current.value.split(' ').join(''), CaptchaToken: captchaToken}),
+      body: JSON.stringify({ Text: ref.current.value.split(' ').join(''), CaptchaToken: captchaToken }),
     })
 
     if (!res.ok) { 
@@ -94,7 +96,7 @@ const Auth = (props) => {
 
     const json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.CaptchaToken === captchaToken) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       if (!json.CaptchaForm) {
 
@@ -112,6 +114,8 @@ const Auth = (props) => {
     setFactor(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesInitialauthentication("display");
 
+    const token = localStorage.getItem("token");
+
     let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
 
       method: 'GET',
@@ -126,7 +130,7 @@ const Auth = (props) => {
 
     let json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       setFactor(false);
       return;
@@ -140,6 +144,8 @@ const Auth = (props) => {
     e.preventDefault();
     setCode(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesAuthentication("display");
+
+    const token = localStorage.getItem("token");
 
     let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
 
@@ -155,7 +161,7 @@ const Auth = (props) => {
 
     let json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       setCode(false);
       return;
@@ -169,6 +175,8 @@ const Auth = (props) => {
     e.preventDefault();
     setSignup(<img className="spinner" src={Spinner} alt="Spinner" />);
     setClassesRegistration("display");
+
+    const token = localStorage.getItem("token");
 
     let res = await fetch(`/api/?security=${btoa(security)}&model=signup&controller=registration&token=${token}`, {
 
@@ -187,7 +195,7 @@ const Auth = (props) => {
 
     let json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       setAuth(true);
       navigate('/store');
@@ -202,6 +210,10 @@ const Auth = (props) => {
     const res = await fetch("/captcha/init", {
 
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ key: btoa(process.env.REACT_APP_KEY) }),
     })
 
     if (!res.ok) { 
@@ -215,7 +227,7 @@ const Auth = (props) => {
     
     if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
-      setCaptchaToken(json.CaptchaToken)
+      localStorage.setItem("captchaToken", json.CaptchaToken);
       setCaptcha(json.Canvas);
     }
   }, [setLoad])

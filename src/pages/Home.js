@@ -21,7 +21,7 @@ import { ArrowRight } from 'react-bootstrap-icons';
 
 const Home = (props) => {
 
-  const { token, auth, setLoad } = props;
+  const { auth, setLoad } = props;
 
   const resRef = useRef();
   const nameRef = useRef();
@@ -94,6 +94,8 @@ const Home = (props) => {
     form_data.append("email", email);
     form_data.append("text", text);
 
+    const token = localStorage.getItem("token");
+
     let res = await fetch(`/api/?controller=enquiry&token=${token}`, { 
       
       method: "POST", 
@@ -109,7 +111,7 @@ const Home = (props) => {
 
     let json = await res.json();
 
-    if (json.key === btoa(process.env.REACT_APP_KEY) && json.token === token) {
+    if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       resRef.current.innerHTML = json.message;
 
