@@ -17,7 +17,7 @@ const Store = (props) => {
     return (
       <>
 
-        { (showSpinner && isPending) && <div id="spinner"><img className="mx-2" src={Spinner} alt="Spinner" /></div> }
+        { (showSpinner && isPending) && <img id="spinner" className="col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> }
 
         <PayPalButtons
 
@@ -30,7 +30,7 @@ const Store = (props) => {
             disableMaxWidth: true,
           }}
 
-          className="button-container-inner"
+          className="button-container-inner col-10 col-xl-5"
 
           createOrder={(data, actions) => {
 
@@ -133,19 +133,20 @@ const Store = (props) => {
             
           <div className="row justify-content-center w-100 g-0">
 
-            <div className="col-10">
+            <div className="col-10 ">
 
-              <div id="payPal">
+              <div id="payPal" className="row justify-content-center justify-content-xl-evenly align-items-xl-center g-0 pb-5 pb-xl-0">
 
-                <div id="store" className="my-5 p-0">
+                <div id="store" className="col-10 col-md-4 my-5 p-0">
 
                     <img src={Food} alt="Food" width="366" height="366" />
 
                 </div>
 
-                <div id="counter" className="my-5">
+                <div id="counter" className="col-6 col-xl-auto d-flex flex-xl-column justify-content-center align-items-center">
 
                   <span
+                    className="text-center me-xl-4"
                     role="button"
                     onClick={() => {
 
@@ -157,9 +158,10 @@ const Store = (props) => {
 
                   <label aria-label="Quantity" htmlFor="count" className="hidden">Quantity</label>
 
-                  <input disabled={true} id="count" type="text" value={count} />
+                  <input disabled={true} id="count" className="text-center m-4 ms-xl-0" type="text" value={count} />
 
                   <span
+                    className="text-center me-xl-4"
                     role="button"
                     onClick={() => {
 
@@ -169,7 +171,7 @@ const Store = (props) => {
                     +
                   </span>
 
-                </div>    
+                </div>
 
                 <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
                     

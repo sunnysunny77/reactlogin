@@ -1,3 +1,15 @@
+@mixin min_xxs {
+    @media only screen and (min-width: 327px) {
+        @content;
+    }
+}
+
+@mixin min_xs {
+    @media only screen and (min-width: 470px) {
+        @content;
+    }
+}
+
 @mixin min_sm {
     @media only screen and (min-width: 576px) {
         @content;

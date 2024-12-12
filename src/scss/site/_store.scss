@@ -1,49 +1,14 @@
 #payPal {
-    text-align: center;
     font-size: larger;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 2rem;
     background-color: $c1;
-    @include min_md {
-        flex-direction: row;
-    }
-    .button-container-inner {
-        height: min-content;
-        display: flex;
-        width: 100%;
-        margin: 0 0 0 1rem;
-    }
-    #spinner {
-        background-color: $c14;
-        border-radius: 28px;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        max-height: 55px;
-        img {
-            object-fit: scale-down;
-            width: 17%;
-            max-height: 55px;
-        }
-    }
-
     #store {
-        width: 100%;
         clip-path: circle(40%);
         background-color: $c4;
-        min-width: 182px;
         overflow: hidden;
-        @include min_md {
-            width: 25%;
-        }
         img {
             width: 100%;
             height: 100%;
@@ -51,27 +16,45 @@
         }
     }
     #counter {
-        width: 100%;
         color: $c4;
-        @include min_md {
-            width: 95px;
-        }
         span {
-            padding: 5.5px 15.5px;
+            width: 40px;
+            height: 40px;
         }
     }
     input {
-        width: 50px;
-        text-align: center;
-        margin: 20px;
         color: $c4;
         border: none;
         background: none;
         -webkit-text-fill-color: $c4;
         opacity: 1;
+        width: 40px;
+        height: 40px;
     }
     input:disabled {
         color: $c4;
+    }
+    #spinner {
+        object-fit: scale-down;
+        display: block;
+        background-color: $c14;
+        border-radius: 28px;
+        height: 25px;
+        @include min_xxs {
+            height: 35px
+        }
+        @include min_xs {
+            height: 45px;  
+        }
+        @include min_lg {
+            height: 55px;  
+        }
+        @include min_xl {
+            height: 45px;  
+        }
+    }
+    .button-container-inner {
+        display: flex;
     }
 }
 
