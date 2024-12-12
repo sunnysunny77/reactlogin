@@ -38,10 +38,11 @@
         object-fit: scale-down;
         display: block;
         background-color: $c14;
-        border-radius: 18px;
+        border-radius: 13px;
         height: 25px;
         @include min_xxs {
-            height: 35px
+            height: 35px;
+            border-radius: 18px;
         }
         @include min_xs {
             height: 45px;
