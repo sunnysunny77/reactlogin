@@ -38,19 +38,22 @@
         object-fit: scale-down;
         display: block;
         background-color: $c14;
-        border-radius: 28px;
+        border-radius: 18px;
         height: 25px;
         @include min_xxs {
             height: 35px
         }
         @include min_xs {
-            height: 45px;  
+            height: 45px;
+            border-radius: 23px;  
         }
         @include min_lg {
             height: 55px;  
+            border-radius: 28px;
         }
         @include min_xl {
             height: 45px;  
+            border-radius: 23px;  
         }
     }
     .button-container-inner {
