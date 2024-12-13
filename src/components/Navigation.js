@@ -43,7 +43,7 @@ const Navigation = (props) => {
 
       <div className="row w-100 justify-content-between m-0 g-0">
 
-        <Link className="col-auto m-2 me-3"  to="/" >
+        <Link className="col-auto m-2 me-3"  to="/">
 
           <svg aria-label="Super Foods" viewBox="0 0 100 100" width="60" height="60">
 
@@ -93,11 +93,11 @@ const Navigation = (props) => {
 
               <ul className="list-unstyled ms-3 my-3">
 
-                <li className="mb-1"><Link to="/" > Home </Link></li>
+                <li className="mb-1"><Link to="/"> Home </Link></li>
 
-                <li className="mb-1"><Link to="store" > Store </Link></li>
+                <li className="mb-1"><Link to="store"> Store </Link></li>
 
-                <li><Link onClick={setAuth} > Sign out </Link></li>
+                <li><Link onClick={setAuth}> Sign out </Link></li>
             
               </ul>
 
@@ -109,11 +109,11 @@ const Navigation = (props) => {
 
               <ul className="list-unstyled ms-3 my-3">
 
-                <li className="mb-1"><Link to="/" > Home </Link></li>
+                <li className="mb-1"><Link to="/"> Home </Link></li>
 
-                <li className="mb-1"><Link to="auth" > Store </Link></li>
+                <li className="mb-1"><Link to="auth"> Store </Link></li>
 
-                <li><Link to="auth"  > Sign in </Link></li>
+                <li><Link to="auth"> Sign in </Link></li>
                             
               </ul>
 

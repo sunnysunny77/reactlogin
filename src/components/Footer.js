@@ -20,23 +20,23 @@ const Footer = (props) => {
 
       <footer>
 
-        <div className="container-md g-0">
+        <div className="container-lg py-3 py-lg-5 g-0">
 
-          <div className="row justify-content-md-center px-4 py-4 py-md-5 g-0">
+          <div className="row justify-content-xxl-center px-4 py-4 py-md-5 g-0">
 
-            <div className="col-12 col-xxl-11 pt-3 mb-4 my-md-4">
+            <div className="col-12 col-xxl-11 pb-2 pb-md-4">
 
-              <div className="row d-flex flex-column-reverse flex-md-row justify-content-between g-0">
+              <div className="row d-flex flex-column-reverse flex-md-row justify-content-md-between g-0">
 
-                <div className="col-12 col-md-7">
+                <div className="col-12 col-md-7 pt-3 pt-md-0">
+
+                  <hr className="w-100"/>
 
                   <div className="row justify-content-between justify-content-sm-around g-0 mt-4 mt-md-0">
 
-                    <hr className="w-100 pt-3"/>
-
                     <div className="col-auto pb-3 ps-1 pe-3">
 
-                      <Link to="/" >
+                      <Link to="/">
                       
                         <svg aria-label="Super Foods" viewBox="0 0 100 100" width="40" height="40">
 
@@ -84,35 +84,37 @@ const Footer = (props) => {
 
                 <div className="col-4 col-md-2">
 
-                  <hr className="w-100 mt-md-0"/>
+                  <hr className="w-100"/>
 
                   <ul className="list-unstyled text-md-end m-0 p-0">
 
                     <li>
 
-                      <Link to="/" > Home </Link>
+                      <Link to="/"> Home </Link>
 
                     </li>
 
                     <li>
 
-                      <Link to="store" > Store </Link>
+                      <Link to="store"> Store </Link>
 
                     </li>
 
                     <li>
 
-                    {auth ? 
+                      {auth ? 
 
-                      ( 
-                        
-                        <Link onClick={setAuth} > Sign out </Link>
+                        ( 
+                          
+                          <Link onClick={setAuth}> Sign out </Link>
 
-                      ) : (
+                        ) : (
 
-                        <Link to="auth"  > Sign in </Link>
+                          <Link to="auth"> Sign in </Link>
 
-                    )}
+                        )
+
+                      }
 
                     </li>
 
@@ -124,7 +126,7 @@ const Footer = (props) => {
 
             </div>
 
-            <div className="col-12 col-xxl-11 d-flex flex-wrap pb-3">
+            <div className="col-12 col-xxl-11">
 
               <hr className="w-100" />  
 
