@@ -39,13 +39,13 @@ const Navigation = (props) => {
 
   return (  
 
-    <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center border-bottom p-0">
+    <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center p-0">
 
       <div className="row w-100 justify-content-between m-0 g-0">
 
-        <Link className="col-auto m-2 me-3"  to="/">
+        <Link className="col-auto m-3"  to="/">
 
-          <svg aria-label="Super Foods" viewBox="0 0 100 100" width="60" height="60">
+          <svg aria-label="Super Foods" viewBox="0 0 100 100" width="50" height="50">
 
             <defs>
                 <path 
@@ -72,7 +72,7 @@ const Navigation = (props) => {
         </Link>
 
         <div ref={navbar_toggler} onClick={toogle} 
-          aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed border-start p-4"
+          aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed p-4"
           >
 
           <div>
@@ -89,7 +89,7 @@ const Navigation = (props) => {
 
         {auth ? (
 
-            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
+            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse">
 
               <ul className="list-unstyled ms-3 my-3">
 
@@ -105,7 +105,7 @@ const Navigation = (props) => {
 
           ) : (
 
-            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse border-top">
+            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse">
 
               <ul className="list-unstyled ms-3 my-3">
 

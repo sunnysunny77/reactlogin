@@ -6,7 +6,6 @@
         position: absolute;
         z-index: 999;
         right: 0;
-        border-left: 1px solid $c9;
     }
     .navbar-collapse {
         background-color: inherit;
@@ -14,6 +13,11 @@
         will-change: max-height;
         overflow: hidden;
         max-height: 0;
+        border-top: 1px solid $c9;
+        border-bottom: 1px solid $c9;
+        @include min_md {
+            border: none;
+        }
     }
     a {
         color: $c9;
