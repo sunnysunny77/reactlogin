@@ -117,8 +117,10 @@
     }
     img {
         width: 100%;
-        height: fit-content;
+        height: 100%;
         object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.3s;
     }
     h3 {
         font-weight: 600;
@@ -145,13 +147,25 @@
         will-change: transform;
         transform: translateX(0);
     }
-    .card-inner {
-        background-color: $c1;
+    .card {
+        width: 80%;
+        @include min_sm {
+            width: 48%; 
+        }
+        @include min_lg {
+            width: 31.5%; 
+        }
         &:hover,
         &:focus {
+            img {
+                transform: scale(1.03);
+            }
             svg {
                 transform: translateX(50%);
             }
+        }
+        .card-inner {
+            background-color: $c1;
         }
     }
 }

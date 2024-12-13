@@ -309,7 +309,7 @@ const Home = (props) => {
 
       </section>
 
-      <section id="cards" className="container-xl mb-5 px-sm-4 px-xl-0 g-0">
+      <section id="cards" className="container-xl mb-5 g-0">
 
         <div className="row justify-content-center g-0">
 
@@ -319,267 +319,239 @@ const Home = (props) => {
             
           </div>
 
-          <div className="col-11 col-sm-12 col-xl-11">
+          <div className="col-12 col-sm-11 col-lg-12 d-flex flex-wrap justify-content-center justify-content-sm-between justify-content-lg-evenly px-lg-5 px-xl-4">
 
-            <div className="row g-0">
+              <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
 
-                <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
+                <div className="card-inner h-100">
 
-                  <div className="row h-100 justify-content-center g-0">
+                  <div className="overflow-hidden">
 
-                    <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
-
-                      <div className="w-100">
-
-                        <img src={Fruits} alt="fruits" width="370" height="246"/>
-
-                        <h3 className="w-100 mt-3 mb-2 ps-2"> 
-
-                          In accumsan
-
-                        </h3>
-
-                        <b className="w-100 ps-2">
-
-                          Nec rutrum
-
-                        </b>
-
-                        <p className="w-100 mt-3 mb-3 p-2">
-
-                          Dolor magna. In accumsan
-                          scelerisque lorem nec rutrum. Phasellus et turpis posuere.
-
-                        </p>
-
-                      </div>
-
-                      <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                        Turpis <ArrowRight className="ms-2" />
-
-                      </button>
-
-                    </a>
+                    <img src={Fruits} alt="fruits" width="370" height="246"/>
 
                   </div>
 
-                </div>
+                  <h3 className="mt-3 mb-2 ps-2"> 
 
-                <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
+                    In accumsan
 
-                  <div className="row h-100 justify-content-center g-0">
+                  </h3>
 
-                    <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+                  <b className="d-block w-100 ps-2">
 
-                      <div className="w-100">
+                    Nec rutrum
 
-                        <img src={Broccoli} alt="broccoli" width="370" height="246"/>
+                  </b>
 
-                        <h3 className="w-100 mt-3 mb-2 ps-2"> 
+                  <p className="mt-3 mb-3 p-2">
 
-                          Eleifend eu
+                    Dolor magna. In accumsan
+                    scelerisque lorem nec rutrum. Phasellus et turpis posuere.
 
-                        </h3>
-
-                        <b className="w-100 ps-2">
-
-                          Dolor magn
-
-                        </b>
-
-                        <p className="w-100 mt-3 mb-3 p-2">
-
-                          Eleifend eu. Mauris et dolor magna. 
-
-                        </p>
-
-                      </div>
-
-                      <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                        Turpis <ArrowRight className="ms-2" />
-
-                      </button>
-
-                    </a>
+                  </p>
 
                 </div>
+
+                <button className="w-100 text-start ps-3 py-2">
+
+                  Turpis <ArrowRight className="ms-2" />
+
+                </button>
+
+              </a>
+
+              <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+
+                <div className="card-inner h-100">
+
+                  <div className="overflow-hidden">
+
+                    <img src={Broccoli} alt="broccoli" width="370" height="246"/>
+
+                  </div>
+
+                  <h3 className="mt-3 mb-2 ps-2"> 
+
+                    Eleifend eu
+
+                  </h3>
+
+                  <b className="d-block w-100 ps-2">
+
+                    Dolor magn
+
+                  </b>
+
+                  <p className="mt-3 mb-3 p-2">
+
+                    Eleifend eu. Mauris et dolor magna. 
+
+                  </p>
+
+                </div>
+
+                <button className="w-100 text-start ps-3 py-2">
+
+                  Turpis <ArrowRight className="ms-2" />
+
+                </button>
+
+              </a>
+
+            <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+
+              <div className="card-inner h-100">
+
+                <div className="overflow-hidden">
+
+                  <img src={Basil} alt="basil" width="370" height="246"/>
+
+                </div>
+
+                <h3 className="mt-3 mb-2 ps-2"> 
+
+                  Lectus eleifend
+
+                </h3>
+
+                <b className="d-block w-100 ps-2">
+
+                  Lorem nec
+
+                </b>
+
+                <p className="mt-3 mb-3 p-2">
+
+                  Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
+                  Dcelerisque lorem nec rutrum. 
+
+                </p>
 
               </div>
 
-              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
+              <button className="w-100 text-start ps-3 py-2">
 
-                <div className="row h-100 justify-content-center g-0">
+                Turpis <ArrowRight className="ms-2" />
 
-                  <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+              </button>
 
-                    <div className="w-100">
+            </a>
 
-                      <img src={Basil} alt="basil" width="370" height="246"/>
+            <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
 
-                      <h3 className="w-100 mt-3 mb-2 ps-2"> 
+              <div className="card-inner h-100">
 
-                        Lectus eleifend
+                <div className="overflow-hidden">
 
-                      </h3>
-
-                      <b className="w-100 ps-2">
-
-                        Lorem nec
-
-                      </b>
-
-                      <p className="w-100 mt-3 mb-3 p-2">
-
-                        Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
-                        Dcelerisque lorem nec rutrum. 
-
-                      </p>
-
-                    </div>
-
-                    <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                      Turpis <ArrowRight className="ms-2" />
-
-                    </button>
-
-                  </a>
+                  <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
 
                 </div>
 
+                <h3 className="mt-3 mb-2 ps-2"> 
+
+                  Phasellus et
+
+                </h3>
+
+                <b className="d-block w-100 ps-2">
+
+                  Scelerisque lorem
+
+                </b>
+
+                <p className="mt-3 mb-3 p-2">
+
+                  Mauris et dolor magna. In accumsan
+                  scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+
+                </p>
+
               </div>
 
-              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
+              <button className="w-100 text-start ps-3 py-2">
 
-                <div className="row h-100 justify-content-center g-0">
+                Turpis <ArrowRight className="ms-2" />
 
-                  <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+              </button>
 
-                    <div className="w-100">
+            </a>
 
-                      <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
+            <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
 
-                      <h3 className="w-100 mt-3 mb-2 ps-2"> 
+              <div className="card-inner h-100">
 
-                        Phasellus et
+                <div className="overflow-hidden">
 
-                      </h3>
-
-                      <b className="w-100 ps-2">
-
-                        Scelerisque lorem
-
-                      </b>
-
-                      <p className="w-100 mt-3 mb-3 p-2">
-
-                        Mauris et dolor magna. In accumsan
-                        scelerisque lorem nec rutrum. Phasellus et turpis posuere.
-
-                      </p>
-
-                    </div>
-
-                    <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                      Turpis <ArrowRight className="ms-2" />
-
-                    </button>
-
-                  </a>
+                  <img src={Schwab} alt="schwab" width="370" height="246"/>
 
                 </div>
 
+                <h3 className="mt-3 mb-2 ps-2"> 
+
+                  Turpis posuere
+
+                </h3>
+
+                <b className="d-block w-100 ps-2">
+
+                  Rutrum nec
+
+                </b>
+
+                <p className="mt-3 mb-3 p-2">
+
+                  Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+
+                </p>
+
               </div>
 
-              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
+              <button className="w-100 text-start ps-3 py-2">
 
-                <div className="row h-100 justify-content-center g-0">
+                Turpis <ArrowRight className="ms-2" />
 
-                  <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+              </button>
 
-                    <div className="w-100">
+            </a>
 
-                      <img src={Schwab} alt="schwab" width="370" height="246"/>
+            <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
 
-                      <h3 className="w-100 mt-3 mb-2 ps-2"> 
+              <div className="card-inner h-100">
 
-                        Turpis posuere
+                <div className="overflow-hidden">
 
-                      </h3>
-
-                      <b className="w-100 ps-2">
-
-                        Rutrum nec
-
-                      </b>
-
-                      <p className="w-100 mt-3 mb-3 p-2">
-
-                        Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
-
-                      </p>
-
-                    </div>
-
-                    <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                      Turpis <ArrowRight className="ms-2" />
-
-                    </button>
-
-                  </a>
-
+                  <img src={Chitto} alt="chitto" width="370" height="246"/>
+                  
                 </div>
 
-              </div>
+                <h3 className="mt-3 mb-2 ps-2"> 
 
-              <div className="col-12 col-sm-6 col-lg-4 pt-5 pt-sm-4">
+                  Accumsan In 
 
-                <div className="row h-100 justify-content-center g-0">
+                </h3>
 
-                  <a href="./" className="card-inner col-11 d-flex flex-wrap align-items-start">
+                <b className="d-block w-100 ps-2">
 
-                    <div className="w-100">
+                  lorem rutrum
 
-                      <img src={Chitto} alt="chitto" width="370" height="246"/>
+                </b>
 
-                      <h3 className="w-100 mt-3 mb-2 ps-2"> 
+                <p className="mt-3 mb-3 p-2">
 
-                        Accumsan In 
+                  Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
+                  scelerisque lorem nec rutrum. 
 
-                      </h3>
-
-                      <b className="w-100 ps-2">
-
-                        lorem rutrum
-
-                      </b>
-
-                      <p className="w-100 mt-3 mb-3 p-2">
-
-                        Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
-                        scelerisque lorem nec rutrum. 
-
-                      </p>
-
-                    </div>
-
-                    <button className="w-100 align-self-end text-start ps-3 py-2">
-
-                      Turpis <ArrowRight className="ms-2" />
-
-                    </button>
-
-                  </a>
-
-                </div>
+                </p>
 
               </div>
 
-            </div>
+              <button className="w-100 text-start ps-3 py-2">
+
+                Turpis <ArrowRight className="ms-2" />
+
+              </button>
+
+            </a>
 
           </div>
 
@@ -595,147 +567,155 @@ const Home = (props) => {
         button="Posuere"
       />
 
-      <div className="container-lg pb-5 mb-5 pt-4 g-0 px-4">
+      <div className="container-xl g-0">
 
-        <hr className="mb-5"/>
+        <div className="container-xxl row justify-content-center pb-5 mb-5 pt-4 px-xxl-4 g-0">
 
-        <form id="enquiry" onSubmit={handleSubmit}>
+          <div className="col-11 col-lg-10 col-xl-12">
 
-          <fieldset>
+            <hr className="mb-5"/>
 
-            <div className="row justify-content-between g-0">
+            <form id="enquiry" onSubmit={handleSubmit}>
 
-              <div className="col-12">
+              <fieldset>
 
-                <legend className="mb-4">Enquiry<b ref={resRef} className="ms-4"></b></legend>
+                <div className="row justify-content-between g-0">
 
-                <p className="m-0">Required fields are marked *</p>
+                  <div className="col-12">
 
-              </div>
+                    <legend className="mb-4">Enquiry<b ref={resRef} className="ms-4"></b></legend>
 
-              <div className="col-12 col-sm-6">
+                    <p className="m-0">Required fields are marked *</p>
 
-                <label className="pe-sm-3">
-                  
-                  <span className="hidden d-block">Name</span>
+                  </div>
 
-                  <span ref={nameRef}></span>
+                  <div className="col-12 col-sm-6">
 
-                  <input
-                    className="ps-2"
-                    type="text"
-                    name="name" 
-                    value={name}
-                    placeholder="* Name"
-                    autoComplete=""
-                    onChange={(event) => setName(event.target.value)}
-                  />
+                    <label className="pe-sm-3">
+                      
+                      <span className="hidden d-block">Name</span>
 
-                </label>
+                      <span ref={nameRef}></span>
 
-              </div>
+                      <input
+                        className="ps-2"
+                        type="text"
+                        name="name" 
+                        value={name}
+                        placeholder="* Name"
+                        autoComplete=""
+                        onChange={(event) => setName(event.target.value)}
+                      />
 
-              <div className="col-12 col-sm-6">
+                    </label>
 
-                <label className="ps-sm-3">
-                  
-                  <span className="hidden d-block">Phone</span>
+                  </div>
 
-                  <span ref={telRef}></span>
+                  <div className="col-12 col-sm-6">
 
-                  <input
-                    className="ps-2"
-                    type="text"
-                    name="tel" 
-                    value={tel}
-                    placeholder="* Phone"
-                    autoComplete=""
-                    onChange={(event) => setTel(event.target.value)}
-                  />
+                    <label className="ps-sm-3">
+                      
+                      <span className="hidden d-block">Phone</span>
 
-                </label>
+                      <span ref={telRef}></span>
 
-              </div>
+                      <input
+                        className="ps-2"
+                        type="text"
+                        name="tel" 
+                        value={tel}
+                        placeholder="* Phone"
+                        autoComplete=""
+                        onChange={(event) => setTel(event.target.value)}
+                      />
 
-              <div className="col-12 col-sm-6">
+                    </label>
 
-                <label className="pe-sm-3">
-                  
-                  <span className="hidden d-block">Email</span>
+                  </div>
 
-                  <span ref={emailRef}></span>
+                  <div className="col-12 col-sm-6">
 
-                  <input
-                    className="ps-2"
-                    type="text"
-                    name="email" 
-                    value={email}
-                    placeholder="* Email"
-                    autoComplete=""
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
+                    <label className="pe-sm-3">
+                      
+                      <span className="hidden d-block">Email</span>
 
-                </label>
+                      <span ref={emailRef}></span>
 
-              </div>
+                      <input
+                        className="ps-2"
+                        type="text"
+                        name="email" 
+                        value={email}
+                        placeholder="* Email"
+                        autoComplete=""
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
 
-              <div className="col-12">
+                    </label>
 
-                <label htmlFor="text">
-                  
-                  <span className="hidden d-block">Message</span>
+                  </div>
 
-                  <span ref={textRef}></span>
+                  <div className="col-12">
 
-                  <textarea
-                    id="text"
-                    className="ps-2"
-                    name="text" 
-                    value={text}
-                    placeholder="* Message"
-                    onChange={(event) => setText(event.target.value)}
-                    rows="6"
-                  >
-                  </textarea>
+                    <label htmlFor="text">
+                      
+                      <span className="hidden d-block">Message</span>
 
-                </label>
+                      <span ref={textRef}></span>
 
-              </div>
+                      <textarea
+                        id="text"
+                        className="ps-2"
+                        name="text" 
+                        value={text}
+                        placeholder="* Message"
+                        onChange={(event) => setText(event.target.value)}
+                        rows="6"
+                      >
+                      </textarea>
 
-            </div>
+                    </label>
 
-          </fieldset>
-
-          <div className="row g-0">
-
-            <div className="col-12 col-sm-9 pt-4">
-
-              <div className="row justify-content-between align-items-center g-0">
-
-                <div className="col-12 col-sm-8">
-
-                  <p className="mb-5 m-sm-0">
-
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt.
-
-                  </p>
+                  </div>
 
                 </div>
 
-                <div className="col-12 col-sm-4 d-flex justify-content-sm-end">
+              </fieldset>
 
-                  <input className="rounded" type="submit" value="Send" />
+              <div className="row g-0">
+
+                <div className="col-12 col-sm-9 pt-4">
+
+                  <div className="row justify-content-between align-items-center g-0">
+
+                    <div className="col-12 col-sm-8">
+
+                      <p className="mb-5 m-sm-0">
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt.
+
+                      </p>
+
+                    </div>
+
+                    <div className="col-12 col-sm-4 d-flex justify-content-sm-end">
+
+                      <input className="rounded" type="submit" value="Send" />
+
+                    </div>
+
+                  </div>
 
                 </div>
 
               </div>
 
-            </div>
+            </form>
 
           </div>
 
-        </form>
+        </div>
 
       </div>
 
