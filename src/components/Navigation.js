@@ -45,7 +45,7 @@ const Navigation = (props) => {
 
         <Link className="col-auto m-2 me-3"  to="/" >
 
-          <svg aria-label="Furniture Warehouse" viewBox="0 0 100 100" width="60" height="60">
+          <svg aria-label="Super Foods" viewBox="0 0 100 100" width="60" height="60">
 
             <defs>
                 <path 
@@ -61,7 +61,7 @@ const Navigation = (props) => {
 
                 <textPath href="#circle">
 
-                Lorem ..... Ipsum ..............
+                Super --- Food ----------
 
                 </textPath>
 
