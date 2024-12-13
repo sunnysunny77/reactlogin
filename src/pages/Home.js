@@ -288,7 +288,7 @@ const Home = (props) => {
 
               <div className="col-12 col-md-10 col-xl-9">
 
-                <p className="mb-md-5∂∂">
+                <p className="mb-md-5">
 
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu gravida velit.
                     Vestibulum eu posuere
@@ -337,7 +337,7 @@ const Home = (props) => {
 
                   </h3>
 
-                  <b className="d-block w-100 ps-2">
+                  <b className="d-block ps-2">
 
                     Nec rutrum
 
@@ -376,7 +376,7 @@ const Home = (props) => {
 
                   </h3>
 
-                  <b className="d-block w-100 ps-2">
+                  <b className="d-block ps-2">
 
                     Dolor magn
 
@@ -414,7 +414,7 @@ const Home = (props) => {
 
                 </h3>
 
-                <b className="d-block w-100 ps-2">
+                <b className="d-block ps-2">
 
                   Lorem nec
 
@@ -453,7 +453,7 @@ const Home = (props) => {
 
                 </h3>
 
-                <b className="d-block w-100 ps-2">
+                <b className="d-block ps-2">
 
                   Scelerisque lorem
 
@@ -492,7 +492,7 @@ const Home = (props) => {
 
                 </h3>
 
-                <b className="d-block w-100 ps-2">
+                <b className="d-block ps-2">
 
                   Rutrum nec
 
@@ -530,7 +530,7 @@ const Home = (props) => {
 
                 </h3>
 
-                <b className="d-block w-100 ps-2">
+                <b className="d-block ps-2">
 
                   lorem rutrum
 

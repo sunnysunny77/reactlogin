@@ -10,10 +10,10 @@
 
             button {
                 background-color: lighten($c11, 2%);
-            svg {
-                transform: translateX(50%);
+                svg {
+                    transform: translateX(50%);
+                }
             }
-        }
         }
     }
     p {
@@ -21,7 +21,7 @@
         color: $c4;
     }
     h2 {
-        color: $c4; 
+        color: $c4;
     }
     button {
         background-color: $c11;

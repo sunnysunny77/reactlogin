@@ -46,8 +46,8 @@
 
 .slider_9-button-container {
     background-color: $c1;
-    border-top: 1px solid $c9;;
-    border-bottom: 1px solid $c9;;
+    border-top: 1px solid $c9;
+    border-bottom: 1px solid $c9;
     @include min_sm {
         border: none;
     }

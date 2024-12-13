@@ -1,8 +1,11 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
 
   const year = useRef();
+
+  const { auth, setAuth } = props;
 
   useEffect(() => {
 
@@ -15,24 +18,154 @@ const Footer = () => {
 
     <>  
 
-      <footer className="row g-0 justify-content-center align-items-center text-center">
+      <footer>
 
-        <ul className="col-6 m-0 py-4">
+        <div className="container-md g-0">
 
-          <li className="top">
+          <div className="row justify-content-md-center px-4 py-4 py-md-5 g-0">
 
-          <a aria-label="Return to top" href="#top">&#8593;</a>
+            <div className="col-12 col-xxl-11 pt-3 mb-4 my-md-4">
 
-          </li>
+              <div className="row d-flex flex-column-reverse flex-md-row justify-content-between g-0">
 
-          <li className="py-3">
+                <div className="col-12 col-md-7">
 
-          &copy;&nbsp;<span ref={year} id="year"></span>
+                  <div className="row justify-content-between justify-content-sm-around g-0 mt-4 mt-md-0">
 
-          </li>
+                    <hr className="w-100 pt-3"/>
 
-        </ul>
+                    <div className="col-auto pb-3 ps-1 pe-3">
 
+                      <Link to="/" >
+                      
+                        <svg aria-label="Super Foods" viewBox="0 0 100 100" width="40" height="40">
+
+                          <defs>
+                              <path 
+                                  id="circle" 
+                                  d="M 50, 50
+                                  m -37, 0
+                                  a 37,37 0 1,1 74,0
+                                  a 37,37 0 1,1 -74,0" 
+                              />
+                          </defs>
+
+                          <text className="font">
+
+                              <textPath href="#circle">
+
+                              Super --- Food ----------
+
+                              </textPath>
+
+                          </text>
+
+                        </svg>
+
+                      </Link>
+
+                    </div>
+
+                    <div className="col-9">
+
+                      <p className="m-0">
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation.
+
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div className="col-4 col-md-2">
+
+                  <hr className="w-100 mt-md-0"/>
+
+                  <ul className="list-unstyled text-md-end m-0 p-0">
+
+                    <li>
+
+                      <Link to="/" > Home </Link>
+
+                    </li>
+
+                    <li>
+
+                      <Link to="store" > Store </Link>
+
+                    </li>
+
+                    <li>
+
+                    {auth ? 
+
+                      ( 
+                        
+                        <Link onClick={setAuth} > Sign out </Link>
+
+                      ) : (
+
+                        <Link to="auth"  > Sign in </Link>
+
+                    )}
+
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="col-12 col-xxl-11 d-flex flex-wrap pb-3">
+
+              <hr className="w-100" />  
+
+              <div className="row w-100 g-0">
+
+                <div className="col-8">
+
+                  <address>
+    
+                    7c Yander Drive Eeast Welsbrough
+
+                  </address>
+
+                  <a href="tel:+61435987875">+61 435 987 875</a>
+
+                </div>
+
+                <div className="col-12">
+
+                  <p className="mb-0 text-end">
+
+                    &copy;&nbsp;<span ref={year} id="year"></span>
+
+                  </p>
+
+                </div>
+
+                <div className="col-12 d-flex flex-wrap justify-content-end mt-3">
+
+                  <a className="top" aria-label="Return to top" href="#top">&#8593;</a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+              
       </footer>
           
     </>

@@ -112,6 +112,27 @@
 }
 
 #cards {
+    .card {
+        width: 80%;
+        @include min_sm {
+            width: 48%;
+        }
+        @include min_lg {
+            width: 31.5%;
+        }
+        &:hover,
+        &:focus {
+            img {
+                transform: scale(1.03);
+            }
+            svg {
+                transform: translateX(50%);
+            }
+        }
+        .card-inner {
+            background-color: $c1;
+        }
+    }
     a {
         text-decoration: none;
     }
@@ -135,7 +156,7 @@
     p {
         color: $c4;
         font-size: 16px;
-        font-weight: 400; 
+        font-weight: 400;
     }
     button {
         background-color: $c4;
@@ -146,27 +167,6 @@
         transition: transform 0.3s;
         will-change: transform;
         transform: translateX(0);
-    }
-    .card {
-        width: 80%;
-        @include min_sm {
-            width: 48%; 
-        }
-        @include min_lg {
-            width: 31.5%; 
-        }
-        &:hover,
-        &:focus {
-            img {
-                transform: scale(1.03);
-            }
-            svg {
-                transform: translateX(50%);
-            }
-        }
-        .card-inner {
-            background-color: $c1;
-        }
     }
 }
 

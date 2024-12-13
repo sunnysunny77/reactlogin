@@ -18,7 +18,7 @@ const Layout = (props) => {
 
       </main>
 
-      <Footer />
+      <Footer auth={auth} setAuth={setAuth} />
 
     </>
   )

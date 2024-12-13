@@ -2,35 +2,56 @@ footer {
     background-color: $c8;
     color: $c9;
     width: 100%;
-    ul {
-        list-style-type: none;
-        padding: 0;
-        .top {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    a {
+        color: $c9;
+        font-style: oblique;
+        font-size: 15px;
+        text-decoration: underline;
+        text-decoration-color: $c5;
+        transition: text-decoration-color 0.2s;
+        &:hover {
+            text-decoration-color: $c9;
         }
+    }
+    ul {
         a {
+            font-size: 18px;
+            font-style: normal;
+        }
+    }
+    p,
+    address {
+        background-color: $c5;
+        color: $c9;
+        font-size: 15.5px;
+    }
+    svg {
+        fill: $c4;
+        font-size: 20px;
+    }
+    .top {
+        color: $c9;
+        height: 27px;
+        width: 27px;
+        font-size: smaller;
+        background-color: $c1;
+        border: 1px solid;
+        border-color: $c9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px 0;
+        text-decoration: none;
+        line-height: 1;
+        font-style: normal;
+        border-radius: 50%;
+        transition: transform 0.5s;
+        transform: scale(1);
+        will-change: transform;
+        &:hover,
+        &:focus {
             color: $c9;
-            height: 27px;
-            width: 27px;
-            font-size: smaller;
-            background-color: $c1;
-            border: 1px solid;
-            border-color: $c9;
-            padding: 4px 0;
-            text-decoration: none;
-            line-height: 1;
-            border-radius: 50%;
-            transition: transform 0.5s;
-            transform: scale(1);
-            will-change: transform;
-            &:hover,
-            &:focus {
-                color: $c9;
-                transform: scale(0.9);
-            }
+            transform: scale(0.9);
         }
     }
 }

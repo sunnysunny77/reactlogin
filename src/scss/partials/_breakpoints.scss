@@ -40,7 +40,7 @@
     }
 }
 
-@mixin min_hd  {
+@mixin min_hd {
     @media only screen and (min-width: 1921px) {
         @content;
     }
