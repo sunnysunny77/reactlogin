@@ -110,153 +110,187 @@ const Enquiry = (props) => {
     
     <div className="container-xl g-0">
 
-        <div className="container-xxl row justify-content-center pb-5 mb-5 pt-4 px-xxl-4 g-0">
+      <div className="container-xxl row justify-content-center pb-5 mb-5 pt-4 px-xxl-4 g-0">
 
-            <div className="col-11 col-lg-10 col-xl-12">
+        <div className="col-11 col-lg-10 col-xl-12">
 
-                <hr className="mb-5"/>
+          <hr className="mb-5"/>
 
-                <form className="enquiry" onSubmit={handleSubmit}>
+          <form className="enquiry" onSubmit={handleSubmit}>
 
-                  <fieldset>
+            <fieldset>
 
-                      <div className="row justify-content-between g-0">
+                <div className="row justify-content-between g-0">
 
-                      <div className="col-12">
+                  <div className="col-12">
 
-                          <legend className="mb-4">Enquiry<b ref={resRef} className="ms-4"></b></legend>
+                      <legend className="mb-4">
+                        
+                        Enquiry
+                        
+                        <b ref={resRef} className="ms-4"></b>
+                        
+                      </legend>
 
-                          <p className="m-0">Required fields are marked *</p>
-
-                      </div>
-
-                      <div className="col-12 col-sm-6">
-
-                          <label className="pe-sm-3">
-                          
-                          <span className="hidden d-block">Name</span>
-
-                          <span ref={nameRef}></span>
-
-                          <input
-                              className="ps-2"
-                              type="text"
-                              name="name" 
-                              value={name}
-                              placeholder="* Name"
-                              autoComplete=""
-                              onChange={(event) => setName(event.target.value)}
-                          />
-
-                          </label>
-
-                      </div>
-
-                      <div className="col-12 col-sm-6">
-
-                          <label className="ps-sm-3">
-                          
-                          <span className="hidden d-block">Phone</span>
-
-                          <span ref={telRef}></span>
-
-                          <input
-                              className="ps-2"
-                              type="text"
-                              name="tel" 
-                              value={tel}
-                              placeholder="* Phone"
-                              autoComplete=""
-                              onChange={(event) => setTel(event.target.value)}
-                          />
-
-                          </label>
-
-                      </div>
-
-                      <div className="col-12 col-sm-6">
-
-                          <label className="pe-sm-3">
-                          
-                          <span className="hidden d-block">Email</span>
-
-                          <span ref={emailRef}></span>
-
-                          <input
-                              className="ps-2"
-                              type="text"
-                              name="email" 
-                              value={email}
-                              placeholder="* Email"
-                              autoComplete=""
-                              onChange={(event) => setEmail(event.target.value)}
-                          />
-
-                          </label>
-
-                      </div>
-
-                      <div className="col-12">
-
-                          <label htmlFor="text">
-                          
-                          <span className="hidden d-block">Message</span>
-
-                          <span ref={textRef}></span>
-
-                          <textarea
-                              id="text"
-                              className="ps-2"
-                              name="text" 
-                              value={text}
-                              placeholder="* Message"
-                              onChange={(event) => setText(event.target.value)}
-                              rows="6"
-                          >
-                          </textarea>
-
-                          </label>
-
-                      </div>
-
-                      </div>
-
-                  </fieldset>
-
-                  <div className="row g-0">
-
-                      <div className="col-12 col-sm-9 pt-4">
-
-                      <div className="row justify-content-between align-items-center g-0">
-
-                          <div className="col-12 col-sm-8">
-
-                          <p className="mb-5 m-sm-0">
-
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                              sed do eiusmod tempor incididunt.
-
-                          </p>
-
-                          </div>
-
-                          <div className="col-12 col-sm-4 d-flex justify-content-sm-end">
-
-                          <input className="rounded" type="submit" value="Send" />
-
-                          </div>
-
-                      </div>
-
-                      </div>
+                      <p className="m-0">
+                        
+                        Required fields are marked *
+                        
+                      </p>
 
                   </div>
 
-                </form>
+                  <div className="col-12 col-sm-6">
+
+                      <label className="pe-sm-3">
+                      
+                        <span className="hidden d-block">
+                          
+                          Name
+                          
+                        </span>
+
+                        <span ref={nameRef}></span>
+
+                        <input
+
+                            className="ps-2"
+                            type="text"
+                            name="name" 
+                            value={name}
+                            placeholder="* Name"
+                            autoComplete=""
+                            onChange={(event) => setName(event.target.value)}
+                            
+                        />
+
+                      </label>
+
+                  </div>
+
+                  <div className="col-12 col-sm-6">
+
+                      <label className="ps-sm-3">
+                      
+                        <span className="hidden d-block">
+                          
+                          Phone
+                          
+                        </span>
+
+                        <span ref={telRef}></span>
+
+                        <input
+
+                            className="ps-2"
+                            type="text"
+                            name="tel" 
+                            value={tel}
+                            placeholder="* Phone"
+                            autoComplete=""
+                            onChange={(event) => setTel(event.target.value)}
+
+                        />
+
+                      </label>
+
+                  </div>
+
+                  <div className="col-12 col-sm-6">
+
+                      <label className="pe-sm-3">
+                        
+                        <span className="hidden d-block">
+                          
+                          Email
+                          
+                        </span>
+
+                        <span ref={emailRef}></span>
+
+                        <input
+
+                            className="ps-2"
+                            type="text"
+                            name="email" 
+                            value={email}
+                            placeholder="* Email"
+                            autoComplete=""
+                            onChange={(event) => setEmail(event.target.value)}
+
+                        />
+
+                      </label>
+
+                  </div>
+
+                  <div className="col-12">
+
+                      <label htmlFor="text">
+                        
+                        <span className="hidden d-block">
+
+                          Message
+                          
+                        </span>
+
+                        <span ref={textRef}></span>
+
+                        <textarea
+
+                            id="text"
+                            className="ps-2"
+                            name="text" 
+                            value={text}
+                            placeholder="* Message"
+                            onChange={(event) => setText(event.target.value)}
+                            rows="6"
+
+                        >
+                        </textarea>
+
+                      </label>
+
+                  </div>
+
+                </div>
+
+            </fieldset>
+
+            <div className="row g-0">
+
+              <div className="col-12 col-sm-9 pt-4">
+
+                <div className="row justify-content-between align-items-center g-0">
+
+                    <div className="col-12 col-sm-8">
+
+                      <p className="mb-5 m-sm-0">
+
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                          sed do eiusmod tempor incididunt.
+
+                      </p>
+
+                    </div>
+
+                    <div className="col-12 col-sm-4 d-flex justify-content-sm-end">
+
+                      <input className="rounded" type="submit" value="Send" />
+
+                    </div>
+
+                </div>
+
+              </div>
 
             </div>
 
+          </form>
+
         </div>
+
+      </div>
 
     </div>
 

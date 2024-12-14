@@ -12,7 +12,7 @@ const TwoColImage = (props) => {
 
             <h2 className="pb-3 mt-lg-5">
             
-            {heading}
+              {heading}
 
             </h2>
 
@@ -22,7 +22,7 @@ const TwoColImage = (props) => {
 
             <p className="mb-md-5">
 
-                {paragraph}
+              {paragraph}
 
             </p>
 

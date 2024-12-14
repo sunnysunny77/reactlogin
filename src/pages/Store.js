@@ -64,7 +64,6 @@ const Store = (props) => {
                 }
               ],
             });
-
           }}
 
           onApprove={ async (data, actions) => {
@@ -114,7 +113,6 @@ const Store = (props) => {
             </table>;
         
             props.setOrder(output);
-
           }}
 
           forceReRender={[count]}
@@ -146,29 +144,41 @@ const Store = (props) => {
                 <div id="counter" className="col-6 col-xl-auto d-flex flex-xl-column justify-content-center align-items-center">
 
                   <span
+
                     className="text-center me-xl-4"
                     role="button"
                     onClick={() => {
 
                       if (count > 1) setCount(count - 1)
                     }}
+
                   >
+
                     -
+
                   </span>
 
-                  <label aria-label="Quantity" htmlFor="count" className="hidden">Quantity</label>
+                  <label aria-label="Quantity" htmlFor="count" className="hidden">
+                    
+                    Quantity
+                    
+                  </label>
 
                   <input disabled={true} id="count" className="text-center m-4 ms-xl-0" type="text" value={count} />
 
                   <span
+
                     className="text-center me-xl-4"
                     role="button"
                     onClick={() => {
 
                       setCount(count + 1)
                     }}
+                    
                   >
+
                     +
+
                   </span>
 
                 </div>

@@ -254,26 +254,34 @@ const Auth = (props) => {
 
               <form onSubmit={authorization} className="Auth-form">
 
-                <label>Email address
+                <label>
+                  
+                  Email address
 
                   <input
+
                     type="email"
                     className="form-control mt-1"
                     placeholder="Enter email"
                     value={email} onChange={e => setEmail(e.target.value)}
                     autoComplete="on"
+
                   />
 
                 </label>
 
-                <label>Password
+                <label>
+                  
+                  Password
 
                   <input
+
                     type="password"
                     className="form-control mt-1"
                     placeholder="Enter password"
                     value={pass} onChange={e => setPass(e.target.value)}
                     autoComplete="on"
+
                   />
 
                 </label>
@@ -306,22 +314,34 @@ const Auth = (props) => {
 
                 <>
 
-                  <p id="responseCaptcha">Please enter captcha</p>
+                  <p id="responseCaptcha">
+                    
+                    Please enter captcha
+                    
+                  </p>
 
                   <img src={captcha} alt="canvas" ></img>
 
-                  <label className="d-none" htmlFor="txtInput">Captcha</label>
+                  <label className="d-none" htmlFor="txtInput">
+                    
+                    Captcha
+                    
+                  </label>
 
                   <input
+
                     className="form-control mt-1"
                     type="text"
                     id="txtInput"
                     ref={ref}
+
                   />
 
                   <button
+
                     className="btn btn-light mt-2"
                     onClick={captchaauthorization}
+
                   >
 
                     Submit
@@ -349,15 +369,19 @@ const Auth = (props) => {
 
                   <form onSubmit={initialauthentication} className="Auth-form">
 
-                    <label>Get authentication code
+                    <label>
+                      
+                      Get authentication code
                       
                       <input
+
                         type="email"
                         className="form-control mt-1"
                         placeholder="Enter email"
                         value={emailNew} onChange={e => setEmailNew(e.target.value)}
                         autoComplete="on"
                         id="email"
+
                       />
 
                     </label>
@@ -380,15 +404,19 @@ const Auth = (props) => {
 
                     <form onSubmit={authentication} className="Auth-form">
 
-                      <label>Enter authentication code
+                      <label>
+                        
+                        Enter authentication code
                         
                         <input
+
                           type="text"
                           className="form-control mt-1"
                           placeholder="Paste code"
                           value={security}
                           onChange={e => setSecurity(e.target.value)}
                           id="code"
+
                         />
 
                       </label>
@@ -417,15 +445,19 @@ const Auth = (props) => {
 
                     <form onSubmit={registration} className="Auth-form">
 
-                      <label>Create Password
+                      <label>
+                        
+                        Create Password
 
                         <input
+
                           type="password"
                           className="form-control mt-1"
                           placeholder="Enter password"
                           value={passRegistration} onChange={e => setPassRegistration(e.target.value)}
                           autoComplete="on"
                           id="pass"
+
                         />
 
                       </label>
@@ -455,7 +487,9 @@ const Auth = (props) => {
           </Accordion.Item>
 
           <p className='rady p-3 mt-3'>
+
             Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+            
           </p>
 
         </Accordion>

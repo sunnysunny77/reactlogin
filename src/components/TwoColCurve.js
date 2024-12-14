@@ -24,7 +24,7 @@ const TwoColCurve = (props) => {
 
               <p className="col-12 col-xxl-8 text-end ps-md-4 m-0">
 
-                  {paragraph}
+                {paragraph}
 
               </p>
 
