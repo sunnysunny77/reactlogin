@@ -1,0 +1,30 @@
+.two-col-text {
+    h2 {
+        color: $c6;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $c1;
+            background-repeat: repeat-x;
+            width: 40px;
+            height: 1px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $c1;
+            background-repeat: repeat-y;
+            width: 1px;
+            height: 40px;
+        }
+    }
+    p {
+        background-color: $c5;
+        color: $c6;
+    }
+}

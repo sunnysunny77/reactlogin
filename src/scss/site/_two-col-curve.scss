@@ -1,0 +1,61 @@
+.two-col-curve {
+    background-color: $c11;
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        @include min_md {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+    }
+    b {
+        font-weight: 500;
+    }
+    p,
+    b {
+        color: $c4;
+        background-color: $c5;
+    }
+    .curve {
+        background-color: $c5;
+        position: relative;
+        z-index: 1;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            border-bottom-left-radius: 50%;
+            border-left: 50rem solid $c1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            @include min_md {
+                border-bottom-left-radius: 67%;
+            }
+            @include min_lg {
+                border-bottom-left-radius: 72.5%;
+            }
+            @include min_xl {
+                border-left: 60rem solid $c1;
+            }
+            @include min_xxl {
+                border-left: 80rem solid $c1;
+            }
+        }
+        .inner-curve {
+            position: relative;
+            z-index: 2;
+            @include min_md {
+                padding: 0 0 26% 0;
+            }
+            @include min_xl {
+                padding: 5% 0 34% 0;
+            }
+        }
+    }
+}

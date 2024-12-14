@@ -112,25 +112,7 @@ const Slider= (props) => {
 
                 <p className="m-0">
 
-                  {props.bottomParagraph ? 
-
-                    <span> 
-
-                      {props.topParagraph}
-     
-                      <br/>
-                      <br/> 
-                      
-                      {props.bottomParagraph}
-                      
-                    </span>  : 
-
-                    <span> 
-
-                    {props.topParagraph}
-
-                    </span>
-                  }
+                  {props.paragraph}
 
                 </p>
 

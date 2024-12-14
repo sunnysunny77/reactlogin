@@ -1,0 +1,19 @@
+.two-col-image {
+    background-color: $c1;
+    div:nth-child(1) {
+        h2 {
+            color: $c4;
+        }
+        p {
+            color: $c4;
+        }
+    }
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    hr {
+        color: $c9;
+    }
+}

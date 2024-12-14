@@ -1,0 +1,78 @@
+.enquiry {
+    input,
+    label,
+    textarea {
+        width: 100%;
+    }
+    label {
+        height: 64px;
+        display: flex;
+        align-items: end;
+        flex-wrap: wrap;
+        margin: 15px 0 0 0;
+    }
+    label[for="text"] {
+        height: 216px;
+    }
+    textarea {
+        resize: none;
+    }
+    input[type="text"],
+    textarea {
+        color: $c4;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 5px;
+        border: 1px solid $c1;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        background-color: $c11;
+        scrollbar-color: $c9 transparent;
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $c9;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    }
+    input[type="submit"] {
+        width: fit-content;
+        color: $c4;
+        background-color: $c11;
+        font-weight: 400;
+        border: 1px solid $c1;
+        transition:
+            color 0.2s ease-in-out,
+            background-color 0.2s ease-in-out;
+        &:hover,
+        &:focus {
+            color: $c4;
+            background-color: $c1;
+        }
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-text-fill-color: $c4;
+        -webkit-box-shadow: 0 0 0 5rem $c11 inset;
+        -webkit-background-clip: text;
+    }
+    input.error,
+    textarea.error {
+        border-color: $c12;
+    }
+    p {
+        background-color: $c5;
+        color: $c6;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        color: inherit;
+    }
+}
