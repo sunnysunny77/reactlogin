@@ -358,7 +358,7 @@ const Auth = (props) => {
 
                   <button
                     className="btn btn-light mb-3 mt-2"
-                    onClick={() => captchainit()}
+                    onClick={captchainit}
                   >
 
                     Refresh

@@ -4,22 +4,136 @@ import { ArrowRight } from 'react-bootstrap-icons';
 import Spinner from "../images/load.gif";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
-import Fruits from "../images/fruits.webp";
-import Broccoli from "../images/broccoli.webp";
-import Basil from "../images/basil.webp";
-import Cucumbers from "../images/cucumbers.webp";
-import Schwab from "../images/schwab.webp";
-import Chitto from "../images/chitto.webp";
 
 const Store = (props) => {
 
-  const { order, image, value, name, scroll, setOrder, setImage, setValue, setName, setScroll } = props;
+  const { items, image, value, name, sub, order, scroll, setImage, setValue, setName, setSub, setOrder, setScroll } = props;
 
   const payRef = useRef();
 
   const srcRef = useRef();
 
   const [count, setCount] = useState(1);
+
+  const [output, setOutput] = useState(false);
+
+  const cartOne = () => {
+
+    payRef.current.scrollIntoView();
+
+    setCount(1);
+
+    setImage(items.cartOne.image);
+
+    setValue(items.cartOne.value);
+
+    setName(items.cartOne.name);
+
+    setSub(items.cartOne.sub);
+
+    setOrder(items.cartOne.order);
+
+    setOutput(false);
+
+  }
+
+  const cartTwo = () => {
+
+    payRef.current.scrollIntoView();
+
+    setCount(1);
+
+    setImage(items.cartTwo.image);
+
+    setValue(items.cartTwo.value);
+
+    setName(items.cartTwo.name);
+
+    setSub(items.cartTwo.sub);
+
+    setOrder(items.cartTwo.order);
+
+    setOutput(false);
+    
+  }
+
+  const cartThree = () => {
+
+    setCount(1);
+
+    payRef.current.scrollIntoView();
+
+    setImage(items.cartThree.image);
+
+    setValue(items.cartThree.value);
+
+    setName(items.cartThree.name);
+
+    setSub(items.cartThree.sub);
+
+    setOrder(items.cartThree.order);
+
+    setOutput(false);
+    
+  }
+
+  const cartFour = () => {
+
+    payRef.current.scrollIntoView();
+
+    setCount(1);
+
+    setImage(items.cartFour.image);
+
+    setValue(items.cartFour.value);
+
+    setName(items.cartFour.name);
+
+    setSub(items.cartFour.sub);
+
+    setOrder(items.cartFour.order);
+    
+  }
+
+  const cartFive = () => {
+
+    setCount(1);
+
+    payRef.current.scrollIntoView();
+
+    setImage(items.cartFive.image);
+
+    setValue(items.cartFive.value);
+
+    setName(items.cartFive.name);
+
+    setSub(items.cartFive.sub);
+
+    setOrder(items.cartFive.order);
+
+    setOutput(false);
+    
+  }
+
+  const cartSix = () => {
+
+    payRef.current.scrollIntoView();
+
+    setCount(1);
+
+    setImage(items.cartSix.image);
+
+    setValue(items.cartSix.value);
+
+    setName(items.cartSix.name);
+
+    setSub(items.cartSix.sub);
+
+    setOrder(items.cartSix.order);
+
+    setOutput(false);
+    
+  }
 
   const style = {
     layout: 'horizontal',
@@ -29,6 +143,32 @@ const Store = (props) => {
     tagline: false,
     disableMaxWidth: true,
   };
+
+  const ButtonWrapper = ({ showSpinner }) => {
+
+    const [{ isPending }] = usePayPalScriptReducer();
+        
+    return (
+      <>
+
+        { (showSpinner && isPending) && <img id="spinner" className="col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> }
+
+        <PayPalButtons
+
+          style={style}
+
+          className="button-container-inner col-10 col-xl-5"
+
+          createOrder={createOrder}
+
+          onApprove={onApprove}
+
+          forceReRender={[count]}
+        />
+
+      </>
+    );
+  }
 
   const createOrder = (data, actions) => {
 
@@ -184,33 +324,17 @@ const Store = (props) => {
 
     </table>;
 
-    setOrder(output);
+    setOutput(output);
   }
-  
-  const ButtonWrapper = ({ showSpinner }) => {
 
-    const [{ isPending }] = usePayPalScriptReducer();
-        
-    return (
-      <>
+  const minus = () => {
 
-        { (showSpinner && isPending) && <img id="spinner" className="col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> }
+    if (count > 1) setCount(count - 1)
+  }
 
-        <PayPalButtons
+  const plus = () => {
 
-          style={style}
-
-          className="button-container-inner col-10 col-xl-5"
-
-          createOrder={createOrder}
-
-          onApprove={onApprove}
-
-          forceReRender={[count]}
-        />
-
-      </>
-    );
+    setCount(count + 1)
   }
 
   const srcListen = (e) => {
@@ -235,6 +359,8 @@ const Store = (props) => {
 
     setScroll(false);
 
+    setOutput(false);
+
     return () => obj.removeEventListener("load", srcListen);
 
   }, [scroll, setScroll])
@@ -256,39 +382,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={() => {
-
-              payRef.current.scrollIntoView();
-
-              setCount(1);
-
-              setImage(Fruits);
-
-              setValue("23");
-
-              setName("In accumsan");
-
-              setOrder(
-
-                <section>
-
-                  <h2 className="py-5 m-0">
-                    
-                    In accumsan $23
-                    
-                  </h2> 
-
-                  <p className='rady p-3 mb-5'>
-
-                    Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                  
-                  </p>
-
-                </section>
-
-              )
-
-            }}
+            onClick={cartOne}
         
           >
 
@@ -296,26 +390,25 @@ const Store = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Fruits} alt="fruits" width="399" height="265"/>
+                <img src={items.cartOne.image} alt="fruits" width="399" height="265"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-                In accumsan
+                {items.cartOne.name} 
 
               </h3>
 
               <b className="d-block ps-2">
 
-                Nec rutrum
+                {items.cartOne.sub} 
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-                Dolor magna. In accumsan
-                scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+                {items.cartOne.order}
 
               </p>
 
@@ -335,39 +428,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={() => {
-
-              payRef.current.scrollIntoView();
-
-              setCount(1);
-
-              setImage(Broccoli);
-
-              setValue("15");
-
-              setName("Eleifend eu");
-
-              setOrder(
-
-                <section>
-
-                  <h2 className="py-5 m-0">
-                    
-                    Eleifend eu $15
-                    
-                  </h2> 
-
-                  <p className='rady p-3 mb-5'>
-
-                    Sed sem ante, venenatis non neque in, aliquam faucibus leo. Vestibulum aliquam magna dui, sit amet lobortis neque vulputate quis.
-                  
-                  </p>
-
-                </section>
-
-              )
-              
-            }}
+            onClick={cartTwo}
         
           >
 
@@ -375,25 +436,25 @@ const Store = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Broccoli} alt="broccoli" width="399" height="265"/>
+                <img src={items.cartTwo.image} alt="broccoli" width="399" height="265"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-                  Eleifend eu
+                {items.cartTwo.name} 
 
               </h3>
 
               <b className="d-block ps-2">
 
-                  Dolor magn
+                {items.cartTwo.sub} 
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-                  Eleifend eu. Mauris et dolor magna. 
+                {items.cartTwo.order} 
 
               </p>
 
@@ -413,39 +474,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={() => {
-
-              setCount(1);
-
-              payRef.current.scrollIntoView();
-
-              setImage(Basil);
-
-              setValue("70");
-
-              setName("Lectus eleifend");
-
-              setOrder(
-
-                <section>
-
-                  <h2 className="py-5 m-0">
-                    
-                    Lectus eleifend $70
-                    
-                  </h2> 
-
-                  <p className='rady p-3 mb-5'>
-
-                    Nulla vel justo consequat, maximus tellus eget, dictum leo. Aenean pellentesque interdum nibh sit amet dictum.
-                  
-                  </p>
-
-                </section>
-
-              )
-              
-            }}
+            onClick={cartThree}
         
           >
 
@@ -453,25 +482,25 @@ const Store = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Basil} alt="basil" width="399" height="265"/>
+                <img src={items.cartThree.image} alt="basil" width="399" height="265"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-                Lectus eleifend
+                {items.cartThree.name} 
 
               </h3>
 
               <b className="d-block ps-2">
 
-                Lorem nec
+                {items.cartThree.sub} 
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. Dcelerisque lorem nec rutrum. 
+                {items.cartThree.order} 
 
               </p>
 
@@ -479,9 +508,9 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-                Purchase
-                
-                <ArrowRight className="ms-2" />
+              Purchase
+              
+              <ArrowRight className="ms-2" />
 
             </button>
 
@@ -491,75 +520,43 @@ const Store = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-          onClick={() => {
-
-            payRef.current.scrollIntoView();
-
-            setCount(1);
-
-            setImage(Cucumbers);
-
-            setValue("17");
-
-            setName("Phasellus et");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="py-5 m-0">
-                  
-                  Phasellus et $17
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Ut id felis id ex convallis dapibus id ut justo. Mauris fermentum dui in varius posuere. Donec suscipit sollicitudin pellentesque.
-                
-                </p>
-
-              </section>
-
-            )
-            
-          }}
+          onClick={cartFour}
       
         >
 
           <div className="card-inner h-100">
 
-              <div className="overflow-hidden">
+            <div className="overflow-hidden">
 
-                <img src={Cucumbers} alt="cucumbers" width="399" height="265"/>
-
-              </div>
-
-              <h3 className="mt-3 mb-2 ps-2"> 
-
-                Phasellus et
-
-              </h3>
-
-              <b className="d-block ps-2">
-
-                Scelerisque lorem
-
-              </b>
-
-              <p className="mt-3 mb-3 p-2">
-
-                In gravida, sem in rhoncus pellentesque, dolor tortor tempor metus, ut ultricies lorem velit eu sem. Nulla vel justo consequat, maximus tellus eget, dictum leo. 
-
-              </p>
+              <img src={items.cartFour.image} alt="cucumbers" width="399" height="265"/>
 
             </div>
 
+            <h3 className="mt-3 mb-2 ps-2"> 
+
+              {items.cartFour.name} 
+
+            </h3>
+
+            <b className="d-block ps-2">
+
+              {items.cartFour.sub} 
+
+            </b>
+
+            <p className="mt-3 mb-3 p-2">
+
+              {items.cartFour.order}
+
+            </p>
+
+          </div>
+
             <button className="w-100 text-start ps-3 py-2">
 
-                Purchase
-                
-                <ArrowRight className="ms-2" />
+              Purchase
+              
+              <ArrowRight className="ms-2" />
 
             </button>
 
@@ -569,39 +566,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={() => {
-
-              setCount(1);
-
-              payRef.current.scrollIntoView();
-
-              setImage(Schwab);
-
-              setValue("57");
-
-              setName("Turpis posuere");
-
-              setOrder(
-
-                <section>
-
-                  <h2 className="py-5 m-0">
-                    
-                    Turpis posuere $57
-                    
-                  </h2> 
-
-                  <p className='rady p-3 mb-5'>
-
-                    Maecenas sed dui vel magna condimentum luctus et nec enim. Proin tincidunt facilisis felis ac convallis. Aenean tellus enim, malesuada sed faucibus eget, ornare quis ante.
-                  
-                  </p>
-
-                </section>
-
-              )
-              
-            }}
+            onClick={cartFive}
         
           >
 
@@ -609,25 +574,25 @@ const Store = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Schwab} alt="schwab" width="399" height="265"/>
+                <img src={items.cartFive.image} alt="schwab" width="399" height="265"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-                Turpis posuere
+                {items.cartFive.name} 
 
               </h3>
 
               <b className="d-block ps-2">
 
-                Rutrum nec
+                {items.cartFive.sub} 
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+                {items.cartFive.order}
 
               </p>
 
@@ -635,9 +600,9 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-                Purchase
-                
-                <ArrowRight className="ms-2" />
+              Purchase
+              
+              <ArrowRight className="ms-2" />
 
             </button>
 
@@ -647,40 +612,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={() => {
-
-              payRef.current.scrollIntoView();
-
-              setCount(1);
-
-              setImage(Chitto);
-
-              setValue("56");
-
-              setName("Accumsan Inn");
-
-              setOrder(
-
-                <section>
-
-                  <h2 className="py-5 m-0">
-                    
-                    Accumsan Inn $56
-                    
-                  </h2> 
-
-                  <p className='rady p-3 mb-5'>
-
-                    Mauris fermentum dui in varius posuere. Donec suscipit sollicitudin pellentesque. In accumsan. Phasellus et turpis posuere.
-                
-                  
-                  </p>
-
-                </section>
-
-              )
-              
-            }}
+            onClick={cartSix}
         
           >
 
@@ -688,26 +620,25 @@ const Store = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Chitto} alt="chitto" width="399" height="265"/>
-              
+                <img src={items.cartSix.image} alt="chitto" width="399" height="265"/>
+
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-                Accumsan In 
+                {items.cartSix.name} 
 
               </h3>
 
               <b className="d-block ps-2">
 
-                lorem rutrum
+                {items.cartSix.sub} 
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
-                scelerisque lorem nec rutrum. 
+                {items.cartSix.order} 
 
               </p>
 
@@ -715,9 +646,9 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-                Purchase
-                
-                <ArrowRight className="ms-2" />
+              Purchase
+              
+              <ArrowRight className="ms-2" />
 
             </button>
 
@@ -747,10 +678,7 @@ const Store = (props) => {
 
                   className="text-center me-xl-4"
                   role="button"
-                  onClick={() => {
-
-                    if (count > 1) setCount(count - 1)
-                  }}
+                  onClick={minus}
 
                 >
 
@@ -770,10 +698,7 @@ const Store = (props) => {
 
                   className="text-center me-xl-4"
                   role="button"
-                  onClick={() => {
-
-                    setCount(count + 1)
-                  }}
+                  onClick={plus}
                   
                 >
 
@@ -791,7 +716,35 @@ const Store = (props) => {
 
             </div>
 
-            {order}
+            {output ? (
+            
+              output
+
+            ) : (
+
+              <section className="mb-5 pb-4">
+
+                <h3 className="m-0 py-5">
+                  
+                  {`${name} $${value}`}
+                  
+                </h3>
+
+                <p className="p-4">
+
+                  <b className="d-block pb-4">
+
+                    {sub}
+                    
+                  </b>
+                  
+                  {order}
+                  
+                </p>
+
+              </section>
+
+            )}
 
           </div>
 

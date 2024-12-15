@@ -10,12 +10,6 @@ import Platter from "../images/platter.webp";
 import Roast from "../images/roast.webp";
 import Vegies from "../images/vegies.webp";
 import Greens from "../images/greens.webp";
-import Fruits from "../images/fruits.webp";
-import Broccoli from "../images/broccoli.webp";
-import Basil from "../images/basil.webp";
-import Cucumbers from "../images/cucumbers.webp";
-import Schwab from "../images/schwab.webp";
-import Chitto from "../images/chitto.webp";
 import PreText from "../components/PreText";
 import Carousel from 'react-bootstrap/Carousel';
 import Header from "../components/Header";
@@ -29,9 +23,111 @@ import Enquiry from "../components/Enquiry";
 
 const Home = (props) => {
 
-  const { auth, setLoad, setOrder, setImage, setValue, setName, setScroll } = props;
+  const { items, setLoad,  setImage, setValue, setName, setSub, setOrder, setScroll } = props;
 
   const navigate = useNavigate();
+
+  const cartOne = () => {
+
+    setImage(items.cartOne.image);
+
+    setValue(items.cartOne.value);
+
+    setName(items.cartOne.name);
+
+    setSub(items.cartOne.sub);
+
+    setOrder(items.cartOne.order);
+
+    navigate('/store');
+
+    setScroll(true);
+  }
+
+  const cartTwo = () => {
+
+    setImage(items.cartTwo.image);
+
+    setValue(items.cartTwo.value);
+
+    setName(items.cartTwo.name);
+
+    setSub(items.cartTwo.sub);
+
+    setOrder(items.cartTwo.order);
+
+    navigate('/store');
+
+    setScroll(true);
+  }
+
+  const cartThree = () => {
+
+    setImage(items.cartThree.image);
+
+    setValue(items.cartThree.value);
+
+    setName(items.cartThree.name);
+
+    setSub(items.cartThree.sub);
+
+    setOrder(items.cartThree.order);
+
+    navigate('/store');
+
+    setScroll(true);
+  }
+
+  const cartFour = () => {
+
+    setImage(items.cartFour.image);
+
+    setValue(items.cartFour.value);
+
+    setName(items.cartFour.name);
+
+    setSub(items.cartFour.sub);
+
+    setOrder(items.cartFour.order);
+
+    navigate('/store');
+
+    setScroll(true);
+  }
+
+  const cartFive = () => {
+
+    setImage(items.cartFive.image);
+
+    setValue(items.cartFive.value);
+
+    setName(items.cartFive.name);
+
+    setSub(items.cartFive.sub);
+
+    setOrder(items.cartFive.order);
+
+    navigate('/store');
+
+    setScroll(true);
+  }
+
+  const cartSix = () => {
+
+    setImage(items.cartSix.image);
+
+    setValue(items.cartSix.value);
+
+    setName(items.cartSix.name);
+
+    setSub(items.cartSix.sub);
+
+    setOrder(items.cartSix.order);
+
+    navigate('/store');
+
+    setScroll(true);
+  }
 
   return (
     <>
@@ -48,23 +144,11 @@ const Home = (props) => {
               
             </span>
 
-            {auth ? (
-
-              <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > 
+            <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > 
+            
+              store 
               
-                store 
-                
-              </Link>
-
-            ) : (
-
-              <Link to="auth" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > 
-              
-                store 
-                
-              </Link>
-
-            )}
+            </Link>
 
           </p>
 
@@ -171,38 +255,7 @@ const Home = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
           
-          onClick={()=>{
-
-            setImage(Fruits);
-
-            setValue("23");
-
-            setName("In accumsan");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="my-5">
-                  
-                  In accumsan $23
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                
-                </p>
-
-              </section>
-
-            )
-
-            navigate('/store');
-
-            setScroll(true);
-          }}
+          onClick={cartOne}
 
         >
 
@@ -210,26 +263,25 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={Fruits} alt="fruits" width="399" height="265"/>
+              <img src={items.cartOne.image} alt="fruits" width="399" height="265"/>
 
             </div>
 
             <h3 className="mt-3 mb-2 ps-2"> 
 
-              In accumsan
+              {items.cartOne.name} 
 
             </h3>
 
             <b className="d-block ps-2">
 
-              Nec rutrum
+              {items.cartOne.sub} 
 
             </b>
 
             <p className="mt-3 mb-3 p-2">
 
-              Dolor magna. In accumsan
-              scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+              {items.cartOne.order}
 
             </p>
 
@@ -237,7 +289,7 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-            Turpis 
+            Purchase
             
             <ArrowRight className="ms-2" />
 
@@ -249,38 +301,7 @@ const Home = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
           
-          onClick={()=>{
-
-            setImage(Broccoli);
-
-            setValue("15");
-
-            setName("Eleifend eu");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="my-5">
-                  
-                  Eleifend eu $15
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Sed sem ante, venenatis non neque in, aliquam faucibus leo. Vestibulum aliquam magna dui, sit amet lobortis neque vulputate quis.
-                
-                </p>
-
-              </section>
-
-            )
-
-            navigate('/store');
-
-            setScroll(true);
-          }}
+          onClick={cartTwo}
 
         >
 
@@ -288,25 +309,25 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={Broccoli} alt="broccoli" width="399" height="265"/>
+              <img src={items.cartTwo.image} alt="broccoli" width="399" height="265"/>
 
             </div>
 
             <h3 className="mt-3 mb-2 ps-2"> 
 
-                Eleifend eu
+              {items.cartTwo.name} 
 
             </h3>
 
             <b className="d-block ps-2">
 
-                Dolor magn
+              {items.cartTwo.sub} 
 
             </b>
 
             <p className="mt-3 mb-3 p-2">
 
-                Eleifend eu. Mauris et dolor magna. 
+              {items.cartTwo.order} 
 
             </p>
 
@@ -314,7 +335,7 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-            Turpis 
+            Purchase
             
             <ArrowRight className="ms-2" />
 
@@ -326,38 +347,7 @@ const Home = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
           
-          onClick={()=>{
-
-            setImage(Basil);
-
-            setValue("70");
-
-            setName("Lectus eleifend");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="my-5">
-                  
-                  Lectus eleifend $70
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Nulla vel justo consequat, maximus tellus eget, dictum leo. Aenean pellentesque interdum nibh sit amet dictum.
-                
-                </p>
-
-              </section>
-
-            )
-
-            navigate('/store');
-
-            setScroll(true);
-          }}
+          onClick={cartThree}
 
         >
 
@@ -365,26 +355,25 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={Basil} alt="basil" width="399" height="265"/>
+              <img src={items.cartThree.image} alt="basil" width="399" height="265"/>
 
             </div>
 
             <h3 className="mt-3 mb-2 ps-2"> 
 
-              Lectus eleifend
+              {items.cartThree.name} 
 
             </h3>
 
             <b className="d-block ps-2">
 
-              Lorem nec
+              {items.cartThree.sub} 
 
             </b>
 
             <p className="mt-3 mb-3 p-2">
 
-              Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
-              Dcelerisque lorem nec rutrum. 
+              {items.cartThree.order} 
 
             </p>
 
@@ -392,9 +381,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis 
-              
-              <ArrowRight className="ms-2" />
+            Purchase
+            
+            <ArrowRight className="ms-2" />
 
           </button>
 
@@ -404,38 +393,7 @@ const Home = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
           
-          onClick={()=>{
-
-            setImage(Cucumbers);
-
-            setValue("17");
-
-            setName("Phasellus et");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="my-5">
-                  
-                  Phasellus et $17
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Ut id felis id ex convallis dapibus id ut justo. Mauris fermentum dui in varius posuere. Donec suscipit sollicitudin pellentesque.
-                
-                </p>
-
-              </section>
-
-            )
-
-            navigate('/store');
-
-            setScroll(true);
-          }}
+          onClick={cartFour}
 
         >
 
@@ -443,26 +401,25 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={Cucumbers} alt="cucumbers" width="399" height="265"/>
+              <img src={items.cartFour.image} alt="cucumbers" width="399" height="265"/>
 
             </div>
 
             <h3 className="mt-3 mb-2 ps-2"> 
 
-              Phasellus et
+              {items.cartFour.name} 
 
             </h3>
 
             <b className="d-block ps-2">
 
-              Scelerisque lorem
+              {items.cartFour.sub} 
 
             </b>
 
             <p className="mt-3 mb-3 p-2">
 
-              Mauris et dolor magna. In accumsan
-              scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+              {items.cartFour.order}
 
             </p>
 
@@ -470,9 +427,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis 
-              
-              <ArrowRight className="ms-2" />
+            Purchase
+            
+            <ArrowRight className="ms-2" />
 
           </button>
 
@@ -482,38 +439,7 @@ const Home = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
           
-          onClick={()=>{
-
-            setImage(Schwab);
-
-            setValue("57");
-
-            setName("Turpis posuere");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="my-5">
-                  
-                  Turpis posuere $57
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Maecenas sed dui vel magna condimentum luctus et nec enim. Proin tincidunt facilisis felis ac convallis. Aenean tellus enim, malesuada sed faucibus eget, ornare quis ante.
-                
-                </p>
-
-              </section>
-
-            )
-
-            navigate('/store');
-
-            setScroll(true);
-          }}
+          onClick={cartFive}
 
         >
 
@@ -521,25 +447,25 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={Schwab} alt="schwab" width="399" height="265"/>
+              <img src={items.cartFive.image} alt="schwab" width="399" height="265"/>
 
             </div>
 
             <h3 className="mt-3 mb-2 ps-2"> 
 
-              Turpis posuere
+              {items.cartFive.name} 
 
             </h3>
 
             <b className="d-block ps-2">
 
-              Rutrum nec
+              {items.cartFive.sub} 
 
             </b>
 
             <p className="mt-3 mb-3 p-2">
 
-              Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+              {items.cartFive.order}
 
             </p>
 
@@ -547,9 +473,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis 
-              
-              <ArrowRight className="ms-2" />
+            Purchase 
+            
+            <ArrowRight className="ms-2" />
 
           </button>
 
@@ -559,39 +485,7 @@ const Home = (props) => {
           
           className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
           
-          onClick={()=>{
-
-            setImage(Chitto);
-
-            setValue("56");
-
-            setName("Accumsan Inn");
-
-            setOrder(
-
-              <section>
-
-                <h2 className="my-5">
-                  
-                  Accumsan Inn $56
-                  
-                </h2> 
-
-                <p className='rady p-3 mb-5'>
-
-                  Mauris fermentum dui in varius posuere. Donec suscipit sollicitudin pellentesque. In accumsan. Phasellus et turpis posuere.
-              
-                
-                </p>
-
-              </section>
-
-            )
-
-            navigate('/store');
-
-            setScroll(true);
-          }}
+          onClick={cartSix}
 
         >
 
@@ -599,26 +493,25 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={Chitto} alt="chitto" width="399" height="265"/>
+              <img src={items.cartSix.image} alt="chitto" width="399" height="265"/>
             
             </div>
 
             <h3 className="mt-3 mb-2 ps-2"> 
 
-              Accumsan In 
+              {items.cartSix.name} 
 
             </h3>
 
             <b className="d-block ps-2">
 
-              lorem rutrum
+              {items.cartSix.sub} 
 
             </b>
 
             <p className="mt-3 mb-3 p-2">
 
-              Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
-              scelerisque lorem nec rutrum. 
+              {items.cartSix.order} 
 
             </p>
 
@@ -626,9 +519,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis 
-              
-              <ArrowRight className="ms-2" />
+            Purchase
+            
+            <ArrowRight className="ms-2" />
 
           </button>
 

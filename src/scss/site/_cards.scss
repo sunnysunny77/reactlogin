@@ -11,7 +11,7 @@
         &:hover,
         &:focus {
             img {
-                transform: scale(1.03);
+                transform: scale(1.04);
             }
             svg {
                 transform: translateX(50%);
@@ -28,7 +28,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(1);
+        transform: scale(1.01);
         transition: transform 0.3s;
     }
     h3 {
