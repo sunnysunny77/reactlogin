@@ -1,26 +1,31 @@
 import React from "react";
 import Alert from 'react-bootstrap/Alert';
+import Header from "./Header";
+import Lost from "../images/404.webp";
 
 const NotFound = () => {
+
   return (
-    <> 
+    <>
 
-      <Alert variant="light">
+      <Header heading="Not found" /> 
 
-        <h1 className="my-3">4
+      <Alert className="w-100 py-5 d-flex flex-wrap align-items-center justify-content-center" variant="light">
+
+        <div className="w-100">
+
+          <Alert.Link href="./">
+            
+            Return
           
-          04 Not Found
-          
-        </h1>
+          </Alert.Link>
 
-        <Alert.Link href="./">
+          <img src={Lost} alt="Finance" width="360" height="360" />
         
-          Return
-        
-        </Alert.Link>
+        </div>
 
       </Alert>
-        
+  
     </>
   );
 }

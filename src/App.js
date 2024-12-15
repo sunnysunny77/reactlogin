@@ -99,23 +99,23 @@ function App() {
 
     return (
       <Routes>
-        <Route path="/" element={<Layout auth={auth} setAuth={logout}/> }>
+        <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
           <Route index element={<Home auth={auth} setLoad={e => setLoad(e)} />} />
           <Route path="store" element={<Store order={order} setOrder={e => setOrder(e)} />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
     )
   }
 
   return (
     <Routes>
-      <Route path="/" element={<Layout auth={auth} />}>
+      <Route path="/" element={<Layout auth={auth} />} >
         <Route index element={<Home auth={auth} setLoad={e => setLoad(e)} />} />
         <Route path="auth" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
