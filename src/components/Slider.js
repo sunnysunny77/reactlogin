@@ -90,13 +90,21 @@ const Slider= (props) => {
 
               <div className="col-4 d-flex justify-content-center align-items-center">
 
-                <button onClick={prev}  aria-label="prev" className="slider_9-button button-prev"><ArrowLeft /></button>
+                <button onClick={prev}  aria-label="prev" className="slider_9-button button-prev">
+                  
+                  <ArrowLeft />
+                  
+                </button>
               
               </div>
 
               <div className="col-4 d-flex justify-content-center align-items-center">
 
-                <button onClick={next} aria-label="next" className="slider_9-button button-next"><ArrowRight /></button>
+                <button onClick={next} aria-label="next" className="slider_9-button button-next">
+                  
+                  <ArrowRight />
+                  
+                </button>
 
               </div>
 

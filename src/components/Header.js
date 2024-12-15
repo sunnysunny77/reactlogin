@@ -12,7 +12,11 @@ const Header = (props) => {
 
             <div className="col-12 bg-1">
 
-                <h1 className="py-3 px-4 m-0">{heading}</h1>
+                <h1 className="py-3 px-4 m-0">
+                  
+                  {heading}
+                  
+                </h1>
 
             </div>
 

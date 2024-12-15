@@ -10,7 +10,11 @@ const Cards = (props) => {
 
             <div className="col-10 col-sm-11 col-lg-10">
 
-                <h2 className="mt-3 mb-4 mt-sm-5 mb-sm-4"> {props.heading} </h2>
+                <h2 className="mt-3 mb-4 mt-sm-5 mb-sm-4">
+
+                  {props.heading} 
+                  
+                </h2>
                 
             </div>
 

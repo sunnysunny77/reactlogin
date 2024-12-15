@@ -41,6 +41,7 @@ const Footer = (props) => {
                         <svg aria-label="Super Foods" viewBox="0 0 100 100" width="40" height="40">
 
                           <defs>
+
                               <path 
                                   id="circle" 
                                   d="M 50, 50
@@ -48,13 +49,14 @@ const Footer = (props) => {
                                   a 37,37 0 1,1 74,0
                                   a 37,37 0 1,1 -74,0" 
                               />
+
                           </defs>
 
                           <text className="font">
 
                               <textPath href="#circle">
 
-                              Super --- Food ----------
+                                Super --- Food ----------
 
                               </textPath>
 
@@ -90,13 +92,21 @@ const Footer = (props) => {
 
                     <li>
 
-                      <Link to="/"> Home </Link>
+                      <Link to="/"> 
+                      
+                        Home 
+                      
+                      </Link>
 
                     </li>
 
                     <li>
 
-                      <Link to="store"> Store </Link>
+                      <Link to="store"> 
+                      
+                        Store 
+                        
+                      </Link>
 
                     </li>
 
@@ -106,11 +116,19 @@ const Footer = (props) => {
 
                         ( 
                           
-                          <Link onClick={setAuth}> Sign out </Link>
+                          <Link onClick={setAuth}> 
+                          
+                            Sign out 
+                            
+                          </Link>
 
                         ) : (
 
-                          <Link to="auth"> Sign in </Link>
+                          <Link to="auth"> 
+                          
+                            Sign in 
+                            
+                          </Link>
 
                         )
 
@@ -156,7 +174,11 @@ const Footer = (props) => {
 
                 <div className="col-12 d-flex flex-wrap justify-content-end mt-3">
 
-                  <a className="top" aria-label="Return to top" href="#top">&#8593;</a>
+                  <a className="top" aria-label="Return to top" href="#top">
+                    
+                    &#8593;
+                    
+                  </a>
 
                 </div>
 

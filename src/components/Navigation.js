@@ -48,6 +48,7 @@ const Navigation = (props) => {
           <svg aria-label="Super Foods" viewBox="0 0 100 100" width="50" height="50">
 
             <defs>
+
                 <path 
                     id="circle" 
                     d="M 50, 50
@@ -55,13 +56,14 @@ const Navigation = (props) => {
                     a 37,37 0 1,1 74,0
                     a 37,37 0 1,1 -74,0" 
                 />
+
             </defs>
 
             <text className="font">
 
                 <textPath href="#circle">
 
-                Super --- Food ----------
+                  Super --- Food ----------
 
                 </textPath>
 
@@ -71,55 +73,73 @@ const Navigation = (props) => {
 
         </Link>
 
-        <div ref={navbar_toggler} onClick={toogle} 
-          aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed p-4"
-          >
+        <div ref={navbar_toggler} onClick={toogle} aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed p-4" >
 
           <div>
 
-            <div className="slider_8-bar1"></div>
+              <div className="slider_8-bar1"></div>
 
               <div className="slider_8-bar2"></div>
 
               <div className="slider_8-bar3"></div>
 
-            </div>
-
           </div>
 
-        {auth ? (
+        </div>
 
-            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse">
+        <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse">
 
-              <ul className="list-unstyled ms-3 my-3">
+          <ul className="list-unstyled ms-3 my-3">
 
-                <li className="mb-1"><Link to="/"> Home </Link></li>
+            <li className="mb-1">
+              
+              <Link to="/"> 
+              
+                Home 
+                
+              </Link>
+              
+            </li>
 
-                <li className="mb-1"><Link to="store"> Store </Link></li>
+            <li className="mb-1">
+              
+              <Link to="store"> 
+              
+                Store 
+                
+              </Link>
+              
+            </li>
 
-                <li><Link onClick={setAuth}> Sign out </Link></li>
-            
-              </ul>
+            {auth ? (
 
-            </div>
+              <li>
+                
+                <Link onClick={setAuth}> 
+                
+                  Sign out 
+                  
+                </Link>
+                
+              </li>
 
-          ) : (
+            ) : (
 
-            <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse">
+              <li>
+              
+                <Link to="auth"> 
+                
+                  Sign in 
+                  
+                </Link>
+              
+              </li>
 
-              <ul className="list-unstyled ms-3 my-3">
+            )}
+        
+          </ul>
 
-                <li className="mb-1"><Link to="/"> Home </Link></li>
-
-                <li className="mb-1"><Link to="auth"> Store </Link></li>
-
-                <li><Link to="auth"> Sign in </Link></li>
-                            
-              </ul>
-
-            </div>
-
-          )}
+        </div>
 
       </div>
 

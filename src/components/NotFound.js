@@ -7,9 +7,17 @@ const NotFound = () => {
 
       <Alert variant="light">
 
-        <h1 className="my-3">404 Not Found</h1>
+        <h1 className="my-3">4
+          
+          04 Not Found
+          
+        </h1>
 
-        <Alert.Link href="./">Return</Alert.Link>
+        <Alert.Link href="./">
+        
+          Return
+        
+        </Alert.Link>
 
       </Alert>
         

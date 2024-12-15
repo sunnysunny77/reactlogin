@@ -38,15 +38,27 @@ const Home = (props) => {
 
           <p className="row col-12 col-sm-7 col-lg-7 col-xl-5 d-flex align-items-center justify-content-between p-4 g-0">
 
-            <span className="col-11 col-md-9">Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>
+            <span className="col-11 col-md-9">
+              
+              Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+              
+            </span>
 
             {auth ? (
 
-              <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > store </Link>
+              <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > 
+              
+                store 
+                
+              </Link>
 
             ) : (
 
-              <Link to="auth" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > store </Link>
+              <Link to="auth" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > 
+              
+                store 
+                
+              </Link>
 
             )}
 
@@ -153,36 +165,38 @@ const Home = (props) => {
 
             <div className="card-inner h-100">
 
-            <div className="overflow-hidden">
+              <div className="overflow-hidden">
 
                 <img src={Fruits} alt="fruits" width="370" height="246"/>
 
-            </div>
+              </div>
 
-            <h3 className="mt-3 mb-2 ps-2"> 
+              <h3 className="mt-3 mb-2 ps-2"> 
 
                 In accumsan
 
-            </h3>
+              </h3>
 
-            <b className="d-block ps-2">
+              <b className="d-block ps-2">
 
                 Nec rutrum
 
-            </b>
+              </b>
 
-            <p className="mt-3 mb-3 p-2">
+              <p className="mt-3 mb-3 p-2">
 
                 Dolor magna. In accumsan
                 scelerisque lorem nec rutrum. Phasellus et turpis posuere.
 
-            </p>
+              </p>
 
             </div>
 
             <button className="w-100 text-start ps-3 py-2">
 
-            Turpis <ArrowRight className="ms-2" />
+              Turpis 
+              
+              <ArrowRight className="ms-2" />
 
             </button>
 
@@ -192,35 +206,37 @@ const Home = (props) => {
 
             <div className="card-inner h-100">
 
-            <div className="overflow-hidden">
+              <div className="overflow-hidden">
 
                 <img src={Broccoli} alt="broccoli" width="370" height="246"/>
 
-            </div>
+              </div>
 
-            <h3 className="mt-3 mb-2 ps-2"> 
+              <h3 className="mt-3 mb-2 ps-2"> 
 
-                Eleifend eu
+                  Eleifend eu
 
-            </h3>
+              </h3>
 
-            <b className="d-block ps-2">
+              <b className="d-block ps-2">
 
-                Dolor magn
+                  Dolor magn
 
-            </b>
+              </b>
 
-            <p className="mt-3 mb-3 p-2">
+              <p className="mt-3 mb-3 p-2">
 
-                Eleifend eu. Mauris et dolor magna. 
+                  Eleifend eu. Mauris et dolor magna. 
 
-            </p>
+              </p>
 
             </div>
 
             <button className="w-100 text-start ps-3 py-2">
 
-            Turpis <ArrowRight className="ms-2" />
+              Turpis 
+              
+              <ArrowRight className="ms-2" />
 
             </button>
 
@@ -232,26 +248,26 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-              <img src={Basil} alt="basil" width="370" height="246"/>
+                <img src={Basil} alt="basil" width="370" height="246"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-              Lectus eleifend
+                Lectus eleifend
 
               </h3>
 
               <b className="d-block ps-2">
 
-              Lorem nec
+                Lorem nec
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-              Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
-              Dcelerisque lorem nec rutrum. 
+                Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
+                Dcelerisque lorem nec rutrum. 
 
               </p>
 
@@ -259,7 +275,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis <ArrowRight className="ms-2" />
+              Turpis 
+              
+              <ArrowRight className="ms-2" />
 
           </button>
 
@@ -271,26 +289,26 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-              <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
+                <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-              Phasellus et
+                Phasellus et
 
               </h3>
 
               <b className="d-block ps-2">
 
-              Scelerisque lorem
+                Scelerisque lorem
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-              Mauris et dolor magna. In accumsan
-              scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+                Mauris et dolor magna. In accumsan
+                scelerisque lorem nec rutrum. Phasellus et turpis posuere.
 
               </p>
 
@@ -298,7 +316,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis <ArrowRight className="ms-2" />
+              Turpis 
+              
+              <ArrowRight className="ms-2" />
 
           </button>
 
@@ -310,25 +330,25 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-              <img src={Schwab} alt="schwab" width="370" height="246"/>
+                <img src={Schwab} alt="schwab" width="370" height="246"/>
 
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-              Turpis posuere
+                Turpis posuere
 
               </h3>
 
               <b className="d-block ps-2">
 
-              Rutrum nec
+                Rutrum nec
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-              Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
 
               </p>
 
@@ -336,7 +356,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis <ArrowRight className="ms-2" />
+              Turpis 
+              
+              <ArrowRight className="ms-2" />
 
           </button>
 
@@ -348,26 +370,26 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-              <img src={Chitto} alt="chitto" width="370" height="246"/>
+                <img src={Chitto} alt="chitto" width="370" height="246"/>
               
               </div>
 
               <h3 className="mt-3 mb-2 ps-2"> 
 
-              Accumsan In 
+                Accumsan In 
 
               </h3>
 
               <b className="d-block ps-2">
 
-              lorem rutrum
+                lorem rutrum
 
               </b>
 
               <p className="mt-3 mb-3 p-2">
 
-              Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
-              scelerisque lorem nec rutrum. 
+                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
+                scelerisque lorem nec rutrum. 
 
               </p>
 
@@ -375,7 +397,9 @@ const Home = (props) => {
 
           <button className="w-100 text-start ps-3 py-2">
 
-              Turpis <ArrowRight className="ms-2" />
+              Turpis 
+              
+              <ArrowRight className="ms-2" />
 
           </button>
 

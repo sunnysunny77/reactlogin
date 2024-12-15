@@ -248,7 +248,11 @@ const Auth = (props) => {
 
           <Accordion.Item eventKey="0">
 
-            <Accordion.Header>Login</Accordion.Header>
+            <Accordion.Header>
+              
+              Login
+              
+            </Accordion.Header>
 
             <Accordion.Body className='p-5'>
 
@@ -306,7 +310,11 @@ const Auth = (props) => {
 
           <Accordion.Item eventKey="1">
 
-            <Accordion.Header>Signup</Accordion.Header>
+            <Accordion.Header>
+              
+              Signup
+              
+            </Accordion.Header>
 
             <Accordion.Body className='p-5'>
 

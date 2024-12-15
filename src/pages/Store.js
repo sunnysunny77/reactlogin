@@ -89,27 +89,101 @@ const Store = (props) => {
             const total = `$ ${order.purchase_units[0].amount.value}`;
         
             const output = <table className="mt-5">
-              <caption>{description}</caption>
+
+              <caption>
+                
+                {description}
+                
+              </caption>
+
               <thead>
+
                 <tr>
-                  <th id="transaction">Transaction</th>
-                  <th id="email">Email:</th>
-                  <th id="name">Name:</th>
-                  <th id="address">Address:</th>
-                  <th id="purchase">Purchase:</th>
-                  <th id="total">Total:</th>
+
+                  <th id="transaction">
+                    
+                    Transaction
+                    
+                  </th>
+
+                  <th id="email">
+                    
+                    Email:
+                    
+                  </th>
+
+                  <th id="name">
+                    
+                    Name:
+                    
+                  </th>
+
+                  <th id="address">
+                    
+                    Address:
+                    
+                  </th>
+
+                  <th id="purchase">
+                    
+                    Purchase:
+                    
+                  </th>
+
+                  <th id="total">
+                    
+                    Total:
+                    
+                  </th>
+
                 </tr>
+
               </thead>
+
               <tbody>
-                  <tr>
-                  <td headers="transaction">{transaction}</td>
-                  <td headers="email">{email}</td>
-                  <td headers="name">{name}</td>
-                  <td headers="address">{address}</td>
-                  <td headers="purchase">{purchase}</td>
-                  <td headers="total">{total}</td>
+
+                <tr>
+
+                  <td headers="transaction">
+                    
+                    {transaction}
+                    
+                  </td>
+
+                  <td headers="email">
+                    
+                    {email}
+                    
+                  </td>
+
+                  <td headers="name">
+                    
+                    {name}
+                    
+                  </td>
+
+                  <td headers="address">
+                    
+                    {address}
+                    
+                  </td>
+
+                  <td headers="purchase">
+                    
+                    {purchase}
+                    
+                  </td>
+
+                  <td headers="total">
+                    
+                    {total}
+                    
+                  </td>
+
                 </tr>
+
               </tbody>
+
             </table>;
         
             props.setOrder(output);
@@ -127,69 +201,69 @@ const Store = (props) => {
     
       <Header heading="STORE" />
   
-        <div className="container d-flex align-items-center pt-5 my-5">
+      <div className="container d-flex align-items-center pt-5 my-5">
             
-          <div className="row justify-content-center w-100 g-0">
+        <div className="row justify-content-center w-100 g-0">
 
-            <div className="col-10 ">
+          <div className="col-10 ">
 
-              <div id="payPal" className="row justify-content-center justify-content-xl-evenly align-items-xl-center g-0 pb-5 pb-xl-0">
+            <div id="payPal" className="row justify-content-center justify-content-xl-evenly align-items-xl-center g-0 pb-5 pb-xl-0">
 
-                <div id="store" className="col-10 col-md-4 my-5 p-0">
+              <div id="store" className="col-10 col-md-4 my-5 p-0">
 
-                    <img src={Food} alt="Food" width="366" height="366" />
-
-                </div>
-
-                <div id="counter" className="col-6 col-xl-auto d-flex flex-xl-column justify-content-center align-items-center">
-
-                  <span
-
-                    className="text-center me-xl-4"
-                    role="button"
-                    onClick={() => {
-
-                      if (count > 1) setCount(count - 1)
-                    }}
-
-                  >
-
-                    -
-
-                  </span>
-
-                  <label aria-label="Quantity" htmlFor="count" className="hidden">
-                    
-                    Quantity
-                    
-                  </label>
-
-                  <input disabled={true} id="count" className="text-center m-4 ms-xl-0" type="text" value={count} />
-
-                  <span
-
-                    className="text-center me-xl-4"
-                    role="button"
-                    onClick={() => {
-
-                      setCount(count + 1)
-                    }}
-                    
-                  >
-
-                    +
-
-                  </span>
-
-                </div>
-
-                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
-                    
-                  <ButtonWrapper showSpinner={true} /> 
-
-                </PayPalScriptProvider>
+                  <img src={Food} alt="Food" width="366" height="366" />
 
               </div>
+
+              <div id="counter" className="col-6 col-xl-auto d-flex flex-xl-column justify-content-center align-items-center">
+
+                <span
+
+                  className="text-center me-xl-4"
+                  role="button"
+                  onClick={() => {
+
+                    if (count > 1) setCount(count - 1)
+                  }}
+
+                >
+
+                  -
+
+                </span>
+
+                <label aria-label="Quantity" htmlFor="count" className="hidden">
+                  
+                  Quantity
+                  
+                </label>
+
+                <input disabled={true} id="count" className="text-center m-4 ms-xl-0" type="text" value={count} />
+
+                <span
+
+                  className="text-center me-xl-4"
+                  role="button"
+                  onClick={() => {
+
+                    setCount(count + 1)
+                  }}
+                  
+                >
+
+                  +
+
+                </span>
+
+              </div>
+
+              <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
+                  
+                <ButtonWrapper showSpinner={true} /> 
+
+              </PayPalScriptProvider>
+
+            </div>
 
             {order}
 
