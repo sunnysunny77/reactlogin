@@ -245,289 +245,293 @@ const Home = (props) => {
 
       </TwoColImage>
 
-      <Cards
-      
-        heading={`Vestibulum eu`}
-      
-      >
+      <div className="container-fluid pt-5 mb-5 mb-5 mt-lg-5">
 
-        <div 
-          
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
-          
-          onClick={cartOne}
-
-        >
-
-          <div className="card-inner h-100">
-
-            <div className="overflow-hidden">
-
-              <img src={items.cartOne.image} alt={items.cartOne.name} width="399" height="265"/>
-
-            </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartOne.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartOne.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartOne.order}
-
-            </p>
-
-          </div>
-
-          <button className="w-100 text-start ps-3 py-2">
-
-            Purchase
-            
-            <ArrowRight className="ms-2" />
-
-          </button>
-
-        </div>
-
-        <div 
-          
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
-          
-          onClick={cartTwo}
-
-        >
-
-          <div className="card-inner h-100">
-
-            <div className="overflow-hidden">
-
-              <img src={items.cartTwo.image} alt={items.cartTwo.name} width="399" height="265"/>
-
-            </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartTwo.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartTwo.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartTwo.order} 
-
-            </p>
-
-          </div>
-
-          <button className="w-100 text-start ps-3 py-2">
-
-            Purchase
-            
-            <ArrowRight className="ms-2" />
-
-          </button>
-
-        </div>
-
-        <div 
-          
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
-          
-          onClick={cartThree}
-
-        >
-
-          <div className="card-inner h-100">
-
-            <div className="overflow-hidden">
-
-              <img src={items.cartThree.image} alt={items.cartThree.name} width="399" height="265"/>
-
-            </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartThree.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartThree.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartThree.order} 
-
-            </p>
-
-          </div>
-
-          <button className="w-100 text-start ps-3 py-2">
-
-            Purchase
-            
-            <ArrowRight className="ms-2" />
-
-          </button>
-
-        </div>
-
-        <div 
-          
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
-          
-          onClick={cartFour}
-
-        >
-
-          <div className="card-inner h-100">
-
-            <div className="overflow-hidden">
-
-              <img src={items.cartFour.image} alt={items.cartFour.name} width="399" height="265"/>
-
-            </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartFour.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartFour.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartFour.order}
-
-            </p>
-
-          </div>
-
-          <button className="w-100 text-start ps-3 py-2">
-
-            Purchase
-            
-            <ArrowRight className="ms-2" />
-
-          </button>
-
-        </div>
-
-        <div 
-          
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
-          
-          onClick={cartFive}
-
-        >
-
-          <div className="card-inner h-100">
-
-            <div className="overflow-hidden">
-
-              <img src={items.cartFive.image} alt={items.cartFive.name} width="399" height="265"/>
-
-            </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartFive.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartFive.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartFive.order}
-
-            </p>
-
-          </div>
-
-          <button className="w-100 text-start ps-3 py-2">
-
-            Purchase 
-            
-            <ArrowRight className="ms-2" />
-
-          </button>
-
-        </div>
-
-        <div 
-          
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
-          
-          onClick={cartSix}
-
-        >
-
-          <div className="card-inner h-100">
-
-            <div className="overflow-hidden">
-
-              <img src={items.cartSix.image} alt={items.cartSix.name} width="399" height="265"/>
-            
-            </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartSix.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartSix.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartSix.order} 
-
-            </p>
-
-          </div>
-
-          <button className="w-100 text-start ps-3 py-2">
-
-            Purchase
-            
-            <ArrowRight className="ms-2" />
-
-          </button>
-
-        </div>
+        <Cards
         
-      </Cards>
+          heading={`Vestibulum eu`}
+        
+        >
+
+          <div 
+            
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            
+            onClick={cartOne}
+
+          >
+
+            <div className="card-inner h-100">
+
+              <div className="overflow-hidden">
+
+                <img src={items.cartOne.image} alt={items.cartOne.name} width="399" height="265"/>
+
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartOne.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartOne.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartOne.order}
+
+              </p>
+
+            </div>
+
+            <button className="w-100 text-start ps-3 py-2">
+
+              Add to store
+              
+              <ArrowRight className="ms-2" />
+
+            </button>
+
+          </div>
+
+          <div 
+            
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            
+            onClick={cartTwo}
+
+          >
+
+            <div className="card-inner h-100">
+
+              <div className="overflow-hidden">
+
+                <img src={items.cartTwo.image} alt={items.cartTwo.name} width="399" height="265"/>
+
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartTwo.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartTwo.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartTwo.order} 
+
+              </p>
+
+            </div>
+
+            <button className="w-100 text-start ps-3 py-2">
+
+              Add to store
+              
+              <ArrowRight className="ms-2" />
+
+            </button>
+
+          </div>
+
+          <div 
+            
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            
+            onClick={cartThree}
+
+          >
+
+            <div className="card-inner h-100">
+
+              <div className="overflow-hidden">
+
+                <img src={items.cartThree.image} alt={items.cartThree.name} width="399" height="265"/>
+
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartThree.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartThree.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartThree.order} 
+
+              </p>
+
+            </div>
+
+            <button className="w-100 text-start ps-3 py-2">
+
+              Add to store
+              
+              <ArrowRight className="ms-2" />
+
+            </button>
+
+          </div>
+
+          <div 
+            
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            
+            onClick={cartFour}
+
+          >
+
+            <div className="card-inner h-100">
+
+              <div className="overflow-hidden">
+
+                <img src={items.cartFour.image} alt={items.cartFour.name} width="399" height="265"/>
+
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartFour.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartFour.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartFour.order}
+
+              </p>
+
+            </div>
+
+            <button className="w-100 text-start ps-3 py-2">
+
+              Add to store
+              
+              <ArrowRight className="ms-2" />
+
+            </button>
+
+          </div>
+
+          <div 
+            
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            
+            onClick={cartFive}
+
+          >
+
+            <div className="card-inner h-100">
+
+              <div className="overflow-hidden">
+
+                <img src={items.cartFive.image} alt={items.cartFive.name} width="399" height="265"/>
+
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartFive.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartFive.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartFive.order}
+
+              </p>
+
+            </div>
+
+            <button className="w-100 text-start ps-3 py-2">
+
+              Add to store 
+              
+              <ArrowRight className="ms-2" />
+
+            </button>
+
+          </div>
+
+          <div 
+            
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            
+            onClick={cartSix}
+
+          >
+
+            <div className="card-inner h-100">
+
+              <div className="overflow-hidden">
+
+                <img src={items.cartSix.image} alt={items.cartSix.name} width="399" height="265"/>
+              
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartSix.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartSix.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartSix.order} 
+
+              </p>
+
+            </div>
+
+            <button className="w-100 text-start ps-3 py-2">
+
+              Add to store
+              
+              <ArrowRight className="ms-2" />
+
+            </button>
+
+          </div>
+          
+        </Cards>
+
+      </div>
 
       <Cta 
 

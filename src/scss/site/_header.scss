@@ -66,6 +66,7 @@ header {
         transition:
             color 0.2s ease-in-out,
             background-color 0.2s ease-in-out;
+        will-change: color, background-color;
         &:hover,
         &:focus {
             color: $c10;

@@ -30,6 +30,7 @@
         object-fit: cover;
         transform: scale(1.01);
         transition: transform 0.3s;
+        will-change: transform;
     }
     h3 {
         font-weight: 600;

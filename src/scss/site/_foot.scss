@@ -9,6 +9,7 @@ footer {
         text-decoration: underline;
         text-decoration-color: $c5;
         transition: text-decoration-color 0.2s;
+        will-change: text-decoration-color;
         &:hover {
             text-decoration-color: $c9;
         }

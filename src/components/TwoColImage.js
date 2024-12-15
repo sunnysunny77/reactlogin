@@ -6,7 +6,7 @@ const TwoColImage = (props) => {
   
   return (
     
-    <section className="two-col-image row p-5 ps-md-0 pt-md-0 pb-md-0 pe-md-0 mb-5 ps-xl-5 g-0" >
+    <section className="two-col-image row p-5 ps-md-0 pt-md-0 pb-md-0 pe-md-0 ps-xl-5 g-0" >
 
       <div className="row col-12 col-md-6 ps-lg-5 pt-md-5 pb-md-5 ps-md-5 g-0">
 

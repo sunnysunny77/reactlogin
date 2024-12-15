@@ -11,8 +11,6 @@ const Store = (props) => {
 
   const payRef = useRef();
 
-  const srcRef = useRef();
-
   const [count, setCount] = useState(1);
 
   const [output, setOutput] = useState(false);
@@ -346,20 +344,14 @@ const Store = (props) => {
    setTimeout(()=>{
 
     obj.classList.remove("fade");
-   }, 350)
+   }, 100)
   }
 
   useEffect(() => {
 
-    const obj = srcRef.current;
-
-    obj.addEventListener("load", srcListen);
-
     if (scroll) payRef.current.scrollIntoView({});
 
     setScroll(false);
-
-    return () => obj.removeEventListener("load", srcListen);
 
   }, [scroll, setScroll])
   
@@ -368,7 +360,7 @@ const Store = (props) => {
     
       <Header heading="STORE" />
 
-      <div className="container-fluid d pt-5 mt-sm-4 mt-lg-5">
+      <div className="container-fluid d pt-4 mt-lg-4">
 
         <Cards
         
@@ -414,7 +406,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Purchase
+              Check out
               
               <ArrowRight className="ms-2" />
 
@@ -460,7 +452,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Purchase
+              Check out
               
               <ArrowRight className="ms-2" />
 
@@ -506,7 +498,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Purchase
+              Check out
               
               <ArrowRight className="ms-2" />
 
@@ -552,7 +544,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Purchase
+              Check out
               
               <ArrowRight className="ms-2" />
 
@@ -598,7 +590,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Purchase
+              Check out
               
               <ArrowRight className="ms-2" />
 
@@ -644,7 +636,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Purchase
+              Check out
               
               <ArrowRight className="ms-2" />
 
@@ -666,7 +658,7 @@ const Store = (props) => {
 
               <div id="store" className="col-10 col-md-4 my-5 p-0">
 
-                  <img ref={srcRef} src={image} alt="Food" width="366" height="366" />
+                  <img onLoad={srcListen} src={image} alt="Food" width="366" height="366" />
 
               </div>
 

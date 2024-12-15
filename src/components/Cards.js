@@ -4,7 +4,7 @@ const Cards = (props) => {
 
   return (
     
-    <section className="cards container-xl mb-5 g-0">
+    <section className="cards container-xl g-0">
 
       <div className="row justify-content-center g-0">
     
