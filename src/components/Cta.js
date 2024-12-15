@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRightCircleFill } from 'react-bootstrap-icons';
+import { Link } from "react-router-dom";
 
 const Cta = (props) => {
 
@@ -8,7 +9,7 @@ const Cta = (props) => {
 
       <div className="container-xl my-lg-5 px-sm-5 px-xl-0 cta g-0">
 
-        <a href="./" className="row justify-content-center justify-content-lg-between my-5 g-0">
+          <Link to="/store" className="row justify-content-center justify-content-lg-between my-5 g-0">
 
             <div className="col-10 col-md-4 col-lg-12 d-flex align-items-xl-center">
 
@@ -40,7 +41,7 @@ const Cta = (props) => {
 
             </div>
 
-        </a>
+        </Link>
      
       </div>
           

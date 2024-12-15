@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
 import Store from "../images/store.webp";
 import Finance from "../images/finance.webp";
@@ -28,7 +29,9 @@ import Enquiry from "../components/Enquiry";
 
 const Home = (props) => {
 
-  const { auth, setLoad } = props;
+  const { auth, setLoad, setOrder, setImage, setValue, setName, setScroll } = props;
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -164,115 +167,226 @@ const Home = (props) => {
       
       >
 
-        <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+        <div 
+          
+          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+          
+          onClick={()=>{
 
-            <div className="card-inner h-100">
+            setImage(Fruits);
 
-              <div className="overflow-hidden">
+            setValue("23");
 
-                <img src={Fruits} alt="fruits" width="399" height="265"/>
+            setName("In accumsan");
 
-              </div>
+            setOrder(
 
-              <h3 className="mt-3 mb-2 ps-2"> 
+              <section>
 
-                In accumsan
+                <h2 className="my-5">
+                  
+                  In accumsan $23
+                  
+                </h2> 
 
-              </h3>
+                <p className='rady p-3 mb-5'>
 
-              <b className="d-block ps-2">
+                  Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                
+                </p>
 
-                Nec rutrum
+              </section>
 
-              </b>
+            )
 
-              <p className="mt-3 mb-3 p-2">
+            navigate('/store');
 
-                Dolor magna. In accumsan
-                scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+            setScroll(true);
+          }}
 
-              </p>
+        >
+
+          <div className="card-inner h-100">
+
+            <div className="overflow-hidden">
+
+              <img src={Fruits} alt="fruits" width="399" height="265"/>
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <h3 className="mt-3 mb-2 ps-2"> 
 
-              Turpis 
-              
-              <ArrowRight className="ms-2" />
+              In accumsan
 
-            </button>
+            </h3>
 
-        </a>
+            <b className="d-block ps-2">
 
-        <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+              Nec rutrum
 
-            <div className="card-inner h-100">
+            </b>
 
-              <div className="overflow-hidden">
+            <p className="mt-3 mb-3 p-2">
 
-                <img src={Broccoli} alt="broccoli" width="399" height="265"/>
+              Dolor magna. In accumsan
+              scelerisque lorem nec rutrum. Phasellus et turpis posuere.
 
-              </div>
+            </p>
 
-              <h3 className="mt-3 mb-2 ps-2"> 
+          </div>
 
-                  Eleifend eu
+          <button className="w-100 text-start ps-3 py-2">
 
-              </h3>
+            Turpis 
+            
+            <ArrowRight className="ms-2" />
 
-              <b className="d-block ps-2">
+          </button>
 
-                  Dolor magn
+        </div>
 
-              </b>
+        <div 
+          
+          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+          
+          onClick={()=>{
 
-              <p className="mt-3 mb-3 p-2">
+            setImage(Broccoli);
 
-                  Eleifend eu. Mauris et dolor magna. 
+            setValue("15");
 
-              </p>
+            setName("Eleifend eu");
+
+            setOrder(
+
+              <section>
+
+                <h2 className="my-5">
+                  
+                  Eleifend eu $15
+                  
+                </h2> 
+
+                <p className='rady p-3 mb-5'>
+
+                  Sed sem ante, venenatis non neque in, aliquam faucibus leo. Vestibulum aliquam magna dui, sit amet lobortis neque vulputate quis.
+                
+                </p>
+
+              </section>
+
+            )
+
+            navigate('/store');
+
+            setScroll(true);
+          }}
+
+        >
+
+          <div className="card-inner h-100">
+
+            <div className="overflow-hidden">
+
+              <img src={Broccoli} alt="broccoli" width="399" height="265"/>
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <h3 className="mt-3 mb-2 ps-2"> 
 
-              Turpis 
-              
-              <ArrowRight className="ms-2" />
+                Eleifend eu
 
-            </button>
+            </h3>
 
-        </a>
+            <b className="d-block ps-2">
 
-        <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+                Dolor magn
+
+            </b>
+
+            <p className="mt-3 mb-3 p-2">
+
+                Eleifend eu. Mauris et dolor magna. 
+
+            </p>
+
+          </div>
+
+          <button className="w-100 text-start ps-3 py-2">
+
+            Turpis 
+            
+            <ArrowRight className="ms-2" />
+
+          </button>
+
+        </div>
+
+        <div 
+          
+          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+          
+          onClick={()=>{
+
+            setImage(Basil);
+
+            setValue("70");
+
+            setName("Lectus eleifend");
+
+            setOrder(
+
+              <section>
+
+                <h2 className="my-5">
+                  
+                  Lectus eleifend $70
+                  
+                </h2> 
+
+                <p className='rady p-3 mb-5'>
+
+                  Nulla vel justo consequat, maximus tellus eget, dictum leo. Aenean pellentesque interdum nibh sit amet dictum.
+                
+                </p>
+
+              </section>
+
+            )
+
+            navigate('/store');
+
+            setScroll(true);
+          }}
+
+        >
 
           <div className="card-inner h-100">
 
-              <div className="overflow-hidden">
+            <div className="overflow-hidden">
 
-                <img src={Basil} alt="basil" width="399" height="265"/>
+              <img src={Basil} alt="basil" width="399" height="265"/>
 
-              </div>
+            </div>
 
-              <h3 className="mt-3 mb-2 ps-2"> 
+            <h3 className="mt-3 mb-2 ps-2"> 
 
-                Lectus eleifend
+              Lectus eleifend
 
-              </h3>
+            </h3>
 
-              <b className="d-block ps-2">
+            <b className="d-block ps-2">
 
-                Lorem nec
+              Lorem nec
 
-              </b>
+            </b>
 
-              <p className="mt-3 mb-3 p-2">
+            <p className="mt-3 mb-3 p-2">
 
-                Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
-                Dcelerisque lorem nec rutrum. 
+              Eget tincidunt lectus eleifend eu. Mauris et dolor magna.
+              Dcelerisque lorem nec rutrum. 
 
-              </p>
+            </p>
 
           </div>
 
@@ -284,36 +398,73 @@ const Home = (props) => {
 
           </button>
 
-        </a>
+        </div>
 
-        <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+        <div 
+          
+          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+          
+          onClick={()=>{
+
+            setImage(Cucumbers);
+
+            setValue("17");
+
+            setName("Phasellus et");
+
+            setOrder(
+
+              <section>
+
+                <h2 className="my-5">
+                  
+                  Phasellus et $17
+                  
+                </h2> 
+
+                <p className='rady p-3 mb-5'>
+
+                  Ut id felis id ex convallis dapibus id ut justo. Mauris fermentum dui in varius posuere. Donec suscipit sollicitudin pellentesque.
+                
+                </p>
+
+              </section>
+
+            )
+
+            navigate('/store');
+
+            setScroll(true);
+          }}
+
+        >
 
           <div className="card-inner h-100">
 
-              <div className="overflow-hidden">
+            <div className="overflow-hidden">
 
-                <img src={Cucumbers} alt="cucumbers" width="399" height="265"/>
+              <img src={Cucumbers} alt="cucumbers" width="399" height="265"/>
 
-              </div>
+            </div>
 
-              <h3 className="mt-3 mb-2 ps-2"> 
+            <h3 className="mt-3 mb-2 ps-2"> 
 
-                Phasellus et
+              Phasellus et
 
-              </h3>
+            </h3>
 
-              <b className="d-block ps-2">
+            <b className="d-block ps-2">
 
-                Scelerisque lorem
+              Scelerisque lorem
 
-              </b>
+            </b>
 
-              <p className="mt-3 mb-3 p-2">
+            <p className="mt-3 mb-3 p-2">
 
-                Mauris et dolor magna. In accumsan
-                scelerisque lorem nec rutrum. Phasellus et turpis posuere.
+              Mauris et dolor magna. In accumsan
+              scelerisque lorem nec rutrum. Phasellus et turpis posuere.
 
-              </p>
+            </p>
 
           </div>
 
@@ -325,35 +476,72 @@ const Home = (props) => {
 
           </button>
 
-        </a>
+        </div>
 
-        <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+        <div 
+          
+          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+          
+          onClick={()=>{
+
+            setImage(Schwab);
+
+            setValue("57");
+
+            setName("Turpis posuere");
+
+            setOrder(
+
+              <section>
+
+                <h2 className="my-5">
+                  
+                  Turpis posuere $57
+                  
+                </h2> 
+
+                <p className='rady p-3 mb-5'>
+
+                  Maecenas sed dui vel magna condimentum luctus et nec enim. Proin tincidunt facilisis felis ac convallis. Aenean tellus enim, malesuada sed faucibus eget, ornare quis ante.
+                
+                </p>
+
+              </section>
+
+            )
+
+            navigate('/store');
+
+            setScroll(true);
+          }}
+
+        >
 
           <div className="card-inner h-100">
 
-              <div className="overflow-hidden">
+            <div className="overflow-hidden">
 
-                <img src={Schwab} alt="schwab" width="399" height="265"/>
+              <img src={Schwab} alt="schwab" width="399" height="265"/>
 
-              </div>
+            </div>
 
-              <h3 className="mt-3 mb-2 ps-2"> 
+            <h3 className="mt-3 mb-2 ps-2"> 
 
-                Turpis posuere
+              Turpis posuere
 
-              </h3>
+            </h3>
 
-              <b className="d-block ps-2">
+            <b className="d-block ps-2">
 
-                Rutrum nec
+              Rutrum nec
 
-              </b>
+            </b>
 
-              <p className="mt-3 mb-3 p-2">
+            <p className="mt-3 mb-3 p-2">
 
-                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
+              Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan. Phasellus et turpis posuere.
 
-              </p>
+            </p>
 
           </div>
 
@@ -365,36 +553,74 @@ const Home = (props) => {
 
           </button>
 
-        </a>
+        </div>
 
-        <a href="./" className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3">
+        <div 
+          
+          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+          
+          onClick={()=>{
+
+            setImage(Chitto);
+
+            setValue("56");
+
+            setName("Accumsan Inn");
+
+            setOrder(
+
+              <section>
+
+                <h2 className="my-5">
+                  
+                  Accumsan Inn $56
+                  
+                </h2> 
+
+                <p className='rady p-3 mb-5'>
+
+                  Mauris fermentum dui in varius posuere. Donec suscipit sollicitudin pellentesque. In accumsan. Phasellus et turpis posuere.
+              
+                
+                </p>
+
+              </section>
+
+            )
+
+            navigate('/store');
+
+            setScroll(true);
+          }}
+
+        >
 
           <div className="card-inner h-100">
 
-              <div className="overflow-hidden">
+            <div className="overflow-hidden">
 
-                <img src={Chitto} alt="chitto" width="399" height="265"/>
-              
-              </div>
+              <img src={Chitto} alt="chitto" width="399" height="265"/>
+            
+            </div>
 
-              <h3 className="mt-3 mb-2 ps-2"> 
+            <h3 className="mt-3 mb-2 ps-2"> 
 
-                Accumsan In 
+              Accumsan In 
 
-              </h3>
+            </h3>
 
-              <b className="d-block ps-2">
+            <b className="d-block ps-2">
 
-                lorem rutrum
+              lorem rutrum
 
-              </b>
+            </b>
 
-              <p className="mt-3 mb-3 p-2">
+            <p className="mt-3 mb-3 p-2">
 
-                Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
-                scelerisque lorem nec rutrum. 
+              Eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
+              scelerisque lorem nec rutrum. 
 
-              </p>
+            </p>
 
           </div>
 
@@ -406,7 +632,7 @@ const Home = (props) => {
 
           </button>
 
-        </a>
+        </div>
         
       </Cards>
 
