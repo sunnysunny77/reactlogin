@@ -157,8 +157,6 @@ function App() {
       setOrder(items.cartOne.order);
       setScroll(false);
       navigate('/');
-      localStorage.removeItem("token");
-      localStorage.removeItem("captchaToken");
     }
   }
 
