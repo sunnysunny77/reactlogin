@@ -5,6 +5,7 @@ import Store from "../images/store.webp";
 import Finance from "../images/finance.webp";
 import Transport from "../images/transport.webp";
 import Warehouse from "../images/warehouse.webp";
+import Platter from "../images/platter.webp";
 import Roast from "../images/roast.webp";
 import Vegies from "../images/vegies.webp";
 import Greens from "../images/greens.webp";
@@ -137,6 +138,8 @@ const Home = (props) => {
 
         <img className="counters" src={Greens} width="847" height="565" alt="Greens" />
 
+        <img className="counters" src={Platter} width="847" height="565" alt="Platter" />
+
       </Slider>
 
       <TwoColImage
@@ -167,7 +170,7 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Fruits} alt="fruits" width="370" height="246"/>
+                <img src={Fruits} alt="fruits" width="399" height="265"/>
 
               </div>
 
@@ -208,7 +211,7 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Broccoli} alt="broccoli" width="370" height="246"/>
+                <img src={Broccoli} alt="broccoli" width="399" height="265"/>
 
               </div>
 
@@ -248,7 +251,7 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Basil} alt="basil" width="370" height="246"/>
+                <img src={Basil} alt="basil" width="399" height="265"/>
 
               </div>
 
@@ -289,7 +292,7 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Cucumbers} alt="cucumbers" width="370" height="246"/>
+                <img src={Cucumbers} alt="cucumbers" width="399" height="265"/>
 
               </div>
 
@@ -330,7 +333,7 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Schwab} alt="schwab" width="370" height="246"/>
+                <img src={Schwab} alt="schwab" width="399" height="265"/>
 
               </div>
 
@@ -370,7 +373,7 @@ const Home = (props) => {
 
               <div className="overflow-hidden">
 
-                <img src={Chitto} alt="chitto" width="370" height="246"/>
+                <img src={Chitto} alt="chitto" width="399" height="265"/>
               
               </div>
 
