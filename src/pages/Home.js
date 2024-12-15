@@ -23,7 +23,7 @@ import Enquiry from "../components/Enquiry";
 
 const Home = (props) => {
 
-  const { items, setLoad,  setImage, setValue, setName, setSub, setOrder, setScroll } = props;
+  const { items, setLoad, setImage, setValue, setName, setSub, setOrder, setScroll } = props;
 
   const navigate = useNavigate();
 

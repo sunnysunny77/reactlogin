@@ -185,7 +185,7 @@ const Store = (props) => {
             breakdown: {
               item_total: {
                 currency_code: "AUD",
-                value: price
+                value: price,
               }
             }
           },
@@ -194,7 +194,7 @@ const Store = (props) => {
               name: name,
               unit_amount: {
                 currency_code: "AUD",
-                value: value
+                value: value,
               },
               quantity: count,
             },
@@ -358,8 +358,6 @@ const Store = (props) => {
     if (scroll) payRef.current.scrollIntoView({});
 
     setScroll(false);
-
-    setOutput(false);
 
     return () => obj.removeEventListener("load", srcListen);
 
