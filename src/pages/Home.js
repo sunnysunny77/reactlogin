@@ -263,7 +263,7 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={items.cartOne.image} alt="fruits" width="399" height="265"/>
+              <img src={items.cartOne.image} alt={items.cartOne.name} width="399" height="265"/>
 
             </div>
 
@@ -309,7 +309,7 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={items.cartTwo.image} alt="broccoli" width="399" height="265"/>
+              <img src={items.cartTwo.image} alt={items.cartTwo.name} width="399" height="265"/>
 
             </div>
 
@@ -355,7 +355,7 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={items.cartThree.image} alt="basil" width="399" height="265"/>
+              <img src={items.cartThree.image} alt={items.cartThree.name} width="399" height="265"/>
 
             </div>
 
@@ -401,7 +401,7 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={items.cartFour.image} alt="cucumbers" width="399" height="265"/>
+              <img src={items.cartFour.image} alt={items.cartFour.name} width="399" height="265"/>
 
             </div>
 
@@ -447,7 +447,7 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={items.cartFive.image} alt="schwab" width="399" height="265"/>
+              <img src={items.cartFive.image} alt={items.cartFive.name} width="399" height="265"/>
 
             </div>
 
@@ -493,7 +493,7 @@ const Home = (props) => {
 
             <div className="overflow-hidden">
 
-              <img src={items.cartSix.image} alt="chitto" width="399" height="265"/>
+              <img src={items.cartSix.image} alt={items.cartSix.name} width="399" height="265"/>
             
             </div>
 
