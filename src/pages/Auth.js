@@ -240,7 +240,7 @@ const Auth = (props) => {
   return (
     <>
 
-      <Header heading="AUTH" />
+      <Header heading="STORE" />
 
       <div className="Auth-form-container w-100">
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -93,21 +93,21 @@ const Navigation = (props) => {
 
             <li className="mb-1">
               
-              <Link to="/"> 
+              <NavLink to="/"> 
               
                 Home 
                 
-              </Link>
+              </NavLink>
               
             </li>
 
             <li className="mb-1">
               
-              <Link to="store"> 
+              <NavLink to="store"> 
               
                 Store 
                 
-              </Link>
+              </NavLink>
               
             </li>
 
@@ -127,7 +127,7 @@ const Navigation = (props) => {
 
               <li>
               
-                <Link to="auth"> 
+                <Link to="store"> 
                 
                   Sign in 
                   

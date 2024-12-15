@@ -186,7 +186,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout auth={auth} />} >
         <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} setScroll={e => setScroll(e)} />} />
-        <Route path="auth" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="*" element={<NotFound />} />
       </Route>

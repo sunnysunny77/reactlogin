@@ -29,6 +29,9 @@
             text-decoration-color: $c9;
         }
     }
+    a.active {
+        text-decoration-color: $c9;
+    }
     button.navbar-toggler {
         outline: none;
         border: none;

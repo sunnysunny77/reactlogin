@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Footer = (props) => {
 
@@ -92,21 +92,21 @@ const Footer = (props) => {
 
                     <li>
 
-                      <Link to="/"> 
+                      <NavLink to="/"> 
                       
                         Home 
                       
-                      </Link>
+                      </NavLink>
 
                     </li>
 
                     <li>
 
-                      <Link to="store"> 
+                      <NavLink to="store"> 
                       
                         Store 
                         
-                      </Link>
+                      </NavLink>
 
                     </li>
 
@@ -124,7 +124,7 @@ const Footer = (props) => {
 
                         ) : (
 
-                          <Link to="auth"> 
+                          <Link to="store"> 
                           
                             Sign in 
                             
