@@ -118,6 +118,144 @@ const Store = (props) => {
     setOutput(false);
   }
 
+  const createOrder = (data, actions) => {
+
+    return actions.order.create({
+
+      purchase_units: [
+        {
+          amount: {
+            currency_code: "AUD",
+            value: count * order.value,
+            breakdown: {
+              item_total: {
+                currency_code: "AUD",
+                value: count * order.value,
+              }
+            }
+          },
+          items: [
+            {
+              name: order.name,
+              unit_amount: {
+                currency_code: "AUD",
+                value: order.value,
+              },
+              quantity: count,
+            },
+          ]
+        }
+      ],
+    });
+  }
+
+  const onApprove = async (data, actions) => {
+
+    const order = await actions.order.capture();
+
+    const transaction = order.id;
+
+    const name = order.purchase_units[0].shipping.name.full_name;
+
+    let address = "";
+    for (const index in order.purchase_units[0].shipping.address) {
+        
+      address += `${order.purchase_units[0].shipping.address[index]} `;
+    }
+
+    const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
+
+    const total = `$ ${order.purchase_units[0].amount.value}`;
+
+    const output = <table>
+
+      <caption>
+        
+        "Securewebsite Transaction"
+        
+      </caption>
+
+      <thead>
+
+        <tr>
+
+          <th id="transaction">
+            
+            Transaction
+            
+          </th>
+
+          <th id="name">
+            
+            Name:
+            
+          </th>
+
+          <th id="address">
+            
+            Address:
+            
+          </th>
+
+          <th id="purchase">
+            
+            Purchase:
+            
+          </th>
+
+          <th id="total">
+            
+            Total:
+            
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+
+          <td headers="transaction">
+            
+            {transaction}
+            
+          </td>
+
+          <td headers="name">
+            
+            {name}
+            
+          </td>
+
+          <td headers="address">
+            
+            {address}
+            
+          </td>
+
+          <td headers="purchase">
+            
+            {purchase}
+            
+          </td>
+
+          <td headers="total">
+            
+            {total}
+            
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>;
+
+    setOutput(output);
+  }
+
   const style = {
     layout: 'horizontal',
     color: 'silver',
@@ -128,160 +266,27 @@ const Store = (props) => {
   };
 
   const ButtonWrapper = ({ showSpinner }) => {
-
-    const [{ isPending }] = usePayPalScriptReducer();
         
+    const [{ isPending }] = usePayPalScriptReducer();
+    
     return (
       <>
 
-        { (showSpinner && isPending) && <img id="spinner" className="col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> }
+        { isPending ? <img id="spinner" className="col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> :
 
-        <PayPalButtons
+          <PayPalButtons
 
-          style={style}
+            style={style}
 
-          className="button-container-inner col-10 col-xl-5"
+            className="button-container-inner col-10 col-xl-5"
 
-          createOrder={(data, actions) => {
+            createOrder={(data, actions) => createOrder(data, actions)}
 
-            return actions.order.create({
-        
-              purchase_units: [
-                {
-                  amount: {
-                    currency_code: "AUD",
-                    value: count * order.value,
-                    breakdown: {
-                      item_total: {
-                        currency_code: "AUD",
-                        value: count * order.value,
-                      }
-                    }
-                  },
-                  items: [
-                    {
-                      name: order.name,
-                      unit_amount: {
-                        currency_code: "AUD",
-                        value: order.value,
-                      },
-                      quantity: count,
-                    },
-                  ]
-                }
-              ],
-            });
-          }}
+            onApprove={(data, actions) => onApprove(data, actions)}
+            
+          />
 
-          onApprove={ async (data, actions) => {
-
-            const order = await actions.order.capture();
-        
-            const transaction = order.id;
-        
-            const name = order.purchase_units[0].shipping.name.full_name;
-        
-            let address = "";
-            for (const index in order.purchase_units[0].shipping.address) {
-                
-              address += `${order.purchase_units[0].shipping.address[index]} `;
-            }
-        
-            const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
-
-            const total = `$ ${order.purchase_units[0].amount.value}`;
-        
-            const output = <table>
-        
-              <caption>
-                
-                "Securewebsite Transaction"
-                
-              </caption>
-        
-              <thead>
-        
-                <tr>
-        
-                  <th id="transaction">
-                    
-                    Transaction
-                    
-                  </th>
-        
-                  <th id="name">
-                    
-                    Name:
-                    
-                  </th>
-        
-                  <th id="address">
-                    
-                    Address:
-                    
-                  </th>
-        
-                  <th id="purchase">
-                    
-                    Purchase:
-                    
-                  </th>
-        
-                  <th id="total">
-                    
-                    Total:
-                    
-                  </th>
-        
-                </tr>
-        
-              </thead>
-        
-              <tbody>
-        
-                <tr>
-        
-                  <td headers="transaction">
-                    
-                    {transaction}
-                    
-                  </td>
-        
-                  <td headers="name">
-                    
-                    {name}
-                    
-                  </td>
-        
-                  <td headers="address">
-                    
-                    {address}
-                    
-                  </td>
-        
-                  <td headers="purchase">
-                    
-                    {purchase}
-                    
-                  </td>
-        
-                  <td headers="total">
-                    
-                    {total}
-                    
-                  </td>
-        
-                </tr>
-        
-              </tbody>
-        
-            </table>;
-        
-            setOutput(output);
-          }}
-
-          forceReRender={[count, order]}
-        />
+        }
 
       </>
     );
