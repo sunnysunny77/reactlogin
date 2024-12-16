@@ -252,7 +252,7 @@ const Home = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartOne.order}
+                {items.cartOne.description}
 
               </p>
 
@@ -300,7 +300,7 @@ const Home = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartTwo.order} 
+                {items.cartTwo.description} 
 
               </p>
 
@@ -348,7 +348,7 @@ const Home = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartThree.order} 
+                {items.cartThree.description} 
 
               </p>
 
@@ -396,7 +396,7 @@ const Home = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartFour.order}
+                {items.cartFour.description}
 
               </p>
 
@@ -444,7 +444,7 @@ const Home = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartFive.order}
+                {items.cartFive.description}
 
               </p>
 
@@ -492,7 +492,7 @@ const Home = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartSix.order} 
+                {items.cartSix.description} 
 
               </p>
 

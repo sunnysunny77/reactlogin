@@ -188,7 +188,7 @@ const Store = (props) => {
             }
         
             const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
-        
+
             const total = `$ ${order.purchase_units[0].amount.value}`;
         
             const output = <table>
@@ -367,7 +367,7 @@ const Store = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartOne.order}
+                {items.cartOne.description}
 
               </p>
 
@@ -415,7 +415,7 @@ const Store = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartTwo.order} 
+                {items.cartTwo.description} 
 
               </p>
 
@@ -463,7 +463,7 @@ const Store = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartThree.order} 
+                {items.cartThree.description} 
 
               </p>
 
@@ -511,7 +511,7 @@ const Store = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartFour.order}
+                {items.cartFour.description}
 
               </p>
 
@@ -559,7 +559,7 @@ const Store = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartFive.order}
+                {items.cartFive.description}
 
               </p>
 
@@ -607,7 +607,7 @@ const Store = (props) => {
 
               <p className="mt-3 mb-3 p-2">
 
-                {items.cartSix.order} 
+                {items.cartSix.description} 
 
               </p>
 
