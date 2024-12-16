@@ -260,7 +260,7 @@ const Home = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Add to store
+              Store
               
               <ArrowRight className="ms-2" />
 
@@ -308,7 +308,7 @@ const Home = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Add to store
+              Store
               
               <ArrowRight className="ms-2" />
 
@@ -356,7 +356,7 @@ const Home = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Add to store
+              Store
               
               <ArrowRight className="ms-2" />
 
@@ -404,7 +404,7 @@ const Home = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Add to store
+              Store
               
               <ArrowRight className="ms-2" />
 
@@ -452,7 +452,7 @@ const Home = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Add to store 
+              Store 
               
               <ArrowRight className="ms-2" />
 
@@ -500,7 +500,7 @@ const Home = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Add to store
+              Store
               
               <ArrowRight className="ms-2" />
 
