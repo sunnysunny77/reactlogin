@@ -1,21 +1,20 @@
 .cta {
-    a {
-        text-decoration: none;
-        background-color: $c10;
-        transition: background-color 0.3s ease-in-out;
-        will-change: background-color;
-        &:hover,
-        &:focus {
-            background-color: lighten($c10, 2%);
+    text-decoration: none;
+    background-color: $c10;
+    transition: background-color 0.3s ease-in-out;
+    will-change: background-color;
+    &:hover,
+    &:focus {
+        background-color: lighten($c10, 2%);
 
-            button {
-                background-color: lighten($c11, 2%);
-                svg {
-                    transform: translateX(50%);
-                }
+        button {
+            background-color: lighten($c11, 2%);
+            svg {
+                transform: translateX(50%);
             }
         }
     }
+
     p {
         background-color: $c5;
         color: $c4;

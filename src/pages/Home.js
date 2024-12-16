@@ -533,19 +533,25 @@ const Home = (props) => {
 
       </div>
 
-      <Cta 
+      <div className="container-xl py-5 px-sm-5 px-xl-0 my-lg-5 g-0">
 
-        heading={`Et turpis posuere.`} 
+        <Cta 
 
-        paragraph={
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
-          rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
-          suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit.`
-        }
+          link={`store`}
 
-        button={`Posuere`}
-        
-      />
+          heading={`Lobor Kenean`} 
+
+          paragraph={
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+            rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
+            suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit.`
+          }
+
+          button={`Vestibulum eu`}
+          
+        />
+
+      </div>
 
       <Enquiry setLoad={setLoad} />
 

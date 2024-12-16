@@ -4,6 +4,7 @@ import { ArrowRight } from 'react-bootstrap-icons';
 import Spinner from "../images/load.gif";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
+import Cta from "../components/Cta";
 
 const Store = (props) => {
 
@@ -224,7 +225,7 @@ const Store = (props) => {
 
     const total = `$ ${order.purchase_units[0].amount.value}`;
 
-    const output = <table className="my-5">
+    const output = <table>
 
       <caption>
         
@@ -341,18 +342,19 @@ const Store = (props) => {
 
     obj.classList.add("fade");
 
-   setTimeout(()=>{
+    setTimeout(()=>{
 
-    obj.classList.remove("fade");
-   }, 100)
+      obj.classList.remove("fade");
+    }, 100)
   }
 
   useEffect(() => {
 
-    if (scroll) payRef.current.scrollIntoView({});
-
-    setScroll(false);
-
+    if (scroll) {
+      
+      payRef.current.scrollIntoView({});
+      setScroll(false);
+    }
   }, [scroll, setScroll])
   
   return (
@@ -360,15 +362,15 @@ const Store = (props) => {
     
       <Header heading="STORE" />
 
-      <div className="container-fluid d pt-4 mt-lg-4">
+      <div id="cards" className="container-fluid d pt-4 mt-lg-4 mb-lg-5">
 
         <Cards
-        
-        heading="Vestibulum eu"
+          
+          heading="Vestibulum eu"
 
         >
 
-          <div 
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -648,7 +650,7 @@ const Store = (props) => {
 
       </div>
     
-      <div ref={payRef} className="container d-flex align-items-center pt-5 mb-5 mb-lg-5 mt-lg-4">
+      <div ref={payRef} className="container d-flex align-items-center pt-5 mt-4 mt-sm-5">
             
         <div className="row justify-content-center w-100 g-0">
 
@@ -706,39 +708,75 @@ const Store = (props) => {
 
             </div>
 
-            {output ? (
-            
-              output
-
-            ) : (
-
-              <section className="mb-5 pb-4">
-
-                <h3 className="m-0 py-5">
-                  
-                  {`${name} $${value}`}
-                  
-                </h3>
-
-                <p className="p-4">
-
-                  <b className="d-block pb-4">
-
-                    {sub}
-                    
-                  </b>
-                  
-                  {order}
-                  
-                </p>
-
-              </section>
-
-            )}
-
           </div>
 
         </div>
+
+      </div>
+
+      <section className="itemOutput container-xl px-5 px-xl-0 pt-sm-4 pt-lg-5 g-0">
+
+        {output ? (
+          
+          <>   
+            
+            <h3 className="m-0 pt-5 pb-4">
+              
+              Order complete
+              
+            </h3>
+
+            {output}
+
+          </>  
+
+        ) : (
+
+          <>
+
+            <h3 className="m-0 pt-5 pb-4">
+              
+              {`${name} $${value}`}
+              
+            </h3>
+
+            <p className="p-4 m-0">
+
+              <b className="d-block pb-4">
+
+                {sub}
+                
+              </b>
+              
+              {order}
+              
+            </p>
+
+          </>
+
+        )}
+
+      </section>
+
+      <div className="container-xl p-5 py-sm-5 px-xl-0 my-lg-5 g-0">
+
+        <Cta
+          
+          link={`/store#cards`}
+
+          heading={`Lobor Kenean`}
+          
+          bold={`Mollis dui`}
+
+          paragraph={
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+            rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
+            suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit.`
+          }
+
+          button={`Vestibulum eu`}
+
+        />
 
       </div>
 
