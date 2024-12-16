@@ -1,5 +1,6 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
+import { HashLink } from 'react-router-hash-link';
 import { ArrowRight } from 'react-bootstrap-icons';
 import Spinner from "../images/load.gif";
 import Header from "../components/Header";
@@ -8,17 +9,14 @@ import Cta from "../components/Cta";
 
 const Store = (props) => {
 
-  const { items, image, value, name, sub, order, scroll, setImage, setValue, setName, setSub, setOrder, setScroll } = props;
+  const { items, image, value, name, sub, order, setImage, setValue, setName, setSub, setOrder } = props;
 
-  const payRef = useRef();
 
   const [count, setCount] = useState(1);
 
   const [output, setOutput] = useState(false);
 
   const cartOne = () => {
-
-    payRef.current.scrollIntoView();
 
     setCount(1);
 
@@ -33,12 +31,9 @@ const Store = (props) => {
     setOrder(items.cartOne.order);
 
     setOutput(false);
-
   }
 
   const cartTwo = () => {
-
-    payRef.current.scrollIntoView();
 
     setCount(1);
 
@@ -53,14 +48,11 @@ const Store = (props) => {
     setOrder(items.cartTwo.order);
 
     setOutput(false);
-    
   }
 
   const cartThree = () => {
 
     setCount(1);
-
-    payRef.current.scrollIntoView();
 
     setImage(items.cartThree.image);
 
@@ -73,12 +65,9 @@ const Store = (props) => {
     setOrder(items.cartThree.order);
 
     setOutput(false);
-    
   }
 
   const cartFour = () => {
-
-    payRef.current.scrollIntoView();
 
     setCount(1);
 
@@ -91,14 +80,13 @@ const Store = (props) => {
     setSub(items.cartFour.sub);
 
     setOrder(items.cartFour.order);
-    
+
+    setOutput(false);
   }
 
   const cartFive = () => {
 
     setCount(1);
-
-    payRef.current.scrollIntoView();
 
     setImage(items.cartFive.image);
 
@@ -111,12 +99,9 @@ const Store = (props) => {
     setOrder(items.cartFive.order);
 
     setOutput(false);
-    
   }
 
   const cartSix = () => {
-
-    payRef.current.scrollIntoView();
 
     setCount(1);
 
@@ -131,7 +116,6 @@ const Store = (props) => {
     setOrder(items.cartSix.order);
 
     setOutput(false);
-    
   }
 
   const style = {
@@ -190,6 +174,7 @@ const Store = (props) => {
           },
           items: [
             {
+              description: order,
               name: name,
               unit_amount: {
                 currency_code: "AUD",
@@ -222,6 +207,8 @@ const Store = (props) => {
     }
 
     const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
+
+    const item_description =`${order.purchase_units[0].items[0].description}`;
 
     const total = `$ ${order.purchase_units[0].amount.value}`;
 
@@ -264,6 +251,12 @@ const Store = (props) => {
           <th id="purchase">
             
             Purchase:
+            
+          </th>
+
+          <th id="description">
+            
+            Description:
             
           </th>
 
@@ -311,6 +304,12 @@ const Store = (props) => {
             
           </td>
 
+          <td headers="description">
+            
+            {item_description}
+            
+          </td>
+
           <td headers="total">
             
             {total}
@@ -347,15 +346,6 @@ const Store = (props) => {
       obj.classList.remove("fade");
     }, 100)
   }
-
-  useEffect(() => {
-
-    if (scroll) {
-      
-      payRef.current.scrollIntoView({});
-      setScroll(false);
-    }
-  }, [scroll, setScroll])
   
   return (
     <>
@@ -370,7 +360,9 @@ const Store = (props) => {
 
         >
 
-          <div
+          <HashLink
+          
+            to="/store#payRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -414,9 +406,11 @@ const Store = (props) => {
 
             </button>
 
-          </div>
+          </HashLink>
 
-          <div 
+          <HashLink
+          
+            to="/store#payRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -460,9 +454,11 @@ const Store = (props) => {
 
             </button>
 
-          </div>
+          </HashLink>
 
-          <div 
+          <HashLink
+          
+            to="/store#payRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -506,43 +502,45 @@ const Store = (props) => {
 
             </button>
 
-          </div>
+          </HashLink>
 
-        <div 
+          <HashLink
           
-          className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
+            to="/store#payRef"
+          
+            className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-          onClick={cartFour}
-      
-        >
+            onClick={cartFour}
+        
+          >
 
-          <div className="card-inner h-100">
+            <div className="card-inner h-100">
 
-            <div className="overflow-hidden">
+              <div className="overflow-hidden">
 
-              <img src={items.cartFour.image} alt={items.cartFour.name} width="399" height="265"/>
+                <img src={items.cartFour.image} alt={items.cartFour.name} width="399" height="265"/>
+
+              </div>
+
+              <h3 className="mt-3 mb-2 ps-2"> 
+
+                {items.cartFour.name} 
+
+              </h3>
+
+              <b className="d-block ps-2">
+
+                {items.cartFour.sub} 
+
+              </b>
+
+              <p className="mt-3 mb-3 p-2">
+
+                {items.cartFour.order}
+
+              </p>
 
             </div>
-
-            <h3 className="mt-3 mb-2 ps-2"> 
-
-              {items.cartFour.name} 
-
-            </h3>
-
-            <b className="d-block ps-2">
-
-              {items.cartFour.sub} 
-
-            </b>
-
-            <p className="mt-3 mb-3 p-2">
-
-              {items.cartFour.order}
-
-            </p>
-
-          </div>
 
             <button className="w-100 text-start ps-3 py-2">
 
@@ -552,9 +550,11 @@ const Store = (props) => {
 
             </button>
 
-          </div>
+          </HashLink>
 
-          <div 
+          <HashLink
+          
+            to="/store#payRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -598,9 +598,11 @@ const Store = (props) => {
 
             </button>
 
-          </div>
+          </HashLink>
 
-          <div 
+          <HashLink
+          
+            to="/store#payRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -644,13 +646,13 @@ const Store = (props) => {
 
             </button>
 
-          </div>
+          </HashLink>
           
         </Cards>
 
       </div>
     
-      <div ref={payRef} className="container d-flex align-items-center pt-5 mt-4 mt-sm-5">
+      <div id="payRef" className="container d-flex align-items-center pt-5 mt-4 mt-sm-5">
             
         <div className="row justify-content-center w-100 g-0">
 

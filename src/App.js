@@ -92,8 +92,6 @@ function App() {
 
   const [order, setOrder] = useState(items.cartOne.order);
 
-  const [scroll, setScroll] = useState(false);
-
   const initialauthorization = async () => {
 
     let res = await fetch(`/api/initialauthorization/?controller=initialauthorization&key=${btoa(process.env.REACT_APP_KEY)}`, {
@@ -155,7 +153,6 @@ function App() {
       setName(items.cartOne.name);
       setSub(items.cartOne.sub);
       setOrder(items.cartOne.order);
-      setScroll(false);
       navigate('/');
     }
   }
@@ -174,8 +171,8 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
-          <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} setScroll={e => setScroll(e)} />} />
-          <Route path="store" element={<Store items={items} image={image} value={value} name={name} sub={sub} order={order} scroll={scroll} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} setScroll={e => setScroll(e)} />} />
+          <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} />} />
+          <Route path="store" element={<Store items={items} image={image} value={value} name={name} sub={sub} order={order} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
@@ -185,7 +182,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout auth={auth} />} >
-        <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} setScroll={e => setScroll(e)} />} />
+        <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} />} />
         <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="*" element={<NotFound />} />
       </Route>
