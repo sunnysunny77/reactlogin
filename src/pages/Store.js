@@ -1,6 +1,7 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import React, { useState } from "react";
-import { HashLink } from 'react-router-hash-link';
+import React, { useRef, useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
 import Spinner from "../images/load.gif";
 import Header from "../components/Header";
@@ -9,8 +10,13 @@ import Cta from "../components/Cta";
 
 const Store = (props) => {
 
-  const { items, image, value, name, sub, order, setImage, setValue, setName, setSub, setOrder } = props;
+  const { items, order, setOrder } = props;
 
+  const storeRef = useRef();
+
+  const itemsRef = useRef();
+
+  const [searchParams] = useSearchParams();
 
   const [count, setCount] = useState(1);
 
@@ -20,15 +26,14 @@ const Store = (props) => {
 
     setCount(1);
 
-    setImage(items.cartOne.image);
+    setOrder({ 
 
-    setValue(items.cartOne.value);
-
-    setName(items.cartOne.name);
-
-    setSub(items.cartOne.sub);
-
-    setOrder(items.cartOne.order);
+      image: items.cartOne.image,
+      value: items.cartOne.value,
+      name: items.cartOne.name,
+      sub: items.cartOne.sub,
+      description: items.cartOne.description,
+    });
 
     setOutput(false);
   }
@@ -37,15 +42,14 @@ const Store = (props) => {
 
     setCount(1);
 
-    setImage(items.cartTwo.image);
+    setOrder({ 
 
-    setValue(items.cartTwo.value);
-
-    setName(items.cartTwo.name);
-
-    setSub(items.cartTwo.sub);
-
-    setOrder(items.cartTwo.order);
+      image: items.cartTwo.image,
+      value: items.cartTwo.value,
+      name: items.cartTwo.name,
+      sub: items.cartTwo.sub,
+      description: items.cartTwo.description,
+    });
 
     setOutput(false);
   }
@@ -54,15 +58,14 @@ const Store = (props) => {
 
     setCount(1);
 
-    setImage(items.cartThree.image);
+    setOrder({ 
 
-    setValue(items.cartThree.value);
-
-    setName(items.cartThree.name);
-
-    setSub(items.cartThree.sub);
-
-    setOrder(items.cartThree.order);
+      image: items.cartThree.image,
+      value: items.cartThree.value,
+      name: items.cartThree.name,
+      sub: items.cartThree.sub,
+      description: items.cartThree.description,
+    });
 
     setOutput(false);
   }
@@ -71,15 +74,14 @@ const Store = (props) => {
 
     setCount(1);
 
-    setImage(items.cartFour.image);
+    setOrder({ 
 
-    setValue(items.cartFour.value);
-
-    setName(items.cartFour.name);
-
-    setSub(items.cartFour.sub);
-
-    setOrder(items.cartFour.order);
+      image: items.cartFour.image,
+      value: items.cartFour.value,
+      name: items.cartFour.name,
+      sub: items.cartFour.sub,
+      description: items.cartFour.description,
+    });
 
     setOutput(false);
   }
@@ -88,15 +90,14 @@ const Store = (props) => {
 
     setCount(1);
 
-    setImage(items.cartFive.image);
+    setOrder({ 
 
-    setValue(items.cartFive.value);
-
-    setName(items.cartFive.name);
-
-    setSub(items.cartFive.sub);
-
-    setOrder(items.cartFive.order);
+      image: items.cartFive.image,
+      value: items.cartFive.value,
+      name: items.cartFive.name,
+      sub: items.cartFive.sub,
+      description: items.cartFive.description,
+    });
 
     setOutput(false);
   }
@@ -105,15 +106,14 @@ const Store = (props) => {
 
     setCount(1);
 
-    setImage(items.cartSix.image);
+    setOrder({ 
 
-    setValue(items.cartSix.value);
-
-    setName(items.cartSix.name);
-
-    setSub(items.cartSix.sub);
-
-    setOrder(items.cartSix.order);
+      image: items.cartSix.image,
+      value: items.cartSix.value,
+      name: items.cartSix.name,
+      sub: items.cartSix.sub,
+      description: items.cartSix.description,
+    });
 
     setOutput(false);
   }
@@ -142,187 +142,149 @@ const Store = (props) => {
 
           className="button-container-inner col-10 col-xl-5"
 
-          createOrder={createOrder}
+          createOrder={(data, actions) => {
 
-          onApprove={onApprove}
+            return actions.order.create({
+        
+              purchase_units: [
+                {
+                  amount: {
+                    currency_code: "AUD",
+                    value: count * order.value,
+                    breakdown: {
+                      item_total: {
+                        currency_code: "AUD",
+                        value: count * order.value,
+                      }
+                    }
+                  },
+                  items: [
+                    {
+                      name: order.name,
+                      unit_amount: {
+                        currency_code: "AUD",
+                        value: order.value,
+                      },
+                      quantity: count,
+                    },
+                  ]
+                }
+              ],
+            });
+          }}
 
-          forceReRender={[count]}
+          onApprove={ async (data, actions) => {
+
+            const order = await actions.order.capture();
+        
+            const transaction = order.id;
+        
+            const name = order.purchase_units[0].shipping.name.full_name;
+        
+            let address = "";
+            for (const index in order.purchase_units[0].shipping.address) {
+                
+              address += `${order.purchase_units[0].shipping.address[index]} `;
+            }
+        
+            const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
+        
+            const total = `$ ${order.purchase_units[0].amount.value}`;
+        
+            const output = <table>
+        
+              <caption>
+                
+                "Securewebsite Transaction"
+                
+              </caption>
+        
+              <thead>
+        
+                <tr>
+        
+                  <th id="transaction">
+                    
+                    Transaction
+                    
+                  </th>
+        
+                  <th id="name">
+                    
+                    Name:
+                    
+                  </th>
+        
+                  <th id="address">
+                    
+                    Address:
+                    
+                  </th>
+        
+                  <th id="purchase">
+                    
+                    Purchase:
+                    
+                  </th>
+        
+                  <th id="total">
+                    
+                    Total:
+                    
+                  </th>
+        
+                </tr>
+        
+              </thead>
+        
+              <tbody>
+        
+                <tr>
+        
+                  <td headers="transaction">
+                    
+                    {transaction}
+                    
+                  </td>
+        
+                  <td headers="name">
+                    
+                    {name}
+                    
+                  </td>
+        
+                  <td headers="address">
+                    
+                    {address}
+                    
+                  </td>
+        
+                  <td headers="purchase">
+                    
+                    {purchase}
+                    
+                  </td>
+        
+                  <td headers="total">
+                    
+                    {total}
+                    
+                  </td>
+        
+                </tr>
+        
+              </tbody>
+        
+            </table>;
+        
+            setOutput(output);
+          }}
+
+          forceReRender={[count, order]}
         />
 
       </>
     );
-  }
-
-  const createOrder = (data, actions) => {
-
-    const price = count * value
-
-    return actions.order.create({
-
-      purchase_units: [
-        {
-          description: "Securewebsite Transaction",
-          amount: {
-            currency_code: "AUD",
-            value: price,
-            breakdown: {
-              item_total: {
-                currency_code: "AUD",
-                value: price,
-              }
-            }
-          },
-          items: [
-            {
-              description: order,
-              name: name,
-              unit_amount: {
-                currency_code: "AUD",
-                value: value,
-              },
-              quantity: count,
-            },
-          ]
-        }
-      ],
-    });
-  }
-
-  const onApprove = async (data, actions) => {
-
-    const order = await actions.order.capture();
-
-    const description = order.purchase_units[0].description;
-
-    const transaction = order.id;
-
-    const email = order.payer.email_address;
-
-    const name = order.purchase_units[0].shipping.name.full_name;
-
-    let address = "";
-    for (const index in order.purchase_units[0].shipping.address) {
-        
-      address += `${order.purchase_units[0].shipping.address[index]} `;
-    }
-
-    const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
-
-    const item_description =`${order.purchase_units[0].items[0].description}`;
-
-    const total = `$ ${order.purchase_units[0].amount.value}`;
-
-    const output = <table>
-
-      <caption>
-        
-        {description}
-        
-      </caption>
-
-      <thead>
-
-        <tr>
-
-          <th id="transaction">
-            
-            Transaction
-            
-          </th>
-
-          <th id="email">
-            
-            Email:
-            
-          </th>
-
-          <th id="name">
-            
-            Name:
-            
-          </th>
-
-          <th id="address">
-            
-            Address:
-            
-          </th>
-
-          <th id="purchase">
-            
-            Purchase:
-            
-          </th>
-
-          <th id="description">
-            
-            Description:
-            
-          </th>
-
-          <th id="total">
-            
-            Total:
-            
-          </th>
-
-        </tr>
-
-      </thead>
-
-      <tbody>
-
-        <tr>
-
-          <td headers="transaction">
-            
-            {transaction}
-            
-          </td>
-
-          <td headers="email">
-            
-            {email}
-            
-          </td>
-
-          <td headers="name">
-            
-            {name}
-            
-          </td>
-
-          <td headers="address">
-            
-            {address}
-            
-          </td>
-
-          <td headers="purchase">
-            
-            {purchase}
-            
-          </td>
-
-          <td headers="description">
-            
-            {item_description}
-            
-          </td>
-
-          <td headers="total">
-            
-            {total}
-            
-          </td>
-
-        </tr>
-
-      </tbody>
-
-    </table>;
-
-    setOutput(output);
   }
 
   const minus = () => {
@@ -346,13 +308,26 @@ const Store = (props) => {
       obj.classList.remove("fade");
     }, 100)
   }
+
+  useEffect(() => {
+
+    if(searchParams.get("ref") === "storeRef") {
+
+      storeRef.current.scrollIntoView();
+    }
+
+    if(searchParams.get("ref") === "itemsRef") {
+
+      itemsRef.current.scrollIntoView();
+    }
+  });
   
   return (
     <>
     
       <Header heading="STORE" />
 
-      <div id="cards" className="container-fluid d pt-4 mt-lg-4 mb-lg-5">
+      <div ref={itemsRef} className="container-fluid d pt-4 mt-lg-4 mb-lg-5">
 
         <Cards
           
@@ -360,9 +335,9 @@ const Store = (props) => {
 
         >
 
-          <HashLink
-          
-            to="/store#payRef"
+          <Link
+
+            to="/store?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -406,11 +381,11 @@ const Store = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
-          
-            to="/store#payRef"
+          <Link
+
+            to="/store?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -454,11 +429,11 @@ const Store = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
-          
-            to="/store#payRef"
+          <Link
+
+            to="/store?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -502,11 +477,11 @@ const Store = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
-          
-            to="/store#payRef"
+          <Link
+
+            to="/store?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -550,11 +525,11 @@ const Store = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
-          
-            to="/store#payRef"
+          <Link
+
+            to="/store?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -598,11 +573,11 @@ const Store = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
-          
-            to="/store#payRef"
+          <Link
+
+            to="/store?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -646,13 +621,13 @@ const Store = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
           
         </Cards>
 
       </div>
     
-      <div id="payRef" className="container d-flex align-items-center pt-5 mt-4 mt-sm-5">
+      <div ref={storeRef} className="container d-flex align-items-center pt-5 mt-4 mt-sm-5">
             
         <div className="row justify-content-center w-100 g-0">
 
@@ -662,7 +637,7 @@ const Store = (props) => {
 
               <div id="store" className="col-10 col-md-4 my-5 p-0">
 
-                  <img onLoad={srcListen} src={image} alt="Food" width="366" height="366" />
+                  <img onLoad={srcListen} src={order.image} alt="Food" width="366" height="366" />
 
               </div>
 
@@ -738,7 +713,7 @@ const Store = (props) => {
 
             <h3 className="m-0 pt-5 pb-4">
               
-              {`${name} $${value}`}
+              {`${order.name} $${order.value}`}
               
             </h3>
 
@@ -746,11 +721,11 @@ const Store = (props) => {
 
               <b className="d-block pb-4">
 
-                {sub}
+                {order.sub}
                 
               </b>
               
-              {order}
+              {order.description}
               
             </p>
 
@@ -763,8 +738,8 @@ const Store = (props) => {
       <div className="container-xl p-5 py-sm-5 px-xl-0 my-lg-5 g-0">
 
         <Cta
-          
-          link={`/store#cards`}
+
+          link="/store?ref=itemsRef"
 
           heading={`Lobor Kenean`}
           

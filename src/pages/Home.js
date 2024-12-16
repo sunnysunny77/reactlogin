@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
 import { ArrowRight } from 'react-bootstrap-icons';
 import Store from "../images/store.webp";
 import Finance from "../images/finance.webp";
@@ -23,84 +22,78 @@ import Enquiry from "../components/Enquiry";
 
 const Home = (props) => {
 
-  const { items, setLoad, setImage, setValue, setName, setSub, setOrder } = props;
+  const { items, setOrder, setLoad } = props;
 
   const cartOne = () => {
 
-    setImage(items.cartOne.image);
+    setOrder({ 
 
-    setValue(items.cartOne.value);
-
-    setName(items.cartOne.name);
-
-    setSub(items.cartOne.sub);
-
-    setOrder(items.cartOne.order);
+      image: items.cartOne.image,
+      value: items.cartOne.value,
+      name: items.cartOne.name,
+      sub: items.cartOne.sub,
+      description: items.cartOne.description,
+    });
   }
 
   const cartTwo = () => {
 
-    setImage(items.cartTwo.image);
+    setOrder({ 
 
-    setValue(items.cartTwo.value);
-
-    setName(items.cartTwo.name);
-
-    setSub(items.cartTwo.sub);
-
-    setOrder(items.cartTwo.order);
+      image: items.cartTwo.image,
+      value: items.cartTwo.value,
+      name: items.cartTwo.name,
+      sub: items.cartTwo.sub,
+      description: items.cartTwo.description,
+    });
   }
 
   const cartThree = () => {
+    
+    setOrder({ 
 
-    setImage(items.cartThree.image);
-
-    setValue(items.cartThree.value);
-
-    setName(items.cartThree.name);
-
-    setSub(items.cartThree.sub);
-
-    setOrder(items.cartThree.order);
+      image: items.cartThree.image,
+      value: items.cartThree.value,
+      name: items.cartThree.name,
+      sub: items.cartThree.sub,
+      description: items.cartThree.description,
+    });
   }
 
   const cartFour = () => {
 
-    setImage(items.cartFour.image);
+    setOrder({ 
 
-    setValue(items.cartFour.value);
-
-    setName(items.cartFour.name);
-
-    setSub(items.cartFour.sub);
-
-    setOrder(items.cartFour.order);
+      image: items.cartFour.image,
+      value: items.cartFour.value,
+      name: items.cartFour.name,
+      sub: items.cartFour.sub,
+      description: items.cartFour.description,
+    });
   }
 
   const cartFive = () => {
 
-    setImage(items.cartFive.image);
+    setOrder({ 
 
-    setValue(items.cartFive.value);
-
-    setName(items.cartFive.name);
-
-    setSub(items.cartFive.sub);
-
-    setOrder(items.cartFive.order);
+      image: items.cartFive.image,
+      value: items.cartFive.value,
+      name: items.cartFive.name,
+      sub: items.cartFive.sub,
+      description: items.cartFive.description,
+    });
   }
 
   const cartSix = () => {
 
-    setImage(items.cartSix.image);
+    setOrder({ 
 
-    setValue(items.cartSix.value);
-
-    setName(items.cartSix.name);
-
-    setSub(items.cartSix.sub);
-
-    setOrder(items.cartSix.order);
+      image: items.cartSix.image,
+      value: items.cartSix.value,
+      name: items.cartSix.name,
+      sub: items.cartSix.sub,
+      description: items.cartSix.description,
+    });
   }
 
   return (
@@ -227,9 +220,9 @@ const Home = (props) => {
         
         >
 
-          <HashLink
+          <Link
 
-            to="/store#payRef"
+            to="/store?ref=storeRef"
             
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -273,11 +266,11 @@ const Home = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
+          <Link
 
-            to="/store#payRef"
+            to="/store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -321,11 +314,11 @@ const Home = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
+          <Link
 
-            to="/store#payRef"
+            to="/store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -369,11 +362,11 @@ const Home = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
+          <Link
 
-            to="/store#payRef"
+            to="/store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -417,11 +410,11 @@ const Home = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
+          <Link
 
-            to="/store#payRef"
+            to="/store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -465,12 +458,12 @@ const Home = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
 
-          <HashLink
-            
-            to="/store#payRef"
-            
+          <Link
+
+            to="/store?ref=storeRef"
+
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
             onClick={cartSix}
@@ -513,7 +506,7 @@ const Home = (props) => {
 
             </button>
 
-          </HashLink>
+          </Link>
           
         </Cards>
 

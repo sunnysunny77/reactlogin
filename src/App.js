@@ -25,7 +25,7 @@ function App() {
       value: "23",
       name: "In accumsan",
       sub: "Est diam",
-      order: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue lectus nisl, vitae egestas orci laoreet mollis.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue lectus nisl, vitae egestas orci laoreet mollis.",
 
     },
 
@@ -35,7 +35,7 @@ function App() {
       value: "15",
       name: "Eleifend eu",
       sub: "Dolor magn",
-      order: "Vestibulum quam massa, cursus non eros ut, porttitor interdum tortor.",
+      description: "Vestibulum quam massa, cursus non eros ut, porttitor interdum tortor.",
     },
 
     cartThree: {
@@ -44,7 +44,7 @@ function App() {
       value: "70",
       name: "Lectus eleifend",
       sub: "Lorem nec",
-      order: "Donec porttitor mi ac mauris porttitor, sed placerat nulla vehicula. Nulla tempus sapien nibh, non euismod dolor imperdiet id.",
+      description: "Donec porttitor mi ac mauris porttitor, sed placerat nulla vehicula. Nulla tempus sapien nibh, non euismod dolor imperdiet id.",
       },
 
     cartFour: {
@@ -53,7 +53,7 @@ function App() {
       value: "17",
       name: "Phasellus et",
       sub: "Scelerisque lorem",
-      order: "Curabitur malesuada molestie ante ut rutrum. Donec eu enim nibh. Quisque imperdiet vestibulum dui non feugiat.",
+      description: "Curabitur malesuada molestie ante ut rutrum. Donec eu enim nibh. Quisque imperdiet vestibulum dui non feugiat.",
     },
 
     cartFive: {
@@ -62,7 +62,7 @@ function App() {
       value: "57",
       name: "Turpis posuere",
       sub: "Rutrum nec",
-      order: "Nulla rutrum est in ex laoreet tincidunt. Nam laoreet massa at magna efficitur ultricies. Proin condimentum turpis ac sem vulputate, vitae eleifend sapien malesuada.",
+      description: "Nulla rutrum est in ex laoreet tincidunt. Nam laoreet massa at magna efficitur ultricies. Proin condimentum turpis ac sem vulputate, vitae eleifend sapien malesuada.",
     },
 
     cartSix: {
@@ -71,7 +71,7 @@ function App() {
       value: "33",
       name: "Accumsan Inn",
       sub: "lorem rutrum",
-      order: "Morbi porta augue vitae tempor bibendum interdum euismod leo. Suspendisse purus eros, ultrices at dignissim quis, consequat ac mauris.",
+      description: "Morbi porta augue vitae tempor bibendum interdum euismod leo. Suspendisse purus eros, ultrices at dignissim quis, consequat ac mauris.",
     },
 
   };
@@ -82,15 +82,14 @@ function App() {
 
   const [auth, setAuth] = useState(false);
 
-  const [image, setImage] = useState(items.cartOne.image);
+  const [order, setOrder] = useState({ 
 
-  const [value, setValue] = useState(items.cartOne.value);
-
-  const [name, setName] = useState(items.cartOne.name);
-
-  const [sub, setSub] = useState(items.cartOne.sub);
-
-  const [order, setOrder] = useState(items.cartOne.order);
+    image: items.cartOne.image,
+    value: items.cartOne.value,
+    name: items.cartOne.name,
+    sub: items.cartOne.sub,
+    description: items.cartOne.description,
+  });
 
   const initialauthorization = async () => {
 
@@ -121,11 +120,6 @@ function App() {
     setLoad(false);
   }
 
-  useEffect(() => {
-
-    initialauthorization();
-  }, [])
-
   const logout = async () => {
 
     const token = localStorage.getItem("token");
@@ -148,14 +142,23 @@ function App() {
 
       setLoad(false);
       setAuth(false);
-      setImage(items.cartOne.image);
-      setValue(items.cartOne.value);
-      setName(items.cartOne.name);
-      setSub(items.cartOne.sub);
-      setOrder(items.cartOne.order);
+      setOrder({ 
+
+        image: items.cartOne.image,
+        value: items.cartOne.value,
+        name: items.cartOne.name,
+        sub: items.cartOne.sub,
+        description: items.cartOne.description,
+      });
       navigate('/');
     }
   }
+
+  useEffect(() => {
+
+
+    initialauthorization();
+  }, [])
 
   if (load) {
 
@@ -171,8 +174,8 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
-          <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} />} />
-          <Route path="store" element={<Store items={items} image={image} value={value} name={name} sub={sub} order={order} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} />} />
+          <Route index element={<Home items={items} setOrder={e => setOrder(e)} setLoad={e => setLoad(e)} />} />
+          <Route path="store" element={<Store items={items} order={order} setOrder={e => setOrder(e)} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
@@ -182,7 +185,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout auth={auth} />} >
-        <Route index element={<Home items={items} setLoad={e => setLoad(e)} setImage={e => setImage(e)} setValue={e => setValue(e)} setName={e => setName(e)} setSub={e => setSub(e)} setOrder={e => setOrder(e)} />} />
+        <Route index element={<Home items={items} setOrder={e => setOrder(e)} setLoad={e => setLoad(e)} />} />
         <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="*" element={<NotFound />} />
       </Route>

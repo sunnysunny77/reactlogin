@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRightCircleFill } from 'react-bootstrap-icons';
-import { HashLink } from 'react-router-hash-link';
+import { Link } from "react-router-dom";
 
 const Cta = (props) => {
 
@@ -9,7 +9,7 @@ const Cta = (props) => {
   return (
     <>  
 
-      <HashLink to={link} className="cta row justify-content-center justify-content-lg-between g-0">
+      <Link to={link} className="cta row justify-content-center justify-content-lg-between g-0">
 
         <div className="col-10 col-md-4 col-lg-12 d-flex align-items-xl-center">
 
@@ -59,7 +59,7 @@ const Cta = (props) => {
 
         </div>
 
-    </HashLink>
+    </Link>
       
     </>
   );

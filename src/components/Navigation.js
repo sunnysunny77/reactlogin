@@ -34,7 +34,7 @@ const Navigation = (props) => {
       navbar_toggler.current.classList.add("has-collapsed");
     }
 
-    window.scrollTo(0,0);
+    window.scrollTo(0,0); 
   }, [navigate])
 
   return (  
