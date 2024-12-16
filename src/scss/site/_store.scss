@@ -37,6 +37,8 @@
     #spinner,
     .button-container-inner {
         height: 25px;
+        background-color: $c14;
+        border-radius: 13px;
         @include min_xxs {
             height: 35px;
             border-radius: 18px;
@@ -57,8 +59,6 @@
     #spinner {
         object-fit: scale-down;
         display: block;
-        background-color: $c14;
-        border-radius: 13px;
     }
     .button-container-inner {
         display: flex;
