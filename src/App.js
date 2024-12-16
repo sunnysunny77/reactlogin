@@ -44,7 +44,7 @@ function App() {
       value: "70",
       name: "Lectus eleifend",
       sub: "Lorem nec",
-      description: "Donec porttitor mi ac mauris porttitor, sed placerat nulla vehicula. Nulla tempus sapien nibh, non euismod dolor imperdiet id.",
+      description: "Donec porttitor mi ac mauris porttitor, sed placerat nulla vehicula. Nulla tempus sapien nibh, non euismod.",
       },
 
     cartFour: {
@@ -62,7 +62,7 @@ function App() {
       value: "57",
       name: "Turpis posuere",
       sub: "Rutrum nec",
-      description: "Nulla rutrum est in ex laoreet tincidunt. Nam laoreet massa at magna efficitur ultricies. Proin condimentum turpis ac sem vulputate, vitae eleifend sapien malesuada.",
+      description: "Nulla rutrum est in ex laoreet tincidunt. Nam laoreet massa at magna efficitur ultricies.",
     },
 
     cartSix: {
@@ -71,7 +71,7 @@ function App() {
       value: "33",
       name: "Accumsan Inn",
       sub: "lorem rutrum",
-      description: "Morbi porta augue vitae tempor bibendum interdum euismod leo. Suspendisse purus eros, ultrices at dignissim quis, consequat ac mauris.",
+      description: "Morbi porta augue vitae tempor bibendum interdum euismod leo.",
     },
 
   };

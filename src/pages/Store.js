@@ -124,6 +124,7 @@ const Store = (props) => {
 
       purchase_units: [
         {
+          description: "Securewebsite Transaction",
           amount: {
             currency_code: "AUD",
             value: count * order.value,
@@ -136,6 +137,7 @@ const Store = (props) => {
           },
           items: [
             {
+              description: order.description,
               name: order.name,
               unit_amount: {
                 currency_code: "AUD",
@@ -153,25 +155,33 @@ const Store = (props) => {
 
     const order = await actions.order.capture();
 
+    const units = order.purchase_units[0];
+
+    const items =  order.purchase_units[0].items[0];
+
+    const caption = units.description;
+
     const transaction = order.id;
 
-    const name = order.purchase_units[0].shipping.name.full_name;
+    const name = units.shipping.name.full_name;
 
     let address = "";
-    for (const index in order.purchase_units[0].shipping.address) {
+    for (const index in units.shipping.address) {
         
-      address += `${order.purchase_units[0].shipping.address[index]} `;
+      address += `${units.shipping.address[index]} `;
     }
 
-    const purchase =`${order.purchase_units[0].items[0].quantity} x ${order.purchase_units[0].items[0].name} $ ${order.purchase_units[0].items[0].unit_amount.value}`;
+    const purchase =`${items.quantity} x ${items.name} $ ${items.unit_amount.value}`;
 
-    const total = `$ ${order.purchase_units[0].amount.value}`;
+    const description = items.description;
+
+    const total = `$ ${units.amount.value}`;
 
     const output = <table>
 
       <caption>
         
-        "Securewebsite Transaction"
+        {caption}
         
       </caption>
 
@@ -200,6 +210,12 @@ const Store = (props) => {
           <th id="purchase">
             
             Purchase:
+            
+          </th>
+
+          <th id="description">
+            
+            Description:
             
           </th>
 
@@ -238,6 +254,12 @@ const Store = (props) => {
           <td headers="purchase">
             
             {purchase}
+            
+          </td>
+
+          <td headers="description">
+            
+            {description}
             
           </td>
 
