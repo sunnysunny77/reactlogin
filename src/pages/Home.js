@@ -222,7 +222,7 @@ const Home = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="store?ref=storeRef"
             
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -270,7 +270,7 @@ const Home = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -318,7 +318,7 @@ const Home = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -366,7 +366,7 @@ const Home = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -414,7 +414,7 @@ const Home = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
@@ -462,7 +462,7 @@ const Home = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="store?ref=storeRef"
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             

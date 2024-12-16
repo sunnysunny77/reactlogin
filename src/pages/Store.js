@@ -364,7 +364,7 @@ const Store = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -412,7 +412,7 @@ const Store = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -460,7 +460,7 @@ const Store = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -508,7 +508,7 @@ const Store = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -556,7 +556,7 @@ const Store = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -604,7 +604,7 @@ const Store = (props) => {
 
           <Link
 
-            to="/store?ref=storeRef"
+            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
@@ -766,7 +766,7 @@ const Store = (props) => {
 
         <Cta
 
-          link="/store?ref=itemsRef"
+          link="?ref=itemsRef"
 
           heading={`Lobor Kenean`}
           
