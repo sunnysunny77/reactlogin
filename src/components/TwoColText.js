@@ -6,7 +6,7 @@ const TwoColText = (props) => {
   
   return (
     
-    <section className="two-col-text row justify-content-between justify-content-xxl-around mx-auto my-5 px-4 pb-4 p-lg-5 g-0">
+    <section className="two-col-text row justify-content-between mx-auto my-5 px-4 pb-4 p-lg-5 g-0">
     
       <div className="col-12 col-lg-3 my-xl-5">
 
@@ -18,15 +18,19 @@ const TwoColText = (props) => {
 
       </div>
       
-      <div className="row col-12 col-lg-8 my-xl-5">
+      <div className="col-12 col-lg-8 my-xl-5 pe-3 pe-sm-5">
 
-        <div className="col-12 col-xxl-11 pt-4">
+        <div className="row">
 
-          <p className="m-0">
+          <div className="col-12 col-xxl-11 pt-4">
 
-            {paragraph}
-            
-          </p>
+            <p className="m-0">
+
+              {paragraph}
+              
+            </p>
+
+          </div>
 
         </div>
 

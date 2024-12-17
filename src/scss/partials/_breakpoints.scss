@@ -1,17 +1,23 @@
 @mixin min_xxs {
-    @media only screen and (min-width: 327px) {
+    @media only screen and (min-width: 302px) {
         @content;
     }
 }
 
 @mixin min_xs {
-    @media only screen and (min-width: 470px) {
+    @media only screen and (min-width: 423px) {
         @content;
     }
 }
 
 @mixin min_sm {
     @media only screen and (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin min_md_pp {
+    @media only screen and (min-width: 711px) {
         @content;
     }
 }

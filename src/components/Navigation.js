@@ -115,20 +115,20 @@ const Navigation = (props) => {
 
               {auth ? (
 
-                  <Link onClick={setAuth}> 
+                <Link onClick={setAuth}> 
+                
+                  Sign out 
                   
-                    Sign out 
-                    
-                  </Link>
+                </Link>
 
               ) : (
                 
-                  <Link to="store"> 
+                <Link to="store"> 
+              
+                  Sign in 
                   
-                    Sign in 
-                    
-                  </Link>
-
+                </Link>
+                
               )}
 
             </li>

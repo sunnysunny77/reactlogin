@@ -116,7 +116,7 @@ const Slider= (props) => {
 
             <div className="row h-100 justify-content-center py-5 py-md-3 py-lg-5 g-0">
 
-              <div className="slider_9-large-col col-8 col-lg-10 h-100 d-flex justify-content-center align-items-center">
+              <div className="slider_9-large-col col-10 col-sm-8 col-lg-10 h-100 d-flex justify-content-center align-items-center">
 
                 <p className="m-0">
 

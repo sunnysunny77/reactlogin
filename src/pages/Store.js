@@ -1,5 +1,5 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
@@ -16,11 +16,23 @@ const Store = (props) => {
 
   const itemsRef = useRef();
 
-  const [searchParams] = useSearchParams();
+  const orderRef = useRef();
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [count, setCount] = useState(1);
 
   const [output, setOutput] = useState(false);
+
+  const [summery, setSummery] = useState([]);
+
+  const [total, setTotal] = useState(0);
+
+  const [cart, setCart] = useState({});
+
+  const [remove, setRemove] = useState([]);
+
+  const [disabled, setDisabled] = useState(true);
 
   const cartOne = () => {
 
@@ -120,6 +132,23 @@ const Store = (props) => {
 
   const createOrder = (data, actions) => {
 
+    let items = []
+
+    for (const index in cart) {
+
+      items.push(
+        {
+          description: cart[index].description,
+          name: cart[index].name,
+          unit_amount: {
+            currency_code: "AUD",
+            value: cart[index].value,
+          },
+          quantity: cart[index].quantity,
+        }
+      )
+    }
+
     return actions.order.create({
 
       purchase_units: [
@@ -127,24 +156,16 @@ const Store = (props) => {
           description: "Securewebsite Transaction",
           amount: {
             currency_code: "AUD",
-            value: count * order.value,
+            value: total,
             breakdown: {
               item_total: {
                 currency_code: "AUD",
-                value: count * order.value,
+                value: total
               }
             }
           },
           items: [
-            {
-              description: order.description,
-              name: order.name,
-              unit_amount: {
-                currency_code: "AUD",
-                value: order.value,
-              },
-              quantity: count,
-            },
+           ...items
           ]
         }
       ],
@@ -157,125 +178,172 @@ const Store = (props) => {
 
     const units = order.purchase_units[0];
 
-    const items =  order.purchase_units[0].items[0];
+    const transaction = order.id;
 
     const caption = units.description;
 
-    const transaction = order.id;
+    const shipping = units.shipping;
 
-    const name = units.shipping.name.full_name;
+    const name = shipping.name.full_name;
+
+    const addressObj = shipping.address;
+
+    const itemsObj = units.items;
 
     let address = "";
-    for (const index in units.shipping.address) {
+
+    for (const index in addressObj) {
         
-      address += `${units.shipping.address[index]} `;
+      address += `${addressObj[index]} `;
     }
 
-    const purchase =`${items.quantity} x ${items.name} $ ${items.unit_amount.value}`;
+    let items = [];
 
-    const description = items.description;
+    for (const index in itemsObj) {
+
+      const quantity = itemsObj[index].quantity;
+
+      const value = itemsObj[index].unit_amount.value;
+
+      const name = itemsObj[index].name;
+
+      const description = itemsObj[index].description;
+        
+      items.push(
+
+        <div className="mt-3" key={index}>
+
+          <div className="mb-2">
+
+            <div className="mb-1">
+
+              {quantity} x {name} &nbsp; $ {value} 
+
+            </div> 
+
+            <div>
+              
+              {description} 
+
+            </div> 
+
+          </div> 
+
+        </div>
+      );
+    }
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <table>
+    const output = <section className="px-4 pb-5 px-xl-0 mb-sm-4">
 
-      <caption>
+      <h3 className="m-0 pb-4">
+                    
+        Order complete
         
-        {caption}
-        
-      </caption>
+      </h3>
 
-      <thead>
+      <table className="mb-lg-5">
 
-        <tr>
+        <caption>
+          
+          {caption}
+          
+        </caption>
 
-          <th id="transaction">
-            
-            Transaction
-            
-          </th>
+        <thead>
 
-          <th id="name">
-            
-            Name:
-            
-          </th>
+          <tr>
 
-          <th id="address">
-            
-            Address:
-            
-          </th>
+            <th id="transaction">
+              
+              Transaction
+              
+            </th>
 
-          <th id="purchase">
-            
-            Purchase:
-            
-          </th>
+            <th id="name">
+              
+              Name:
+              
+            </th>
 
-          <th id="description">
-            
-            Description:
-            
-          </th>
+            <th id="address">
+              
+              Address:
+              
+            </th>
 
-          <th id="total">
-            
-            Total:
-            
-          </th>
+            <th id="items">
+              
+              Items:
+              
+            </th>
 
-        </tr>
+            <th id="total">
+              
+              Total:
+              
+            </th>
 
-      </thead>
+          </tr>
 
-      <tbody>
+        </thead>
 
-        <tr>
+        <tbody>
 
-          <td headers="transaction">
-            
-            {transaction}
-            
-          </td>
+          <tr>
 
-          <td headers="name">
-            
-            {name}
-            
-          </td>
+            <td headers="transaction">
+              
+              {transaction}
+              
+            </td>
 
-          <td headers="address">
-            
-            {address}
-            
-          </td>
+            <td headers="name">
+              
+              {name}
+              
+            </td>
 
-          <td headers="purchase">
-            
-            {purchase}
-            
-          </td>
+            <td headers="address">
+              
+              {address}
+              
+            </td>
 
-          <td headers="description">
-            
-            {description}
-            
-          </td>
+            <td headers="items">
+              
+              {items}
+              
+            </td>
 
-          <td headers="total">
-            
-            {total}
-            
-          </td>
+            <td headers="total">
+              
+              {total}
+              
+            </td>
 
-        </tr>
+          </tr>
 
-      </tbody>
+        </tbody>
 
-    </table>;
+      </table>
+
+    </section>;
+
+    setTotal(0);
+
+    setSummery([]);
+
+    setCart([]);
+
+    setRemove([]);
+
+    setDisabled(true);
 
     setOutput(output);
+
+    orderRef.current.scrollIntoView();
   }
 
   const style = {
@@ -287,14 +355,14 @@ const Store = (props) => {
     disableMaxWidth: true,
   };
 
-  const ButtonWrapper = ({ showSpinner }) => {
+  const ButtonWrapper = () => {
         
     const [{ isPending }] = usePayPalScriptReducer();
     
     return (
       <>
 
-        { isPending ? <img id="spinner" className="col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> :
+        { isPending ? <img className="spinner col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> :
 
           <PayPalButtons
 
@@ -305,6 +373,8 @@ const Store = (props) => {
             createOrder={(data, actions) => createOrder(data, actions)}
 
             onApprove={(data, actions) => onApprove(data, actions)}
+
+            disabled={disabled}
             
           />
 
@@ -324,6 +394,110 @@ const Store = (props) => {
     setCount(count + 1)
   }
 
+  const addCart = () => {
+
+    if (disabled) setDisabled(false);
+
+    setCart({
+      ...cart, 
+      [order.name]: { 
+        ...cart[order.name], 
+        description: order.description,
+        name: order.name,
+        quantity: count,
+        value: order.value,
+      }
+    })
+  }
+
+  const init = useCallback(() => {
+
+    let summery = [];
+
+    let total = 0;
+
+    let remove = [];
+
+    for (const index in cart) {
+
+      const quantity = cart[index].quantity;
+
+      const sum = quantity * cart[index].value;
+
+      total = total + sum;
+
+      summery.push(
+
+        <li 
+        
+          key={index}
+          
+          className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
+          
+        >
+
+          <span>
+
+           {quantity} x {cart[index].name}
+
+          </span>
+
+          <span>
+
+            $ {sum}
+
+          </span>
+
+        </li>
+
+      );
+
+      remove.push(
+        
+        <li 
+        
+          key={index}
+          
+          className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
+        
+        >
+
+          <button
+
+            className="remove p-0"
+            
+            onClick={(e) => {
+
+              let newCart = cart;
+
+              delete newCart[cart[index].name];
+
+              setCart(newCart);
+
+              if (Object.keys(newCart).length === 0) setDisabled(true);
+
+              init();
+            }}
+
+          >
+
+            remove
+
+          </button>
+
+        </li>
+
+      );  
+    }
+
+    setTotal(total);
+
+    setSummery(summery);
+
+    setRemove(remove);
+
+  }, [cart])
+
   const srcListen = (e) => {
 
     const obj = e.currentTarget;
@@ -336,19 +510,32 @@ const Store = (props) => {
     }, 100)
   }
 
-  useEffect(() => {
+  const search = useCallback(() => {
 
-    if(searchParams.get("ref") === "storeRef") {
+    const ref = searchParams.get("ref");
+
+    if(ref === "storeRef") {
 
       storeRef.current.scrollIntoView();
     }
 
-    if(searchParams.get("ref") === "itemsRef") {
+    if(ref === "itemsRef") {
 
       itemsRef.current.scrollIntoView();
     }
-  });
-  
+
+    searchParams.delete("ref");
+
+    setSearchParams(searchParams);
+  }, [searchParams, setSearchParams])
+
+  useEffect(() => {
+
+    search();
+
+    init();
+  }, [init, search]);
+
   return (
     <>
     
@@ -402,7 +589,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Check out
+              Order
               
               <ArrowRight className="ms-2" />
 
@@ -450,7 +637,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Check out
+              Order
               
               <ArrowRight className="ms-2" />
 
@@ -498,7 +685,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Check out
+              Order
               
               <ArrowRight className="ms-2" />
 
@@ -546,7 +733,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Check out
+              Order
               
               <ArrowRight className="ms-2" />
 
@@ -594,7 +781,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Check out
+              Order
               
               <ArrowRight className="ms-2" />
 
@@ -642,7 +829,7 @@ const Store = (props) => {
 
             <button className="w-100 text-start ps-3 py-2">
 
-              Check out
+              Order
               
               <ArrowRight className="ms-2" />
 
@@ -654,93 +841,15 @@ const Store = (props) => {
 
       </div>
     
-      <div ref={storeRef} className="container d-flex align-items-center pt-5 mt-4 mt-sm-5">
+      <div ref={storeRef} className="paypal container-md d-flex align-items-center pt-5 px-4 px-sm-5 px-md-0 my-sm-4 g-0">
             
         <div className="row justify-content-center w-100 g-0">
 
-          <div className="col-10 ">
+          <div className="col-12 col-md-10">
 
-            <div id="payPal" className="row justify-content-center justify-content-xl-evenly align-items-xl-center g-0 pb-5 pb-xl-0">
-
-              <div id="store" className="col-10 col-md-4 my-5 p-0">
-
-                  <img onLoad={srcListen} src={order.image} alt="Food" width="366" height="366" />
-
-              </div>
-
-              <div id="counter" className="col-6 col-xl-auto d-flex flex-xl-column justify-content-center align-items-center">
-
-                <span
-
-                  className="text-center me-xl-4"
-                  role="button"
-                  onClick={minus}
-
-                >
-
-                  -
-
-                </span>
-
-                <label aria-label="Quantity" htmlFor="count" className="hidden">
-                  
-                  Quantity
-                  
-                </label>
-
-                <input disabled={true} id="count" className="text-center m-4 ms-xl-0" type="text" value={count} />
-
-                <span
-
-                  className="text-center me-xl-4"
-                  role="button"
-                  onClick={plus}
-                  
-                >
-
-                  +
-
-                </span>
-
-              </div>
-
-              <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
-                  
-                <ButtonWrapper showSpinner={true} /> 
-
-              </PayPalScriptProvider>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <section className="itemOutput container-xl px-5 px-xl-0 pt-sm-4 pt-lg-5 g-0">
-
-        {output ? (
-          
-          <>   
-            
-            <h3 className="m-0 pt-5 pb-4">
+            <h3 className="m-0 pb-4">
               
-              Order complete
-              
-            </h3>
-
-            {output}
-
-          </>  
-
-        ) : (
-
-          <>
-
-            <h3 className="m-0 pt-5 pb-4">
-              
-              {`${order.name} $${order.value}`}
+              {`${order.name} $ ${order.value}`}
               
             </h3>
 
@@ -756,13 +865,156 @@ const Store = (props) => {
               
             </p>
 
-          </>
+          </div>
 
-        )}
+          <div className="bg col-12 col-md-10">
 
-      </section>
+            <div className="row justify-content-center align-items-xl-center pb-4 pb-md-5 pb-xl-0 pe-xl-5 g-0">
 
-      <div className="container-xl p-5 py-sm-5 px-xl-0 my-lg-5 g-0">
+              <div className="order-image col-10 col-md-4 my-5 p-0">
+
+                  <img onLoad={srcListen} src={order.image} alt="Food" width="366" height="366" />
+
+              </div>
+
+              <div className="counter col-6 col-xl-3 d-flex flex-xl-column justify-content-center align-items-center">
+
+                <span
+
+                  className="text-center"
+                  role="button"
+                  onClick={minus}
+
+                >
+
+                  -
+
+                </span>
+
+                <label aria-label="Quantity" htmlFor="count" className="hidden">
+                  
+                  Quantity
+                  
+                </label>
+
+                <input disabled={true} id="count" className="text-center m-4 mx-xl-0" type="text" value={count} />
+
+                <span
+
+                  className="text-center"
+                  role="button"
+                  onClick={plus}
+                  
+                >
+
+                  +
+
+                </span>
+
+              </div>
+
+              <button 
+              
+                className="button-container-inner col-10 col-xl-5"
+
+                onClick={addCart}
+                
+              >
+
+                add
+
+              </button>
+
+            </div>
+
+          </div>
+
+          <div className="bg col-12 col-md-10">
+
+            <div className="row justify-content-center justify-content-xl-end pb-5 pe-xl-5 g-0">
+            
+              {!disabled ? (
+
+                <>
+
+                  <div className="col-12 col-xl-7 d-flex align-items-stretch align-items-xl-center justify-content-evenly pb-4 px-4 px-md-5 pb-xl-0">  
+
+                    <div className="flex-fill">
+
+                      <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
+
+                        {summery}
+
+                      </ul>
+
+                    </div> 
+
+                    <div className="flex-fill">
+
+                      <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
+
+                        {remove}
+
+                      </ul>
+
+                    </div>
+
+                  </div>
+
+                  <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_ID, currency: "AUD", 'data-csp-nonce': '1e31b6130c5be9ef4cbab7eb38df5491' }} >
+                    
+                    <ButtonWrapper showSpinner={true} /> 
+            
+                  </PayPalScriptProvider>
+
+                </>
+
+              ) : (
+
+                <>
+
+                  <div className="col-10 col-xl-5 d-flex align-items-center">
+
+                    <ul className="w-100 list-unstyled m-0"> 
+
+                      <li className="button-container-inner px-4">no items</li>
+
+                    </ul>
+
+                  </div>
+
+                </>
+
+              )}  
+
+              <div className="col-12 ps-4 ps-md-5 pt-4">
+
+                <span className="total pe-2">
+                  
+                  total 
+                  
+                </span> 
+                
+                $ {total}
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div ref={orderRef} className="container-xl pt-5 mt-lg-5 g-0">
+
+        {output}
+
+      </div>
+
+      <div className="container-xl px-4 pb-5 px-sm-5 px-xl-0 mb-lg-5 g-0">
 
         <Cta
 

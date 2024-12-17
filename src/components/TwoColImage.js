@@ -6,34 +6,42 @@ const TwoColImage = (props) => {
   
   return (
     
-    <section className="two-col-image row p-5 ps-md-0 pt-md-0 pb-md-0 pe-md-0 ps-xl-5 g-0" >
+    <section className="two-col-image py-5 ps-md-0 pt-md-0 pb-md-0 pe-md-0 ps-xl-5 g-0" >
 
-      <div className="row col-12 col-md-6 ps-lg-5 pt-md-5 pb-md-5 ps-md-5 g-0">
+      <div className="row justify-content-center g-0">
+    
+        <div className="col-10 col-md-6 ps-lg-5 pt-md-5 pb-md-5 ps-md-5 g-0">
 
-          <h2 className="pb-3 mt-lg-5">
-          
-            {heading}
+          <div className="row h-100">
 
-          </h2>
+              <h2 className="pb-3 mt-lg-5">
+              
+                {heading}
 
-          <hr className="pb-2"/>
+              </h2>
 
-          <div className="col-12 col-md-10 col-xl-9">
+              <hr className="pb-2"/>
 
-          <p className="mb-md-5">
+              <div className="col-12 col-md-10 col-xl-9">
 
-            {paragraph}
+                <p className="mb-md-5">
 
-          </p>
+                  {paragraph}
 
-          </div>
-          
-      </div>
+                </p>
 
-      <div className="col-12 col-md-6 mx-auto mt-3 mt-md-0">
+              </div>
 
-        {props.children}
-                  
+            </div>
+            
+        </div>
+
+        <div className="col-10 col-md-6 mx-auto mt-3 mt-md-0">
+
+          {props.children}
+                    
+        </div>
+
       </div>
 
     </section>
