@@ -16,6 +16,8 @@ const Store = (props) => {
 
   const itemsRef = useRef();
 
+  const outputRef = useRef();
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [count, setCount] = useState(1);
@@ -195,7 +197,7 @@ const Store = (props) => {
       address += `${addressObj[index]} `;
     }
 
-    let items = [];
+    let itemsArray = [];
 
     for (const index in itemsObj) {
 
@@ -207,7 +209,7 @@ const Store = (props) => {
 
       const description = itemsObj[index].description;
         
-      items.push(
+      itemsArray.push(
 
         <div className="mt-3" key={index}>
 
@@ -215,7 +217,7 @@ const Store = (props) => {
 
             <div className="mb-1">
 
-              {quantity} x {name} &nbsp; $ {value} 
+              {quantity} x {name} &nbsp; $ {value * quantity} 
 
             </div> 
 
@@ -233,7 +235,15 @@ const Store = (props) => {
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <table>
+    const output = <>
+
+      <h3 className="m-0 pb-4 pt-5">
+
+        Order Complete
+
+      </h3>
+    
+      <table>
 
         <caption>
           
@@ -303,7 +313,7 @@ const Store = (props) => {
 
             <td headers="items">
               
-              {items}
+              {itemsArray}
               
             </td>
 
@@ -317,7 +327,11 @@ const Store = (props) => {
 
         </tbody>
 
-      </table>;
+      </table>
+
+    </>;
+
+    setCount(1);
 
     setTotal(0);
 
@@ -330,6 +344,15 @@ const Store = (props) => {
     setDisabled(true);
 
     setOutput(output);
+
+    setOrder({ 
+
+      image: items.cartOne.image,
+      value: items.cartOne.value,
+      name: items.cartOne.name,
+      sub: items.cartOne.sub,
+      description: items.cartOne.description,
+    });
   }
 
   const style = {
@@ -498,6 +521,11 @@ const Store = (props) => {
     }, 100)
   }
 
+  const outputScroll = useCallback(() => {
+
+    if (output) outputRef.current.scrollIntoView();
+  }, [output])
+
   const search = useCallback(() => {
 
     const ref = searchParams.get("ref");
@@ -519,10 +547,12 @@ const Store = (props) => {
 
   useEffect(() => {
 
+    outputScroll();
+
     search();
 
     init();
-  }, [init, search]);
+  }, [init, search, outputScroll]);
 
   return (
     <>
@@ -991,7 +1021,7 @@ const Store = (props) => {
 
           </div>
 
-          <div className="col-12 col-md-10">            
+          <div ref={outputRef} className="col-12 col-md-10">            
 
             {output}
 
