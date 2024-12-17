@@ -16,8 +16,6 @@ const Store = (props) => {
 
   const itemsRef = useRef();
 
-  const orderRef = useRef();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [count, setCount] = useState(1);
@@ -235,15 +233,7 @@ const Store = (props) => {
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <section className="px-4 pb-5 px-xl-0 mb-sm-4">
-
-      <h3 className="m-0 pb-4">
-                    
-        Order complete
-        
-      </h3>
-
-      <table className="mb-lg-5">
+    const output = <table>
 
         <caption>
           
@@ -327,9 +317,7 @@ const Store = (props) => {
 
         </tbody>
 
-      </table>
-
-    </section>;
+      </table>;
 
     setTotal(0);
 
@@ -342,8 +330,6 @@ const Store = (props) => {
     setDisabled(true);
 
     setOutput(output);
-
-    orderRef.current.scrollIntoView();
   }
 
   const style = {
@@ -408,6 +394,8 @@ const Store = (props) => {
         value: order.value,
       }
     })
+
+    setOutput(false);
   }
 
   const init = useCallback(() => {
@@ -1001,6 +989,11 @@ const Store = (props) => {
 
             </div>
 
+          </div>
+
+          <div className="col-12 col-md-10">            
+
+            {output}
 
           </div>
 
@@ -1008,13 +1001,8 @@ const Store = (props) => {
 
       </div>
 
-      <div ref={orderRef} className="container-xl pt-5 mt-lg-5 g-0">
 
-        {output}
-
-      </div>
-
-      <div className="container-xl px-4 pb-5 px-sm-5 px-xl-0 mb-lg-5 g-0">
+      <div className="container-xl px-4 pb-5 px-sm-5 px-xl-0 mb-lg-5  pt-5 mt-lg-5 g-0">
 
         <Cta
 
@@ -1026,8 +1014,7 @@ const Store = (props) => {
 
           paragraph={
             `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
-            rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at
-            suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit.`
+            rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat.`
           }
 
           button={`Vestibulum eu`}

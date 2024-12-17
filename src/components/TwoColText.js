@@ -10,7 +10,7 @@ const TwoColText = (props) => {
     
       <div className="col-12 col-lg-3 my-xl-5">
 
-        <h2 className="pt-4 ps-4">
+        <h2 className="pt-4 ps-4 ms-xxl-5">
 
           {heading}
 
