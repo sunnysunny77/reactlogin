@@ -575,7 +575,7 @@ const Store = (props) => {
     searchParams.delete("ref");
 
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams])
+  }, [searchParams, setSearchParams, order])
 
   useEffect(() => {
 
