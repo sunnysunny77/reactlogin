@@ -1,6 +1,7 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSearchParams } from 'react-router-dom';
+import Select from 'react-select';
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
 import { ArrowDownShort } from 'react-bootstrap-icons';
@@ -8,6 +9,8 @@ import Spinner from "../images/load.gif";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
 import Cta from "../components/Cta";
+import styles from './Store.module.scss'; 
+
 
 const Store = (props) => {
 
@@ -18,8 +21,6 @@ const Store = (props) => {
   const itemsRef = useRef();
 
   const outputRef = useRef();
-
-  const orderRef = useRef();
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -37,6 +38,18 @@ const Store = (props) => {
 
   const [disabled, setDisabled] = useState(true);
 
+  const [selectedOption, setSelectedOption] = useState({ value: 'cartOne', label: items.cartOne.name });
+
+  const options = [
+
+    { value: 'cartOne', label: items.cartOne.name },
+    { value: 'cartTwo', label: items.cartTwo.name },
+    { value: 'cartThree', label: items.cartThree.name },
+    { value: 'cartFour', label: items.cartFour.name },
+    { value: 'cartFive', label: items.cartFive.name },
+    { value: 'cartSix', label: items.cartSix.name },
+  ];
+
   const select = {
 
     cartOne: function () {
@@ -45,7 +58,7 @@ const Store = (props) => {
   
       setOrder({ 
   
-        ref: "cartOne",
+        ref: { value: 'cartOne', label: items.cartOne.name },
         image: items.cartOne.image,
         value: items.cartOne.value,
         name: items.cartOne.name,
@@ -54,8 +67,6 @@ const Store = (props) => {
       });
   
       setOutput(false);
-
-      orderRef.current.value = "cartOne";
     },
 
     cartTwo: function () {
@@ -64,7 +75,7 @@ const Store = (props) => {
   
       setOrder({ 
   
-        ref: "cartTwo",
+        ref: { value: 'cartTwo', label: items.cartTwo.name },
         image: items.cartTwo.image,
         value: items.cartTwo.value,
         name: items.cartTwo.name,
@@ -73,8 +84,6 @@ const Store = (props) => {
       });
   
       setOutput(false);
-
-      orderRef.current.value = "cartTwo";
     },
 
     cartThree: function () {
@@ -83,7 +92,7 @@ const Store = (props) => {
   
       setOrder({ 
   
-        ref: "cartThree",
+        ref: { value: 'cartThree', label: items.cartThree.name },
         image: items.cartThree.image,
         value: items.cartThree.value,
         name: items.cartThree.name,
@@ -92,8 +101,6 @@ const Store = (props) => {
       });
   
       setOutput(false);
-
-      orderRef.current.value = "cartThree";
     },
 
     cartFour: function () {
@@ -102,7 +109,7 @@ const Store = (props) => {
   
       setOrder({ 
   
-        ref: "cartFour",
+        ref: { value: 'cartFour', label: items.cartFour.name },
         image: items.cartFour.image,
         value: items.cartFour.value,
         name: items.cartFour.name,
@@ -111,8 +118,6 @@ const Store = (props) => {
       });
   
       setOutput(false);
-
-      orderRef.current.value = "cartFour";
     },
 
     cartFive: function () {
@@ -121,7 +126,7 @@ const Store = (props) => {
   
       setOrder({ 
   
-        ref: "cartFive",
+        ref: { value: 'cartFive', label: items.cartFive.name },
         image: items.cartFive.image,
         value: items.cartFive.value,
         name: items.cartFive.name,
@@ -130,8 +135,6 @@ const Store = (props) => {
       });
   
       setOutput(false);
-
-      orderRef.current.value = "cartFive";
     },
 
     cartSix: function () {
@@ -140,7 +143,7 @@ const Store = (props) => {
   
       setOrder({ 
   
-        ref: "cartSix",
+        ref: { value: 'cartSix', label: items.cartSix.name },
         image: items.cartSix.image,
         value: items.cartSix.value,
         name: items.cartSix.name,
@@ -149,17 +152,15 @@ const Store = (props) => {
       });
   
       setOutput(false);
-
-      orderRef.current.value = "cartSix";
     },
   }
 
   const option = (e) => {
 
-    const option = e.currentTarget.value;
+    setSelectedOption(e);
 
-    select[option]();
-  }
+    select[e.value]();
+  };
 
   const createOrder = (data, actions) => {
 
@@ -384,8 +385,8 @@ const Store = (props) => {
       sub: items.cartOne.sub,
       description: items.cartOne.description,
     });
-
-    orderRef.current.value = "cartOne";
+    
+    setSelectedOption({ value: 'cartOne', label: items.cartOne.name });
   }
 
   const style = {
@@ -555,7 +556,7 @@ const Store = (props) => {
 
   const orderValue = useCallback(() => {
 
-    if (order.ref) orderRef.current.value = order.ref;
+     if (order.ref) setSelectedOption(order.ref);
   }, [order])
 
   const outputScroll = useCallback(() => {
@@ -945,79 +946,89 @@ const Store = (props) => {
 
                 </label>
 
-                <select 
-                
-                  className="w-100 py-2 px-3"
-                  
-                  id="select"
+                <Select
 
-                  ref={orderRef}
+                  inputId="select"
+
+                  value={selectedOption}
 
                   onChange={option}
-                
-                >
 
-                  <option 
-                  
-                    value="cartOne"
-                  
-                  >
-                    
-                    {items.cartOne.name}
-                    
-                  </option>
+                  options={options}
 
-                  <option 
-                  
-                    value="cartTwo"
-                    
-                  >
-                    
-                    {items.cartTwo.name}
-                    
-                  </option>
+                  styles={{
 
-                  <option 
-                  
-                    value="cartThree"
-                    
-                  >
-                    
-                    {items.cartThree.name}
-                    
-                  </option>
+                    menu: (provided) => ({
 
-                  <option 
-                  
-                    value="cartFour"
-                    
-                  >
-                    
-                    {items.cartFour.name}
-                    
-                  </option>
+                      ...provided,
 
-                  <option 
-                  
-                    value="cartFive"
-                    
-                  >
-                    
-                    {items.cartFive.name}
-                    
-                  </option>
+                      borderRadius: '0',
 
-                  <option 
-                  
-                    value="cartSix"
-                    
-                  >
-                    
-                    {items.cartSix.name}
-                    
-                  </option>
+                      margin: '0',
 
-                </select>
+                      color: styles.c6,
+
+                      backgroundColor: styles.c4,
+
+                      boxShadow: 'none',
+                    }),
+
+                    option: (provided) => ({
+
+                      ...provided,
+
+                      color: styles.c6,
+
+                      fontSize: '16px',
+        
+                      cursor: 'pointer',
+
+                      backgroundColor: styles.c4,
+
+                      transition: 'background-color 0.3s',
+
+                      willChange: 'background-color',
+
+                      '&:hover': {
+
+                        backgroundColor: styles.c15,
+                      },
+                    }),
+
+                    control: (provided) => ({
+
+                      ...provided,
+
+                      borderRadius: '0',
+
+                      border: '0',
+
+                      boxShadow: 'none',
+       
+                      backgroundColor: styles.c4,
+
+                      color: styles.c6,
+
+                      cursor: 'pointer',
+
+                      fontSize: '16px',
+
+                      opacity: '1',
+
+                      transition: 'opacity 0.3s',
+
+                      willChange: 'opacity',
+
+                      '&:hover': {
+
+                        opacity: '0.9',
+                      },
+                    }),
+                  }}
+
+                  components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
+
+                />
 
               </div>
 

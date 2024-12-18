@@ -28,7 +28,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      ref: "cartOne",
+      ref: { value: 'cartOne', label: items.cartOne.name },
       image: items.cartOne.image,
       value: items.cartOne.value,
       name: items.cartOne.name,
@@ -41,7 +41,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      ref: "cartTwo",
+      ref: { value: 'cartTwo', label: items.cartTwo.name },
       image: items.cartTwo.image,
       value: items.cartTwo.value,
       name: items.cartTwo.name,
@@ -54,7 +54,7 @@ const Home = (props) => {
     
     setOrder({ 
 
-      ref: "cartThree",
+      ref: { value: 'cartThree', label: items.cartThree.name },
       image: items.cartThree.image,
       value: items.cartThree.value,
       name: items.cartThree.name,
@@ -67,7 +67,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      ref: "cartFour",
+      ref: { value: 'cartFour', label: items.cartFour.name },
       image: items.cartFour.image,
       value: items.cartFour.value,
       name: items.cartFour.name,
@@ -80,7 +80,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      ref: "cartFive",
+      ref: { value: 'cartFive', label: items.cartFive.name },
       image: items.cartFive.image,
       value: items.cartFive.value,
       name: items.cartFive.name,
@@ -93,7 +93,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      ref: "cartSix",
+      ref: { value: 'cartSix', label: items.cartSix.name },
       image: items.cartSix.image,
       value: items.cartSix.value,
       name: items.cartSix.name,

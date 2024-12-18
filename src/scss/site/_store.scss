@@ -123,22 +123,6 @@
     .total {
         font-size: 15px;
     }
-
-    select {
-        appearance: none;
-        font-size: 16px;
-        background-color: $c4;
-        color: $c6;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        opacity: 1;
-        transition: opacity 0.3s;
-        will-change: opacity;
-        &:hover {
-            opacity: 0.9;
-        }
-    }
     label[for="select"] {
         background-color: $c4;
         color: $c6;
