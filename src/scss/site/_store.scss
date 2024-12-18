@@ -134,7 +134,7 @@
 
     select {
         appearance: none;
-        font-size: 1.15rem;
+        font-size: 16px;
         background-color: $c4;
         color: $c6;
         cursor: pointer;
@@ -146,6 +146,11 @@
         &:hover {
             opacity: 0.9;
         }
+    }
+    label[for="select"] {
+        background-color: $c4;
+        color: $c6;
+        font-size: 17px;
     }
 }
 

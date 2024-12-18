@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
+import { ArrowDownShort } from 'react-bootstrap-icons';
 import Spinner from "../images/load.gif";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
@@ -157,7 +158,7 @@ const Store = (props) => {
 
     const option = e.currentTarget.value;
 
-    if (option !== "false") select[option]();
+    select[option]();
   }
 
   const createOrder = (data, actions) => {
@@ -384,7 +385,7 @@ const Store = (props) => {
       description: items.cartOne.description,
     });
 
-    selectRef.current.value = false;
+    selectRef.current.value = "cartOne";
   }
 
   const style = {
@@ -570,16 +571,19 @@ const Store = (props) => {
 
       storeRef.current.scrollIntoView();
     }
-
+    
     if(ref === "itemsRef") {
 
       itemsRef.current.scrollIntoView();
+    } 
+    
+    if (ref) {
+
+      searchParams.delete("ref");
+      setSearchParams(searchParams);
     }
 
-    searchParams.delete("ref");
-
-    setSearchParams(searchParams);
-  }, [searchParams, setSearchParams,])
+  }, [searchParams, setSearchParams])
 
   useEffect(() => {
 
@@ -933,10 +937,12 @@ const Store = (props) => {
 
               <div className="bg col-12 col-xl-4 order-2 order-xl-3">
 
-                <label className="hidden" htmlFor="select">
+                <label className="w-100 py-1 px-3" htmlFor="select">
 
-                    Vestibulum eu
-                
+                  <ArrowDownShort  className="me-2"/>  
+                  
+                  Choose an option
+
                 </label>
 
                 <select 
@@ -950,16 +956,6 @@ const Store = (props) => {
                   onChange={option}
                 
                 >
-
-                  <option 
-                  
-                    value={false}
-                    
-                  >
-                    
-                    Choose an option
-                    
-                  </option>
 
                   <option 
                   
