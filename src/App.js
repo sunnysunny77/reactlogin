@@ -84,6 +84,7 @@ function App() {
 
   const [order, setOrder] = useState({ 
 
+    ref: { value: 'cartOne', label: items.cartOne.name },
     image: items.cartOne.image,
     value: items.cartOne.value,
     name: items.cartOne.name,

@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = (props) => {
 
-  const heading = props.heading;
+  const { heading, children } = props;
   
   return (
     
@@ -24,7 +24,7 @@ const Header = (props) => {
 
         </div>
 
-        {props.children}
+        {children}
 
     </header>
 

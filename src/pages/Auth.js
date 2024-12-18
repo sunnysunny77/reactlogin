@@ -6,10 +6,7 @@ import Spinner from "../images/load.gif";
 
 const Auth = (props) => {
 
-  const {
-    setLoad,
-    setAuth
-  } = props;
+  const { setLoad, setAuth } = props;
 
   const navigate = useNavigate();
   const ref = useRef();

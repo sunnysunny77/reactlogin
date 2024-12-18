@@ -50,117 +50,116 @@ const Store = (props) => {
     { value: 'cartSix', label: items.cartSix.name },
   ];
 
-  const select = {
+  const cartOne = useCallback( () => {
 
-    cartOne: function () {
+    setCount(1);
 
-      setCount(1);
-  
-      setOrder({ 
-  
-        ref: { value: 'cartOne', label: items.cartOne.name },
-        image: items.cartOne.image,
-        value: items.cartOne.value,
-        name: items.cartOne.name,
-        sub: items.cartOne.sub,
-        description: items.cartOne.description,
-      });
-  
-      setOutput(false);
-    },
+    setOrder({ 
 
-    cartTwo: function () {
+      ref: { value: 'cartOne', label: items.cartOne.name },
+      image: items.cartOne.image,
+      value: items.cartOne.value,
+      name: items.cartOne.name,
+      sub: items.cartOne.sub,
+      description: items.cartOne.description,
+    });
 
-      setCount(1);
-  
-      setOrder({ 
-  
-        ref: { value: 'cartTwo', label: items.cartTwo.name },
-        image: items.cartTwo.image,
-        value: items.cartTwo.value,
-        name: items.cartTwo.name,
-        sub: items.cartTwo.sub,
-        description: items.cartTwo.description,
-      });
-  
-      setOutput(false);
-    },
+    setOutput(false);
+  }, [items.cartOne.description, items.cartOne.sub, items.cartOne.name, items.cartOne.value, items.cartOne.image ,setOrder])
 
-    cartThree: function () {
+  const cartTwo = useCallback( () => {
 
-      setCount(1);
-  
-      setOrder({ 
-  
-        ref: { value: 'cartThree', label: items.cartThree.name },
-        image: items.cartThree.image,
-        value: items.cartThree.value,
-        name: items.cartThree.name,
-        sub: items.cartThree.sub,
-        description: items.cartThree.description,
-      });
-  
-      setOutput(false);
-    },
+    setCount(1);
 
-    cartFour: function () {
+    setOrder({ 
 
-      setCount(1);
-  
-      setOrder({ 
-  
-        ref: { value: 'cartFour', label: items.cartFour.name },
-        image: items.cartFour.image,
-        value: items.cartFour.value,
-        name: items.cartFour.name,
-        sub: items.cartFour.sub,
-        description: items.cartFour.description,
-      });
-  
-      setOutput(false);
-    },
+      ref: { value: 'cartTwo', label: items.cartTwo.name },
+      image: items.cartTwo.image,
+      value: items.cartTwo.value,
+      name: items.cartTwo.name,
+      sub: items.cartTwo.sub,
+      description: items.cartTwo.description,
+    });
 
-    cartFive: function () {
+    setOutput(false);
+  }, [items.cartTwo.description, items.cartTwo.sub, items.cartTwo.name, items.cartTwo.value, items.cartTwo.image ,setOrder])
 
-      setCount(1);
-  
-      setOrder({ 
-  
-        ref: { value: 'cartFive', label: items.cartFive.name },
-        image: items.cartFive.image,
-        value: items.cartFive.value,
-        name: items.cartFive.name,
-        sub: items.cartFive.sub,
-        description: items.cartFive.description,
-      });
-  
-      setOutput(false);
-    },
+  const cartThree = useCallback( () => {
 
-    cartSix: function () {
+    setCount(1);
 
-      setCount(1);
-  
-      setOrder({ 
-  
-        ref: { value: 'cartSix', label: items.cartSix.name },
-        image: items.cartSix.image,
-        value: items.cartSix.value,
-        name: items.cartSix.name,
-        sub: items.cartSix.sub,
-        description: items.cartSix.description,
-      });
-  
-      setOutput(false);
-    },
-  }
+    setOrder({ 
 
-  const option = (e) => {
+      ref: { value: 'cartThree', label: items.cartThree.name },
+      image: items.cartThree.image,
+      value: items.cartThree.value,
+      name: items.cartThree.name,
+      sub: items.cartThree.sub,
+      description: items.cartThree.description,
+    });
+
+    setOutput(false);
+  }, [items.cartThree.description, items.cartThree.sub, items.cartThree.name, items.cartThree.value, items.cartThree.image ,setOrder])
+
+  const cartFour = useCallback( () => {
+
+    setCount(1);
+
+    setOrder({ 
+
+      ref: { value: 'cartFour', label: items.cartFour.name },
+      image: items.cartFour.image,
+      value: items.cartFour.value,
+      name: items.cartFour.name,
+      sub: items.cartFour.sub,
+      description: items.cartFour.description,
+    });
+
+    setOutput(false);
+  }, [items.cartFour.description, items.cartFour.sub, items.cartFour.name, items.cartFour.value, items.cartFour.image ,setOrder])
+
+  const cartFive = useCallback( () => {
+
+    setCount(1);
+
+    setOrder({ 
+
+      ref: { value: 'cartFive', label: items.cartFive.name },
+      image: items.cartFive.image,
+      value: items.cartFive.value,
+      name: items.cartFive.name,
+      sub: items.cartFive.sub,
+      description: items.cartFive.description,
+    });
+
+    setOutput(false);
+  }, [items.cartFive.description, items.cartFive.sub, items.cartFive.name, items.cartFive.value, items.cartFive.image ,setOrder])
+
+  const cartSix = useCallback( () => {
+
+    setCount(1);
+
+    setOrder({ 
+
+      ref: { value: 'cartSix', label: items.cartSix.name },
+      image: items.cartSix.image,
+      value: items.cartSix.value,
+      name: items.cartSix.name,
+      sub: items.cartSix.sub,
+      description: items.cartSix.description,
+    });
+
+    setOutput(false);
+  }, [items.cartSix.description, items.cartSix.sub, items.cartSix.name, items.cartSix.value, items.cartSix.image ,setOrder])
+ 
+  const option = useCallback( (e) => {
+
+    const select = { cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix };
 
     setSelectedOption(e);
 
     select[e.value]();
-  };
+  },[cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix])
 
   const createOrder = (data, actions) => {
 
@@ -449,6 +448,7 @@ const Store = (props) => {
         name: order.name,
         quantity: count,
         value: order.value,
+        ref: order.ref
       }
     })
 
@@ -478,10 +478,21 @@ const Store = (props) => {
           key={index}
           
           className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
-          
+  
         >
 
-          <span>
+          <span
+
+            className="edit"
+          
+            onClick={() => {
+
+              option(cart[index].ref);
+
+              init();
+            }}       
+
+          >
 
            {quantity} x {cart[index].name}
 
@@ -503,7 +514,7 @@ const Store = (props) => {
         
           key={index}
           
-          className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
+          className="d-flex flex-column flex-xl-row mb-3"
         
         >
 
@@ -540,7 +551,7 @@ const Store = (props) => {
     setSummery(summery);
 
     setRemove(remove);
-  }, [cart])
+  }, [cart, option])
 
   const srcListen = (e) => {
 
@@ -616,7 +627,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={select.cartOne}
+            onClick={cartOne}
         
           >
 
@@ -664,7 +675,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={select.cartTwo}
+            onClick={cartTwo}
         
           >
 
@@ -712,7 +723,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={select.cartThree}
+            onClick={cartThree}
         
           >
 
@@ -760,7 +771,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={select.cartFour}
+            onClick={cartFour}
         
           >
 
@@ -808,7 +819,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={select.cartFive}
+            onClick={cartFive}
         
           >
 
@@ -856,7 +867,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={select.cartSix}
+            onClick={cartSix}
         
           >
 
@@ -1119,7 +1130,7 @@ const Store = (props) => {
 
                   <div className="col-12 col-xl-7 d-flex align-items-stretch align-items-xl-center justify-content-evenly pb-4 px-4 px-md-5 pb-xl-0">  
 
-                    <div className="flex-fill">
+                    <div className="flex-fill h-100">
 
                       <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
 
@@ -1129,7 +1140,7 @@ const Store = (props) => {
 
                     </div> 
 
-                    <div className="flex-fill">
+                    <div className="flex-fill h-100">
 
                       <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
 
@@ -1192,7 +1203,6 @@ const Store = (props) => {
         </div>
 
       </div>
-
 
       <div className="container-xl px-4 pb-5 px-sm-5 px-xl-0 mb-lg-5  pt-5 mt-lg-5 g-0">
 

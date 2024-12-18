@@ -4,6 +4,8 @@ import { ArrowLeft } from 'react-bootstrap-icons';
 
 const Slider= (props) => {
 
+  const { paragraph, children } = props;
+
   const [index, setIndex] = useState(0);
 
   const counters = useRef();
@@ -82,7 +84,7 @@ const Slider= (props) => {
 
             <div ref={counters} className="slider_9-inner inner-swap position-relative mt-md-5 mx-sm-5 ms-lg-5 me-lg-0">
 
-              {props.children}
+              {children}
               
             </div>
 
@@ -120,7 +122,7 @@ const Slider= (props) => {
 
                 <p className="m-0">
 
-                  {props.paragraph}
+                  {paragraph}
 
                 </p>
 

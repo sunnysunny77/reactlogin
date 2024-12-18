@@ -2,6 +2,8 @@ import React from "react";
 
 const Cards = (props) => {
 
+  const { heading, children } = props;
+
   return (
     
     <section className="cards container-xl g-0">
@@ -12,7 +14,7 @@ const Cards = (props) => {
 
           <h2 className="pt-4 ps-4 pb-sm-4 pb-lg-5 mb-0 mt-3">
 
-            {props.heading} 
+            {heading} 
             
           </h2>
           
@@ -20,7 +22,7 @@ const Cards = (props) => {
         
         <div className="col-12 col-sm-11 col-lg-12 d-flex flex-wrap justify-content-center justify-content-sm-between justify-content-lg-evenly px-lg-5 px-xl-4">
 
-          {props.children}
+          {children}
 
         </div>
 

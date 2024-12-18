@@ -2,7 +2,7 @@ import React from "react";
 
 const PreText = (props) => {
 
-  const text = props.text;
+  const { text } = props;
   
   return (
     

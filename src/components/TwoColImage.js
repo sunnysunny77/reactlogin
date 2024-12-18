@@ -2,7 +2,7 @@ import React from "react";
 
 const TwoColImage = (props) => {
 
-  const { heading, paragraph } = props;
+  const { heading, paragraph, children } = props;
   
   return (
     
@@ -38,7 +38,7 @@ const TwoColImage = (props) => {
 
         <div className="col-10 col-md-6 mx-auto mt-3 mt-md-0">
 
-          {props.children}
+          {children}
                     
         </div>
 

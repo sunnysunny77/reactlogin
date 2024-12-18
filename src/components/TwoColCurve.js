@@ -2,7 +2,7 @@ import React from "react";
 
 const TwoColCurve = (props) => {
 
-  const { heading, paragraph } = props;
+  const { heading, paragraph, children } = props;
   
   return (
     
@@ -34,7 +34,7 @@ const TwoColCurve = (props) => {
 
         </div>
 
-        {props.children}
+        {children}
 
       </div>
 
