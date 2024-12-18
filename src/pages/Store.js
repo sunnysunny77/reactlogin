@@ -34,100 +34,110 @@ const Store = (props) => {
 
   const [disabled, setDisabled] = useState(true);
 
-  const cartOne = () => {
+  const select = {
 
-    setCount(1);
+    cartOne: function () {
 
-    setOrder({ 
+      setCount(1);
+  
+      setOrder({ 
+  
+        image: items.cartOne.image,
+        value: items.cartOne.value,
+        name: items.cartOne.name,
+        sub: items.cartOne.sub,
+        description: items.cartOne.description,
+      });
+  
+      setOutput(false);
+    },
 
-      image: items.cartOne.image,
-      value: items.cartOne.value,
-      name: items.cartOne.name,
-      sub: items.cartOne.sub,
-      description: items.cartOne.description,
-    });
+    cartTwo: function () {
 
-    setOutput(false);
+      setCount(1);
+  
+      setOrder({ 
+  
+        image: items.cartTwo.image,
+        value: items.cartTwo.value,
+        name: items.cartTwo.name,
+        sub: items.cartTwo.sub,
+        description: items.cartTwo.description,
+      });
+  
+      setOutput(false);
+    },
+
+    cartThree: function () {
+
+      setCount(1);
+  
+      setOrder({ 
+  
+        image: items.cartThree.image,
+        value: items.cartThree.value,
+        name: items.cartThree.name,
+        sub: items.cartThree.sub,
+        description: items.cartThree.description,
+      });
+  
+      setOutput(false);
+    },
+
+    cartFour: function () {
+
+      setCount(1);
+  
+      setOrder({ 
+  
+        image: items.cartFour.image,
+        value: items.cartFour.value,
+        name: items.cartFour.name,
+        sub: items.cartFour.sub,
+        description: items.cartFour.description,
+      });
+  
+      setOutput(false);
+    },
+
+    cartFive: function () {
+
+      setCount(1);
+  
+      setOrder({ 
+  
+        image: items.cartFive.image,
+        value: items.cartFive.value,
+        name: items.cartFive.name,
+        sub: items.cartFive.sub,
+        description: items.cartFive.description,
+      });
+  
+      setOutput(false);
+    },
+
+    cartSix: function () {
+
+      setCount(1);
+  
+      setOrder({ 
+  
+        image: items.cartSix.image,
+        value: items.cartSix.value,
+        name: items.cartSix.name,
+        sub: items.cartSix.sub,
+        description: items.cartSix.description,
+      });
+  
+      setOutput(false);
+    },
   }
 
-  const cartTwo = () => {
+  const option = (e) => {
 
-    setCount(1);
+    const option = e.currentTarget.value;
 
-    setOrder({ 
-
-      image: items.cartTwo.image,
-      value: items.cartTwo.value,
-      name: items.cartTwo.name,
-      sub: items.cartTwo.sub,
-      description: items.cartTwo.description,
-    });
-
-    setOutput(false);
-  }
-
-  const cartThree = () => {
-
-    setCount(1);
-
-    setOrder({ 
-
-      image: items.cartThree.image,
-      value: items.cartThree.value,
-      name: items.cartThree.name,
-      sub: items.cartThree.sub,
-      description: items.cartThree.description,
-    });
-
-    setOutput(false);
-  }
-
-  const cartFour = () => {
-
-    setCount(1);
-
-    setOrder({ 
-
-      image: items.cartFour.image,
-      value: items.cartFour.value,
-      name: items.cartFour.name,
-      sub: items.cartFour.sub,
-      description: items.cartFour.description,
-    });
-
-    setOutput(false);
-  }
-
-  const cartFive = () => {
-
-    setCount(1);
-
-    setOrder({ 
-
-      image: items.cartFive.image,
-      value: items.cartFive.value,
-      name: items.cartFive.name,
-      sub: items.cartFive.sub,
-      description: items.cartFive.description,
-    });
-
-    setOutput(false);
-  }
-
-  const cartSix = () => {
-
-    setCount(1);
-
-    setOrder({ 
-
-      image: items.cartSix.image,
-      value: items.cartSix.value,
-      name: items.cartSix.name,
-      sub: items.cartSix.sub,
-      description: items.cartSix.description,
-    });
-
-    setOutput(false);
+    if (option !== "false") select[option]();
   }
 
   const createOrder = (data, actions) => {
@@ -573,7 +583,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOne}
+            onClick={select.cartOne}
         
           >
 
@@ -621,7 +631,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartTwo}
+            onClick={select.cartTwo}
         
           >
 
@@ -669,7 +679,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartThree}
+            onClick={select.cartThree}
         
           >
 
@@ -717,7 +727,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartFour}
+            onClick={select.cartFour}
         
           >
 
@@ -765,7 +775,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartFive}
+            onClick={select.cartFive}
         
           >
 
@@ -813,7 +823,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartSix}
+            onClick={select.cartSix}
         
           >
 
@@ -865,23 +875,127 @@ const Store = (props) => {
 
           <div className="col-12 col-md-10">
 
-            <h3 className="m-0 pb-4">
-              
-              {`${order.name} $ ${order.value}`}
-              
-            </h3>
+            <div className="row justify-content-between  w-100 g-0">
 
-            <p className="p-4 m-0">
+              <div className="col-12 order-1">
 
-              <b className="d-block pb-4">
+                <h3 className="m-0 pb-4">
+                  
+                  {`${order.name} $ ${order.value}`}
+                  
+                </h3>
 
-                {order.sub}
+              </div>
+
+              <div className="bg col-12 col-xl-8 order-3 order-xl-2">
+
+                <p className="p-4 m-0 pe-xl-5">
+
+                  <b className="d-block pb-4">
+
+                    {order.sub}
+                    
+                  </b>
+                  
+                  {order.description}
+                  
+                </p>
+
+              </div>
+
+              <div className="bg col-12 col-xl-4 order-2 order-xl-3">
+
+                <label className="hidden" htmlFor="select">
+
+                    Vestibulum eu
                 
-              </b>
-              
-              {order.description}
-              
-            </p>
+                </label>
+
+                <select 
+                
+                  className="w-100 py-2 px-3"
+                  
+                  id="select"
+
+                  onChange={option}
+                
+                >
+
+                  <option 
+                  
+                    value={false}
+                    
+                  >
+                    
+                    Choose an option
+                    
+                  </option>
+
+                  <option 
+                  
+                    value="cartOne"
+                  
+                  >
+                    
+                    {items.cartOne.name}
+                    
+                  </option>
+
+                  <option 
+                  
+                    value="cartTwo"
+                    
+                  >
+                    
+                    {items.cartTwo.name}
+                    
+                  </option>
+
+                  <option 
+                  
+                    value="cartThree"
+                    
+                  >
+                    
+                    {items.cartThree.name}
+                    
+                  </option>
+
+                  <option 
+                  
+                    value="cartFour"
+                    
+                  >
+                    
+                    {items.cartFour.name}
+                    
+                  </option>
+
+                  <option 
+                  
+                    value="cartFive"
+                    
+                  >
+                    
+                    {items.cartFive.name}
+                    
+                  </option>
+
+                  <option 
+                  
+                    value="cartSix"
+                    
+                  >
+                    
+                    {items.cartSix.name}
+                    
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
 
           </div>
 

@@ -97,7 +97,7 @@
         color: $c6;
         font-weight: 500;
     }
-  
+
     button {
         border: none;
         font-weight: 500;
@@ -108,7 +108,7 @@
             opacity: 0.75;
         }
     }
-    button.remove  {
+    button.remove {
         background-color: $c5;
         color: $c4;
         font-size: 15px;
@@ -131,8 +131,23 @@
     .total {
         font-size: 15px;
     }
-}
 
+    select {
+        appearance: none;
+        font-size: 1.15rem;
+        background-color: $c4;
+        color: $c6;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        opacity: 1;
+        transition: opacity 0.3s;
+        will-change: opacity;
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
 
 table {
     width: 100%;
