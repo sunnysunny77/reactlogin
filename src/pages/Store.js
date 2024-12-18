@@ -19,7 +19,7 @@ const Store = (props) => {
 
   const outputRef = useRef();
 
-  const selectRef = useRef();
+  const orderRef = useRef();
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -55,7 +55,7 @@ const Store = (props) => {
   
       setOutput(false);
 
-      selectRef.current.value = "cartOne";
+      orderRef.current.value = "cartOne";
     },
 
     cartTwo: function () {
@@ -74,7 +74,7 @@ const Store = (props) => {
   
       setOutput(false);
 
-      selectRef.current.value = "cartTwo";
+      orderRef.current.value = "cartTwo";
     },
 
     cartThree: function () {
@@ -93,7 +93,7 @@ const Store = (props) => {
   
       setOutput(false);
 
-      selectRef.current.value = "cartThree";
+      orderRef.current.value = "cartThree";
     },
 
     cartFour: function () {
@@ -112,7 +112,7 @@ const Store = (props) => {
   
       setOutput(false);
 
-      selectRef.current.value = "cartFour";
+      orderRef.current.value = "cartFour";
     },
 
     cartFive: function () {
@@ -131,7 +131,7 @@ const Store = (props) => {
   
       setOutput(false);
 
-      selectRef.current.value = "cartFive";
+      orderRef.current.value = "cartFive";
     },
 
     cartSix: function () {
@@ -150,7 +150,7 @@ const Store = (props) => {
   
       setOutput(false);
 
-      selectRef.current.value = "cartSix";
+      orderRef.current.value = "cartSix";
     },
   }
 
@@ -385,7 +385,7 @@ const Store = (props) => {
       description: items.cartOne.description,
     });
 
-    selectRef.current.value = "cartOne";
+    orderRef.current.value = "cartOne";
   }
 
   const style = {
@@ -508,7 +508,7 @@ const Store = (props) => {
 
           <button
 
-            className="remove p-0"
+            className="remove p-0 ms-4"
             
             onClick={(e) => {
 
@@ -555,7 +555,7 @@ const Store = (props) => {
 
   const orderValue = useCallback(() => {
 
-    if (order.ref) selectRef.current.value = order.ref;
+    if (order.ref) orderRef.current.value = order.ref;
   }, [order])
 
   const outputScroll = useCallback(() => {
@@ -951,7 +951,7 @@ const Store = (props) => {
                   
                   id="select"
 
-                  ref={selectRef}
+                  ref={orderRef}
 
                   onChange={option}
                 
