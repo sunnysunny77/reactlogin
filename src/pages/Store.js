@@ -973,6 +973,13 @@ const Store = (props) => {
                       boxShadow: 'none',
                     }),
 
+                    menuList: (provided) => ({
+
+                      ...provided,
+
+                      padding: '0',
+                    }),
+
                     option: (provided) => ({
 
                       ...provided,
