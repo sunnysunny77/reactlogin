@@ -244,7 +244,7 @@ const Auth = (props) => {
 
       <div className="Auth-form-container w-100">
 
-        <Accordion defaultActiveKey="0" className='px-3 py-5 my-5'>
+        <Accordion defaultActiveKey="0" className='px-4 px-sm-0 py-5 my-5'>
 
           <Accordion.Item eventKey="0">
 
