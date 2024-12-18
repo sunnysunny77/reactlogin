@@ -552,6 +552,11 @@ const Store = (props) => {
     }, 100)
   }
 
+  const orderValue = useCallback(() => {
+
+    if (order.ref) selectRef.current.value = order.ref;
+  }, [order])
+
   const outputScroll = useCallback(() => {
 
     if (output) outputRef.current.scrollIntoView();
@@ -564,7 +569,6 @@ const Store = (props) => {
     if(ref === "storeRef") {
 
       storeRef.current.scrollIntoView();
-      selectRef.current.value = order.ref;
     }
 
     if(ref === "itemsRef") {
@@ -575,16 +579,18 @@ const Store = (props) => {
     searchParams.delete("ref");
 
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams, order])
+  }, [searchParams, setSearchParams,])
 
   useEffect(() => {
+
+    orderValue();
 
     outputScroll();
 
     search();
 
     init();
-  }, [init, search, outputScroll]);
+  }, [init, search, outputScroll, orderValue]);
 
   return (
     <>
