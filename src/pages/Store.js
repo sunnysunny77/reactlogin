@@ -538,10 +538,7 @@ const Store = (props) => {
     setSummery(summery);
 
     setRemove(remove);
-
-    selectRef.current.value = order.ref;
-
-  }, [cart, order])
+  }, [cart])
 
   const srcListen = (e) => {
 
@@ -567,6 +564,7 @@ const Store = (props) => {
     if(ref === "storeRef") {
 
       storeRef.current.scrollIntoView();
+      selectRef.current.value = order.ref;
     }
 
     if(ref === "itemsRef") {
