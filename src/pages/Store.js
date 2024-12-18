@@ -18,6 +18,8 @@ const Store = (props) => {
 
   const outputRef = useRef();
 
+  const selectRef = useRef();
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [count, setCount] = useState(1);
@@ -42,6 +44,7 @@ const Store = (props) => {
   
       setOrder({ 
   
+        ref: "cartOne",
         image: items.cartOne.image,
         value: items.cartOne.value,
         name: items.cartOne.name,
@@ -50,6 +53,8 @@ const Store = (props) => {
       });
   
       setOutput(false);
+
+      selectRef.current.value = "cartOne";
     },
 
     cartTwo: function () {
@@ -58,6 +63,7 @@ const Store = (props) => {
   
       setOrder({ 
   
+        ref: "cartTwo",
         image: items.cartTwo.image,
         value: items.cartTwo.value,
         name: items.cartTwo.name,
@@ -66,6 +72,8 @@ const Store = (props) => {
       });
   
       setOutput(false);
+
+      selectRef.current.value = "cartTwo";
     },
 
     cartThree: function () {
@@ -74,6 +82,7 @@ const Store = (props) => {
   
       setOrder({ 
   
+        ref: "cartThree",
         image: items.cartThree.image,
         value: items.cartThree.value,
         name: items.cartThree.name,
@@ -82,6 +91,8 @@ const Store = (props) => {
       });
   
       setOutput(false);
+
+      selectRef.current.value = "cartThree";
     },
 
     cartFour: function () {
@@ -90,6 +101,7 @@ const Store = (props) => {
   
       setOrder({ 
   
+        ref: "cartFour",
         image: items.cartFour.image,
         value: items.cartFour.value,
         name: items.cartFour.name,
@@ -98,6 +110,8 @@ const Store = (props) => {
       });
   
       setOutput(false);
+
+      selectRef.current.value = "cartFour";
     },
 
     cartFive: function () {
@@ -106,6 +120,7 @@ const Store = (props) => {
   
       setOrder({ 
   
+        ref: "cartFive",
         image: items.cartFive.image,
         value: items.cartFive.value,
         name: items.cartFive.name,
@@ -114,6 +129,8 @@ const Store = (props) => {
       });
   
       setOutput(false);
+
+      selectRef.current.value = "cartFive";
     },
 
     cartSix: function () {
@@ -122,6 +139,7 @@ const Store = (props) => {
   
       setOrder({ 
   
+        ref: "cartSix",
         image: items.cartSix.image,
         value: items.cartSix.value,
         name: items.cartSix.name,
@@ -130,6 +148,8 @@ const Store = (props) => {
       });
   
       setOutput(false);
+
+      selectRef.current.value = "cartSix";
     },
   }
 
@@ -363,6 +383,8 @@ const Store = (props) => {
       sub: items.cartOne.sub,
       description: items.cartOne.description,
     });
+
+    selectRef.current.value = false;
   }
 
   const style = {
@@ -517,7 +539,9 @@ const Store = (props) => {
 
     setRemove(remove);
 
-  }, [cart])
+    selectRef.current.value = order.ref;
+
+  }, [cart, order])
 
   const srcListen = (e) => {
 
@@ -916,6 +940,8 @@ const Store = (props) => {
                   className="w-100 py-2 px-3"
                   
                   id="select"
+
+                  ref={selectRef}
 
                   onChange={option}
                 
