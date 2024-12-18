@@ -956,6 +956,8 @@ const Store = (props) => {
 
                   options={options}
 
+                  isSearchable={false}
+
                   styles={{
 
                     menu: (provided) => ({
@@ -971,6 +973,8 @@ const Store = (props) => {
                       backgroundColor: styles.c4,
 
                       boxShadow: 'none',
+
+                      border: '0',
                     }),
 
                     menuList: (provided) => ({
