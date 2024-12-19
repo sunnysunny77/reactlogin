@@ -6,6 +6,7 @@ import Lost from "../images/404.webp";
 const NotFound = () => {
 
   return (
+    
     <>
 
       <Header heading="Not found" /> 
@@ -27,6 +28,7 @@ const NotFound = () => {
       </Alert>
   
     </>
+    
   );
 }
 

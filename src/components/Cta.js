@@ -7,6 +7,7 @@ const Cta = (props) => {
   const { link, heading, bold, paragraph, button } = props;
 
   return (
+
     <>  
 
       <Link to={link} className="cta row justify-content-center justify-content-lg-between g-0">
@@ -15,7 +16,7 @@ const Cta = (props) => {
 
             <h2 className="w-100 text-center text-md-start py-3 px-md-4 py-md-5 p-lg-5 m-0">
                 
-                {heading}
+              {heading}
                 
             </h2>
 
@@ -59,9 +60,10 @@ const Cta = (props) => {
 
         </div>
 
-    </Link>
+      </Link>
       
     </>
+    
   );
 }
 

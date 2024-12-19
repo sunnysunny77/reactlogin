@@ -384,6 +384,7 @@ const Store = (props) => {
       name: items.cartOne.name,
       sub: items.cartOne.sub,
       description: items.cartOne.description,
+      ref: { value: 'cartOne', label: items.cartOne.name },
     });
     
     setSelectedOption({ value: 'cartOne', label: items.cartOne.name });
@@ -403,6 +404,7 @@ const Store = (props) => {
     const [{ isPending }] = usePayPalScriptReducer();
     
     return (
+
       <>
 
         { isPending ? <img className="spinner col-10 col-xl-5" width="40" height="40" src={Spinner} alt="Spinner" /> :
@@ -424,6 +426,7 @@ const Store = (props) => {
         }
 
       </>
+
     );
   }
 
@@ -617,6 +620,7 @@ const Store = (props) => {
   }, [init, search, outputScroll, orderValue]);
 
   return (
+
     <>
     
       <Header heading="STORE" />
@@ -1233,7 +1237,8 @@ const Store = (props) => {
 
       </div>
 
-    </>                            
+    </>    
+                            
   );
 }
 export default Store;

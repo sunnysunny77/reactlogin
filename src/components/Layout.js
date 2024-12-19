@@ -8,6 +8,7 @@ const Layout = (props) => {
   const { auth, setAuth } = props;
 
   return (
+
     <>
 
       <Navigation id="top" auth={auth} setAuth={setAuth} />
@@ -21,6 +22,7 @@ const Layout = (props) => {
       <Footer auth={auth} setAuth={setAuth} />
 
     </>
+    
   )
 };
 

@@ -235,6 +235,7 @@ const Auth = (props) => {
   }, [captchainit])
 
   return (
+
     <>
 
       <Header heading="STORE" />
@@ -502,6 +503,7 @@ const Auth = (props) => {
       </div>
       
   </>
+  
   )
 }
 export default Auth;

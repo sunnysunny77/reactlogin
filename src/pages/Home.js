@@ -103,6 +103,7 @@ const Home = (props) => {
   }
 
   return (
+
     <>
 
       <Header heading="HOME" >
@@ -541,6 +542,7 @@ const Home = (props) => {
       <Enquiry setLoad={setLoad} />
 
     </>
+    
   );
 }
 

@@ -15,7 +15,7 @@ const Footer = (props) => {
   }, [])  
 
   return (
-
+    
     <>  
 
       <footer>
@@ -194,8 +194,8 @@ const Footer = (props) => {
               
       </footer>
           
-    </>
-    
+    </> 
+
   );
 }
 

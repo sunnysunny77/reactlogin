@@ -13,11 +13,13 @@ const Output = (props) => {
   }, [load])
 
   return (
+
     <>
 
       <Alert className="mt-3" ref={ref} variant="light" />
 
     </>
+    
   );
 }
 
