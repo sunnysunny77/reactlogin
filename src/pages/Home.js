@@ -28,8 +28,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      scroll: true,
-      ref: { value: 'cartOne', label: items.cartOne.name },
+      ref: items.options[0],
       image: items.cartOne.image,
       value: items.cartOne.value,
       name: items.cartOne.name,
@@ -42,8 +41,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      scroll: true,
-      ref: { value: 'cartTwo', label: items.cartTwo.name },
+      ref: items.options[1],
       image: items.cartTwo.image,
       value: items.cartTwo.value,
       name: items.cartTwo.name,
@@ -56,8 +54,7 @@ const Home = (props) => {
     
     setOrder({ 
 
-      scroll: true,
-      ref: { value: 'cartThree', label: items.cartThree.name },
+      ref: items.options[2],
       image: items.cartThree.image,
       value: items.cartThree.value,
       name: items.cartThree.name,
@@ -70,8 +67,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      scroll: true,
-      ref: { value: 'cartFour', label: items.cartFour.name },
+      ref: items.options[3],
       image: items.cartFour.image,
       value: items.cartFour.value,
       name: items.cartFour.name,
@@ -84,8 +80,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      scroll: true,
-      ref: { value: 'cartFive', label: items.cartFive.name },
+      ref: items.options[4],
       image: items.cartFive.image,
       value: items.cartFive.value,
       name: items.cartFive.name,
@@ -98,8 +93,7 @@ const Home = (props) => {
 
     setOrder({ 
 
-      scroll: true,
-      ref: { value: 'cartSix', label: items.cartSix.name },
+      ref: items.options[5],
       image: items.cartSix.image,
       value: items.cartSix.value,
       name: items.cartSix.name,

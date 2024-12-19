@@ -74,6 +74,15 @@ function App() {
       description: "Morbi porta augue vitae tempor bibendum interdum euismod leo.",
     },
 
+    options: [
+
+      { value: 'cartOne', label: "In accumsan" },
+      { value: 'cartTwo', label: "Eleifend eu" },
+      { value: 'cartThree', label: "Lectus eleifend" },
+      { value: 'cartFour', label: "Phasellus et" },
+      { value: 'cartFive', label: "Turpis posuere" },
+      { value: 'cartSix', label: "Accumsan Inn" }
+    ],
   };
 
   const navigate = useNavigate();
@@ -84,7 +93,7 @@ function App() {
 
   const [order, setOrder] = useState({ 
 
-    ref: { value: 'cartOne', label: items.cartOne.name },
+    ref: items.options[0],
     image: items.cartOne.image,
     value: items.cartOne.value,
     name: items.cartOne.name,
@@ -145,6 +154,7 @@ function App() {
       setAuth(false);
       setOrder({ 
 
+        ref: items.options[0],
         image: items.cartOne.image,
         value: items.cartOne.value,
         name: items.cartOne.name,

@@ -23,7 +23,7 @@ const Store = (props) => {
 
   const [count, setCount] = useState(1);
 
-  const [output, setOutput] = useState(false);
+  const [output, setOutput] = useState(null);
 
   const [summery, setSummery] = useState([]);
 
@@ -31,134 +31,89 @@ const Store = (props) => {
 
   const [includes, setIncludes] = useState("add");
 
-  const [cart, setCart] = useState({});
-
   const [remove, setRemove] = useState([]);
 
   const [disabled, setDisabled] = useState(true);
 
-  const [selectedOption, setSelectedOption] = useState({ value: 'cartOne', label: items.cartOne.name });
-
-  const options = [
-
-    { value: 'cartOne', label: items.cartOne.name },
-    { value: 'cartTwo', label: items.cartTwo.name },
-    { value: 'cartThree', label: items.cartThree.name },
-    { value: 'cartFour', label: items.cartFour.name },
-    { value: 'cartFive', label: items.cartFive.name },
-    { value: 'cartSix', label: items.cartSix.name },
-  ];
+  const [cart, setCart] = useState({});
 
   const cartOne = useCallback( () => {
 
-    setCount(1);
-
     setOrder({ 
 
-      ref: { value: 'cartOne', label: items.cartOne.name },
+      ref: items.options[0],
       image: items.cartOne.image,
       value: items.cartOne.value,
       name: items.cartOne.name,
       sub: items.cartOne.sub,
       description: items.cartOne.description,
     });
-
-    setOutput(false);
-  }, [items.cartOne.description, items.cartOne.sub, items.cartOne.name, items.cartOne.value, items.cartOne.image ,setOrder])
+  }, [items ,setOrder])
 
   const cartTwo = useCallback( () => {
 
-    setCount(1);
-
     setOrder({ 
 
-      ref: { value: 'cartTwo', label: items.cartTwo.name },
+      ref: items.options[1],
       image: items.cartTwo.image,
       value: items.cartTwo.value,
       name: items.cartTwo.name,
       sub: items.cartTwo.sub,
       description: items.cartTwo.description,
     });
-
-    setOutput(false);
-  }, [items.cartTwo.description, items.cartTwo.sub, items.cartTwo.name, items.cartTwo.value, items.cartTwo.image ,setOrder])
+  }, [items ,setOrder])
 
   const cartThree = useCallback( () => {
 
-    setCount(1);
-
     setOrder({ 
 
-      ref: { value: 'cartThree', label: items.cartThree.name },
+      ref: items.options[2],
       image: items.cartThree.image,
       value: items.cartThree.value,
       name: items.cartThree.name,
       sub: items.cartThree.sub,
       description: items.cartThree.description,
     });
-
-    setOutput(false);
-  }, [items.cartThree.description, items.cartThree.sub, items.cartThree.name, items.cartThree.value, items.cartThree.image ,setOrder])
+  }, [items ,setOrder])
 
   const cartFour = useCallback( () => {
 
-    setCount(1);
-
     setOrder({ 
 
-      ref: { value: 'cartFour', label: items.cartFour.name },
+      ref: items.options[3],
       image: items.cartFour.image,
       value: items.cartFour.value,
       name: items.cartFour.name,
       sub: items.cartFour.sub,
       description: items.cartFour.description,
     });
-
-    setOutput(false);
-  }, [items.cartFour.description, items.cartFour.sub, items.cartFour.name, items.cartFour.value, items.cartFour.image ,setOrder])
+  }, [items ,setOrder])
 
   const cartFive = useCallback( () => {
 
-    setCount(1);
-
     setOrder({ 
 
-      ref: { value: 'cartFive', label: items.cartFive.name },
+      ref: items.options[4],
       image: items.cartFive.image,
       value: items.cartFive.value,
       name: items.cartFive.name,
       sub: items.cartFive.sub,
       description: items.cartFive.description,
     });
-
-    setOutput(false);
-  }, [items.cartFive.description, items.cartFive.sub, items.cartFive.name, items.cartFive.value, items.cartFive.image ,setOrder])
+  }, [items ,setOrder])
 
   const cartSix = useCallback( () => {
 
-    setCount(1);
-
     setOrder({ 
 
-      ref: { value: 'cartSix', label: items.cartSix.name },
+      ref: items.options[5],
       image: items.cartSix.image,
       value: items.cartSix.value,
       name: items.cartSix.name,
       sub: items.cartSix.sub,
       description: items.cartSix.description,
     });
-
-    setOutput(false);
-  }, [items.cartSix.description, items.cartSix.sub, items.cartSix.name, items.cartSix.value, items.cartSix.image ,setOrder])
- 
-  const option = useCallback( (e) => {
-
-    const select = { cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix };
-
-    setSelectedOption(e);
-
-    select[e.value]();
-  },[cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix])
+  }, [items ,setOrder])
 
   const createOrder = (data, actions) => {
 
@@ -265,7 +220,7 @@ const Store = (props) => {
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <section ref={outputScroll} className="col-12 col-md-10">    
+    const output = <section ref={outputRef} className="col-12 col-md-10">    
 
       <h3  className="m-0 pb-4 pt-5">
 
@@ -377,15 +332,13 @@ const Store = (props) => {
 
     setOrder({ 
 
+      ref: items.options[0],
       image: items.cartOne.image,
       value: items.cartOne.value,
       name: items.cartOne.name,
       sub: items.cartOne.sub,
       description: items.cartOne.description,
-      ref: { value: 'cartOne', label: items.cartOne.name },
     });
-    
-    setSelectedOption({ value: 'cartOne', label: items.cartOne.name });
   }
 
   const style = {
@@ -442,6 +395,8 @@ const Store = (props) => {
 
     if (disabled) setDisabled(false);
 
+    if (output) setOutput(false);
+
     setCart({
       ...cart, 
       [order.name]: { 
@@ -453,15 +408,33 @@ const Store = (props) => {
         ref: order.ref
       }
     })
-
-    setOutput(false);
   }
+
+  const optionOrder = useCallback( (e) => {
+
+    const order = { cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix };
+
+    order[e.value]();
+  },[cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix])
+
+  const removeCart = useCallback( (e, init) => {
+
+    let newCart = cart;
+
+    delete newCart[e];
+
+    setCart(newCart);
+
+    if (Object.keys(newCart).length === 0) setDisabled(true);
+
+    init();
+  }, [cart, setCart])
 
   const init = useCallback(() => {
 
-    let summery = [];
-
     let total = 0;
+
+    let summery = [];
 
     let remove = [];
 
@@ -486,17 +459,12 @@ const Store = (props) => {
           <span
 
             className="edit"
-          
-            onClick={() => {
 
-              option(cart[index].ref);
-
-              init();
-            }}       
+            onClick={() => optionOrder(cart[index].ref)}
 
           >
 
-           {quantity} x {cart[index].name}
+          {quantity} x {cart[index].name}
 
           </span>
 
@@ -523,20 +491,9 @@ const Store = (props) => {
           <button
 
             className="remove p-0 ms-4"
+
+            onClick={() => removeCart(cart[index].name, init)}
             
-            onClick={(e) => {
-
-              let newCart = cart;
-
-              delete newCart[cart[index].name];
-
-              setCart(newCart);
-
-              if (Object.keys(newCart).length === 0) setDisabled(true);
-
-              init();
-            }}
-
           >
 
             remove
@@ -554,13 +511,51 @@ const Store = (props) => {
 
     setRemove(remove);
 
+    setCount(1);
+
     if (!Object.keys(cart).includes(order.name)) {
 
       return setIncludes("add")
     } 
     
     setIncludes("update")
-  }, [cart, option, order])
+  }, [cart, order, optionOrder,  removeCart])
+
+  const outputRef = useCallback((node) => {
+    
+    if (node) window.scrollTo(0, node.offsetTop); 
+  }, []);
+
+  const search = useCallback(() => {
+
+    const ref = searchParams.get("ref");
+
+    if(ref === "storeRef") {
+
+      window.scrollTo(0, storeRef.current.offsetTop); 
+    }
+    
+    if(ref === "itemsRef") {
+
+      window.scrollTo(0, itemsRef.current.offsetTop); 
+    } 
+
+    if (ref) {
+
+      searchParams.delete("ref");
+      setSearchParams(searchParams);
+    }
+
+  }, [searchParams, setSearchParams])
+
+  useEffect(() => {
+
+    outputRef();
+
+    search();
+
+    init();
+  }, [init, search, outputRef]);
 
   const srcListen = (e) => {
 
@@ -573,54 +568,6 @@ const Store = (props) => {
       obj.classList.remove("fade");
     }, 100)
   }
-
-  const orderValue = useCallback(() => {
-
-     if (order.scroll) setSelectedOption(order.ref);
-  }, [order])
-
-  const outputScroll = useCallback((node) => {
-    
-    if (node) window.scrollTo(0, node.offsetTop); 
-  }, []);
-
-  const search = useCallback(() => {
-
-    const ref = searchParams.get("ref");
-
-    if (ref) {
-
-      setOutput(false)
-    }
-
-    if(ref === "storeRef") {
-
-      window.scrollTo(0, storeRef.current.offsetTop); 
-    }
-    
-    if(ref === "itemsRef") {
-
-      window.scrollTo(0, itemsRef.current.offsetTop); 
-    } 
-    
-    if (ref) {
-
-      searchParams.delete("ref");
-      setSearchParams(searchParams);
-    }
-
-  }, [searchParams, setSearchParams])
-
-  useEffect(() => {
-
-    orderValue();
-
-    outputScroll();
-
-    search();
-
-    init();
-  }, [init, search, outputScroll, orderValue]);
 
   return (
 
@@ -976,11 +923,11 @@ const Store = (props) => {
 
                   inputId="select"
 
-                  value={selectedOption}
+                  value={order.ref}
 
-                  onChange={option}
+                  onChange={optionOrder}
 
-                  options={options}
+                  options={items.options}
 
                   isSearchable={false}
 
