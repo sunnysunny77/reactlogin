@@ -583,7 +583,7 @@ const Store = (props) => {
 
   const outputScroll = useCallback(() => {
 
-    if (outputRef.current) outputRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+    if (outputRef.current) window.scrollTo(0, outputRef.current.offsetTop); 
   }, [outputRef]);
 
   const search = useCallback(() => {
@@ -597,12 +597,12 @@ const Store = (props) => {
 
     if(ref === "storeRef") {
 
-      storeRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+      window.scrollTo(0, storeRef.current.offsetTop); 
     }
     
     if(ref === "itemsRef") {
 
-      itemsRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+      window.scrollTo(0, itemsRef.current.offsetTop); 
     } 
     
     if (ref) {
