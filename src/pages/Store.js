@@ -267,9 +267,9 @@ const Store = (props) => {
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <section ref={outputRef} className="col-12 col-md-10">    
+    const output = <section className="col-12 col-md-10">    
 
-      <h3 className="m-0 pb-4 pt-5">
+      <h3 ref={outputRef} className="m-0 pb-4 pt-5">
 
         Order Complete
 
