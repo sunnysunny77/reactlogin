@@ -13,7 +13,7 @@ import styles from './Store.module.scss';
 
 const Store = (props) => {
 
-  const { items, order, setOrder } = props;
+  const { items, cartOrder, order, setOrder } = props;
 
   const storeRef = useRef(null);
 
@@ -36,84 +36,6 @@ const Store = (props) => {
   const [disabled, setDisabled] = useState(true);
 
   const [cart, setCart] = useState({});
-
-  const cartOne = useCallback( () => {
-
-    setOrder({ 
-
-      ref: items.options[0],
-      image: items.cartOne.image,
-      value: items.cartOne.value,
-      name: items.cartOne.name,
-      sub: items.cartOne.sub,
-      description: items.cartOne.description,
-    });
-  }, [items ,setOrder])
-
-  const cartTwo = useCallback( () => {
-
-    setOrder({ 
-
-      ref: items.options[1],
-      image: items.cartTwo.image,
-      value: items.cartTwo.value,
-      name: items.cartTwo.name,
-      sub: items.cartTwo.sub,
-      description: items.cartTwo.description,
-    });
-  }, [items ,setOrder])
-
-  const cartThree = useCallback( () => {
-
-    setOrder({ 
-
-      ref: items.options[2],
-      image: items.cartThree.image,
-      value: items.cartThree.value,
-      name: items.cartThree.name,
-      sub: items.cartThree.sub,
-      description: items.cartThree.description,
-    });
-  }, [items ,setOrder])
-
-  const cartFour = useCallback( () => {
-
-    setOrder({ 
-
-      ref: items.options[3],
-      image: items.cartFour.image,
-      value: items.cartFour.value,
-      name: items.cartFour.name,
-      sub: items.cartFour.sub,
-      description: items.cartFour.description,
-    });
-  }, [items ,setOrder])
-
-  const cartFive = useCallback( () => {
-
-    setOrder({ 
-
-      ref: items.options[4],
-      image: items.cartFive.image,
-      value: items.cartFive.value,
-      name: items.cartFive.name,
-      sub: items.cartFive.sub,
-      description: items.cartFive.description,
-    });
-  }, [items ,setOrder])
-
-  const cartSix = useCallback( () => {
-
-    setOrder({ 
-
-      ref: items.options[5],
-      image: items.cartSix.image,
-      value: items.cartSix.value,
-      name: items.cartSix.name,
-      sub: items.cartSix.sub,
-      description: items.cartSix.description,
-    });
-  }, [items ,setOrder])
 
   const createOrder = (data, actions) => {
 
@@ -412,10 +334,9 @@ const Store = (props) => {
 
   const optionOrder = useCallback( (e) => {
 
-    const order = { cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix };
 
-    order[e.value]();
-  },[cartOne, cartTwo, cartThree, cartFour, cartFive, cartSix])
+    cartOrder[e.value]();
+  },[cartOrder])
 
   const removeCart = useCallback( (e, init) => {
 
@@ -428,7 +349,7 @@ const Store = (props) => {
     if (Object.keys(newCart).length === 0) setDisabled(true);
 
     init();
-  }, [cart, setCart])
+  }, [cart, setCart, setDisabled])
 
   const init = useCallback(() => {
 
@@ -519,7 +440,7 @@ const Store = (props) => {
     } 
     
     setIncludes("update")
-  }, [cart, order, optionOrder,  removeCart])
+  }, [order, cart, optionOrder, removeCart])
 
   const outputRef = useCallback((node) => {
     
@@ -589,7 +510,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOne}
+            onClick={cartOrder.cartOne}
         
           >
 
@@ -637,7 +558,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartTwo}
+            onClick={cartOrder.cartTwo}
         
           >
 
@@ -685,7 +606,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartThree}
+            onClick={cartOrder.cartThree}
         
           >
 
@@ -733,7 +654,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartFour}
+            onClick={cartOrder.cartFour}
         
           >
 
@@ -781,7 +702,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartFive}
+            onClick={cartOrder.cartFive}
         
           >
 
@@ -829,7 +750,7 @@ const Store = (props) => {
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartSix}
+            onClick={cartOrder.cartSix}
         
           >
 

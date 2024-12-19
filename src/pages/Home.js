@@ -22,85 +22,9 @@ import Enquiry from "../components/Enquiry";
 
 const Home = (props) => {
 
-  const { items, setOrder, setLoad } = props;
+  const { items, cartOrder, setLoad } = props;
 
-  const cartOne = () => {
 
-    setOrder({ 
-
-      ref: items.options[0],
-      image: items.cartOne.image,
-      value: items.cartOne.value,
-      name: items.cartOne.name,
-      sub: items.cartOne.sub,
-      description: items.cartOne.description,
-    });
-  }
-
-  const cartTwo = () => {
-
-    setOrder({ 
-
-      ref: items.options[1],
-      image: items.cartTwo.image,
-      value: items.cartTwo.value,
-      name: items.cartTwo.name,
-      sub: items.cartTwo.sub,
-      description: items.cartTwo.description,
-    });
-  }
-
-  const cartThree = () => {
-    
-    setOrder({ 
-
-      ref: items.options[2],
-      image: items.cartThree.image,
-      value: items.cartThree.value,
-      name: items.cartThree.name,
-      sub: items.cartThree.sub,
-      description: items.cartThree.description,
-    });
-  }
-
-  const cartFour = () => {
-
-    setOrder({ 
-
-      ref: items.options[3],
-      image: items.cartFour.image,
-      value: items.cartFour.value,
-      name: items.cartFour.name,
-      sub: items.cartFour.sub,
-      description: items.cartFour.description,
-    });
-  }
-
-  const cartFive = () => {
-
-    setOrder({ 
-
-      ref: items.options[4],
-      image: items.cartFive.image,
-      value: items.cartFive.value,
-      name: items.cartFive.name,
-      sub: items.cartFive.sub,
-      description: items.cartFive.description,
-    });
-  }
-
-  const cartSix = () => {
-
-    setOrder({ 
-
-      ref: items.options[5],
-      image: items.cartSix.image,
-      value: items.cartSix.value,
-      name: items.cartSix.name,
-      sub: items.cartSix.sub,
-      description: items.cartSix.description,
-    });
-  }
 
   return (
 
@@ -233,7 +157,7 @@ const Home = (props) => {
             
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOne}
+            onClick={cartOrder.cartOne}
 
           >
 
@@ -281,7 +205,7 @@ const Home = (props) => {
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartTwo}
+            onClick={cartOrder.cartTwo}
 
           >
 
@@ -329,7 +253,7 @@ const Home = (props) => {
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartThree}
+            onClick={cartOrder.cartThree}
 
           >
 
@@ -377,7 +301,7 @@ const Home = (props) => {
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartFour}
+            onClick={cartOrder.cartFour}
 
           >
 
@@ -425,7 +349,7 @@ const Home = (props) => {
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartFive}
+            onClick={cartOrder.cartFive}
 
           >
 
@@ -473,7 +397,7 @@ const Home = (props) => {
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartSix}
+            onClick={cartOrder.cartSix}
 
           >
 

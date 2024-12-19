@@ -85,6 +85,87 @@ function App() {
     ],
   };
 
+  const cartOrder = {
+
+   cartOne: () => {
+
+      setOrder({ 
+
+        ref: items.options[0],
+        image: items.cartOne.image,
+        value: items.cartOne.value,
+        name: items.cartOne.name,
+        sub: items.cartOne.sub,
+        description: items.cartOne.description,
+      });
+    },
+
+    cartTwo: () => {
+
+      setOrder({ 
+
+        ref: items.options[1],
+        image: items.cartTwo.image,
+        value: items.cartTwo.value,
+        name: items.cartTwo.name,
+        sub: items.cartTwo.sub,
+        description: items.cartTwo.description,
+      });
+    },
+
+    cartThree: () => {
+      
+      setOrder({ 
+
+        ref: items.options[2],
+        image: items.cartThree.image,
+        value: items.cartThree.value,
+        name: items.cartThree.name,
+        sub: items.cartThree.sub,
+        description: items.cartThree.description,
+      });
+    },
+
+    cartFour: () => {
+
+      setOrder({ 
+
+        ref: items.options[3],
+        image: items.cartFour.image,
+        value: items.cartFour.value,
+        name: items.cartFour.name,
+        sub: items.cartFour.sub,
+        description: items.cartFour.description,
+      });
+    },
+
+    cartFive: () => {
+
+      setOrder({ 
+
+        ref: items.options[4],
+        image: items.cartFive.image,
+        value: items.cartFive.value,
+        name: items.cartFive.name,
+        sub: items.cartFive.sub,
+        description: items.cartFive.description,
+      });
+    },
+
+    cartSix:  () => {
+
+      setOrder({ 
+
+        ref: items.options[5],
+        image: items.cartSix.image,
+        value: items.cartSix.value,
+        name: items.cartSix.name,
+        sub: items.cartSix.sub,
+        description: items.cartSix.description,
+      });
+    }
+  }
+
   const navigate = useNavigate();
 
   const [load, setLoad] = useState(true);
@@ -184,8 +265,8 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
-          <Route index element={<Home items={items} setOrder={e => setOrder(e)} setLoad={e => setLoad(e)} />} />
-          <Route path="store" element={<Store items={items} order={order} setOrder={e => setOrder(e)} />} />
+          <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
+          <Route path="store" element={<Store items={items} cartOrder={cartOrder} order={order} setOrder={e => setOrder(e)} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
@@ -195,7 +276,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout auth={auth} />} >
-        <Route index element={<Home items={items} setOrder={e => setOrder(e)} setLoad={e => setLoad(e)} />} />
+        <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
         <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="*" element={<NotFound />} />
       </Route>
