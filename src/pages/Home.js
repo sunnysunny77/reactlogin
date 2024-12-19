@@ -24,8 +24,6 @@ const Home = (props) => {
 
   const { items, cartOrder, setLoad } = props;
 
-
-
   return (
 
     <>

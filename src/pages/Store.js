@@ -13,7 +13,7 @@ import styles from './Store.module.scss';
 
 const Store = (props) => {
 
-  const { items, cartOrder, order, setOrder } = props;
+  const { items, cartOrder, order } = props;
 
   const storeRef = useRef(null);
 
@@ -252,15 +252,7 @@ const Store = (props) => {
 
     setOutput(output);
 
-    setOrder({ 
-
-      ref: items.options[0],
-      image: items.cartOne.image,
-      value: items.cartOne.value,
-      name: items.cartOne.name,
-      sub: items.cartOne.sub,
-      description: items.cartOne.description,
-    });
+    cartOrder.cartOne();
   }
 
   const style = {

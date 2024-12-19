@@ -266,7 +266,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
           <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
-          <Route path="store" element={<Store items={items} cartOrder={cartOrder} order={order} setOrder={e => setOrder(e)} />} />
+          <Route path="store" element={<Store items={items} cartOrder={cartOrder} order={order} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
