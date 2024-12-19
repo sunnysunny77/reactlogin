@@ -561,7 +561,7 @@ const Store = (props) => {
       return setIncludes("add")
     } 
     
-    setIncludes("edit")
+    setIncludes("update")
   }, [cart, option, order])
 
   const srcListen = (e) => {
@@ -591,7 +591,7 @@ const Store = (props) => {
     const ref = searchParams.get("ref");
 
     if (ref) {
-      
+
       setOutput(false)
     }
 
