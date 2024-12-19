@@ -11,7 +11,6 @@ import Cards from "../components/Cards";
 import Cta from "../components/Cta";
 import styles from './Store.module.scss'; 
 
-
 const Store = (props) => {
 
   const { items, order, setOrder } = props;
@@ -31,6 +30,8 @@ const Store = (props) => {
   const [summery, setSummery] = useState([]);
 
   const [total, setTotal] = useState(0);
+
+  const [includes, setIncludes] = useState("add");
 
   const [cart, setCart] = useState({});
 
@@ -544,6 +545,17 @@ const Store = (props) => {
         </li>
 
       );  
+
+
+    
+      if (cart[index].name === order.name) { 
+
+        setIncludes("edit");
+
+      } else if (includes !== "add") { 
+        
+        setIncludes("add");
+      }
     }
 
     setTotal(total);
@@ -551,7 +563,8 @@ const Store = (props) => {
     setSummery(summery);
 
     setRemove(remove);
-  }, [cart, option])
+    
+  }, [cart, option, includes, order])
 
   const srcListen = (e) => {
 
@@ -1112,7 +1125,7 @@ const Store = (props) => {
                 
               >
 
-                add
+                {includes}
 
               </button>
 
