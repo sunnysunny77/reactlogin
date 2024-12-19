@@ -15,11 +15,9 @@ const Store = (props) => {
 
   const { items, order, setOrder } = props;
 
-  const storeRef = useRef();
+  const storeRef = useRef(null);
 
-  const itemsRef = useRef();
-
-  const outputRef = useRef();
+  const itemsRef = useRef(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -267,9 +265,9 @@ const Store = (props) => {
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <section className="col-12 col-md-10">    
+    const output = <section ref={outputScroll} className="col-12 col-md-10">    
 
-      <h3 ref={outputRef} className="m-0 pb-4 pt-5">
+      <h3  className="m-0 pb-4 pt-5">
 
         Order Complete
 
@@ -581,10 +579,10 @@ const Store = (props) => {
      if (order.scroll) setSelectedOption(order.ref);
   }, [order])
 
-  const outputScroll = useCallback(() => {
-
-    if (outputRef.current) window.scrollTo(0, outputRef.current.offsetTop); 
-  }, [outputRef]);
+  const outputScroll = useCallback((node) => {
+    
+    if (node) window.scrollTo(0, node.offsetTop); 
+  }, []);
 
   const search = useCallback(() => {
 
