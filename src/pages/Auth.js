@@ -36,7 +36,7 @@ const Auth = (props) => {
   const authorization = async (e) => {
 
     e.preventDefault();
-    setLogin(<img className="spinner" src={Spinner} alt="Spinner" />);
+    setLogin(<img className="spinner" width="40" height="40" src={Spinner} alt="Spinner"  />);
     setClassesAuthorization("display");
 
     const token = localStorage.getItem("token");
@@ -70,7 +70,7 @@ const Auth = (props) => {
 
   const captchaauthorization = async () => {
 
-    setText(<img className="spinner" src={Spinner} alt="Spinner" />);
+    setText(<img className="spinner" width="40" height="40" src={Spinner} alt="Spinner"  />);
     setClassesCaptchaauthorization("display");
 
     const captchaToken = localStorage.getItem("captchaToken");
@@ -108,7 +108,7 @@ const Auth = (props) => {
   const initialauthentication = async (e) => {
 
     e.preventDefault();
-    setFactor(<img className="spinner" src={Spinner} alt="Spinner" />);
+    setFactor(<img className="spinner" width="40" height="40" src={Spinner} alt="Spinner"  />);
     setClassesInitialauthentication("display");
 
     const token = localStorage.getItem("token");
@@ -139,7 +139,7 @@ const Auth = (props) => {
   const authentication = async (e) => {
 
     e.preventDefault();
-    setCode(<img className="spinner" src={Spinner} alt="Spinner" />);
+    setCode(<img className="spinner" width="40" height="40" src={Spinner} alt="Spinner"  />);
     setClassesAuthentication("display");
 
     const token = localStorage.getItem("token");
@@ -170,7 +170,7 @@ const Auth = (props) => {
   const registration = async (e) => {
 
     e.preventDefault();
-    setSignup(<img className="spinner" src={Spinner} alt="Spinner" />);
+    setSignup(<img className="spinner" width="40" height="40" src={Spinner} alt="Spinner"  />);
     setClassesRegistration("display");
 
     const token = localStorage.getItem("token");
