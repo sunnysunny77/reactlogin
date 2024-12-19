@@ -544,18 +544,7 @@ const Store = (props) => {
 
         </li>
 
-      );  
-
-
-    
-      if (cart[index].name === order.name) { 
-
-        setIncludes("edit");
-
-      } else if (includes !== "add") { 
-        
-        setIncludes("add");
-      }
+      ); 
     }
 
     setTotal(total);
@@ -563,8 +552,14 @@ const Store = (props) => {
     setSummery(summery);
 
     setRemove(remove);
+
+    if (!Object.keys(cart).includes(order.name)) {
+
+      return setIncludes("add")
+    } 
     
-  }, [cart, option, includes, order])
+    setIncludes("edit")
+  }, [cart, option, order])
 
   const srcListen = (e) => {
 

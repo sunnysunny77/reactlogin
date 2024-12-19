@@ -66,8 +66,7 @@ footer {
         transition: transform 0.5s;
         transform: scale(1);
         will-change: transform;
-        &:hover,
-        &:focus {
+        &:hover {
             color: $c9;
             transform: scale(0.9);
         }
