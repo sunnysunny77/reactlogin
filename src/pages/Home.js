@@ -28,6 +28,7 @@ const Home = (props) => {
 
     setOrder({ 
 
+      scroll: true,
       ref: { value: 'cartOne', label: items.cartOne.name },
       image: items.cartOne.image,
       value: items.cartOne.value,
@@ -41,6 +42,7 @@ const Home = (props) => {
 
     setOrder({ 
 
+      scroll: true,
       ref: { value: 'cartTwo', label: items.cartTwo.name },
       image: items.cartTwo.image,
       value: items.cartTwo.value,
@@ -54,6 +56,7 @@ const Home = (props) => {
     
     setOrder({ 
 
+      scroll: true,
       ref: { value: 'cartThree', label: items.cartThree.name },
       image: items.cartThree.image,
       value: items.cartThree.value,
@@ -67,6 +70,7 @@ const Home = (props) => {
 
     setOrder({ 
 
+      scroll: true,
       ref: { value: 'cartFour', label: items.cartFour.name },
       image: items.cartFour.image,
       value: items.cartFour.value,
@@ -80,6 +84,7 @@ const Home = (props) => {
 
     setOrder({ 
 
+      scroll: true,
       ref: { value: 'cartFive', label: items.cartFive.name },
       image: items.cartFive.image,
       value: items.cartFive.value,
@@ -93,6 +98,7 @@ const Home = (props) => {
 
     setOrder({ 
 
+      scroll: true,
       ref: { value: 'cartSix', label: items.cartSix.name },
       image: items.cartSix.image,
       value: items.cartSix.value,

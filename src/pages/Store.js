@@ -578,13 +578,13 @@ const Store = (props) => {
 
   const orderValue = useCallback(() => {
 
-     if (order.ref) setSelectedOption(order.ref);
+     if (order.scroll) setSelectedOption(order.ref);
   }, [order])
 
   const outputScroll = useCallback(() => {
 
     if (outputRef.current) outputRef.current.scrollIntoView();
-  }, [])
+  }, [outputRef]);
 
   const search = useCallback(() => {
 
