@@ -267,7 +267,7 @@ const Store = (props) => {
 
     const total = `$ ${units.amount.value}`;
 
-    const output = <>
+    const output = <section ref={outputRef} className="col-12 col-md-10">    
 
       <h3 className="m-0 pb-4 pt-5">
 
@@ -361,7 +361,7 @@ const Store = (props) => {
 
       </table>
 
-    </>;
+    </section>;
 
     setCount(1);
 
@@ -583,12 +583,17 @@ const Store = (props) => {
 
   const outputScroll = useCallback(() => {
 
-    if (output) outputRef.current.scrollIntoView();
-  }, [output])
+    if (outputRef.current) outputRef.current.scrollIntoView();
+  }, [])
 
   const search = useCallback(() => {
 
     const ref = searchParams.get("ref");
+
+    if (ref) {
+      
+      setOutput(false)
+    }
 
     if(ref === "storeRef") {
 
@@ -1206,11 +1211,7 @@ const Store = (props) => {
 
           </div>
 
-          <div ref={outputRef} className="col-12 col-md-10">            
-
-            {output}
-
-          </div>
+          {output}
 
         </div>
 
