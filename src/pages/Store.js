@@ -1041,7 +1041,6 @@ const Store = (props) => {
 
                       <td headers="items">
                     
-                    
                         {output.itemsArray.map((index, i) => {
                           
                           const { quantity, name, value, description } = index;
