@@ -256,16 +256,14 @@ const Store = (props) => {
     if (node) window.scrollTo(0, node.offsetTop); 
   }, []);
 
-  const search = useCallback(() => {
+  useEffect(() => {
 
     const ref = searchParams.get("ref");
 
     if(ref === "storeRef") {
 
       window.scrollTo(0, storeRef.current.offsetTop); 
-    }
-    
-    if(ref === "itemsRef") {
+    } else if (ref === "itemsRef") {
 
       window.scrollTo(0, itemsRef.current.offsetTop); 
     } 
@@ -276,15 +274,7 @@ const Store = (props) => {
       
       setSearchParams(searchParams);
     }
-
   }, [searchParams, setSearchParams])
-
-  useEffect(() => {
-
-    outputRef();
-
-    search();
-  }, [search, outputRef]);
 
   const srcListen = (e) => {
 
