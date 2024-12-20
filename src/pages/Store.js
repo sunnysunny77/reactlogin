@@ -100,127 +100,10 @@ const Store = (props) => {
 
       const description = itemsObj[index].description;
         
-      itemsArray.push(
-
-        <div className="mt-3" key={index}>
-
-          <div className="mb-2">
-
-            <div className="mb-1">
-
-              {quantity} x {name} &nbsp; $ {value * quantity} 
-
-            </div> 
-
-            <div>
-              
-              {description} 
-
-            </div> 
-
-          </div> 
-
-        </div>
-      );
+      itemsArray.push({ quantity, name, value, description });
     }
 
     const total = `$ ${units.amount.value}`;
-
-    const output = <section ref={outputRef} className="col-12 col-md-10">    
-
-      <h3  className="m-0 pb-4 pt-5">
-
-        Order Complete
-
-      </h3>
-    
-      <table>
-
-        <caption>
-          
-          {caption}
-          
-        </caption>
-
-        <thead>
-
-          <tr>
-
-            <th id="transaction">
-              
-              Transaction
-              
-            </th>
-
-            <th id="name">
-              
-              Name:
-              
-            </th>
-
-            <th id="address">
-              
-              Address:
-              
-            </th>
-
-            <th id="items">
-              
-              Items:
-              
-            </th>
-
-            <th id="total">
-              
-              Total:
-              
-            </th>
-
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr>
-
-            <td headers="transaction">
-              
-              {transaction}
-              
-            </td>
-
-            <td headers="name">
-              
-              {name}
-              
-            </td>
-
-            <td headers="address">
-              
-              {address}
-              
-            </td>
-
-            <td headers="items">
-              
-              {itemsArray}
-              
-            </td>
-
-            <td headers="total">
-              
-              {total}
-              
-            </td>
-
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </section>;
 
     setCount(1);
 
@@ -234,7 +117,7 @@ const Store = (props) => {
 
     setDisabled(true);
 
-    setOutput(output);
+    setOutput({ caption: caption, transaction: transaction, name: name, address: address, itemsArray: itemsArray, total: total });
 
     cartOrder.cartOne();
   }
@@ -390,6 +273,7 @@ const Store = (props) => {
     if (ref) {
 
       searchParams.delete("ref");
+      
       setSearchParams(searchParams);
     }
 
@@ -1077,7 +961,133 @@ const Store = (props) => {
 
           </div>
 
-          {output}
+            {output &&
+
+              <section ref={outputRef} className="col-12 col-md-10">    
+
+                <h3  className="m-0 pb-4 pt-5">
+
+                  Order Complete
+
+                </h3>
+
+                <table>
+
+                  <caption>
+                    
+                    {output.caption}
+                    
+                  </caption>
+
+                  <thead>
+
+                    <tr>
+
+                      <th id="transaction">
+                        
+                        Transaction
+                        
+                      </th>
+
+                      <th id="name">
+                        
+                        Name:
+                        
+                      </th>
+
+                      <th id="address">
+                        
+                        Address:
+                        
+                      </th>
+
+                      <th id="items">
+                        
+                        Items:
+                        
+                      </th>
+
+                      <th id="total">
+                        
+                        Total:
+                        
+                      </th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    <tr>
+
+                      <td headers="transaction">
+                        
+                        {output.transaction}
+                        
+                      </td>
+
+                      <td headers="name">
+                        
+                        {output.name}
+                        
+                      </td>
+
+                      <td headers="address">
+                        
+                        {output.address}
+                        
+                      </td>
+
+                      <td headers="items">
+                    
+                    
+                        {output.itemsArray.map((index, i) => {
+                          
+                          const { quantity, name, value, description } = index;
+
+                          return (
+                        
+                            <div className="mt-3" key={i}>
+
+                              <div className="mb-2">
+
+                                <div className="mb-1">
+
+                                  {quantity} x {name} &nbsp; $ {value * quantity} 
+
+                                </div> 
+
+                                <div>
+                                  
+                                  {description} 
+
+                                </div> 
+
+                              </div> 
+
+                            </div>
+
+                          )
+
+                        })}
+                                                  
+                      </td>
+
+                      <td headers="total">
+                        
+                        {output.total}
+                        
+                      </td>
+
+                    </tr>
+
+                  </tbody>
+
+               </table>
+
+              </section>
+            }
 
         </div>
 
