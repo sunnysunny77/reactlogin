@@ -182,6 +182,20 @@ function App() {
     description: items.cartOne.description,
   });
 
+  const [count, setCount] = useState(1);
+
+  const [output, setOutput] = useState(null);
+
+  const [summary, setSummary] = useState([]);
+
+  const [total, setTotal] = useState(0);
+
+  const [remove, setRemove] = useState([]);
+
+  const [disabled, setDisabled] = useState(true);
+
+  const [cart, setCart] = useState({});
+
   const initialauthorization = async () => {
 
     let res = await fetch(`/api/initialauthorization/?controller=initialauthorization&key=${btoa(process.env.REACT_APP_KEY)}`, {
@@ -266,7 +280,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
           <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
-          <Route path="store" element={<Store items={items} cartOrder={cartOrder} order={order} />} />
+          <Route path="store" element={<Store items={items} cartOrder={cartOrder} order={order} count={count} output={output} summary={summary} total={total} remove={remove} disabled={disabled} cart={cart} setCount={e => setCount(e)} setOutput={e => setOutput(e)} setSummary={e => setSummary(e)} setTotal={e => setTotal(e)} setRemove={e => setRemove(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

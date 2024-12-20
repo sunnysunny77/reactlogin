@@ -1,5 +1,5 @@
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { useSearchParams } from 'react-router-dom';
 import Select from 'react-select';
 import { Link } from "react-router-dom";
@@ -13,29 +13,13 @@ import styles from './Store.module.scss';
 
 const Store = (props) => {
 
-  const { items, cartOrder, order } = props;
+  const { items, cartOrder, order, count, output, summary, total, remove, disabled, cart, setCount, setOutput, setSummary, setTotal, setRemove, setDisabled, setCart } = props;
 
   const storeRef = useRef(null);
 
   const itemsRef = useRef(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const [count, setCount] = useState(1);
-
-  const [output, setOutput] = useState(null);
-
-  const [summery, setSummery] = useState([]);
-
-  const [total, setTotal] = useState(0);
-
-  const [includes, setIncludes] = useState("add");
-
-  const [remove, setRemove] = useState([]);
-
-  const [disabled, setDisabled] = useState(true);
-
-  const [cart, setCart] = useState({});
 
   const createOrder = (data, actions) => {
 
@@ -242,7 +226,7 @@ const Store = (props) => {
 
     setTotal(0);
 
-    setSummery([]);
+    setSummary([]);
 
     setCart([]);
 
@@ -305,13 +289,69 @@ const Store = (props) => {
     setCount(count + 1)
   }
 
+  const resetCart = (obj) => {
+
+    let total = 0;
+
+    let summary = [];
+
+    let remove = [];
+
+    for (const index in obj) {
+
+      const quantity = obj[index].quantity;
+  
+      const sum = quantity * obj[index].value;
+  
+      total = total + sum;
+  
+      summary.push({
+        quantity: quantity,
+        name: obj[index].name,
+        ref: obj[index].ref,
+        sum: sum,
+      });
+
+      remove.push({
+        name: obj[index].name,
+      });
+    }
+    
+    setCount(1);
+
+    setTotal(total);
+
+    setSummary(summary);
+
+    setRemove(remove);
+
+    setOutput(false);
+
+    setDisabled(false);
+
+  }
+
+  const optionOrder = (e) => {
+
+    cartOrder[e.value]();
+  };
+
+  const removeCart = (e) => {
+
+    const newCart = { ...cart };
+
+    delete newCart[e];
+
+    setCart(newCart);
+
+    resetCart(newCart);
+
+    if (Object.keys(newCart).length === 0) setDisabled(true);
+  }
+
   const addCart = () => {
 
-    if (disabled) setDisabled(false);
-
-    if (output) setOutput(false);
-
-    setCart({
+   const obj = {
       ...cart, 
       [order.name]: { 
         ...cart[order.name], 
@@ -321,118 +361,12 @@ const Store = (props) => {
         value: order.value,
         ref: order.ref
       }
-    })
-  }
-
-  const optionOrder = useCallback( (e) => {
-
-
-    cartOrder[e.value]();
-  },[cartOrder])
-
-  const removeCart = useCallback( (e, init) => {
-
-    let newCart = cart;
-
-    delete newCart[e];
-
-    setCart(newCart);
-
-    if (Object.keys(newCart).length === 0) setDisabled(true);
-
-    init();
-  }, [cart, setCart, setDisabled])
-
-  const init = useCallback(() => {
-
-    let total = 0;
-
-    let summery = [];
-
-    let remove = [];
-
-    for (const index in cart) {
-
-      const quantity = cart[index].quantity;
-
-      const sum = quantity * cart[index].value;
-
-      total = total + sum;
-
-      summery.push(
-
-        <li 
-        
-          key={index}
-          
-          className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
-  
-        >
-
-          <span
-
-            className="edit"
-
-            onClick={() => optionOrder(cart[index].ref)}
-
-          >
-
-          {quantity} x {cart[index].name}
-
-          </span>
-
-          <span>
-
-            $ {sum}
-
-          </span>
-
-        </li>
-
-      );
-
-      remove.push(
-        
-        <li 
-        
-          key={index}
-          
-          className="d-flex flex-column flex-xl-row mb-3"
-        
-        >
-
-          <button
-
-            className="remove p-0 ms-4"
-
-            onClick={() => removeCart(cart[index].name, init)}
-            
-          >
-
-            remove
-
-          </button>
-
-        </li>
-
-      ); 
     }
 
-    setTotal(total);
+    setCart(obj);
 
-    setSummery(summery);
-
-    setRemove(remove);
-
-    setCount(1);
-
-    if (!Object.keys(cart).includes(order.name)) {
-
-      return setIncludes("add")
-    } 
-    
-    setIncludes("update")
-  }, [order, cart, optionOrder, removeCart])
+    resetCart(obj);
+  }
 
   const outputRef = useCallback((node) => {
     
@@ -466,9 +400,7 @@ const Store = (props) => {
     outputRef();
 
     search();
-
-    init();
-  }, [init, search, outputRef]);
+  }, [search, outputRef]);
 
   const srcListen = (e) => {
 
@@ -987,7 +919,16 @@ const Store = (props) => {
                 
               >
 
-                {includes}
+                {Object.keys(cart).includes(order.name) ? (
+
+                    "update"
+
+                  ) : (
+
+                    "add"
+                  )
+
+                }
 
               </button>
 
@@ -1009,7 +950,43 @@ const Store = (props) => {
 
                       <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
 
-                        {summery}
+                        {summary.map((index, i) => {
+              
+                          const { ref, name, quantity, sum } = index;
+
+                          return (
+
+                            <li 
+          
+                              key={i}
+                              
+                              className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
+                      
+                            >
+                    
+                              <span
+                    
+                                className="edit"
+                    
+                                onClick={()=>optionOrder(ref)}
+                          
+                              >
+                    
+                              {quantity} x {name}
+                    
+                              </span>
+                    
+                              <span>
+                    
+                                $ {sum}
+                    
+                              </span>
+                    
+                            </li>
+
+                          )
+
+                        })}
 
                       </ul>
 
@@ -1019,7 +996,38 @@ const Store = (props) => {
 
                       <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
 
-                        {remove}
+                        {remove.map((index, i) => {
+                            
+                          const { name } = index;
+
+                          return (
+                            
+                            
+                            <li 
+        
+                              key={i}
+                              
+                              className="d-flex flex-column flex-xl-row mb-3"
+                            
+                            >
+                    
+                              <button
+                    
+                                className="remove p-0 ms-4"
+                    
+                                onClick={() =>removeCart(name)}
+                                
+                              >
+                    
+                                remove
+                    
+                              </button>
+                    
+                            </li> 
+                          
+                          )
+
+                        })}
 
                       </ul>
 
