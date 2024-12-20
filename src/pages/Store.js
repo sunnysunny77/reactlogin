@@ -850,13 +850,13 @@ const Store = (props) => {
                     
                               <span
                     
-                                className="edit"
+                                className="reSelect"
                     
                                 onClick={()=>optionOrder(ref)}
                           
                               >
                     
-                              {quantity} x {name}
+                                {quantity} x {name}
                     
                               </span>
                     
@@ -961,7 +961,7 @@ const Store = (props) => {
 
           </div>
 
-            {output &&
+            {Object.keys(output).length > 0  &&
 
               <section ref={outputRef} className="col-12 col-md-10">    
 
@@ -1086,6 +1086,7 @@ const Store = (props) => {
                </table>
 
               </section>
+
             }
 
         </div>

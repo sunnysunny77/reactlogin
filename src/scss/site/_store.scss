@@ -83,7 +83,7 @@
         object-fit: scale-down;
         display: block;
     }
-    
+
     .button-container-inner {
         display: flex;
         justify-content: center;
@@ -102,7 +102,7 @@
             opacity: 0.75;
         }
     }
-    .edit {
+    .reSelect {
         opacity: 1;
         cursor: pointer;
         transition: opacity 0.3s;
@@ -111,7 +111,7 @@
             opacity: 0.75;
         }
     }
-    button.remove {
+    .remove {
         background-color: $c5;
         color: $c4;
         font-size: 15px;
@@ -138,41 +138,41 @@
         color: $c6;
         font-size: 17px;
     }
-}
 
-table {
-    width: 100%;
-    font-size: 70%;
-    color: $c6;
-    th {
-        position: absolute;
-        clip: rect(0 0 0 0);
-    }
-    tr {
-        display: block;
-        border-top: 1px solid $c4;
-        background-color: $c4;
-    }
-    thead tr,
-    tr:nth-child(1) {
-        border: none;
-    }
-    td {
-        display: block;
-        text-align: right;
-        padding: 20px;
-        word-break: break-word;
-        &::before {
-            content: attr(headers);
-            text-align: left;
-            display: block;
-            font-weight: 600;
-            text-transform: capitalize;
-            height: 100%;
-            margin: 0 0 1rem 0;
+    table {
+        width: 100%;
+        font-size: 70%;
+        color: $c6;
+        th {
+            position: absolute;
+            clip: rect(0 0 0 0);
         }
-        &:nth-child(odd) {
-            background-color: $c2;
+        tr {
+            display: block;
+            border-top: 1px solid $c4;
+            background-color: $c4;
+        }
+        thead tr,
+        tr:nth-child(1) {
+            border: none;
+        }
+        td {
+            display: block;
+            text-align: right;
+            padding: 20px;
+            word-break: break-word;
+            &::before {
+                content: attr(headers);
+                text-align: left;
+                display: block;
+                font-weight: 600;
+                text-transform: capitalize;
+                height: 100%;
+                margin: 0 0 1rem 0;
+            }
+            &:nth-child(odd) {
+                background-color: $c2;
+            }
         }
     }
 }

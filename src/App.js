@@ -26,7 +26,6 @@ function App() {
       name: "In accumsan",
       sub: "Est diam",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue lectus nisl, vitae egestas orci laoreet mollis.",
-
     },
 
     cartTwo: {
@@ -184,7 +183,7 @@ function App() {
 
   const [count, setCount] = useState(1);
 
-  const [output, setOutput] = useState(null);
+  const [output, setOutput] = useState({});
 
   const [summary, setSummary] = useState([]);
 
