@@ -1,14 +1,13 @@
-import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import React, { useRef, useEffect, useCallback } from "react";
-import { useSearchParams } from 'react-router-dom';
-import Select from 'react-select';
-import { Link } from "react-router-dom";
-import { ArrowRight } from 'react-bootstrap-icons';
+import { useSearchParams, Link } from 'react-router-dom';
+import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { ArrowDownShort } from 'react-bootstrap-icons';
-import Spinner from "../images/load.gif";
-import Header from "../components/Header";
+import { ArrowRight } from 'react-bootstrap-icons';
+import Select from 'react-select';
 import Cards from "../components/Cards";
 import Cta from "../components/Cta";
+import Header from "../components/Header";
+import Spinner from "../images/load.gif";
 import styles from './Store.module.scss'; 
 
 const Store = (props) => {

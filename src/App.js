@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import Auth from "./pages/Auth";
+import Home from "./pages/Home";
+import Store from "./pages/Store";
+import Layout from "./components/Layout";
+import NotFound from "./components/NotFound";
+import Output from "./components/Output";
+import Basil from "./images/basil.webp";
+import Broccoli from "./images/broccoli.webp";
+import Chitto from "./images/chitto.webp";
+import Cucumbers from "./images/cucumbers.webp";
+import Fruits from "./images/fruits.webp";
+import Schwab from "./images/schwab.webp";
 import "bootstrap/dist/css/bootstrap.min.css"
 import './scss/App.scss';
-import Store from "./pages/Store";
-import Auth from "./pages/Auth";
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Output from "./components/Output";
-import NotFound from "./components/NotFound";
-import Fruits from "./images/fruits.webp";
-import Broccoli from "./images/broccoli.webp";
-import Basil from "./images/basil.webp";
-import Cucumbers from "./images/cucumbers.webp";
-import Schwab from "./images/schwab.webp";
-import Chitto from "./images/chitto.webp";
 
 function App() {
 

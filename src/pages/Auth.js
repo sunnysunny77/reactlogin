@@ -1,6 +1,6 @@
-import Accordion from 'react-bootstrap/Accordion';
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Accordion from 'react-bootstrap/Accordion';
 import Header from "../components/Header";
 import Spinner from "../images/load.gif";
 

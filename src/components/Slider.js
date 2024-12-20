@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import { ArrowRight } from 'react-bootstrap-icons';
 import { ArrowLeft } from 'react-bootstrap-icons';
+import { ArrowRight } from 'react-bootstrap-icons';
 
 const Slider= (props) => {
 

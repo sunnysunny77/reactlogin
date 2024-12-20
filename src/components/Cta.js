@@ -1,6 +1,6 @@
 import React from "react";
-import { ArrowRightCircleFill } from 'react-bootstrap-icons';
 import { Link } from "react-router-dom";
+import { ArrowRightCircleFill } from 'react-bootstrap-icons';
 
 const Cta = (props) => {
 

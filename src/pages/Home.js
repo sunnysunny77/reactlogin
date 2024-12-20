@@ -1,24 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
-import Store from "../images/store.webp";
-import Finance from "../images/finance.webp";
-import Transport from "../images/transport.webp";
-import Warehouse from "../images/warehouse.webp";
-import Platter from "../images/platter.webp";
-import Roast from "../images/roast.webp";
-import Vegies from "../images/vegies.webp";
-import Greens from "../images/greens.webp";
-import PreText from "../components/PreText";
 import Carousel from 'react-bootstrap/Carousel';
-import Header from "../components/Header";
-import TwoColText from "../components/TwoColText";
-import TwoColCurve from "../components/TwoColCurve";
-import Slider from "../components/Slider";
-import TwoColImage from "../components/TwoColImage";
 import Cards from "../components/Cards";
 import Cta from "../components/Cta";
 import Enquiry from "../components/Enquiry";
+import Header from "../components/Header";
+import PreText from "../components/PreText";
+import TwoColCurve from "../components/TwoColCurve";
+import TwoColImage from "../components/TwoColImage";
+import TwoColText from "../components/TwoColText";
+import Slider from "../components/Slider";
+import Finance from "../images/finance.webp";
+import Greens from "../images/greens.webp";
+import Platter from "../images/platter.webp";
+import Roast from "../images/roast.webp";
+import Store from "../images/store.webp";
+import Transport from "../images/transport.webp";
+import Vegies from "../images/vegies.webp";
+import Warehouse from "../images/warehouse.webp";
 
 const Home = (props) => {
 

@@ -1,6 +1,5 @@
-import { NavLink, Link } from "react-router-dom";
 import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 const Navigation = (props) => {
 
