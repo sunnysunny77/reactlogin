@@ -221,28 +221,27 @@ const Store = (props) => {
 
   const removeCart = (e) => {
 
-    const newCart = { ...cart };
+    const obj = { ...cart };
 
-    delete newCart[e];
+    delete obj[e];
 
-    setCart(newCart);
+    setCart(obj);
 
-    resetCart(newCart);
+    resetCart(obj);
 
-    if (Object.keys(newCart).length === 0) setDisabled(true);
+    if (Object.keys(obj).length === 0) setDisabled(true);
   }
 
   const addCart = () => {
 
-   const obj = {
+    const obj = {
       ...cart, 
       [order.name]: { 
-        ...cart[order.name], 
         description: order.description,
         name: order.name,
         quantity: count,
         value: order.value,
-        ref: order.ref
+        ref: order.ref,
       }
     }
 
