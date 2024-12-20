@@ -72,17 +72,17 @@ function App() {
       sub: "lorem rutrum",
       description: "Morbi porta augue vitae tempor bibendum interdum euismod leo.",
     },
-
-    options: [
-
-      { value: 'cartOne', label: "In accumsan" },
-      { value: 'cartTwo', label: "Eleifend eu" },
-      { value: 'cartThree', label: "Lectus eleifend" },
-      { value: 'cartFour', label: "Phasellus et" },
-      { value: 'cartFive', label: "Turpis posuere" },
-      { value: 'cartSix', label: "Accumsan Inn" }
-    ],
   };
+
+  const options = [
+
+    { value: 'cartOne', label: items.cartOne.name },
+    { value: 'cartTwo', label: items.cartTwo.name },
+    { value: 'cartThree', label: items.cartThree.name },
+    { value: 'cartFour', label: items.cartFour.name },
+    { value: 'cartFive', label: items.cartFive.name },
+    { value: 'cartSix', label: items.cartSix.name }
+  ];
 
   const cartOrder = {
 
@@ -90,7 +90,7 @@ function App() {
 
       setOrder({ 
 
-        ref: items.options[0],
+        ref: options[0],
         image: items.cartOne.image,
         value: items.cartOne.value,
         name: items.cartOne.name,
@@ -103,7 +103,7 @@ function App() {
 
       setOrder({ 
 
-        ref: items.options[1],
+        ref: options[1],
         image: items.cartTwo.image,
         value: items.cartTwo.value,
         name: items.cartTwo.name,
@@ -116,7 +116,7 @@ function App() {
       
       setOrder({ 
 
-        ref: items.options[2],
+        ref: options[2],
         image: items.cartThree.image,
         value: items.cartThree.value,
         name: items.cartThree.name,
@@ -129,7 +129,7 @@ function App() {
 
       setOrder({ 
 
-        ref: items.options[3],
+        ref: options[3],
         image: items.cartFour.image,
         value: items.cartFour.value,
         name: items.cartFour.name,
@@ -142,7 +142,7 @@ function App() {
 
       setOrder({ 
 
-        ref: items.options[4],
+        ref: options[4],
         image: items.cartFive.image,
         value: items.cartFive.value,
         name: items.cartFive.name,
@@ -155,7 +155,7 @@ function App() {
 
       setOrder({ 
 
-        ref: items.options[5],
+        ref: options[5],
         image: items.cartSix.image,
         value: items.cartSix.value,
         name: items.cartSix.name,
@@ -173,7 +173,7 @@ function App() {
 
   const [order, setOrder] = useState({ 
 
-    ref: items.options[0],
+    ref: options[0],
     image: items.cartOne.image,
     value: items.cartOne.value,
     name: items.cartOne.name,
@@ -290,7 +290,7 @@ function App() {
           <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
           <Route path="store" element={
             <Store 
-              items={items} cartOrder={cartOrder} order={order} count={count} output={output} summary={summary} total={total} remove={remove} disabled={disabled} cart={cart} 
+              items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} summary={summary} total={total} remove={remove} disabled={disabled} cart={cart} 
               setCount={e => setCount(e)} setOutput={e => setOutput(e)} setSummary={e => setSummary(e)} setTotal={e => setTotal(e)} setRemove={e => setRemove(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} 
             />
           }/>

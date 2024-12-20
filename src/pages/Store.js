@@ -13,7 +13,7 @@ import styles from './Store.module.scss';
 const Store = (props) => {
 
   const { 
-    items, cartOrder, order, count, output, summary, total, remove, disabled, cart, 
+    items, options, cartOrder, order, count, output, summary, total, remove, disabled, cart, 
     setCount, setOutput, setSummary, setTotal, setRemove, setDisabled, setCart 
   } = props;
 
@@ -187,18 +187,20 @@ const Store = (props) => {
       const quantity = obj[index].quantity;
   
       const sum = quantity * obj[index].value;
+
+      const name = obj[index].name;
   
       total = total + sum;
   
       summary.push({
         quantity: quantity,
-        name: obj[index].name,
+        name: name,
         ref: obj[index].ref,
         sum: sum,
       });
 
       remove.push({
-        name: obj[index].name,
+        name: name,
       });
     }
     
@@ -647,7 +649,7 @@ const Store = (props) => {
 
                   onChange={optionOrder}
 
-                  options={items.options}
+                  options={options}
 
                   isSearchable={false}
 
