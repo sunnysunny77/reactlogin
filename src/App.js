@@ -245,16 +245,25 @@ function App() {
     if (json.key === btoa(process.env.REACT_APP_KEY)) {
 
       setLoad(false);
-      setAuth(false);
-      setOrder({ 
 
-        ref: items.options[0],
-        image: items.cartOne.image,
-        value: items.cartOne.value,
-        name: items.cartOne.name,
-        sub: items.cartOne.sub,
-        description: items.cartOne.description,
-      });
+      setAuth(false);
+
+      setCount(1);
+
+      setTotal(0);
+  
+      setSummary([]);
+  
+      setCart([]);
+  
+      setRemove([]);
+  
+      setDisabled(true);
+  
+      setOutput({});
+  
+      cartOrder.cartOne();
+
       navigate('/');
     }
   }
@@ -279,7 +288,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
           <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
-          <Route path="store" element={<Store items={items} cartOrder={cartOrder} order={order} count={count} output={output} summary={summary} total={total} remove={remove} disabled={disabled} cart={cart} setCount={e => setCount(e)} setOutput={e => setOutput(e)} setSummary={e => setSummary(e)} setTotal={e => setTotal(e)} setRemove={e => setRemove(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} />} />
+          <Route path="store" element={
+            <Store 
+              items={items} cartOrder={cartOrder} order={order} count={count} output={output} summary={summary} total={total} remove={remove} disabled={disabled} cart={cart} 
+              setCount={e => setCount(e)} setOutput={e => setOutput(e)} setSummary={e => setSummary(e)} setTotal={e => setTotal(e)} setRemove={e => setRemove(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} 
+            />
+          }/>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -13,7 +13,10 @@ import styles from './Store.module.scss';
 
 const Store = (props) => {
 
-  const { items, cartOrder, order, count, output, summary, total, remove, disabled, cart, setCount, setOutput, setSummary, setTotal, setRemove, setDisabled, setCart } = props;
+  const { 
+    items, cartOrder, order, count, output, summary, total, remove, disabled, cart, 
+    setCount, setOutput, setSummary, setTotal, setRemove, setDisabled, setCart 
+  } = props;
 
   const storeRef = useRef(null);
 
@@ -873,8 +876,7 @@ const Store = (props) => {
                             
                           const { name } = index;
 
-                          return (
-                            
+                          return (  
                             
                             <li 
         
