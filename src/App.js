@@ -185,12 +185,6 @@ function App() {
 
   const [output, setOutput] = useState({});
 
-  const [summary, setSummary] = useState([]);
-
-  const [total, setTotal] = useState(0);
-
-  const [remove, setRemove] = useState([]);
-
   const [disabled, setDisabled] = useState(true);
 
   const [cart, setCart] = useState({});
@@ -249,14 +243,8 @@ function App() {
       setAuth(false);
 
       setCount(1);
-
-      setTotal(0);
   
-      setSummary([]);
-  
-      setCart([]);
-  
-      setRemove([]);
+      setCart({});
   
       setDisabled(true);
   
@@ -290,8 +278,8 @@ function App() {
           <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
           <Route path="store" element={
             <Store 
-              items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} summary={summary} total={total} remove={remove} disabled={disabled} cart={cart} 
-              setCount={e => setCount(e)} setOutput={e => setOutput(e)} setSummary={e => setSummary(e)} setTotal={e => setTotal(e)} setRemove={e => setRemove(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} 
+              items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} disabled={disabled} cart={cart} 
+              setCount={e => setCount(e)} setOutput={e => setOutput(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} 
             />
           }/>
           <Route path="*" element={<NotFound />} />

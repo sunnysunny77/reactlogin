@@ -13,8 +13,8 @@ import styles from './Store.module.scss';
 const Store = (props) => {
 
   const { 
-    items, options, cartOrder, order, count, output, summary, total, remove, disabled, cart, 
-    setCount, setOutput, setSummary, setTotal, setRemove, setDisabled, setCart 
+    items, options, cartOrder, order, count, output, disabled, cart, 
+    setCount, setOutput, setDisabled, setCart 
   } = props;
 
   const storeRef = useRef(null);
@@ -25,22 +25,7 @@ const Store = (props) => {
 
   const createOrder = (data, actions) => {
 
-    let items = []
-
-    for (const index in cart) {
-
-      items.push(
-        {
-          description: cart[index].description,
-          name: cart[index].name,
-          unit_amount: {
-            currency_code: "AUD",
-            value: cart[index].value,
-          },
-          quantity: cart[index].quantity,
-        }
-      )
-    }
+   const items = Object.keys(cart).map((index) => cart[index]);
 
     return actions.order.create({
 
@@ -49,16 +34,16 @@ const Store = (props) => {
           description: "Securewebsite Transaction",
           amount: {
             currency_code: "AUD",
-            value: total,
+            value: total(),
             breakdown: {
               item_total: {
                 currency_code: "AUD",
-                value: total
+                value: total()
               }
             }
           },
           items: [
-           ...items
+            ...items
           ]
         }
       ],
@@ -90,7 +75,7 @@ const Store = (props) => {
       address += `${addressObj[index]} `;
     }
 
-    let itemsArray = [];
+    let itemsOutput = {};
 
     for (const index in itemsObj) {
 
@@ -102,24 +87,18 @@ const Store = (props) => {
 
       const description = itemsObj[index].description;
         
-      itemsArray.push({ quantity, name, value, description });
+      itemsOutput[index] = { quantity, name, value, description };
     }
 
     const total = `$ ${units.amount.value}`;
 
     setCount(1);
 
-    setTotal(0);
-
-    setSummary([]);
-
-    setCart([]);
-
-    setRemove([]);
+    setCart({});
 
     setDisabled(true);
 
-    setOutput({ caption: caption, transaction: transaction, name: name, address: address, itemsArray: itemsArray, total: total });
+    setOutput({ caption: caption, transaction: transaction, name: name, address: address, itemsOutput: itemsOutput , total: total });
 
     cartOrder.cartOne();
   }
@@ -174,50 +153,6 @@ const Store = (props) => {
     setCount(count + 1)
   }
 
-  const resetCart = (obj) => {
-
-    let total = 0;
-
-    let summary = [];
-
-    let remove = [];
-
-    for (const index in obj) {
-
-      const quantity = obj[index].quantity;
-  
-      const sum = quantity * obj[index].value;
-
-      const name = obj[index].name;
-  
-      total = total + sum;
-  
-      summary.push({
-        quantity: quantity,
-        name: name,
-        ref: obj[index].ref,
-        sum: sum,
-      });
-
-      remove.push({
-        name: name,
-      });
-    }
-    
-    setCount(1);
-
-    setTotal(total);
-
-    setSummary(summary);
-
-    setRemove(remove);
-
-    setOutput(false);
-
-    setDisabled(false);
-
-  }
-
   const optionOrder = (e) => {
 
     cartOrder[e.value]();
@@ -231,27 +166,41 @@ const Store = (props) => {
 
     setCart(obj);
 
-    resetCart(obj);
-
     if (Object.keys(obj).length === 0) setDisabled(true);
   }
 
   const addCart = () => {
 
-    const obj = {
+    setCart({
       ...cart, 
       [order.name]: { 
         description: order.description,
         name: order.name,
+        unit_amount: {
+          currency_code: "AUD",
+          value: order.value,
+        },
         quantity: count,
-        value: order.value,
-        ref: order.ref,
       }
+    });
+
+    setCount(1);
+
+    setOutput(false);
+
+    setDisabled(false);
+  }
+
+  const total = () => {
+
+    let total = 0;
+
+    for (const index in cart) {
+
+      total = total + (cart[index].quantity * cart[index].unit_amount.value);
     }
 
-    setCart(obj);
-
-    resetCart(obj);
+    return total;
   }
 
   const outputRef = useCallback((node) => {
@@ -827,14 +776,14 @@ const Store = (props) => {
 
                       <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
 
-                        {summary.map((index, i) => {
-              
-                          const { ref, name, quantity, sum } = index;
+                        {Object.keys(cart).map((index, i) => {
+
+                          const { quantity, name, unit_amount: {value} } = cart[index];
 
                           return (
 
-                            <li 
-          
+                              <li 
+            
                               key={i}
                               
                               className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-xl-between mb-3"
@@ -845,7 +794,7 @@ const Store = (props) => {
                     
                                 className="reSelect"
                     
-                                onClick={()=>optionOrder(ref)}
+                                onClick={()=>optionOrder(options[i])}
                           
                               >
                     
@@ -855,16 +804,16 @@ const Store = (props) => {
                     
                               <span>
                     
-                                $ {sum}
+                                $ {quantity * value}
                     
                               </span>
                     
                             </li>
-
+                            
                           )
 
                         })}
-
+                  
                       </ul>
 
                     </div> 
@@ -872,10 +821,10 @@ const Store = (props) => {
                     <div className="flex-fill h-100">
 
                       <ul className="list-unstyled h-100 d-flex flex-column justify-content-around m-0"> 
-
-                        {remove.map((index, i) => {
+        
+                       {Object.keys(cart).map((index, i) => {
                             
-                          const { name } = index;
+                          const { name } = cart[index];
 
                           return (  
                             
@@ -904,7 +853,7 @@ const Store = (props) => {
                           )
 
                         })}
-
+                   
                       </ul>
 
                     </div>
@@ -945,7 +894,7 @@ const Store = (props) => {
                   
                 </span> 
                 
-                $ {total}
+                $ {total()}
 
               </div>
 
@@ -1033,9 +982,9 @@ const Store = (props) => {
 
                       <td headers="items">
                     
-                        {output.itemsArray.map((index, i) => {
+                        {Object.keys(output.itemsOutput).map((index, i) => {
                           
-                          const { quantity, name, value, description } = index;
+                          const { quantity, name, value, description } = output.itemsOutput[index];
 
                           return (
                         
