@@ -12,7 +12,6 @@ import Chitto from "./images/chitto.webp";
 import Cucumbers from "./images/cucumbers.webp";
 import Fruits from "./images/fruits.webp";
 import Schwab from "./images/schwab.webp";
-import "bootstrap/dist/css/bootstrap.min.css"
 import './scss/App.scss';
 
 function App() {

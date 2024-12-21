@@ -33,6 +33,14 @@ const Auth = (props) => {
   const [security, setSecurity] = useState("");
   const [passRegistration, setPassRegistration] = useState("");
 
+  const cancel = () => {
+
+    setEmailNew("");
+    setFactor(true); 
+    setClassesInitialauthentication("displayNone"); 
+    setClassesAuthentication("displayNone")
+  }
+
   const authorization = async (e) => {
 
     e.preventDefault();
@@ -430,6 +438,19 @@ const Auth = (props) => {
                       <button id="submit" type="submit" className="btn mt-2 btn-light">
 
                         Submit
+
+                      </button>
+
+                      <button 
+                      
+                        id="submit" 
+                        type="submit" 
+                        className="btn mt-2 btn-light"
+                        onClick={cancel}
+
+                        >
+
+                        Cancel
 
                       </button>
 
