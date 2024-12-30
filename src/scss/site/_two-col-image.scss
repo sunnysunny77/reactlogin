@@ -6,6 +6,7 @@
         }
         p {
             color: $c4;
+            font-size: clamp(18px, 3vw, 21px);
         }
     }
     img {

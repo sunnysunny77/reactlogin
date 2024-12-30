@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { Linkedin } from 'react-bootstrap-icons';
 
 const Footer = (props) => {
 
@@ -161,6 +162,16 @@ const Footer = (props) => {
                   </address>
 
                   <a href="tel:+61435987875">+61 435 987 875</a>
+
+                </div>
+
+                <div className="col-8 d-flex mt-3">
+
+                  <Link to="/"> 
+                          
+                    <Linkedin />
+          
+                  </Link>
 
                 </div>
 

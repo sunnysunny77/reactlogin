@@ -71,4 +71,14 @@ footer {
             transform: scale(0.9);
         }
     }
+    .bi {
+        width: 17px;
+        height: 17px;
+        opacity: 1;
+        transition: opacity 0.3s;
+        will-change: opacity;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
 }

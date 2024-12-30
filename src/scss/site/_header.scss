@@ -32,6 +32,7 @@ header {
     }
     p {
         color: $c4;
+        letter-spacing: 0.05em;
         @include min_sm {
             height: 100%;
         }

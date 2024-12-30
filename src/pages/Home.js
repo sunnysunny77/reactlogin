@@ -6,6 +6,7 @@ import Cards from "../components/Cards";
 import Cta from "../components/Cta";
 import Enquiry from "../components/Enquiry";
 import Header from "../components/Header";
+import OneColLarge from "../components/OneColLarge";
 import PreText from "../components/PreText";
 import TwoColCurve from "../components/TwoColCurve";
 import TwoColImage from "../components/TwoColImage";
@@ -19,6 +20,7 @@ import Store from "../images/store.webp";
 import Transport from "../images/transport.webp";
 import Vegies from "../images/vegies.webp";
 import Warehouse from "../images/warehouse.webp";
+import Aus from "../images/australian-made.svg";
 
 const Home = (props) => {
 
@@ -96,9 +98,9 @@ const Home = (props) => {
         heading={`Adipiscing elit`}
 
         paragraph={<PreText text={
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
 
-          Consectetur adipiscing elit, lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation, ut enim ad minim veniam.`
+          Consectetur adipiscing elit, lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation.`
         } />}
       
       >
@@ -140,6 +142,18 @@ const Home = (props) => {
         <img src={Roast} alt="Roast" width="929" height="619"/>
 
       </TwoColImage>
+
+      <OneColLarge
+      
+        heading={`Lorem Ipsum`}
+        paragraph={`Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.`}
+        bold={`Ut enim ad minim veniam quis nostrud exercitation.`}
+      
+      >
+
+        <img src={Aus} alt="Australian Made" width="150" height="150" />
+
+      </OneColLarge>
 
       <div className="container-fluid pt-5 mb-5 mb-5 mt-lg-5">
 

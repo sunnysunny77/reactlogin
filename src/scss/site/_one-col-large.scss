@@ -1,0 +1,47 @@
+.one-col-large {
+    background-color: $c1;
+    .shpaes-top {
+        top: -12.5rem;
+        right: -17rem;
+        width: 25rem;
+        height: 37.5rem;
+        @include min_lg {
+            top: -7.5rem;
+            right: -12.5rem; 
+        }
+        .shapes-1 {
+            top: 0;
+            right: 0;
+            border-left:  12.5rem solid $c16;
+            border-radius: 50%;
+            height: 25rem;
+            width: 25rem;
+            background-color: $c16;
+        }
+        .shapes-2 {
+            right: 0;
+            bottom: 0;
+            border-left: 5rem solid $c14;
+            border-radius: 10rem;
+            height: 10rem;
+            width: 20rem;
+            background-color: $c14;
+        }
+    }
+    .decoration {
+        border-left: 0.75rem solid  $c16;
+    }
+    h2 {
+        color: $c9;
+    }
+    p {
+        color: $c4;
+    }
+    b {
+        font-size: clamp(28px, 4vw, 45px);
+        font-weight: 700;
+        letter-spacing: 0.075em;
+        line-height: 1.2;
+        color: $c9;
+    }
+}
