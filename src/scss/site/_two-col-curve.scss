@@ -19,7 +19,7 @@
         font-weight: 400;
         letter-spacing: 0.075em;
         line-height: 1.35;
-        font-size: 21px;
+        font-size: clamp(18px, 2vw, 20px);
     }
     .curve {
         background-color: $c5;
@@ -38,9 +38,6 @@
             @include min_md {
                 border-bottom-left-radius: 67%;
             }
-            @include min_lg {
-                border-bottom-left-radius: 72.5%;
-            }
             @include min_xl {
                 border-left: 60rem solid $c1;
             }
@@ -55,7 +52,7 @@
                 padding: 0 0 26% 0;
             }
             @include min_xl {
-                padding: 5% 0 34% 0;
+                padding: 5% 0 37% 0;
             }
         }
     }

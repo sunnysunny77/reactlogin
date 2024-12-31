@@ -98,9 +98,11 @@ const Home = (props) => {
         heading={`Adipiscing elit`}
 
         paragraph={<PreText text={
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-
-          Consectetur adipiscing elit, lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation.`
+          `Fusce vulputate eleifend lacus ut pharetra, integer eleifend ligula at tortor hendrerit, sed consectetur magna gravida sed purus nisl. 
+          
+           Posuere eget nunc non interdum laoreet dui maecenas lobortis gravida magna auctor venenatis, nunc sit amet massa hendrerit lobortis purus in iaculis augue. 
+           
+           Etiam tincidunt ex eget felis rhoncus, eget tristique metus rutrum.`
         } />}
       
       >

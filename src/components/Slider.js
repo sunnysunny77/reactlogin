@@ -74,23 +74,23 @@ const Slider= (props) => {
 
     <div className="slider_9-container g-0">
 
-      <div className="row px-md-3 pb-sm-5 pb-lg-0 px-lg-0 g-0">
+      <div className="row pt-5 mt-5 mt-lg-0 pt-lg-0 g-0">
 
         <div className="slider_9-small-col col-lg-1 d-none d-lg-block py-5"></div>
 
-        <div className="row col-12 col-lg-11 d-flex flex-column flex-lg-row justify-content-lg-evenly my-xl-5 ps-xl-5 py-xl-5 g-0">
+        <div className="row col-12 col-lg-11 d-flex flex-column flex-lg-row align-items-center justify-content-lg-evenly py-sm-4 py-lg-2 py-xl-4 py-xxl-5 g-0">
 
-          <div className="col-12 col-lg-6 col-xl-5 d-flex flex-column order-2 order-lg-1">
+          <div className="col-12 col-sm-9 col-lg-4 d-flex flex-column order-2 order-lg-1 pt-5 pb-sm-5 py-lg-5 mb-sm-5 my-lg-4 my-xl-5">
 
-            <div ref={counters} className="slider_9-inner inner-swap position-relative mt-md-5 mx-sm-5 ms-lg-5 me-lg-0">
+            <div ref={counters} className="slider_9-inner inner-swap position-relative">
 
               {children}
               
             </div>
 
-            <div className="slider_9-button-container row justify-content-between justify-content-md-evenly mb-md-5 mx-sm-5 ms-lg-5 me-lg-0 p-5 p-sm-4 g-0">
+            <div className="slider_9-button-container row justify-content-evenly  p-5 p-sm-4 g-0">
 
-              <div className="col-4 d-flex justify-content-center align-items-center">
+              <div className="col-5 d-flex justify-content-center align-items-center">
 
                 <button onClick={prev}  aria-label="prev" className="slider_9-button button-prev">
                   
@@ -100,7 +100,7 @@ const Slider= (props) => {
               
               </div>
 
-              <div className="col-4 d-flex justify-content-center align-items-center">
+              <div className="col-5 d-flex justify-content-center align-items-center">
 
                 <button onClick={next} aria-label="next" className="slider_9-button button-next">
                   
@@ -114,11 +114,11 @@ const Slider= (props) => {
 
           </div>
 
-          <div className="col-12 col-lg-6 col-xxl-5 order-1 order-lg-2 my-5 my-lg-0">
+          <div className="col-12 col-lg-5 col-xxl-5 order-1 order-lg-2">
 
-            <div className="row h-100 justify-content-center py-5 py-md-3 py-lg-5 g-0">
+            <div className="row h-100 justify-content-center pb-5 py-lg-5 my-lg-4 my-xl-5 g-0">
 
-              <div className="slider_9-large-col col-10 col-sm-8 col-lg-10 h-100 d-flex justify-content-center align-items-center">
+              <div className="slider_9-large-col col-10 col-sm-8 col-lg-12 h-100 d-flex justify-content-center align-items-center">
 
                 <p className="m-0">
 

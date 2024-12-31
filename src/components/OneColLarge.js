@@ -16,7 +16,7 @@ const OneColLarge = (props) => {
 
       </div>
 
-      <div className="row flex-column pt-md-4 ps-lg-4 mt-lg-4 ms-xl-5 g-0">
+      <div className="row flex-column pt-md-4 ps-lg-4 mt-lg-4 ms-xl-5 mb-xl-5 g-0">
 
         <div className="col-12 pt-4 mt-4 mb-3">
 

@@ -8,23 +8,23 @@ const TwoColImage = (props) => {
     
     <section className="two-col-image py-5 ps-md-0 pt-md-0 pb-md-0 pe-md-0 ps-xl-5 g-0" >
 
-      <div className="row justify-content-center g-0">
+      <div className="row justify-content-center justify-content-md-between g-0">
     
-        <div className="col-10 col-md-6 ps-lg-5 pt-md-5 pb-md-5 ps-md-5 g-0">
+        <div className="col-10 col-md-7 col-xl-6 pt-md-5 pb-md-5 mt-md-5 g-0">
 
-          <div className="row h-100">
+          <div className="row h-100 justify-content-center g-0">
 
-              <h2 className="pb-3 mt-lg-5">
-              
-                {heading}
+              <div className="col-12 col-md-9 col-lg-8">
 
-              </h2>
+                <h2 className="pb-1 mt-lg-5 mb-0">
+                  
+                  {heading}
 
-              <hr className="pb-2"/>
+                </h2>
 
-              <div className="col-12 col-md-10 col-xl-9">
+                <hr className="pb-md-2"/>
 
-                <p className="mb-md-5">
+                <p className="mb-4 mt-2 mb-md-5 pe-md-3">
 
                   {paragraph}
 
@@ -36,7 +36,7 @@ const TwoColImage = (props) => {
             
         </div>
 
-        <div className="col-10 col-md-6 mx-auto mt-3 mt-md-0">
+        <div className="col-10 col-md-5 col-xl-6 mx-auto mt-3 m-md-0">
 
           {children}
                     
