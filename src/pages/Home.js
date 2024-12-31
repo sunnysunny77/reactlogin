@@ -32,25 +32,33 @@ const Home = (props) => {
 
       <Header heading="HOME" >
 
-        <div className="col-12 row align-items-center justify-content-between bg-11 g-0 p-4 p-sm-5 pe-sm-0 pe-xl-5">
+        <div className="col-12 row align-items-center justify-content-between bg-11 p-4 ps-md-5 pt-md-5 pb-md-5 pe-md-0 pe-xl-5 g-0">
 
-          <p className="row col-12 col-sm-7 col-lg-7 col-xl-5 d-flex align-items-center justify-content-between p-4 g-0">
+          <div className="col-12 col-md-7 col-xl-5">
 
-            <span className="col-11 col-md-9">
-              
-              Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-              
-            </span>
+            <p className="p-4">
 
-            <Link to="store" className="col-auto align-self-md-end border rounded mt-4 mb-3 px-2 py-1" > 
-            
-              store 
-              
-            </Link>
+              <div className="row align-items-center justify-content-between g-0">
 
-          </p>
+                <span className="col-11 col-lg-9">
+                  
+                  Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                  
+                </span>
 
-          <Carousel pause={false} interval={1500} controls={false} className="col-6 col-sm-4 mx-auto mx-xl-0">
+                <Link to="store" className="col-auto align-self-lg-end border rounded mt-4 mb-3 px-2 py-1" > 
+                
+                  store 
+                  
+                </Link>
+
+              </div>
+
+            </p>
+
+          </div>
+
+          <Carousel pause={false} interval={1500} controls={false} className="col-6 col-md-4 mx-auto mx-xl-0">
 
             <Carousel.Item>
 
