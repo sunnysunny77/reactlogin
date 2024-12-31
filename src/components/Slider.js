@@ -88,7 +88,7 @@ const Slider= (props) => {
               
             </div>
 
-            <div className="slider_9-button-container row justify-content-evenly  p-5 p-sm-4 g-0">
+            <div className="slider_9-button-container row justify-content-between justify-content-sm-evenly p-5 p-sm-4 g-0">
 
               <div className="col-5 d-flex justify-content-center align-items-center">
 

@@ -32,55 +32,59 @@ const Home = (props) => {
 
       <Header heading="HOME" >
 
-        <div className="col-12 row align-items-center justify-content-between bg-11 p-4 ps-md-5 pt-md-5 pb-md-5 pe-md-0 pe-xl-5 g-0">
+        <div className="col-12 bg-11 p-4 p-sm-5 ps-md-5 pt-md-5 pb-md-5 pe-md-0 pe-xl-5">
 
-          <div className="col-12 col-md-7 col-xl-5">
+          <div className="row align-items-center justify-content-between  g-0">
+            
+            <div className="col-12 col-md-7 col-xl-5">
 
-            <p className="p-4">
+              <p className="p-4">
 
-              <div className="row align-items-center justify-content-between g-0">
+                <div className="row align-items-center justify-content-between g-0">
 
-                <span className="col-11 col-lg-9">
+                  <span className="col-11 col-lg-9">
+                    
+                    Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                    
+                  </span>
+
+                  <Link to="store" className="col-auto align-self-lg-end border rounded mt-4 mb-3 px-2 py-1" > 
                   
-                  Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                  
-                </span>
+                    store 
+                    
+                  </Link>
 
-                <Link to="store" className="col-auto align-self-lg-end border rounded mt-4 mb-3 px-2 py-1" > 
-                
-                  store 
-                  
-                </Link>
+                </div>
 
-              </div>
+              </p>
 
-            </p>
+            </div>
+
+            <Carousel pause={false} interval={1500} controls={false} className="col-6 col-md-4 mx-auto mx-xl-0">
+
+              <Carousel.Item>
+
+                <img src={Finance} alt="Finance" width="150" height="150" />
+
+              </Carousel.Item>
+
+              <Carousel.Item>
+
+                <img src={Transport} alt="Transport" width="150" height="120" />
+
+              </Carousel.Item>
+
+              <Carousel.Item>
+
+                <img src={Warehouse} alt="Warehouse" width="150" height="150" />
+
+              </Carousel.Item>
+
+            </Carousel>   
 
           </div>
 
-          <Carousel pause={false} interval={1500} controls={false} className="col-6 col-md-4 mx-auto mx-xl-0">
-
-            <Carousel.Item>
-
-              <img src={Finance} alt="Finance" width="150" height="150" />
-
-            </Carousel.Item>
-
-            <Carousel.Item>
-
-              <img src={Transport} alt="Transport" width="150" height="120" />
-
-            </Carousel.Item>
-
-            <Carousel.Item>
-
-              <img src={Warehouse} alt="Warehouse" width="150" height="150" />
-
-            </Carousel.Item>
-
-          </Carousel>   
-
-        </div>  
+        </div>    
 
       </Header>
 
