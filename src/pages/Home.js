@@ -11,9 +11,11 @@ import PreText from "../components/PreText";
 import TwoColCurve from "../components/TwoColCurve";
 import TwoColImage from "../components/TwoColImage";
 import TwoColText from "../components/TwoColText";
+import TwoRowFeature from "../components/TwoRowFeature";
 import Slider from "../components/Slider";
 import Finance from "../images/finance.webp";
 import Greens from "../images/greens.webp";
+import Lemons from "../images/lemons.webp";
 import Platter from "../images/platter.webp";
 import Roast from "../images/roast.webp";
 import Store from "../images/store.webp";
@@ -40,7 +42,7 @@ const Home = (props) => {
 
               <p className="p-4">
 
-                <div className="row align-items-center justify-content-between g-0">
+                <span className="d-flex row align-items-center justify-content-between g-0">
 
                   <span className="col-11 col-lg-9">
                     
@@ -54,7 +56,7 @@ const Home = (props) => {
                     
                   </Link>
 
-                </div>
+                </span>
 
               </p>
 
@@ -122,6 +124,22 @@ const Home = (props) => {
         <img src={Store} alt="store"  width="920" height="839" /> 
 
       </TwoColCurve>
+
+      <TwoRowFeature
+      
+        heading_top={`Lorem Ipsum id posuere lorem aliquam eget. Lorem ipsum dolor sit amet.`}
+        heading_bottom={`Consectetur adipiscing elit.`}
+        paragraph={
+          `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu gravida velit. Vestibulum eu posuere
+          elit. Cras bibendum velit dui, eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
+          scelerisque lorem nec rutrum. Phasellus et turpis posuere.`
+        }
+      
+      >
+
+        <img src={Lemons} alt="lemons" width="400" height="400" />
+
+      </TwoRowFeature>
 
       <Slider
       

@@ -1,0 +1,52 @@
+.two-row-feature {
+    background-color: $c1;
+    .up {
+        top: -2.5rem;
+        @include min_lg {
+            top: -12rem;
+        }
+    }
+    .up-thirds {
+        @include min_lg {
+            top: -6rem;
+        }
+    }
+    .down {
+        @include min_lg {
+            margin-top: 6rem;
+        }
+    }
+    h2 {
+        line-height: 2rem;
+        color: $c9;
+        font-size: clamp(18px, 3vw, 34px);
+        @include min_md {
+            line-height: 3rem;
+        }
+        @include min_xl {
+            line-height: 4.5rem;
+        }
+        .lower {
+            color: $c4;
+        }
+    }
+    p {
+        color: $c9;
+    }
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: min-content;
+        aspect-ratio: 1 / 1;
+        border: 6px solid $c9;
+        border-radius: 100%;
+    }
+    .points {
+        background-color: $c2;
+        border-radius: 5rem;
+        color: $c4;
+        .tag {
+            color: $c9;
+        }
+    }
+}
