@@ -19,11 +19,11 @@
     h2 {
         line-height: 2rem;
         color: $c9;
-        font-size: clamp(18px, 3vw, 34px);
+        font-size: clamp(18px, 3vw, 30px);
         @include min_md {
             line-height: 3rem;
         }
-        @include min_xl {
+        @include min_xxl {
             line-height: 4.5rem;
         }
         .lower {
@@ -32,6 +32,8 @@
     }
     p {
         color: $c9;
+        font-size: clamp(18px, 2vw, 20px);
+        line-height: 1.6;
     }
     img {
         object-fit: cover;
