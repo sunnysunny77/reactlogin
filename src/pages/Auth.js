@@ -271,7 +271,7 @@ const Auth = (props) => {
                   <input
 
                     type="email"
-                    className="form-control mt-1"
+                    className="rounded w-100 mt-1 mb-2 ps-2"
                     placeholder="Enter email"
                     value={email} onChange={e => setEmail(e.target.value)}
                     autoComplete="on"
@@ -287,7 +287,7 @@ const Auth = (props) => {
                   <input
 
                     type="password"
-                    className="form-control mt-1"
+                    className="rounded w-100 mt-1 mb-2 ps-2"
                     placeholder="Enter password"
                     value={pass} onChange={e => setPass(e.target.value)}
                     autoComplete="on"
@@ -296,7 +296,7 @@ const Auth = (props) => {
 
                 </label>
 
-                <button type="submit" className="btn mt-2 btn-light">
+                <button type="submit" className="btnn py-1 w-100 rounded mt-2">
 
                   Submit
 
@@ -344,7 +344,7 @@ const Auth = (props) => {
 
                   <input
 
-                    className="form-control mt-1"
+                    className="rounded w-100  mt-1 mb-2 ps-2"
                     type="text"
                     id="txtInput"
                     ref={ref}
@@ -353,7 +353,7 @@ const Auth = (props) => {
 
                   <button
 
-                    className="btn btn-light mt-2"
+                    className="btnn py-1 w-100 rounded mt-2"
                     onClick={captchaauthorization}
 
                   >
@@ -363,7 +363,7 @@ const Auth = (props) => {
                   </button>
 
                   <button
-                    className="btn btn-light mb-3 mt-2"
+                    className="btnn py-1 w-100 rounded mb-3 mt-2"
                     onClick={captchainit}
                   >
 
@@ -390,7 +390,7 @@ const Auth = (props) => {
                       <input
 
                         type="email"
-                        className="form-control mt-1"
+                        className="rounded w-100 mt-1 mb-2 ps-2"
                         placeholder="Enter email"
                         value={emailNew} onChange={e => setEmailNew(e.target.value)}
                         autoComplete="on"
@@ -400,7 +400,7 @@ const Auth = (props) => {
 
                     </label>
 
-                    <button id="submit" type="submit" className="btn mt-2 btn-light">
+                    <button id="submit" type="submit" className="btnn py-1 w-100 rounded mt-2">
 
                       Submit
 
@@ -425,7 +425,7 @@ const Auth = (props) => {
                         <input
 
                           type="text"
-                          className="form-control mt-1"
+                          className="rounded w-100 mt-1 mb-2 ps-2"
                           placeholder="Paste code"
                           value={security}
                           onChange={e => setSecurity(e.target.value)}
@@ -435,7 +435,7 @@ const Auth = (props) => {
 
                       </label>
 
-                      <button id="submit" type="submit" className="btn mt-2 btn-light">
+                      <button id="submit" type="submit" className="btnn py-1 w-100 rounded mt-2">
 
                         Submit
 
@@ -445,7 +445,7 @@ const Auth = (props) => {
                       
                         id="submit" 
                         type="submit" 
-                        className="btn mt-2 btn-light"
+                        className="btnn py-1 w-100 rounded mt-2"
                         onClick={cancel}
 
                         >
@@ -479,7 +479,7 @@ const Auth = (props) => {
                         <input
 
                           type="password"
-                          className="form-control mt-1"
+                          className="rounded w-100 mt-1 mb-2 ps-2"
                           placeholder="Enter password"
                           value={passRegistration} onChange={e => setPassRegistration(e.target.value)}
                           autoComplete="on"
@@ -489,7 +489,7 @@ const Auth = (props) => {
 
                       </label>
 
-                      <button id="submit" type="submit" className="btn mt-2 btn-light">
+                      <button id="submit" type="submit" className="btnn py-1 w-100 rounded mt-2">
 
                         Submit
 
