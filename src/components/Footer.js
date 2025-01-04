@@ -167,7 +167,7 @@ const Footer = (props) => {
 
                 <div className="col-8 d-flex mt-3">
 
-                  <Link to="/"> 
+                  <Link aria-label="LinkedIn" to="/"> 
                           
                     <Linkedin />
           
