@@ -47,7 +47,19 @@ const Navigation = (props) => {
 
     let body = document.body;
 
-    let height = window.innerWidth >= 768 ? 82 : 83;
+    let height = 83;
+  
+    if (window.innerWidth >= 768) {
+
+      obj.position = "absolute";
+      obj.top = "0px";
+      handle_collapse("max-height 0.375s", height);
+      body.style.marginTop = "";
+      Object.assign(navbar.current.style, obj);
+      return;
+    }
+
+    height = 82;
     
     let positive = false;
 
@@ -65,64 +77,37 @@ const Navigation = (props) => {
       positive = false;
     }
 
-    if (scroll_pos < collapse) {
+    if (scroll_pos < collapse) {  
 
-        if (window.innerWidth >= 768) {
-
-          obj.position = "absolute";
-          obj.top = "0px";
-          obj.width = "300px";
-          obj.borderBottom = "none";
-          handle_collapse("max-height 0.375s", height);
-          body.style.marginTop = "";
-          navbar_collapse.current.style.borderTop = "";
-        } else {
-
-          obj.position = "static";
-          obj.top = "initial";
-          obj.width = "100%";
-          obj.borderBottom = "1px solid #dee2e6";
-          handle_collapse("max-height 0.375s", collapse);
-          body.style.marginTop = "";
-          navbar_collapse.current.style.borderTop = "1px solid #dee2e6";         
-        }
+        obj.position = "static";
+        obj.top = "initial";
+        handle_collapse("max-height 0.375s", collapse);
+        body.style.marginTop = "";
       } else if (scroll_pos > top && scroll_pos < top + height && !positive) {
 
         obj.position = "fixed";
         obj.top = `-${height}px`;
-        obj.width = "100%";
-        obj.borderBottom = "1px solid #dee2e6";
         handle_collapse("top 0.375s, max-height 0.375s", height);
-        body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
-        navbar_collapse.current.style.borderTop = "1px solid #dee2e6";    
+        body.style.marginTop = `${height}px`;
       } else if (scroll_pos > collapse && scroll_pos < top + height) {  
 
         obj.position = "fixed";
         obj.top = `-${height}px`;
-        obj.width = "100%";
-        obj.borderBottom = "1px solid #dee2e6";
         handle_collapse("none", height);
-        body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
-        navbar_collapse.current.style.borderTop = "1px solid #dee2e6";    
+        body.style.marginTop = `${height}px`;
       } else if (scroll_pos > top + height && positive) {
 
         obj.position = "fixed";
         obj.top = `-${height}px`;
-        obj.width = "100%";
-        obj.borderBottom = "1px solid #dee2e6";
         handle_collapse("top 0.375s, max-height 0.375s", 0);
-        body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
-        navbar_collapse.current.style.borderTop = "1px solid #dee2e6";    
+        body.style.marginTop = `${height}px`;
       } else {
     
         obj.position = "fixed";
         obj.top = "0px";
-        obj.width = "100%";
-        obj.borderBottom = "1px solid #dee2e6";
         obj.transition = "top 0.375s, max-height 0.375s";
         obj.maxHeight = `${collapse}px`;
-        body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
-        navbar_collapse.current.style.borderTop = "1px solid #dee2e6";    
+        body.style.marginTop = `${height}px`;
       }
 
       Object.assign(navbar.current.style, obj);
