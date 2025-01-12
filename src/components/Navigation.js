@@ -143,13 +143,12 @@ const Navigation = (props) => {
 
     if (!navbar_toggler.current.classList.contains("has-collapsed")) {
 
-      navbar_collapse.current.style.maxHeight = "0px";
-      navbar_toggler.current.classList.add("has-collapsed");
+      handle_collapse("max-height 0.375s", height);
     }
 
     window.scrollTo(0,0);
     window.addEventListener("scroll", handle_singlepage, { passive: true });
-  }, [handle_singlepage, navigate])
+  }, [handle_collapse, handle_singlepage, navigate])
 
   useEffect(() => {
 
