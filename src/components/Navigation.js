@@ -1,14 +1,22 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 
 const Navigation = (props) => {
 
   const { auth, setAuth } = props;
 
+  const height = 83;
+
   const navigate = useNavigate();
 
+  const navbar = useRef();
   const navbar_toggler = useRef();
   const navbar_collapse = useRef();
+  const [scrollY, setScrollY] = useState(0);
+  const [scroll, setScroll] = useState(false);
+  const [collapse, setCollapse] = useState(82);
+  const [top, setTop] = useState(null);
+  
 
   const toogle = () => {
 
@@ -17,13 +25,119 @@ const Navigation = (props) => {
     navbar_toggler.current.classList.toggle("has-collapsed");
 
     if (navbar_toggler.current.classList.contains("has-collapsed")) {
-      max_height = 0;
+      max_height = height;
     }  else {
-      max_height = navbar_collapse.current.scrollHeight;
+      max_height = navbar.current.scrollHeight;
     }
 
-    navbar_collapse.current.style.maxHeight = `${max_height}px`;
+    navbar.current.style.maxHeight = `${max_height}px`;
+    
+    setCollapse(max_height);
   }
+
+  const handle_collapse = useCallback((transition, height_param) => {
+
+    navbar_toggler.current.classList.add("has-collapsed");
+
+    Object.assign(navbar.current.style, {
+
+      transition: transition,
+      maxHeight: `${height_param}px`
+    });
+
+    setCollapse(height);
+  },[]);
+
+  const handle_navigationigation = useCallback(() => {
+
+    let obj = {};
+
+    const body = document.body;
+
+    if (scroll) {
+
+      obj.position = "fixed";
+      obj.top = `-${height}px`;
+      obj.width = "100%";
+      obj.borderBottom = "1px solid #dee2e6";
+      handle_collapse("top 0.1s", height);
+      body.style.marginTop = `${height}px`;
+      Object.assign(navbar.current.style, obj);
+      return;
+    }
+
+    let positive = false;
+
+    let scroll_pos = window.scrollY;
+
+    if (scroll_pos > scrollY) {
+
+      positive = true;
+    } else if (scroll_pos < scrollY) {
+
+      positive = false;
+    }
+    
+    if (scroll_pos < height) {  
+
+      obj.position = window.innerWidth >= 768 ? "absolute" : "static";
+      obj.top = window.innerWidth >= 768 ? "0px" : "initial";
+      obj.width = window.innerWidth >= 768 ? "300px" : "100%";
+      obj.borderBottom = window.innerWidth >= 768 ? "none" : "1px solid #dee2e6";
+      handle_collapse("max-height 0.375s", height);
+      body.style.marginTop = "";
+    } else if (scroll_pos > top && scroll_pos < top + height && !positive) {
+
+      obj.position = "fixed";
+      obj.top = `-${height}px`;
+      obj.width = "100%";
+      obj.borderBottom = "1px solid #dee2e6";
+      handle_collapse("top 0.375s, max-height 0.375s", height);
+      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+    } else if (scroll_pos > height && scroll_pos < top + height) {  
+
+      obj.position = "fixed";
+      obj.top = `-${height}px`;
+      obj.width = "100%";
+      obj.borderBottom = "1px solid #dee2e6";
+      handle_collapse("none", height);
+      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+    } else if (scroll_pos > top + height && positive) {
+
+      obj.position = "fixed";
+      obj.top = `-${height}px`;
+      obj.width = "100%";
+      obj.borderBottom = "1px solid #dee2e6";
+      handle_collapse("top 0.375s, max-height 0.375s", 0);
+      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+    } else {
+  
+      obj.position = "fixed";
+      obj.top = "0px";
+      obj.width = "100%";
+      obj.borderBottom = "1px solid #dee2e6";
+      obj.transition = "top 0.375s, max-height 0.375s";
+      obj.maxHeight = `${collapse}px`;
+      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+    }
+
+    Object.assign(navbar.current.style, obj);
+
+    setScrollY(scroll_pos);
+  },[collapse, handle_collapse, scroll, scrollY, top]);
+
+  const handle_singlepage = useCallback(() => {
+
+    let scroll_pos = window.scrollY;
+
+    setScroll(true);
+
+    if (scroll_pos < top + height) {
+
+      setScroll(false);
+      window.removeEventListener("scroll", handle_singlepage, { passive: true });
+    }
+  },[top]);
 
   useEffect(() => {
 
@@ -33,12 +147,27 @@ const Navigation = (props) => {
       navbar_toggler.current.classList.add("has-collapsed");
     }
 
-    window.scrollTo(0,0); 
-  }, [navigate])
+    window.scrollTo(0,0);
+    window.addEventListener("scroll", handle_singlepage, { passive: true });
+  }, [handle_singlepage, navigate])
 
+  useEffect(() => {
+
+    setTop(document.querySelector("header").scrollHeight + height);
+    window.addEventListener("scroll", handle_navigationigation, { passive: true });
+    window.addEventListener("wheel", handle_navigationigation, { passive: true });
+    window.addEventListener("resize", handle_navigationigation, { passive: true });
+
+    return () => {
+
+      window.removeEventListener("scroll", handle_navigationigation, { passive: true });
+      window.removeEventListener("wheel", handle_navigationigation, { passive: true });
+      window.removeEventListener("resize", handle_navigationigation, { passive: true });
+    };
+  }, [handle_navigationigation]);
   return (  
 
-    <nav className="container-fluid slider_8-navigation navigation d-flex align-items-center p-0">
+    <nav ref={navbar} className="container-fluid slider_8-navigation navigation d-flex align-items-start p-0">
 
       <div className="row w-100 justify-content-between m-0 g-0">
 

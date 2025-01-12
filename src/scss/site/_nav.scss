@@ -1,20 +1,22 @@
 .slider_8-navigation {
     background-color: $c1;
-    min-height: 74px;
+    z-index: 999;
+    overflow: hidden;
+    transition: max-height 0.4s;
+    will-change: max-height;
+    max-height: 83px;
+    border-bottom: 1px solid $c9;
     @include min_md {
         width: 300px;
         position: absolute;
-        z-index: 999;
         right: 0;
+        border: none;
     }
     .navbar-collapse {
         background-color: inherit;
         transition: max-height 0.4s;
         will-change: max-height;
-        overflow: hidden;
-        max-height: 0;
         border-top: 1px solid $c9;
-        border-bottom: 1px solid $c9;
         @include min_md {
             border: none;
         }
