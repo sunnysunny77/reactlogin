@@ -4,21 +4,15 @@
     will-change: max-height;
     overflow: hidden;
     max-height: 83px;
-    border-bottom: 1px solid $c9;
     z-index: 999;
     @include min_md {
         max-height: 82px;
         width: 300px;
         position: absolute;
         right: 0;
-        border-bottom: none;
     }
     .navbar-collapse {
         background-color: inherit;
-        border-top: 1px solid $c9;
-        @include min_md {
-            border: none;
-        }
     }
     a {
         color: $c9;
