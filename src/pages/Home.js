@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
 import Carousel from 'react-bootstrap/Carousel';
@@ -26,7 +26,19 @@ import Aus from "../images/australian-made.svg";
 
 const Home = (props) => {
 
-  const { items, cartOrder, setLoad } = props;
+  const { options, items, cartOrder, setLoad, setReferance } = props;
+
+  const cart_click = (event) => {
+
+    const referance = event.currentTarget.getAttribute("referance");
+    cartOrder[referance]();
+    setReferance(referance);
+  };
+
+  useEffect(() => {
+
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
 
@@ -197,11 +209,13 @@ const Home = (props) => {
 
           <Link
 
-            to="store?ref=storeRef"
+            to={`store`}
             
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOrder.cartOne}
+            onClick={cart_click}
+
+            referance={options[0].value}
 
           >
 
@@ -245,11 +259,13 @@ const Home = (props) => {
 
           <Link
 
-            to="store?ref=storeRef"
+            to={`store`}
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOrder.cartTwo}
+            onClick={cart_click}
+
+            referance={options[1].value}
 
           >
 
@@ -293,11 +309,13 @@ const Home = (props) => {
 
           <Link
 
-            to="store?ref=storeRef"
+            to={`store`}
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOrder.cartThree}
+            onClick={cart_click}
+
+            referance={options[2].value}
 
           >
 
@@ -341,11 +359,13 @@ const Home = (props) => {
 
           <Link
 
-            to="store?ref=storeRef"
+            to={`store`}
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOrder.cartFour}
+            onClick={cart_click}
+
+            referance={options[3].value}
 
           >
 
@@ -389,11 +409,13 @@ const Home = (props) => {
 
           <Link
 
-            to="store?ref=storeRef"
+            to={`store`}
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOrder.cartFive}
+            onClick={cart_click}
+
+            referance={options[4].value}
 
           >
 
@@ -437,11 +459,13 @@ const Home = (props) => {
 
           <Link
 
-            to="store?ref=storeRef"
+            to={`store`}
 
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
             
-            onClick={cartOrder.cartSix}
+            onClick={cart_click}
+
+            referance={options[5].value}
 
           >
 

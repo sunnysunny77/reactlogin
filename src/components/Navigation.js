@@ -9,14 +9,15 @@ const Navigation = (props) => {
 
   const body = document.body;
 
-  const navigate = useNavigate();
-
   const navbar = useRef();
   const navbar_toggler = useRef();
   const navbar_collapse = useRef();
+
+  const navigate = useNavigate();
+
   const [scrollY, setScrollY] = useState(0);
+  const [scrollTop, setScrollTop] = useState(false);
   const [positive, setPositive] = useState(true);
-  const [scroll, setScroll] = useState(false);
   const [collapse, setCollapse] = useState(82);
   const [top, setTop] = useState(null);
   
@@ -54,7 +55,7 @@ const Navigation = (props) => {
 
     let obj = {};
 
-    if (scroll) {
+    if (scrollTop) {
 
       obj.zIndex = 999;
       obj.position = "fixed";
@@ -62,13 +63,13 @@ const Navigation = (props) => {
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
       handle_collapse("top 0.375s, max-height 0.375s", height);
-      body.style.marginTop = `${height}px`;
+      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
       Object.assign(navbar.current.style, obj);
       return;
     }
 
     let scroll_pos = window.scrollY;
-    
+
     if (scroll_pos < height) {  
 
       obj.zIndex = 1001;
@@ -128,17 +129,17 @@ const Navigation = (props) => {
     }
 
     setScrollY(scroll_pos);
-  },[body.style, collapse, handle_collapse, positive, scroll, scrollY, top]);
+  },[body.style, collapse, handle_collapse, positive, scrollTop, scrollY, top]);
 
   const handle_singlepage = useCallback(() => {
 
     let scroll_pos = window.scrollY;
 
-    setScroll(true);
+    setScrollTop(true);
 
     if (scroll_pos < top + height) {
 
-      setScroll(false);
+      setScrollTop(false);
       window.removeEventListener("scroll", handle_singlepage, { passive: true });
     }
   },[top]);
@@ -150,7 +151,6 @@ const Navigation = (props) => {
       handle_collapse("top 0.375s, max-height 0.375s", height);
     }
 
-    window.scrollTo(0,0);
     window.addEventListener("scroll", handle_singlepage, { passive: true });
   }, [handle_collapse, handle_singlepage, navigate])
 

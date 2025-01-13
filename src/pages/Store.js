@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useCallback } from "react";
-import { useSearchParams, Link } from 'react-router-dom';
+import React, { useCallback, useRef, useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { ArrowDownShort } from 'react-bootstrap-icons';
 import { ArrowRight } from 'react-bootstrap-icons';
@@ -13,15 +13,15 @@ import styles from './Store.module.scss';
 const Store = (props) => {
 
   const { 
-    items, options, cartOrder, order, count, output, disabled, cart, 
-    setCount, setOutput, setDisabled, setCart 
+    referance, items, options, cartOrder, order, count, output, disabled, cart, 
+    setReferance, setCount, setOutput, setDisabled, setCart 
   } = props;
 
   const storeRef = useRef(null);
 
   const itemsRef = useRef(null);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [notReferance] = useState(referance);
 
   const createOrder = (data, actions) => {
 
@@ -208,26 +208,6 @@ const Store = (props) => {
     if (node) window.scrollTo(0, node.offsetTop); 
   }, []);
 
-  useEffect(() => {
-
-    const ref = searchParams.get("ref");
-
-    if(ref === "storeRef") {
-
-      window.scrollTo(0, storeRef.current.offsetTop); 
-    } else if (ref === "itemsRef") {
-
-      window.scrollTo(0, itemsRef.current.offsetTop); 
-    } 
-
-    if (ref) {
-
-      searchParams.delete("ref");
-      
-      setSearchParams(searchParams);
-    }
-  }, [searchParams, setSearchParams])
-
   const srcListen = (e) => {
 
     const obj = e.currentTarget;
@@ -239,6 +219,37 @@ const Store = (props) => {
       obj.classList.remove("fade");
     }, 100)
   }
+
+  const cart_click = (event) => {
+
+    cartOrder[event.currentTarget.getAttribute("referance")]();
+       window.scrollTo(0, storeRef.current.offsetTop);
+  };
+
+  const cta_click = () => {
+
+    window.scrollTo(0, storeRef.current.offsetTop);
+  };
+
+  useEffect(() => {
+
+    if (referance) {
+
+      window.scrollTo(0, storeRef.current.offsetTop);
+
+      return () => {
+  
+        setReferance(false);
+      };
+    }
+  }, [referance, setReferance]);
+
+  useEffect(() => {
+
+    if (!notReferance) {
+      window.scrollTo(0, 0);
+    }
+  }, [notReferance]);
 
   return (
 
@@ -255,12 +266,12 @@ const Store = (props) => {
         >
 
           <Link
-
-            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOrder.cartOne}
+            onClick={cart_click}
+
+            referance={options[0].value}
         
           >
 
@@ -303,12 +314,12 @@ const Store = (props) => {
           </Link>
 
           <Link
-
-            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOrder.cartTwo}
+            onClick={cart_click}
+
+            referance={options[1].value}
         
           >
 
@@ -351,12 +362,12 @@ const Store = (props) => {
           </Link>
 
           <Link
-
-            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOrder.cartThree}
+            onClick={cart_click}
+
+            referance={options[2].value}
         
           >
 
@@ -399,12 +410,12 @@ const Store = (props) => {
           </Link>
 
           <Link
-
-            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOrder.cartFour}
+            onClick={cart_click}
+
+            referance={options[3].value}
         
           >
 
@@ -447,12 +458,12 @@ const Store = (props) => {
           </Link>
 
           <Link
-
-            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOrder.cartFive}
+            onClick={cart_click}
+
+            referance={options[4].value}
         
           >
 
@@ -495,12 +506,12 @@ const Store = (props) => {
           </Link>
 
           <Link
-
-            to="?ref=storeRef"
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cartOrder.cartSix}
+            onClick={cart_click}
+
+            referance={options[5].value}
         
           >
 
@@ -1036,22 +1047,28 @@ const Store = (props) => {
 
       <div className="container-xl px-4 pb-5 px-sm-5 px-xl-0 mb-lg-5  pt-5 mt-lg-5 g-0">
 
-        <Cta
+        <div
 
-          link="?ref=itemsRef"
+          onClick={cta_click}
+        
+        >
+            
+          <Cta
 
-          heading={`Lobor Kenean`}
-          
-          bold={`Mollis dui`}
+            heading={`Lobor Kenean`}
+            
+            bold={`Mollis dui`}
 
-          paragraph={
-            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
-            rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat.`
-          }
+            paragraph={
+              `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+              rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat.`
+            }
 
-          button={`Vestibulum eu`}
+            button={`Vestibulum eu`}
 
-        />
+          />
+
+        </div>
 
       </div>
 

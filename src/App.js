@@ -188,6 +188,8 @@ function App() {
 
   const [cart, setCart] = useState({});
 
+  const [referance, setReferance] = useState(null);
+
   const initialauthorization = async () => {
 
     let res = await fetch(`/api/initialauthorization/?controller=initialauthorization&key=${btoa(process.env.REACT_APP_KEY)}`, {
@@ -274,11 +276,11 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<Layout auth={auth} setAuth={logout} />} >
-          <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
+          <Route index element={<Home options={options} items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} setReferance={e => setReferance(e)} />} />
           <Route path="store" element={
             <Store 
-              items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} disabled={disabled} cart={cart} 
-              setCount={e => setCount(e)} setOutput={e => setOutput(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} 
+              referance={referance} items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} disabled={disabled} cart={cart} 
+              setReferance={e => setReferance(e)} setCount={e => setCount(e)} setOutput={e => setOutput(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} 
             />
           }/>
           <Route path="*" element={<NotFound />} />
@@ -290,7 +292,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout auth={auth} />} >
-        <Route index element={<Home items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} />} />
+        <Route index element={<Home options={options} items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} setReferance={e => setReferance(e)} />} />
         <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} />} />
         <Route path="*" element={<NotFound />} />
       </Route>
