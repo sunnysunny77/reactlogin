@@ -1,4 +1,6 @@
 header {
+    position: relative;
+    z-index: 1000;
     h1 {
         position: absolute;
         width: fit-content;

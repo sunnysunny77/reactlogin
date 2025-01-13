@@ -7,17 +7,19 @@ const Navigation = (props) => {
 
   const height = 83;
 
+  const body = document.body;
+
   const navigate = useNavigate();
 
   const navbar = useRef();
   const navbar_toggler = useRef();
   const navbar_collapse = useRef();
   const [scrollY, setScrollY] = useState(0);
+  const [positive, setPositive] = useState(true);
   const [scroll, setScroll] = useState(false);
   const [collapse, setCollapse] = useState(82);
   const [top, setTop] = useState(null);
   
-
   const toogle = () => {
 
     let max_height;
@@ -52,34 +54,24 @@ const Navigation = (props) => {
 
     let obj = {};
 
-    const body = document.body;
-
     if (scroll) {
 
+      obj.zIndex = 999;
       obj.position = "fixed";
       obj.top = `-${height}px`;
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
-      handle_collapse("top 0.1s", height);
+      handle_collapse("top 0.375s, max-height 0.375s", height);
       body.style.marginTop = `${height}px`;
       Object.assign(navbar.current.style, obj);
       return;
     }
 
-    let positive = false;
-
     let scroll_pos = window.scrollY;
-
-    if (scroll_pos > scrollY) {
-
-      positive = true;
-    } else if (scroll_pos < scrollY) {
-
-      positive = false;
-    }
     
     if (scroll_pos < height) {  
 
+      obj.zIndex = 1001;
       obj.position = window.innerWidth >= 768 ? "absolute" : "static";
       obj.top = window.innerWidth >= 768 ? "0px" : "initial";
       obj.width = window.innerWidth >= 768 ? "300px" : "100%";
@@ -88,6 +80,7 @@ const Navigation = (props) => {
       body.style.marginTop = "";
     } else if (scroll_pos > top && scroll_pos < top + height && !positive) {
 
+      obj.zIndex = 999;
       obj.position = "fixed";
       obj.top = `-${height}px`;
       obj.width = "100%";
@@ -96,14 +89,16 @@ const Navigation = (props) => {
       body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else if (scroll_pos > height && scroll_pos < top + height) {  
 
+      obj.zIndex = 999;
       obj.position = "fixed";
       obj.top = `-${height}px`;
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
-      handle_collapse("none", height);
+      handle_collapse(positive ? "none" : "top 0.375s, max-height 0.375s", height);
       body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else if (scroll_pos > top + height && positive) {
 
+      obj.zIndex = 999;
       obj.position = "fixed";
       obj.top = `-${height}px`;
       obj.width = "100%";
@@ -112,6 +107,7 @@ const Navigation = (props) => {
       body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else {
   
+      obj.zIndex = 999;
       obj.position = "fixed";
       obj.top = "0px";
       obj.width = "100%";
@@ -121,10 +117,18 @@ const Navigation = (props) => {
       body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
     }
 
-    Object.assign(navbar.current.style, obj);
+    if (obj !== navbar.current.style) Object.assign(navbar.current.style, obj);
+
+    if (scroll_pos > scrollY) {
+
+      setPositive(true);
+    } else if (scroll_pos < scrollY) {
+
+      setPositive(false);
+    }
 
     setScrollY(scroll_pos);
-  },[collapse, handle_collapse, scroll, scrollY, top]);
+  },[body.style, collapse, handle_collapse, positive, scroll, scrollY, top]);
 
   const handle_singlepage = useCallback(() => {
 
@@ -143,7 +147,7 @@ const Navigation = (props) => {
 
     if (!navbar_toggler.current.classList.contains("has-collapsed")) {
 
-      handle_collapse("max-height 0.375s", height);
+      handle_collapse("top 0.375s, max-height 0.375s", height);
     }
 
     window.scrollTo(0,0);
@@ -164,6 +168,7 @@ const Navigation = (props) => {
       window.removeEventListener("resize", handle_navigationigation, { passive: true });
     };
   }, [handle_navigationigation]);
+
   return (  
 
     <nav ref={navbar} className="container-fluid slider_8-navigation navigation d-flex align-items-start p-0">
