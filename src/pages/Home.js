@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
 import Carousel from 'react-bootstrap/Carousel';
@@ -26,7 +26,9 @@ import Aus from "../images/australian-made.svg";
 
 const Home = (props) => {
 
-  const { options, items, cartOrder, setLoad, setReferance } = props;
+  const { options, items, cartOrder, setLoad, setReferance, setIsScrolling } = props;
+
+  const [notReferance, setNotReferance] = useState(false);
 
   const cart_click = (event) => {
 
@@ -37,9 +39,17 @@ const Home = (props) => {
 
   useEffect(() => {
 
-    window.scrollTo(0, 0); 
-  }, []);
+    if (!notReferance) {
 
+      window.scrollTo(0, 0);
+      setIsScrolling(0);
+      return () => {
+  
+        setNotReferance(true);
+      };
+    }
+  }, [notReferance, setIsScrolling]);
+  
   return (
 
     <>

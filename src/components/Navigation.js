@@ -3,7 +3,7 @@ import { NavLink, Link,  useLocation } from "react-router-dom";
 
 const Navigation = (props) => {
 
-  const { auth, setAuth } = props;
+  const { isScrolling, auth, setIsScrolling, setAuth } = props;
 
   const height = 83;
 
@@ -62,9 +62,39 @@ const Navigation = (props) => {
 
   const handle_navigationigation = useCallback(() => {
 
+    let obj = {};
+
     let scroll_pos = window.scrollY; 
 
-    let obj = {};
+    if (Number.isInteger(isScrolling)) {
+
+      if (scroll_pos === isScrolling) {
+
+        setIsScrolling(null);
+      } else if (scroll_pos < top + height) {  
+
+        obj.zIndex = 1001;
+        obj.position = window.innerWidth >= 768 ? "absolute" : "static";
+        obj.top = window.innerWidth >= 768 ? "0px" : "initial";
+        obj.width = window.innerWidth >= 768 ? "300px" : "100%";
+        obj.borderBottom = window.innerWidth >= 768 ? "none" : "1px solid #dee2e6";
+        handle_collapse("max-height 0.375s", height);
+        body.style.paddingTop = "";
+      }  else if (scroll_pos > top + height) { 
+
+        obj.zIndex = 999;
+        obj.position = "fixed";
+        obj.top = `-${height}px`;
+        obj.width = "100%";
+        obj.borderBottom = "1px solid #dee2e6";
+        handle_collapse("top 0.375s, max-height 0.375s", height);
+        body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
+      } 
+
+      if (obj !== navbar.current.style) Object.assign(navbar.current.style, obj);
+
+      return;
+    }
 
     if (scroll_pos < height) {  
 
@@ -125,7 +155,7 @@ const Navigation = (props) => {
     }
 
     setScrollY(scroll_pos);
-  },[body.style, collapse, handle_collapse, positive, scrollY, top]);
+  },[body.style, collapse, handle_collapse, isScrolling, positive, scrollY, setIsScrolling, top]);
 
   useEffect(() => {
 

@@ -5,13 +5,13 @@ import Navigation from "./Navigation"
 
 const Layout = (props) => {
 
-  const { auth, setAuth } = props;
+  const { isScrolling, auth, setIsScrolling, setAuth } = props;
 
   return (
 
     <>
 
-      <Navigation id="top" auth={auth} setAuth={setAuth} />
+      <Navigation id="top" isScrolling={isScrolling} auth={auth} setIsScrolling={setIsScrolling} setAuth={setAuth} />
 
       <main className="d-flex flex-column">
 

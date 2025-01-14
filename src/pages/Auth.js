@@ -6,7 +6,7 @@ import Spinner from "../images/load.gif";
 
 const Auth = (props) => {
 
-  const { setLoad, setAuth } = props;
+  const { setLoad, setAuth, setIsScrolling } = props;
 
   const navigate = useNavigate();
   const ref = useRef();
@@ -32,6 +32,8 @@ const Auth = (props) => {
   const [emailNew, setEmailNew] = useState("");
   const [security, setSecurity] = useState("");
   const [passRegistration, setPassRegistration] = useState("");
+
+  const [notReferance, setNotReferance] = useState(false);
 
   const cancel = () => {
 
@@ -244,8 +246,16 @@ const Auth = (props) => {
 
   useEffect(() => {
 
-    window.scrollTo(0, 0); 
-  }, []);
+    if (!notReferance) {
+
+      window.scrollTo(0, 0);
+      setIsScrolling(0);
+      return () => {
+  
+        setNotReferance(true);
+      };
+    }
+  }, [notReferance, setIsScrolling]);
 
   return (
 

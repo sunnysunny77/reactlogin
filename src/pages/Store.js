@@ -13,14 +13,14 @@ const Store = (props) => {
 
   const { 
     referance, items, options, cartOrder, order, count, output, disabled, cart, 
-    setReferance, setCount, setOutput, setDisabled, setCart 
+    setReferance, setCount, setOutput, setDisabled, setCart, setIsScrolling
   } = props;
 
   const storeRef = useRef(null);
 
   const itemsRef = useRef(null);
 
-  const [notReferance] = useState(referance);
+  const [notReferance, setNotReferance] = useState(referance);
 
   const createOrder = (data, actions) => {
 
@@ -236,21 +236,26 @@ const Store = (props) => {
     if (referance) {
 
       scroll_to(storeRef.current.offsetTop);
-
+      setIsScrolling(storeRef.current.offsetTop);
       return () => {
   
         setReferance(false);
       };
     }
-  }, [referance, setReferance]);
+  }, [referance, setIsScrolling, setReferance]);
 
   useEffect(() => {
 
     if (!notReferance) {
 
       scroll_to(0);
+      setIsScrolling(0);
+      return () => {
+  
+        setNotReferance(true);
+      };
     }
-  }, [notReferance]);
+  }, [notReferance, setIsScrolling]);
 
   return (
 
@@ -258,7 +263,7 @@ const Store = (props) => {
     
       <Header heading="STORE" />
 
-      <div ref={itemsRef} id="itemsRef" className="container-fluid d pt-4 mt-lg-4 mb-lg-5">
+      <div ref={itemsRef} id="itemsRef" className="container-fluid pt-4 mt-lg-4 mb-lg-5">
 
         <Cards
           
