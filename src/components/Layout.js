@@ -19,7 +19,7 @@ const Layout = (props) => {
 
       </main>
 
-      <Footer auth={auth} setAuth={setAuth} />
+      <Footer auth={auth} setAuth={setAuth} setIsScrolling={setIsScrolling} />
 
     </>
     

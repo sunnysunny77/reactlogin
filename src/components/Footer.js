@@ -6,7 +6,13 @@ const Footer = (props) => {
 
   const year = useRef();
 
-  const { auth, setAuth } = props;
+  const { auth, setAuth, setIsScrolling } = props;
+
+  const scroll_to = () => {
+
+    window.scrollTo(0, 0);
+    setIsScrolling(0);
+  }
 
   useEffect(() => {
 
@@ -187,11 +193,11 @@ const Footer = (props) => {
 
                 <div className="col-12 d-flex flex-wrap justify-content-end mt-3">
 
-                  <a className="top" aria-label="Return to top" href="#top">
+                  <Link onClick={scroll_to} className="top" aria-label="Return to top" href="#top">
                     
                     &#8593;
                     
-                  </a>
+                  </Link>
 
                 </div>
 

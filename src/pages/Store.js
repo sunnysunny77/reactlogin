@@ -210,15 +210,16 @@ const Store = (props) => {
     }, 100)
   };
 
-  const scroll_to = (e) => {
+  const scroll_to = useCallback((e) => {
 
     window.scrollTo(0, e);
-  };
+    setIsScrolling(e);
+  },[setIsScrolling]);
 
   const outputRef = useCallback((e) => {
     
     if (e) scroll_to(e.offsetTop); 
-  }, []);
+  }, [scroll_to]);
 
   const optionOrder = (e) => {
 
@@ -236,13 +237,12 @@ const Store = (props) => {
     if (referance) {
 
       scroll_to(storeRef.current.offsetTop);
-      setIsScrolling(storeRef.current.offsetTop);
       return () => {
   
         setReferance(false);
       };
     }
-  }, [referance, setIsScrolling, setReferance]);
+  }, [referance, scroll_to, setIsScrolling, setReferance]);
 
   useEffect(() => {
 
@@ -250,15 +250,14 @@ const Store = (props) => {
 
       if (window.scrollY > 0) { 
         
-        setIsScrolling(0)
-        window.scrollTo(0, 0);
+        scroll_to(0);
       }
       return () => {
   
         setNotReferance(true);
       };
     }
-  }, [notReferance, setIsScrolling]);
+  }, [notReferance, scroll_to, setIsScrolling]);
 
   return (
 
