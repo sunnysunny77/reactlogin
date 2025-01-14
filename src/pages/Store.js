@@ -248,8 +248,11 @@ const Store = (props) => {
 
     if (!notReferance) {
 
-      scroll_to(0);
-      if (window.scrollY > 0) setIsScrolling(0);
+      if (window.scrollY > 0) { 
+        
+        setIsScrolling(0)
+        window.scrollTo(0, 0);
+      }
       return () => {
   
         setNotReferance(true);
