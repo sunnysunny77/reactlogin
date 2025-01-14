@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link,  useLocation } from "react-router-dom";
 
 const Navigation = (props) => {
 
@@ -13,10 +13,9 @@ const Navigation = (props) => {
   const navbar_toggler = useRef();
   const navbar_collapse = useRef();
 
-  const navigate = useNavigate();
+  const location =  useLocation();
 
   const [scrollY, setScrollY] = useState(0);
-  const [scrollTop, setScrollTop] = useState(false);
   const [positive, setPositive] = useState(true);
   const [collapse, setCollapse] = useState(82);
   const [top, setTop] = useState(null);
@@ -53,20 +52,19 @@ const Navigation = (props) => {
     setCollapse(height);
   },[]);
 
+  useEffect(() => {
+
+    if (!navbar_toggler.current.classList.contains("has-collapsed")) {
+
+      handle_collapse("top 0.375s, max-height 0.375s", height);
+    }
+  }, [handle_collapse, location]);
+
   const handle_navigationigation = useCallback(() => {
 
+    let scroll_pos = window.scrollY; 
+
     let obj = {};
-
-    if (scrollTop) {
-   
-      obj.top = `-${height}px`;
-      handle_collapse("top 0.375s, max-height 0.375s", height);
-      body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
-      Object.assign(navbar.current.style, obj);
-      return;
-    };
-
-    let scroll_pos = window.scrollY;
 
     if (scroll_pos < height) {  
 
@@ -127,28 +125,7 @@ const Navigation = (props) => {
     }
 
     setScrollY(scroll_pos);
-  },[body.style, collapse, handle_collapse, positive, scrollTop, scrollY, top]);
-
-  const handle_singlepage = useCallback(() => {
-
-    setScrollTop(true);
-
-    if (window.scrollY < top + height) {
-
-      setScrollTop(false);
-      window.removeEventListener("scroll", handle_singlepage, { passive: true });
-    }
-  },[top]);
-
-  useEffect(() => {
-
-    if (!navbar_toggler.current.classList.contains("has-collapsed")) {
-
-      handle_collapse("top 0.375s, max-height 0.375s", height);
-    }
-
-    window.addEventListener("scroll", handle_singlepage, { passive: true });
-  }, [handle_collapse, handle_singlepage, navigate]);
+  },[body.style, collapse, handle_collapse, positive, scrollY, top]);
 
   useEffect(() => {
 
