@@ -19,7 +19,7 @@ const Slider= (props) => {
       counters.current.children[index].classList.remove("has-current");
       counters.current.children[index].classList.remove("has-fade");
     },100);
-  }
+  };
 
   const last = (index) => {
 
@@ -32,7 +32,7 @@ const Slider= (props) => {
         counters.current.children[index].classList.remove("has-fade");
       },100);
     },100);
-  }
+  };
 
   const prev = () => {
 
@@ -44,12 +44,12 @@ const Slider= (props) => {
 
       setIndex(counters.current.children.length - 1);
 
-      last(counters.current.children.length - 1)
+      last(counters.current.children.length - 1);
 
-      return
-    }
+      return;
+    };
 
-    last(index - 1)
+    last(index - 1);
   };
 
   const next = () => {
@@ -62,12 +62,12 @@ const Slider= (props) => {
 
       setIndex(0);
 
-      last(0)
+      last(0);
 
-      return
-    }
+      return;
+    };
 
-    last(index + 1)
+    last(index + 1);
   };
 
   return (

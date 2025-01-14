@@ -1,5 +1,4 @@
 import React, { useCallback, useRef, useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { ArrowDownShort } from 'react-bootstrap-icons';
 import { ArrowRight } from 'react-bootstrap-icons';
@@ -25,7 +24,7 @@ const Store = (props) => {
 
   const createOrder = (data, actions) => {
 
-   const items = Object.keys(cart).map((index) => cart[index]);
+  const items = Object.keys(cart).map((index) => cart[index]);
 
     return actions.order.create({
 
@@ -48,7 +47,7 @@ const Store = (props) => {
         }
       ],
     });
-  }
+  };
 
   const onApprove = async (data, actions) => {
 
@@ -73,7 +72,7 @@ const Store = (props) => {
     for (const index in addressObj) {
         
       address += `${addressObj[index]} `;
-    }
+    };
 
     let itemsOutput = {};
 
@@ -88,7 +87,7 @@ const Store = (props) => {
       const description = itemsObj[index].description;
         
       itemsOutput[index] = { quantity, name, value, description };
-    }
+    };
 
     const total = `$ ${units.amount.value}`;
 
@@ -101,9 +100,10 @@ const Store = (props) => {
     setOutput({ caption: caption, transaction: transaction, name: name, address: address, itemsOutput: itemsOutput , total: total });
 
     cartOrder.cartOne();
-  }
+  };
 
   const style = {
+
     layout: 'horizontal',
     color: 'silver',
     shape: 'pill',
@@ -141,21 +141,16 @@ const Store = (props) => {
       </>
 
     );
-  }
+  };
 
   const minus = () => {
 
     if (count > 1) setCount(count - 1)
-  }
+  };
 
   const plus = () => {
 
     setCount(count + 1)
-  }
-
-  const optionOrder = (e) => {
-
-    cartOrder[e.value]();
   };
 
   const removeCart = (e) => {
@@ -167,7 +162,7 @@ const Store = (props) => {
     setCart(obj);
 
     if (Object.keys(obj).length === 0) setDisabled(true);
-  }
+  };
 
   const addCart = () => {
 
@@ -189,7 +184,7 @@ const Store = (props) => {
     setOutput(false);
 
     setDisabled(false);
-  }
+  };
 
   const total = () => {
 
@@ -201,12 +196,7 @@ const Store = (props) => {
     }
 
     return total;
-  }
-
-  const outputRef = useCallback((node) => {
-    
-    if (node) window.scrollTo(0, node.offsetTop); 
-  }, []);
+  };
 
   const srcListen = (e) => {
 
@@ -218,24 +208,34 @@ const Store = (props) => {
 
       obj.classList.remove("fade");
     }, 100)
-  }
-
-  const cart_click = (event) => {
-
-    cartOrder[event.currentTarget.getAttribute("referance")]();
-       window.scrollTo(0, storeRef.current.offsetTop);
   };
 
-  const cta_click = () => {
+  const scroll_to = (e) => {
 
-    window.scrollTo(0, storeRef.current.offsetTop);
+    window.scrollTo(0, e);
+  };
+
+  const outputRef = useCallback((e) => {
+    
+    if (e) scroll_to(e.offsetTop); 
+  }, []);
+
+  const optionOrder = (e) => {
+
+    cartOrder[e.currentTarget.getAttribute("value")]();
+    scroll_to(storeRef.current.offsetTop);
+  };
+
+  const action_callback = (e) => {
+
+    scroll_to(itemsRef.current.offsetTop);
   };
 
   useEffect(() => {
 
     if (referance) {
 
-      window.scrollTo(0, storeRef.current.offsetTop);
+      scroll_to(storeRef.current.offsetTop);
 
       return () => {
   
@@ -247,7 +247,8 @@ const Store = (props) => {
   useEffect(() => {
 
     if (!notReferance) {
-      window.scrollTo(0, 0);
+
+      scroll_to(0);
     }
   }, [notReferance]);
 
@@ -257,7 +258,7 @@ const Store = (props) => {
     
       <Header heading="STORE" />
 
-      <div ref={itemsRef} className="container-fluid d pt-4 mt-lg-4 mb-lg-5">
+      <div ref={itemsRef} id="itemsRef" className="container-fluid d pt-4 mt-lg-4 mb-lg-5">
 
         <Cards
           
@@ -265,13 +266,13 @@ const Store = (props) => {
 
         >
 
-          <Link
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cart_click}
+            onClick={(e)=>optionOrder(e)}
 
-            referance={options[0].value}
+            value={options[0].value}
         
           >
 
@@ -311,15 +312,15 @@ const Store = (props) => {
 
             </button>
 
-          </Link>
+          </div>
 
-          <Link
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cart_click}
+            onClick={(e)=>optionOrder(e)}
 
-            referance={options[1].value}
+            value={options[1].value}
         
           >
 
@@ -359,15 +360,15 @@ const Store = (props) => {
 
             </button>
 
-          </Link>
+          </div>
 
-          <Link
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cart_click}
+            onClick={(e)=>optionOrder(e)}
 
-            referance={options[2].value}
+            value={options[2].value}
         
           >
 
@@ -407,15 +408,15 @@ const Store = (props) => {
 
             </button>
 
-          </Link>
+          </div>
 
-          <Link
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cart_click}
+            onClick={(e)=>optionOrder(e)}
 
-            referance={options[3].value}
+            value={options[3].value}
         
           >
 
@@ -455,15 +456,15 @@ const Store = (props) => {
 
             </button>
 
-          </Link>
+          </div>
 
-          <Link
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cart_click}
+            onClick={(e)=>optionOrder(e)}
 
-            referance={options[4].value}
+            value={options[4].value}
         
           >
 
@@ -503,15 +504,15 @@ const Store = (props) => {
 
             </button>
 
-          </Link>
+          </div>
 
-          <Link
+          <div
           
             className="card d-flex flex-column justify-content-between mt-5 mt-sm-4 mt-lg-3"
 
-            onClick={cart_click}
+            onClick={(e)=>optionOrder(e)}
 
-            referance={options[5].value}
+            value={options[5].value}
         
           >
 
@@ -551,7 +552,7 @@ const Store = (props) => {
 
             </button>
 
-          </Link>
+          </div>
           
         </Cards>
 
@@ -607,7 +608,7 @@ const Store = (props) => {
 
                   value={order.ref}
 
-                  onChange={optionOrder}
+                  onChange={(e)=>cartOrder[e.value]()}
 
                   options={options}
 
@@ -805,7 +806,9 @@ const Store = (props) => {
                     
                                 className="reSelect"
                     
-                                onClick={()=>optionOrder(options[i])}
+                                onClick={(e)=>optionOrder(e)}
+
+                                value={options[i]}
                           
                               >
                     
@@ -1047,30 +1050,24 @@ const Store = (props) => {
 
       <div className="container-xl px-4 pb-5 px-sm-5 px-xl-0 mb-lg-5  pt-5 mt-lg-5 g-0">
 
-        <div
+        <Cta
 
-          onClick={cta_click}
-        
-        >
-            
-          <Cta
+          onClick={action_callback}
 
-            heading={`Lobor Kenean`}
-            
-            bold={`Mollis dui`}
+          heading={`Lobor Kenean`}
+          
+          bold={`Mollis dui`}
 
-            paragraph={
-              `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
-              rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat.`
-            }
+          paragraph={
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel
+            rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat.`
+          }
 
-            button={`Vestibulum eu`}
+          button={`Vestibulum eu`}
 
-          />
+        />
 
         </div>
-
-      </div>
 
     </>    
                             

@@ -38,8 +38,8 @@ const Auth = (props) => {
     setEmailNew("");
     setFactor(true); 
     setClassesInitialauthentication("displayNone"); 
-    setClassesAuthentication("displayNone")
-  }
+    setClassesAuthentication("displayNone");
+  };
 
   const authorization = async (e) => {
 
@@ -55,14 +55,14 @@ const Auth = (props) => {
       headers: {
         'Authorization': 'Basic ' + btoa(email + ":" + pass)
       }
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     let json = await res.json();
 
@@ -71,10 +71,10 @@ const Auth = (props) => {
       setAuth(true);
       navigate('/store');
       return;
-    }
+    };
 
     setLogin(json);
-  }
+  };
 
   const captchaauthorization = async () => {
 
@@ -90,14 +90,14 @@ const Auth = (props) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ Text: ref.current.value.split(' ').join(''), CaptchaToken: captchaToken }),
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     const json = await res.json();
 
@@ -107,11 +107,11 @@ const Auth = (props) => {
 
         setCaptchaForm(false);
         return;
-      } 
+      };
 
       setText(json.CaptchaForm);
-    }
-  }
+    };
+  };
 
   const initialauthentication = async (e) => {
 
@@ -124,14 +124,14 @@ const Auth = (props) => {
     let res = await fetch(`/api/?email=${btoa(emailNew)}&model=factor&controller=initialauthentication&token=${token}`, {
 
       method: 'GET',
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     let json = await res.json();
 
@@ -139,10 +139,10 @@ const Auth = (props) => {
 
       setFactor(false);
       return;
-    }
+    };
 
     setFactor(json);
-  }
+  };
 
   const authentication = async (e) => {
 
@@ -155,14 +155,14 @@ const Auth = (props) => {
     let res = await fetch(`/api/?security=${btoa(security)}&controller=authentication&token=${token}`, {
 
       method: 'GET',
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     let json = await res.json();
 
@@ -170,10 +170,10 @@ const Auth = (props) => {
 
       setCode(false);
       return;
-    }
+    };
 
     setCode(json);
-  }
+  };
 
   const registration = async (e) => {
 
@@ -189,14 +189,14 @@ const Auth = (props) => {
       headers: {
         'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
       }
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     let json = await res.json();
 
@@ -205,10 +205,10 @@ const Auth = (props) => {
       setAuth(true);
       navigate('/store');
       return;
-    }
+    };
 
     setSignup(json);
-  }
+  };
 
   const captchainit = useCallback( async () => {
 
@@ -219,14 +219,14 @@ const Auth = (props) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ key: btoa(process.env.REACT_APP_KEY) }),
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     const json = await res.json();
     
@@ -234,13 +234,13 @@ const Auth = (props) => {
 
       localStorage.setItem("captchaToken", json.CaptchaToken);
       setCaptcha(json.Canvas);
-    }
-  }, [setLoad])
+    };
+  }, [setLoad]);
 
   useEffect(() => {
 
     captchainit();
-  }, [captchainit])
+  }, [captchainit]);
 
   useEffect(() => {
 

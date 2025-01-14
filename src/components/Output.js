@@ -10,7 +10,7 @@ const Output = (props) => {
   useEffect(() => {
 
     if(load !== true) ref.current.innerHTML = load;
-  }, [load])
+  }, [load]);
 
   return (
 

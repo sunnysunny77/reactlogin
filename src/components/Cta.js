@@ -4,13 +4,13 @@ import { ArrowRightCircleFill } from 'react-bootstrap-icons';
 
 const Cta = (props) => {
 
-  const { link, heading, bold, paragraph, button } = props;
+  const { link, heading, bold, paragraph, button, onClick } = props;
 
   return (
 
     <>  
 
-      <Link to={link} className="cta row justify-content-center justify-content-lg-between g-0">
+      <Link to={link} onClick={onClick} className="cta row justify-content-center justify-content-lg-between g-0">
 
         <div className="col-10 col-md-4 col-lg-12 d-flex align-items-xl-center">
 

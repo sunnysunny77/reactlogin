@@ -30,7 +30,7 @@ const Enquiry = (props) => {
   
         nameRef.current.innerHTML = "";
         event.target.name.classList.remove("error");
-      }
+      };
   
       if (!/^\+?\d{3,15}$/.test(tel)) {
   
@@ -41,7 +41,7 @@ const Enquiry = (props) => {
   
         telRef.current.innerHTML = "";
         event.target.tel.classList.remove("error");
-      }
+      };
   
       if (!/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/.test(email)) {
   
@@ -52,7 +52,7 @@ const Enquiry = (props) => {
   
         emailRef.current.innerHTML = "";
         event.target.email.classList.remove("error");
-      }
+      };
   
       if (!/[\dA-Za-z]/.test(text)) {
   
@@ -63,7 +63,7 @@ const Enquiry = (props) => {
   
         textRef.current.innerHTML = "";
         event.target.text.classList.remove("error");
-      }
+      };
   
       if (error) return;
   
@@ -87,7 +87,7 @@ const Enquiry = (props) => {
         let err = await res.text();
         setLoad(err);
         return;
-      }
+      };
   
       let json = await res.json();
   
@@ -103,8 +103,8 @@ const Enquiry = (props) => {
           setEmail("");
           setText("");
         }, 6000);
-      }
-    }
+      };
+    };
   
   return (
     

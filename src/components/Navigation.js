@@ -28,8 +28,10 @@ const Navigation = (props) => {
     navbar_toggler.current.classList.toggle("has-collapsed");
 
     if (navbar_toggler.current.classList.contains("has-collapsed")) {
+
       max_height = height;
     }  else {
+      
       max_height = navbar.current.scrollHeight;
     }
 
@@ -56,17 +58,13 @@ const Navigation = (props) => {
     let obj = {};
 
     if (scrollTop) {
-
-      obj.zIndex = 999;
-      obj.position = "fixed";
+   
       obj.top = `-${height}px`;
-      obj.width = "100%";
-      obj.borderBottom = "1px solid #dee2e6";
       handle_collapse("top 0.375s, max-height 0.375s", height);
-      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+      body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
       Object.assign(navbar.current.style, obj);
       return;
-    }
+    };
 
     let scroll_pos = window.scrollY;
 
@@ -78,7 +76,7 @@ const Navigation = (props) => {
       obj.width = window.innerWidth >= 768 ? "300px" : "100%";
       obj.borderBottom = window.innerWidth >= 768 ? "none" : "1px solid #dee2e6";
       handle_collapse("max-height 0.375s", height);
-      body.style.marginTop = "";
+      body.style.paddingTop = "";
     } else if (scroll_pos > top && scroll_pos < top + height && !positive) {
 
       obj.zIndex = 999;
@@ -87,7 +85,7 @@ const Navigation = (props) => {
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
       handle_collapse("top 0.375s, max-height 0.375s", height);
-      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+      body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else if (scroll_pos > height && scroll_pos < top + height) {  
 
       obj.zIndex = 999;
@@ -96,7 +94,7 @@ const Navigation = (props) => {
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
       handle_collapse(positive ? "none" : "top 0.375s, max-height 0.375s", height);
-      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+      body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else if (scroll_pos > top + height && positive) {
 
       obj.zIndex = 999;
@@ -105,7 +103,7 @@ const Navigation = (props) => {
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
       handle_collapse("top 0.375s, max-height 0.375s", 0);
-      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
+      body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else {
   
       obj.zIndex = 999;
@@ -115,8 +113,8 @@ const Navigation = (props) => {
       obj.borderBottom = "1px solid #dee2e6";
       obj.transition = "top 0.375s, max-height 0.375s";
       obj.maxHeight = `${collapse}px`;
-      body.style.marginTop = window.innerWidth >= 768 ? "" : `${height}px`;
-    }
+      body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
+    };
 
     if (obj !== navbar.current.style) Object.assign(navbar.current.style, obj);
 
@@ -133,11 +131,9 @@ const Navigation = (props) => {
 
   const handle_singlepage = useCallback(() => {
 
-    let scroll_pos = window.scrollY;
-
     setScrollTop(true);
 
-    if (scroll_pos < top + height) {
+    if (window.scrollY < top + height) {
 
       setScrollTop(false);
       window.removeEventListener("scroll", handle_singlepage, { passive: true });
@@ -152,7 +148,7 @@ const Navigation = (props) => {
     }
 
     window.addEventListener("scroll", handle_singlepage, { passive: true });
-  }, [handle_collapse, handle_singlepage, navigate])
+  }, [handle_collapse, handle_singlepage, navigate]);
 
   useEffect(() => {
 
