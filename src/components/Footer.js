@@ -193,7 +193,7 @@ const Footer = (props) => {
 
                 <div className="col-12 d-flex flex-wrap justify-content-end mt-3">
 
-                  <Link onClick={scroll_to} className="top" aria-label="Return to top" href="#top">
+                  <Link onClick={scroll_to} className="top" aria-label="Return to top">
                     
                     &#8593;
                     

@@ -66,45 +66,6 @@ const Navigation = (props) => {
 
     let scroll_pos = window.scrollY; 
 
-    if (Number.isInteger(isScrolling)) {
-
-      if (scroll_pos === isScrolling) {
-
-        setIsScrolling(null);
-      } else if (scroll_pos < top) {  
-
-        obj.zIndex = 1001;
-        obj.position = window.innerWidth >= 768 ? "absolute" : "static";
-        obj.top = window.innerWidth >= 768 ? "0px" : "initial";
-        obj.width = window.innerWidth >= 768 ? "300px" : "100%";
-        obj.borderBottom = window.innerWidth >= 768 ? "none" : "1px solid #dee2e6";
-        handle_collapse("nonw", height);
-        body.style.paddingTop = "";
-      } else if (scroll_pos > top && !positive) { 
-
-        obj.zIndex = 999;
-        obj.position = "fixed";
-        obj.top = `-${height}px`;
-        obj.width = "100%";
-        obj.borderBottom = "1px solid #dee2e6";
-        handle_collapse("top 0.375s, max-height 0.375s", 0);
-        body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
-      }  else if (scroll_pos > top && positive) { 
-
-        obj.zIndex = 999;
-        obj.position = "fixed";
-        obj.top = `-${height}px`;
-        obj.width = "100%";
-        obj.borderBottom = "1px solid #dee2e6";
-        handle_collapse("none", 0);
-        body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
-      }  
-
-      if (obj !== navbar.current.style) Object.assign(navbar.current.style, obj);
-
-      return;
-    }
-
     if (scroll_pos < height) {  
 
       obj.zIndex = 1001;
@@ -130,7 +91,7 @@ const Navigation = (props) => {
       obj.top = `-${height}px`;
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
-      handle_collapse(positive ? "none" : "top 0.375s, max-height 0.375s", height);
+      handle_collapse("none", height);
       body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
     } else if (scroll_pos > top + height && positive) {
 
@@ -145,7 +106,7 @@ const Navigation = (props) => {
   
       obj.zIndex = 999;
       obj.position = "fixed";
-      obj.top = "0px";
+      obj.top = Number.isInteger(isScrolling) ? `-${height}px` : "0px";
       obj.width = "100%";
       obj.borderBottom = "1px solid #dee2e6";
       obj.transition = "top 0.375s, max-height 0.375s";
@@ -161,6 +122,14 @@ const Navigation = (props) => {
     } else if (scroll_pos < scrollY) {
 
       setPositive(false);
+    }
+
+    if (Number.isInteger(isScrolling)) {
+
+      if (scroll_pos === isScrolling) {
+
+        setIsScrolling(null);
+      } 
     }
 
     setScrollY(scroll_pos);
