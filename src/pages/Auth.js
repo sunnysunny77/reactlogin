@@ -522,7 +522,7 @@ const Auth = (props) => {
 
                 )
 
-              )};
+              )}
 
             </Accordion.Body>
 
