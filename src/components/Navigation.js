@@ -135,7 +135,7 @@ const Navigation = (props) => {
 
     setScrollY(scroll_pos);
 
-    setStyle(obj);
+    if (obj !== style) setStyle(obj);
   },[body.style, collapse, handle_collapse, isScrolling, positive, scrollY, setIsScrolling, style, top]);
 
   useEffect(() => {
