@@ -19,6 +19,7 @@ const Navigation = (props) => {
   const [positive, setPositive] = useState(true);
   const [collapse, setCollapse] = useState(82);
   const [top, setTop] = useState(null);
+  const [style, setStyle] = useState(null);
   
   const toogle = () => {
 
@@ -114,7 +115,7 @@ const Navigation = (props) => {
       body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
     };
 
-    if (obj !== navbar.current.style) Object.assign(navbar.current.style, obj);
+    if (obj !== style) Object.assign(navbar.current.style, obj);
 
     if (scroll_pos > scrollY) {
 
@@ -133,7 +134,9 @@ const Navigation = (props) => {
     }
 
     setScrollY(scroll_pos);
-  },[body.style, collapse, handle_collapse, isScrolling, positive, scrollY, setIsScrolling, top]);
+
+    setStyle(obj);
+  },[body.style, collapse, handle_collapse, isScrolling, positive, scrollY, setIsScrolling, style, top]);
 
   useEffect(() => {
 
