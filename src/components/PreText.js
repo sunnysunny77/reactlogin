@@ -12,7 +12,7 @@ const PreText = (props) => {
     
     </span>
 
-  )
-}
+  );
+};
 
 export default PreText;

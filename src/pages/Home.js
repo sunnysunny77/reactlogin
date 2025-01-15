@@ -28,7 +28,7 @@ const Home = (props) => {
 
   const { options, items, cartOrder, setLoad, setReferance, setIsScrolling } = props;
 
-  const [notReferance, setNotReferance] = useState(false);
+  const [notReferance, setNotReferance] = useState(window.scrollY > 0);
 
   const cart_click = (event) => {
 
@@ -39,18 +39,15 @@ const Home = (props) => {
 
   useEffect(() => {
 
-    if (!notReferance) {
+    if (notReferance) {
 
-      if (window.scrollY > 0) { 
-        
-        setIsScrolling(0)
+        setIsScrolling(0);
         window.scrollTo(0, 0);
       }
       return () => {
   
-        setNotReferance(true);
+        setNotReferance(false);
       };
-    }
   }, [notReferance, setIsScrolling]);
 
   return (
@@ -549,6 +546,6 @@ const Home = (props) => {
     </>
     
   );
-}
+};
 
 export default Home;

@@ -47,7 +47,7 @@ const Navigation = (props) => {
     Object.assign(navbar.current.style, {
 
       transition: transition,
-      maxHeight: `${height_param}px`
+      maxHeight: `${height_param}px`,
     });
 
     setCollapse(height);
@@ -123,15 +123,15 @@ const Navigation = (props) => {
     } else if (scroll_pos < scrollY) {
 
       setPositive(false);
-    }
+    };
 
     if (Number.isInteger(isScrolling)) {
 
       if (scroll_pos === isScrolling) {
 
         setIsScrolling(null);
-      } 
-    }
+      } ;
+    };
 
     setScrollY(scroll_pos);
 
@@ -247,7 +247,7 @@ const Navigation = (props) => {
                   
                 </Link>
                 
-              )}
+              )};
 
             </li>
         
@@ -259,8 +259,7 @@ const Navigation = (props) => {
 
     </nav>
     
-  )
-  
-}
+  );
+};
 
 export default Navigation;

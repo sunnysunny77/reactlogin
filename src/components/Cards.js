@@ -30,7 +30,7 @@ const Cards = (props) => {
 
     </section>
 
-  )
-}
+  );
+};
 
 export default Cards;

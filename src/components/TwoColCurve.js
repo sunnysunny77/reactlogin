@@ -40,7 +40,7 @@ const TwoColCurve = (props) => {
 
     </div> 
 
-  )
-}
+  );
+};
 
 export default TwoColCurve;

@@ -79,7 +79,7 @@ const Enquiry = (props) => {
       let res = await fetch(`/api/?controller=enquiry&token=${token}`, { 
         
         method: "POST", 
-        body: form_data
+        body: form_data,
       });
   
       if (!res.ok) { 
@@ -294,7 +294,7 @@ const Enquiry = (props) => {
 
     </div>
 
-  )
-}
+  );
+};
 
 export default Enquiry;

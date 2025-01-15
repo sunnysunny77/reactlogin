@@ -46,7 +46,7 @@ const TwoColImage = (props) => {
 
     </section>
 
-  )
-}
+  );
+};
 
 export default TwoColImage;

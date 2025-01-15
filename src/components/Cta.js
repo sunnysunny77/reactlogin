@@ -44,7 +44,7 @@ const Cta = (props) => {
                 
                 </>
                 
-              )}
+              )};
 
           </p>
 
@@ -65,6 +65,6 @@ const Cta = (props) => {
     </>
     
   );
-}
+};
 
 export default Cta;

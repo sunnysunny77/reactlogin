@@ -198,14 +198,14 @@ function App() {
 
       credentials: "include",
       method: 'GET',
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
       
     let json = await res.json();
  
@@ -215,11 +215,11 @@ function App() {
       setAuth(true);
       setLoad(false);
       return;
-    }
+    };
 
     localStorage.setItem("token", json);
     setLoad(false);
-  }
+  };
 
   const logout = async () => {
 
@@ -228,14 +228,14 @@ function App() {
     let res = await fetch(`/api/?controller=logout&token=${token}`, {
 
       method: 'GET',
-    })
+    });
 
     if (!res.ok) { 
       
       let err = await res.text();
       setLoad(err);
       return;
-    }
+    };
 
     let json = await res.json();
 
@@ -256,13 +256,13 @@ function App() {
       cartOrder.cartOne();
 
       navigate('/');
-    }
-  }
+    };
+  };
 
   useEffect(() => {
 
     initialauthorization();
-  }, [])
+  }, []);
 
   if (load) {
 
@@ -270,8 +270,8 @@ function App() {
       <Routes>
         <Route path="*" element={<Output load={load} />} />
       </Routes>
-    )
-  }
+    );
+  };
 
   if (auth) {
 
@@ -288,8 +288,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    )
-  }
+    );
+  };
 
   return (
     <Routes>
@@ -299,7 +299,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
-  )
-}
+  );
+};
 
 export default App;

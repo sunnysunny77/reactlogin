@@ -33,7 +33,7 @@ const Auth = (props) => {
   const [security, setSecurity] = useState("");
   const [passRegistration, setPassRegistration] = useState("");
 
-  const [notReferance, setNotReferance] = useState(false);
+  const [notReferance, setNotReferance] = useState(window.scrollY > 0);
 
   const cancel = () => {
 
@@ -56,7 +56,7 @@ const Auth = (props) => {
       method: 'OPTIONS',
       headers: {
         'Authorization': 'Basic ' + btoa(email + ":" + pass)
-      }
+      },
     });
 
     if (!res.ok) { 
@@ -89,7 +89,7 @@ const Auth = (props) => {
 
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ Text: ref.current.value.split(' ').join(''), CaptchaToken: captchaToken }),
     });
@@ -190,7 +190,7 @@ const Auth = (props) => {
       method: 'OPTIONS',
       headers: {
         'Authorization': 'Basic ' + btoa(emailNew + ":" + passRegistration)
-      }
+      },
     });
 
     if (!res.ok) { 
@@ -246,18 +246,15 @@ const Auth = (props) => {
 
   useEffect(() => {
 
-    if (!notReferance) {
-      
-      if (window.scrollY > 0) { 
-        
-        setIsScrolling(0)
+    if (notReferance) {
+
+        setIsScrolling(0);
         window.scrollTo(0, 0);
       }
       return () => {
   
-        setNotReferance(true);
+        setNotReferance(false);
       };
-    }
   }, [notReferance, setIsScrolling]);
 
   return (
@@ -525,7 +522,7 @@ const Auth = (props) => {
 
                 )
 
-              )}
+              )};
 
             </Accordion.Body>
 
@@ -543,6 +540,7 @@ const Auth = (props) => {
       
   </>
   
-  )
-}
+  );
+};
+
 export default Auth;

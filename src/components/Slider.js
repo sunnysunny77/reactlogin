@@ -138,7 +138,7 @@ const Slider= (props) => {
 
     </div>
     
-  )
-}
+  );
+};
 
 export default Slider;

@@ -38,7 +38,7 @@ const TwoColText = (props) => {
 
     </section>
 
-  )
-}
+  );
+};
 
 export default TwoColText;

@@ -54,7 +54,7 @@ const OneColLarge = (props) => {
 
     </div>
 
-  )
-}
+  );
+};
 
 export default OneColLarge;

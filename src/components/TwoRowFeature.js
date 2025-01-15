@@ -121,6 +121,6 @@ const TwoRowFeature = (props) => {
     </>
     
   );
-}
+};
 
 export default TwoRowFeature;
