@@ -51,7 +51,6 @@ footer {
         color: $c9;
         height: 27px;
         width: 27px;
-        font-size: smaller;
         background-color: $c1;
         border: 1px solid;
         border-color: $c9;
@@ -69,6 +68,10 @@ footer {
         &:hover {
             color: $c9;
             transform: scale(0.9);
+        }
+        svg {
+            width: 12px;
+            height: 12px;
         }
     }
     .bi {

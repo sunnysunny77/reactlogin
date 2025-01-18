@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Linkedin } from 'react-bootstrap-icons';
+import { Linkedin, ArrowUp } from 'react-bootstrap-icons';
 
 const Footer = (props) => {
 
@@ -195,7 +195,7 @@ const Footer = (props) => {
 
                   <Link onClick={scroll_to} className="top" aria-label="Return to top">
                     
-                    &#8593;
+                    <ArrowUp />
                     
                   </Link>
 
