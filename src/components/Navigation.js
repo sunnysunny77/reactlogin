@@ -14,6 +14,7 @@ const Navigation = (props) => {
   const body = document.body;
 
   const [height, setHeight] = useState(0);
+  const [top, setTop] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [positive, setPositive] = useState(true);
   const [collapse, setCollapse] = useState(82);
@@ -64,8 +65,6 @@ const Navigation = (props) => {
     let obj = {};
 
     let scroll_pos = window.scrollY; 
-
-    const top = header.current.scrollHeight + height;
 
     if (scroll_pos < height) {  
 
@@ -136,11 +135,12 @@ const Navigation = (props) => {
     setScrollY(scroll_pos);
 
     if (obj !== style) setStyle(obj);
-  },[body.style, collapse, handle_collapse, header, height, isScrolling, positive, scrollY, setIsScrolling, style]);
+  },[body.style, collapse, handle_collapse, height, isScrolling, positive, scrollY, setIsScrolling, style, top]);
 
   useEffect(() => {
 
     setHeight(navbar.current.scrollHeight - navbar_collapse.current.scrollHeight);
+    setTop(header.current.scrollHeight + (navbar.current.scrollHeight - navbar_collapse.current.scrollHeight));
     window.addEventListener("scroll", handle_navigationigation, { passive: true });
     window.addEventListener("wheel", handle_navigationigation, { passive: true });
     window.addEventListener("resize", handle_navigationigation, { passive: true });
@@ -151,7 +151,7 @@ const Navigation = (props) => {
       window.removeEventListener("wheel", handle_navigationigation);
       window.removeEventListener("resize", handle_navigationigation);
     };
-  }, [handle_navigationigation]);
+  }, [handle_navigationigation, header]);
 
   return (  
 
