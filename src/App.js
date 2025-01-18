@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
@@ -166,6 +166,8 @@ function App() {
 
   const navigate = useNavigate();
 
+  const header = useRef(null);
+
   const [load, setLoad] = useState(true);
 
   const [auth, setAuth] = useState(false);
@@ -277,11 +279,11 @@ function App() {
 
     return (
       <Routes>
-        <Route path="/" element={<Layout isScrolling={isScrolling} auth={auth} setIsScrolling={e => setIsScrolling(e)} setAuth={logout} />} >
-          <Route index element={<Home options={options} items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} setReferance={e => setReferance(e)} setIsScrolling={e => setIsScrolling(e)} />} />
+        <Route path="/" element={<Layout header={header} isScrolling={isScrolling} auth={auth} setIsScrolling={e => setIsScrolling(e)} setAuth={logout} />} >
+          <Route index element={<Home header={header} options={options} items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} setReferance={e => setReferance(e)} setIsScrolling={e => setIsScrolling(e)} />} />
           <Route path="store" element={
             <Store 
-              referance={referance} items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} disabled={disabled} cart={cart} 
+              header={header} referance={referance} items={items} options={options} cartOrder={cartOrder} order={order} count={count} output={output} disabled={disabled} cart={cart} 
               setReferance={e => setReferance(e)} setCount={e => setCount(e)} setOutput={e => setOutput(e)} setDisabled={e => setDisabled(e)} setCart={e => setCart(e)} setIsScrolling={e => setIsScrolling(e)} 
             />
           }/>
@@ -293,9 +295,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout isScrolling={isScrolling} auth={auth} setIsScrolling={e => setIsScrolling(e)} />} >
-        <Route index element={<Home options={options} items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} setReferance={e => setReferance(e)} setIsScrolling={e => setIsScrolling(e)} />} />
-        <Route path="store" element={<Auth setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} setIsScrolling={e => setIsScrolling(e)} />} />
+      <Route path="/" element={<Layout header={header} isScrolling={isScrolling} auth={auth} setIsScrolling={e => setIsScrolling(e)} />} >
+        <Route index element={<Home header={header}  options={options} items={items} cartOrder={cartOrder} setLoad={e => setLoad(e)} setReferance={e => setReferance(e)} setIsScrolling={e => setIsScrolling(e)} />} />
+        <Route path="store" element={<Auth header={header} setLoad={e => setLoad(e)} setAuth={e => setAuth(e)} setIsScrolling={e => setIsScrolling(e)} />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -6,7 +6,7 @@ import Spinner from "../images/load.gif";
 
 const Auth = (props) => {
 
-  const { setLoad, setAuth, setIsScrolling } = props;
+  const { header, setLoad, setAuth, setIsScrolling } = props;
 
   const navigate = useNavigate();
   const ref = useRef();
@@ -261,7 +261,7 @@ const Auth = (props) => {
 
     <>
 
-      <Header heading="STORE" />
+      <Header ref={header} heading="STORE" />
 
       <div className="Auth-form-container w-100">
 

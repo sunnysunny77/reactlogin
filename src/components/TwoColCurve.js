@@ -1,4 +1,5 @@
 import React from "react";
+import PreText from "./PreText";
 
 const TwoColCurve = (props) => {
 
@@ -24,7 +25,7 @@ const TwoColCurve = (props) => {
 
               <p className="col-12 col-xxl-11 text-end ps-md-4 m-0">
 
-                {paragraph}
+                <PreText text={ paragraph } />
 
               </p>
 

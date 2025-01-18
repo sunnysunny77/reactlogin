@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { ArrowRight } from 'react-bootstrap-icons';
+import PreText from "./PreText";
 
 const Slider= (props) => {
 
@@ -122,7 +123,7 @@ const Slider= (props) => {
 
                 <p className="m-0">
 
-                  {paragraph}
+                   <PreText text={ paragraph } />
 
                 </p>
 

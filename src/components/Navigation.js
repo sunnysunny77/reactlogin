@@ -3,7 +3,7 @@ import { NavLink, Link,  useLocation } from "react-router-dom";
 
 const Navigation = (props) => {
 
-  const { isScrolling, auth, setIsScrolling, setAuth } = props;
+  const { header, isScrolling, auth, setIsScrolling, setAuth } = props;
 
   const height = 83;
 
@@ -18,7 +18,6 @@ const Navigation = (props) => {
   const [scrollY, setScrollY] = useState(0);
   const [positive, setPositive] = useState(true);
   const [collapse, setCollapse] = useState(82);
-  const [top, setTop] = useState(null);
   const [style, setStyle] = useState(null);
   
   const toogle = () => {
@@ -66,6 +65,8 @@ const Navigation = (props) => {
     let obj = {};
 
     let scroll_pos = window.scrollY; 
+
+    const top = header.current.scrollHeight + height;
 
     if (scroll_pos < height) {  
 
@@ -136,20 +137,19 @@ const Navigation = (props) => {
     setScrollY(scroll_pos);
 
     if (obj !== style) setStyle(obj);
-  },[body.style, collapse, handle_collapse, isScrolling, positive, scrollY, setIsScrolling, style, top]);
+  },[body.style, collapse, handle_collapse, header, isScrolling, positive, scrollY, setIsScrolling, style]);
 
   useEffect(() => {
 
-    setTop(document.querySelector("header").scrollHeight + height);
     window.addEventListener("scroll", handle_navigationigation, { passive: true });
     window.addEventListener("wheel", handle_navigationigation, { passive: true });
     window.addEventListener("resize", handle_navigationigation, { passive: true });
 
     return () => {
 
-      window.removeEventListener("scroll", handle_navigationigation, { passive: true });
-      window.removeEventListener("wheel", handle_navigationigation, { passive: true });
-      window.removeEventListener("resize", handle_navigationigation, { passive: true });
+      window.removeEventListener("scroll", handle_navigationigation);
+      window.removeEventListener("wheel", handle_navigationigation);
+      window.removeEventListener("resize", handle_navigationigation);
     };
   }, [handle_navigationigation]);
 

@@ -1,4 +1,5 @@
 import React from "react";
+import PreText from "./PreText";
 
 const TwoColText = (props) => {
 
@@ -12,7 +13,7 @@ const TwoColText = (props) => {
 
         <h2 className="pt-4 ps-4 ms-xxl-5">
 
-          {heading}
+          <PreText text={heading} />
 
         </h2>
 
@@ -26,7 +27,7 @@ const TwoColText = (props) => {
 
             <p className="m-0">
 
-              {paragraph}
+               <PreText text={ paragraph } />
               
             </p>
 

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from 'react-bootstrap-icons';
 import Carousel from 'react-bootstrap/Carousel';
+import ButtonSlider from "../components/ButtonSlider"
 import Cards from "../components/Cards";
 import Cta from "../components/Cta";
 import Enquiry from "../components/Enquiry";
 import Header from "../components/Header";
 import OneColLarge from "../components/OneColLarge";
-import PreText from "../components/PreText";
 import TwoColCurve from "../components/TwoColCurve";
 import TwoColImage from "../components/TwoColImage";
 import TwoColText from "../components/TwoColText";
@@ -26,7 +26,7 @@ import Aus from "../images/australian-made.svg";
 
 const Home = (props) => {
 
-  const { options, items, cartOrder, setLoad, setReferance, setIsScrolling } = props;
+  const { header, options, items, cartOrder, setLoad, setReferance, setIsScrolling } = props;
 
   const [notReferance, setNotReferance] = useState(window.scrollY > 0);
 
@@ -35,6 +35,7 @@ const Home = (props) => {
     const referance = event.currentTarget.getAttribute("referance");
     cartOrder[referance]();
     setReferance(referance);
+    console.log(header.current)
   };
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const Home = (props) => {
 
     <>
 
-      <Header heading="HOME" >
+      <Header ref={header} heading="HOME" >
 
         <div className="col-12 bg-11 p-4 p-sm-5 ps-md-5 pt-md-5 pb-md-5 pe-md-0 pe-xl-5">
 
@@ -114,18 +115,18 @@ const Home = (props) => {
 
       <TwoColText
       
-        heading={<PreText text={
+        heading={
           `Lorem 
           ipsum dolor`
-        } />}
+        }
 
-        paragraph={<PreText text={
+        paragraph={
           `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel rhoncus sapien congue non. Aenean lobortis lorem eu commodo consequat. Etiam scelerisque mollis dui at suscipit. Donec ac diam rhoncus, porta velit at, faucibus velit. 
           
           Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris iaculis varius lectus auctor pharetra. Cras risus odio, dignissim et viverra non, aliquam eget ligula. Maecenas convallis eget felis sit amet commodo. 
           
           Integer euilgod eros ex, id posuere lorem aliquam eget. Lorem ipsum dolor sit amet.`
-        } />}
+        }
 
       />
 
@@ -133,13 +134,13 @@ const Home = (props) => {
 
         heading={`Adipiscing elit`}
 
-        paragraph={<PreText text={
+        paragraph={
           `Fusce vulputate eleifend lacus ut pharetra, integer eleifend ligula at tortor hendrerit, sed consectetur magna gravida sed purus nisl. 
           
            Posuere eget nunc non interdum laoreet dui maecenas lobortis gravida magna auctor venenatis, nunc sit amet massa hendrerit lobortis purus in iaculis augue. 
            
            Etiam tincidunt ex eget felis rhoncus, eget tristique metus rutrum.`
-        } />}
+        }
       
       >
 
@@ -165,11 +166,11 @@ const Home = (props) => {
 
       <Slider
       
-        paragraph={<PreText text={
+        paragraph={
           `Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris iaculis varius lectus auctor pharetra. Cras risus odio, dignissim et viverra non, aliquam eget ligula. Maecenas convallis eget felis sit amet commodo.
 
           Integer euilgod eros ex, id posuere lorem aliquam eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique tincidunt dui, vel rhoncus sapien congue non.`
-        } />}
+        }
 
       >
 
@@ -520,6 +521,57 @@ const Home = (props) => {
         </Cards>
 
       </div>
+
+      <ButtonSlider 
+        
+        items={[
+          {
+            heading: "Tristique mus",
+            bold: "venenatis ad",
+            paragraph: 
+              `Ex varius nullam sociosqu erat congue aptent. Maecenas aliquam lobortis tempus, ultrices maecenas auctor ultrices. 
+            
+              Tincidunt eros lobortis; nam libero nisl viverra. Ex dapibus finibus leo fames class non lobortis non. Sociosqu posuere congue imperdiet nunc maecenas`,
+          },
+          { 
+            heading: "Ut nisl laoreet ",
+            bold: "himenaeos libero",
+            paragraph: 
+            
+              `Maecenas rutrum senectus vitae lacinia, tempor senectus malesuada? Sapien mollis class aptent convallis lobortis amet fermentum class aptent.
+            
+              Montes nulla gravida ultrices in tortor arcu purus. Id ligula porttitor congue sociosqu faucibus viverra.`,
+          },
+          { 
+            heading: "Auctor massa",
+            bold: "cras accumsan",
+            paragraph: 
+            
+              `Ultricies tortor velit consectetur nisi netus erat ullamcorper mollis fringilla. Conubia nullam eu efficitur purus tincidunt iaculis.
+            
+              Dui ad dictum ridiculus ultrices proin, mollis praesent. Aliquam luctus ipsum libero eleifend aliquam. Ligula euismod feugiat interdum ante accumsan congue.`,
+          },
+          { 
+            heading: "Interdum in ex",
+            bold: "eque accumsan",
+            paragraph: 
+            
+              `Nullam class nisi imperdiet tincidunt egestas id nibh ornare orci. Mus nulla primis, curae nisi nunc ornare. Sagittis posuere lorem ornare urna consectetur tellus. 
+            
+              Cubilia montes ex efficitur ut, consequat convallis? Adipiscing volutpat arcu sed auctor ultrices aliquet?`,
+          },
+          { 
+            heading: "Torquent malesuada",
+            bold: "primis rhoncus",
+            paragraph: 
+            
+              `Aliquam nulla habitant vitae euismod viverra penatibus congue potenti. Ipsum eros odio sollicitudin feugiat leo montes magnis quis. 
+            
+              Dignissim aenean nec; blandit hac in cras integer tincidunt. Accumsan magna neque venenatis senectus curabitur penatibus velit. Litora fames rhoncus elementum; sollicitudin aliquet consectetur.`,
+          },
+        ]}
+      
+      />
 
       <div className="container-xl py-5 px-sm-5 px-xl-0 my-lg-5 g-0">
 

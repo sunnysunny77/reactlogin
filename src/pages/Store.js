@@ -12,7 +12,7 @@ import styles from './Store.module.scss';
 const Store = (props) => {
 
   const { 
-    referance, items, options, cartOrder, order, count, output, disabled, cart, 
+    header, referance, items, options, cartOrder, order, count, output, disabled, cart, 
     setReferance, setCount, setOutput, setDisabled, setCart, setIsScrolling
   } = props;
 
@@ -263,7 +263,7 @@ const Store = (props) => {
 
     <>
     
-      <Header heading="STORE" />
+      <Header ref={header} heading="STORE" />
 
       <div ref={itemsRef} id="itemsRef" className="container-fluid pt-4 mt-lg-4 mb-lg-5">
 

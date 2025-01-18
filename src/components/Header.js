@@ -1,12 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-const Header = (props) => {
+const Header = forwardRef(function Header(props , ref) {
 
   const { heading, children } = props;
   
   return (
     
-    <header className="container-fluid row g-0">
+    <header ref={ref} className="container-fluid row g-0">
     
         <div className="row position-relative overflow-hidden g-0">
 
@@ -29,6 +29,6 @@ const Header = (props) => {
     </header>
 
   );
-};
+});
 
 export default Header;
