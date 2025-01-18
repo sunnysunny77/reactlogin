@@ -5,16 +5,15 @@ const Navigation = (props) => {
 
   const { header, isScrolling, auth, setIsScrolling, setAuth } = props;
 
-  const height = 83;
-
-  const body = document.body;
-
   const navbar = useRef();
   const navbar_toggler = useRef();
   const navbar_collapse = useRef();
 
   const location =  useLocation();
 
+  const body = document.body;
+
+  const [height, setHeight] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [positive, setPositive] = useState(true);
   const [collapse, setCollapse] = useState(82);
@@ -50,7 +49,7 @@ const Navigation = (props) => {
     });
 
     setCollapse(height);
-  },[]);
+  },[height]);
 
   useEffect(() => {
 
@@ -58,7 +57,7 @@ const Navigation = (props) => {
 
       handle_collapse("top 0.375s, max-height 0.375s", height);
     }
-  }, [handle_collapse, location]);
+  }, [handle_collapse, height, location]);
 
   const handle_navigationigation = useCallback(() => {
 
@@ -137,10 +136,11 @@ const Navigation = (props) => {
     setScrollY(scroll_pos);
 
     if (obj !== style) setStyle(obj);
-  },[body.style, collapse, handle_collapse, header, isScrolling, positive, scrollY, setIsScrolling, style]);
+  },[body.style, collapse, handle_collapse, header, height, isScrolling, positive, scrollY, setIsScrolling, style]);
 
   useEffect(() => {
 
+    setHeight(navbar.current.scrollHeight - navbar_collapse.current.scrollHeight);
     window.addEventListener("scroll", handle_navigationigation, { passive: true });
     window.addEventListener("wheel", handle_navigationigation, { passive: true });
     window.addEventListener("resize", handle_navigationigation, { passive: true });
