@@ -10,7 +10,7 @@ const ButtonSlider = (props) => {
 
   const sliderButtonContainer = useRef(null);
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
   const [length, setLength] = useState(0);
 
@@ -24,7 +24,7 @@ const ButtonSlider = (props) => {
     };
   };
   
-  const transform_item = () => {
+  const transform_item = (count) => {
 
     for (const index of sliderItems) {
 
@@ -45,18 +45,17 @@ const ButtonSlider = (props) => {
     });
   },[]);
 
-  const transform_button_lg = useCallback((transition, iteration) => {
+  const transform_button_lg = useCallback((transition, count) => {
 
-    const ternary = iteration ? iteration : count - 1;
-
-    if (ternary === length - 2)  {
+    console.log(count)
+    if (count === length - 2)  {
 
       Object.assign(sliderButtonContainer.current.style,{ 
 
         transition: transition,
         transform:  "translateX(-100%)",
       });
-    } else if (ternary === length - 1) {
+    } else if (count === length - 1) {
             
       Object.assign(sliderButtonContainer.current.style,{ 
 
@@ -67,13 +66,11 @@ const ButtonSlider = (props) => {
 
       reset_item(transition);
     }
-  },[count, length, reset_item]);
+  },[length, reset_item]);
 
-  const transform_button_md = useCallback((transition, iteration) => {
+  const transform_button_md = useCallback((transition, count) => {
 
-    const ternary = iteration ? iteration : count - 1;
-
-    if (ternary === length - 1) {
+    if (count === length - 1) {
         
       Object.assign(sliderButtonContainer.current.style,{ 
 
@@ -84,7 +81,7 @@ const ButtonSlider = (props) => {
 
       reset_item(transition);
     }
-  },[count, length, reset_item]);
+  },[length, reset_item]);
 
   const disabled = (event) => {
 
@@ -96,36 +93,20 @@ const ButtonSlider = (props) => {
     }, 500);
   };
 
-  const resize = useCallback(() => {
-
-    const width = window.innerWidth;
-
-    if (width >= 1200) { 
-
-      transform_button_lg("none"); 
-    } else if (width >= 768 && width < 1200) {
-
-      transform_button_md("none");
-    } else {
-
-      reset_item("none");
-    }
-  },[reset_item, transform_button_lg, transform_button_md]);
-
   const click_lg = (event) => {
 
     disabled(event);
 
-    transform_button_lg(transition, count);
+    transform_button_lg(transition, count + 1);
 
-    if (count === length) {
+    if (count + 1 === length) {
 
-      setCount(1);
+      setCount(0);
       init();
     } else {
 
       setCount(count + 1);
-      transform_item();
+      transform_item(count + 1);
     };
   };
 
@@ -133,16 +114,16 @@ const ButtonSlider = (props) => {
 
     disabled(event);
 
-    transform_button_md(transition, count);
+    transform_button_md(transition, count + 1);
 
-    if (count === length) {
+    if (count + 1 === length) {
 
-      setCount(1);
+      setCount(0);
       init();
     } else {
 
       setCount(count + 1);
-      transform_item();
+      transform_item(count + 1);
     };
   }; 
 
@@ -150,28 +131,47 @@ const ButtonSlider = (props) => {
 
     disabled(event);
 
-    if (count === length) {
+    if (count + 1 === length) {
 
-      setCount(1);
+      setCount(0);
       init();
     } else {
 
       setCount(count + 1);
-      transform_item();
+      transform_item(count + 1);
     };
   };
 
   useEffect(() => {
 
     setLength(sliderItems.length);
+  }, [sliderItems.length]);
 
-    window.addEventListener("resize", resize, { passive: true });
+  useEffect(() => {
+
+    const resize = () => {
+
+      const width = window.innerWidth;
+  
+      if (width >= 1200) { 
+  
+        transform_button_lg("none", count); 
+      } else if (width >= 768 && width < 1200) {
+  
+        transform_button_md("none", count);
+      } else {
+  
+        reset_item("none");
+      }
+    }
+
+    window.addEventListener("resize", resize, { passive: true })
 
     return () => {
 
       window.removeEventListener("resize", resize);
     };
-  }, [resize, sliderItems.length]);
+  }, [count, reset_item, transform_button_lg, transform_button_md])
 
   return (
 
