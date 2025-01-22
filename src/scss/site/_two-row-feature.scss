@@ -1,21 +1,5 @@
 .two-row-feature {
     background-color: $c1;
-    .up {
-        top: -2.5rem;
-        @include min_lg {
-            top: -12rem;
-        }
-    }
-    .up-thirds {
-        @include min_lg {
-            top: -6rem;
-        }
-    }
-    .down {
-        @include min_lg {
-            margin-top: 6rem;
-        }
-    }
     h2 {
         line-height: 2rem;
         color: $c9;
@@ -39,9 +23,14 @@
         object-fit: cover;
         width: 100%;
         height: min-content;
+        position: relative;
         aspect-ratio: 1 / 1;
         border: 6px solid $c9;
         border-radius: 100%;
+        top: -2rem;
+        @include min_lg {
+            top: -9rem;
+        }
     }
     .points {
         background-color: $c2;
@@ -50,5 +39,20 @@
         .tag {
             color: $c9;
         }
+    }
+    h3 {
+        background-color: $c2;
+        border-radius: 5rem;
+        color: $c4;
+        font-size: 20px;
+    }
+    ul {
+        color: $c9;
+        font-size: 16px;
+    }
+    svg {
+        fill: $c4;
+        border-radius: 50%;
+        border: 1px solid $c4;
     }
 }

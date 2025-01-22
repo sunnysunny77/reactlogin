@@ -22,6 +22,8 @@ const Store = (props) => {
 
   const [notReferance, setNotReferance] = useState(referance);
 
+  const [outputBool, setOutputBool] = useState(true);
+
   const createOrder = (data, actions) => {
 
   const items = Object.keys(cart).map((index) => cart[index]);
@@ -98,6 +100,8 @@ const Store = (props) => {
     setDisabled(true);
 
     setOutput({ caption: caption, transaction: transaction, name: name, address: address, itemsOutput: itemsOutput , total: total });
+
+    setOutputBool(true);
 
     cartOrder.cartOne();
   };
@@ -218,8 +222,12 @@ const Store = (props) => {
 
   const outputRef = useCallback((e) => {
     
-    if (e) scroll_to(e.offsetTop); 
-  }, [scroll_to]);
+    if (e && outputBool) {
+      
+      scroll_to(e.offsetTop);
+      setOutputBool(false);
+    } 
+  }, [outputBool, scroll_to]);
 
   const optionOrder = (e) => {
 

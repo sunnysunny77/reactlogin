@@ -157,6 +157,53 @@ const Home = (props) => {
           elit. Cras bibendum velit dui, eget tincidunt lectus eleifend eu. Mauris et dolor magna. In accumsan
           scelerisque lorem nec rutrum. Phasellus et turpis posuere.`
         }
+        items={[
+          {
+            heading: "Eu suscipit",
+            content: [
+              {
+                item: "himenaeos consequat",
+              },
+              {
+                item: "latea bibendum",
+              },
+              {
+                item: "finibus lacinia lacus",
+              },
+              {
+                item: "convallis inceptos placerat",
+              },
+            ]
+          },
+          {
+            heading: "Nunc proin",
+            content: [
+              {
+                item: "aliquet augue",
+              },
+              {
+                item: "nec libero euismod",
+              },
+              {
+                item: "curae mollis",
+              },
+            ]
+          },
+          {
+            heading: "Convallis nec",
+            content: [
+              {
+                item: "rhoncus tellus habitant",
+              },
+              {
+                item: "fames eleifend finibus",
+              },
+              {
+                item: "Nunc lobortis turpis",
+              },
+            ]
+          },
+        ]}
       
       >
 
