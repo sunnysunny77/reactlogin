@@ -15,23 +15,23 @@ const TwoRowFeature = (props) => {
 
             <div className="d-none d-lg-block col-lg-1"></div>
 
-            <div className="col-12 col-lg-11 px-4 px-sm-5 pe-lg-0 pe-xxl-5">
+            <div className="col-12 col-lg-11 px-4 py-5 px-sm-5 ps-lg-5 my-3 my-md-5">
 
-              <div className="row justify-content-end justify-content-lg-between align-items-stretch pe-lg-5 mb-5 g-0">
+              <div className="row align-items-center justify-content-between pe-xl-5 g-0">
 
-                <div className="col-12 position-relative pt-5 py-lg-5 z-0 order-1">
+                <div className="col-7 col-md-9 position-relative align-self-start pb-4 pb-xxl-5 mb-xxl-5 z-0">
                   
-                  <h2 className="mb-0 mt-2 mt-sm-5 mb-lg-5">
+                  <h2 className="mb-0">
 
                     <div className="row g-0">
 
-                      <div className="col-10 col-xl-9 col-xxl-12">
+                      <div className="col-12">
 
                         {heading_top}
 
                       </div>
 
-                      <div className="lower col-6">
+                      <div className="lower col-7">
 
                         {heading_bottom}
 
@@ -43,11 +43,17 @@ const TwoRowFeature = (props) => {
 
                 </div>
 
-                <div className="col-12 col-lg-9 col-xl-8 order-3 order-lg-1 pt-lg-5">
+                <div className="col-5 col-md-3 order-xxl-3 align-self-xxl-start pb-4 pb-xxl-0">
+
+                  {children}
+
+                </div>
+
+                <div className="col-12 col-lg-11 col-xxl-8 pt-5 order-xxl-2">
 
                   <div className="row justify-content-center g-0">
 
-                    <div className="col-11 col-xl-12 order-3 order-lg-1">
+                    <div className="col-11 col-lg-12 col-xxl-12 order-3 order-lg-1">
 
                       <p className="mb-0 text-center text-md-start">
 
@@ -57,7 +63,7 @@ const TwoRowFeature = (props) => {
 
                     </div>
 
-                    <div className="points col-12 col-lg-12 col-xxl-9 py-4 px-3 mt-lg-5 mb-5 order-1 order-lg-3">
+                    <div className="points col-12 col-xl-10 py-4 px-3 mt-lg-5 mb-5 order-1 order-lg-3">
 
                       <div className="row text-center g-0">
 
@@ -160,12 +166,6 @@ const TwoRowFeature = (props) => {
                     </div>
 
                   </div>
-
-                </div>
-
-                <div className="col-5 col-md-3 position-relative z-1 order-2 order-lg-3">
-
-                  {children}
 
                 </div>
 

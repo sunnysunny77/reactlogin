@@ -23,13 +23,12 @@
         object-fit: cover;
         width: 100%;
         height: min-content;
-        position: relative;
         aspect-ratio: 1 / 1;
         border: 6px solid $c9;
         border-radius: 100%;
-        top: -2rem;
-        @include min_lg {
-            top: -9rem;
+        margin-top: 2rem;
+        @include min-xxl {
+            transform: translateY(-50%);
         }
     }
     .points {
