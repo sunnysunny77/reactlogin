@@ -17,11 +17,11 @@ const TwoRowFeature = (props) => {
 
             <div className="col-12 col-lg-11 px-4 py-5 px-sm-5 ps-lg-5 my-3 my-md-5">
 
-              <div className="row align-items-start justify-content-between pe-xl-5 g-0">
+              <div className="row align-items-start justify-content-around justify-content-md-between pe-xl-5 g-0">
 
-                <div className="col-7 col-md-9 position-relative  pb-4 pb-xxl-5 mb-xxl-5 z-0">
+                <div className="col-6 col-md-9 position-relative  pb-4 pb-xxl-5 mb-xxl-5 z-0">
                   
-                  <h2 className="mb-0 pe-4 pe-xxl-0">
+                  <h2 className="mb-0">
 
                     <div className="row g-0">
 
@@ -43,7 +43,7 @@ const TwoRowFeature = (props) => {
 
                 </div>
 
-                <div className="col-5 col-md-3 order-xxl-3 pb-4 pb-xxl-0">
+                <div className="col-4 col-md-3 order-xxl-3 pb-4 pb-xxl-0">
 
                   {children}
 
