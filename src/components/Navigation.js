@@ -3,7 +3,7 @@ import { NavLink, Link,  useLocation } from "react-router-dom";
 
 const Navigation = (props) => {
 
-  const { header, isScrolling, auth, setIsScrolling, setAuth } = props;
+  const { header, footer, isScrolling, auth, setIsScrolling, setAuth } = props;
 
   const navbar = useRef();
   const navbar_toggler = useRef();
@@ -93,7 +93,7 @@ const Navigation = (props) => {
       obj.borderBottom = "1px solid #dee2e6";
       handle_collapse("none", height);
       body.style.paddingTop = window.innerWidth >= 768 ? "" : `${height}px`;
-    } else if (scroll_pos > top + height && positive) {
+    } else if ((scroll_pos > top + height && positive) || ( scroll_pos > footer.current.offsetTop - height)) {
 
       obj.zIndex = 999;
       obj.position = "fixed";
@@ -135,7 +135,7 @@ const Navigation = (props) => {
     setScrollY(scroll_pos);
 
     if (obj !== style) setStyle(obj);
-  },[body.style, collapse, handle_collapse, height, isScrolling, positive, scrollY, setIsScrolling, style, top]);
+  },[body.style, collapse, footer, handle_collapse, height, isScrolling, positive, scrollY, setIsScrolling, style, top]);
 
   useEffect(() => {
 

@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Linkedin, ArrowUp } from 'react-bootstrap-icons';
 
-const Footer = (props) => {
+const Footer = forwardRef(function Footer(props , ref) {
 
   const year = useRef();
 
@@ -25,7 +25,7 @@ const Footer = (props) => {
     
     <>  
 
-      <footer>
+      <footer ref={ref}>
 
         <div className="container-lg py-3 py-lg-5 g-0">
 
@@ -214,6 +214,6 @@ const Footer = (props) => {
     </> 
 
   );
-};
+});
 
 export default Footer;
