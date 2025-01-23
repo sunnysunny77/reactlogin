@@ -20,9 +20,11 @@ const Store = (props) => {
 
   const itemsRef = useRef(null);
 
+  const outputRef = useRef(null);
+
   const [notReferance, setNotReferance] = useState(referance);
 
-  const [outputBool, setOutputBool] = useState(true);
+  const [outputBool, setOutputBool] = useState(false);
 
   const createOrder = (data, actions) => {
 
@@ -104,6 +106,7 @@ const Store = (props) => {
     setOutputBool(true);
 
     cartOrder.cartOne();
+
   };
 
   const style = {
@@ -185,7 +188,7 @@ const Store = (props) => {
 
     setCount(1);
 
-    setOutput(false);
+    setOutput({});
 
     setDisabled(false);
   };
@@ -220,15 +223,6 @@ const Store = (props) => {
     setIsScrolling(e);
   },[setIsScrolling]);
 
-  const outputRef = useCallback((e) => {
-    
-    if (e && outputBool) {
-      
-      scroll_to(e.offsetTop);
-      setOutputBool(false);
-    } 
-  }, [outputBool, scroll_to]);
-
   const optionOrder = (e) => {
 
     cartOrder[e.currentTarget.getAttribute("value")]();
@@ -239,6 +233,19 @@ const Store = (props) => {
 
     scroll_to(itemsRef.current.offsetTop);
   };
+
+  useEffect(() => {
+
+    if (outputBool) {
+
+      scroll_to(outputRef.current.offsetTop);
+
+      return () => {
+
+        setOutputBool(false);
+      }
+    }
+  }, [outputBool, scroll_to]);
 
   useEffect(() => {
 
@@ -930,6 +937,8 @@ const Store = (props) => {
             </div>
 
           </div>
+
+            <div className="col-12 col-md-10" ref={outputRef}></div>
 
             {Object.keys(output).length > 0  &&
 
