@@ -106,7 +106,6 @@ const Store = (props) => {
     setOutputBool(true);
 
     cartOrder.cartOne();
-
   };
 
   const style = {
