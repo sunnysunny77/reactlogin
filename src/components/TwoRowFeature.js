@@ -21,7 +21,7 @@ const TwoRowFeature = (props) => {
 
                 <div className="col-7 col-md-9 position-relative  pb-4 pb-xxl-5 mb-xxl-5 z-0">
                   
-                  <h2 className="mb-0 pe-3 pe-xxl-0">
+                  <h2 className="mb-0 pe-4 pe-xxl-0">
 
                     <div className="row g-0">
 
