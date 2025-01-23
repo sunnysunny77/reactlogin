@@ -47,7 +47,6 @@ const ButtonSlider = (props) => {
 
   const transform_button_lg = useCallback((transition, count) => {
 
-    console.log(count)
     if (count === length - 2)  {
 
       Object.assign(sliderButtonContainer.current.style,{ 

@@ -35,7 +35,6 @@ const Home = (props) => {
     const referance = event.currentTarget.getAttribute("referance");
     cartOrder[referance]();
     setReferance(referance);
-    console.log(header.current)
   };
 
   useEffect(() => {

@@ -12,7 +12,7 @@ const Auth = (props) => {
   const ref = useRef();
 
   const [captchaForm, setCaptchaForm] = useState(true);
-  const [captcha, setCaptcha] = useState("");
+  const [captcha, setCaptcha] = useState(null);
   const [text, setText] = useState("");
 
   const [classesAuthorization, setClassesAuthorization] = useState("displayNone");
