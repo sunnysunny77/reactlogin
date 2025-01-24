@@ -23,7 +23,7 @@ const Store = (props) => {
 
   const outputRef = useRef(null);
 
-  const [notReferance, setNotReferance] = useState(referance);
+  const [notReferance, setNotReferance] = useState(window.scrollY > 0);
 
   const [outputBool, setOutputBool] = useState(false);
 
@@ -261,18 +261,15 @@ const Store = (props) => {
 
   useEffect(() => {
 
-    if (!notReferance) {
-
-      if (window.scrollY > 0) { 
-        
-        scroll_to(0);
-      }
-      return () => {
-  
-        setNotReferance(true);
-      };
+    if (notReferance && !referance) {    
+      
+      scroll_to(0);
     }
-  }, [notReferance, scroll_to]);
+    return () => {
+
+      setNotReferance(false);
+    };
+  }, [notReferance, referance, scroll_to]);
 
   return (
 

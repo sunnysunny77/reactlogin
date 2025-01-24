@@ -248,13 +248,13 @@ const Auth = (props) => {
 
     if (notReferance) {
 
-        setIsScrolling(0);
-        window.scrollTo(0, 0);
-      }
-      return () => {
-  
-        setNotReferance(false);
-      };
+      setIsScrolling(0);
+      window.scrollTo(0, 0);
+    }
+    return () => {
+
+      setNotReferance(false);
+    };
   }, [notReferance, setIsScrolling]);
 
   return (

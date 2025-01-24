@@ -190,7 +190,7 @@ function App() {
 
   const [cart, setCart] = useState({});
 
-  const [referance, setReferance] = useState(null);
+  const [referance, setReferance] = useState(false);
 
   const [isScrolling, setIsScrolling] = useState(null);
 
