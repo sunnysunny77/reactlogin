@@ -28,7 +28,10 @@
         border: 1px solid $c1;
     }
     .accordion-body {
-        padding: 3rem 3rem 2rem 3rem;
+        padding: 2rem 1rem 1rem 1rem;
+        @include min_md {
+            padding: 3rem 3rem 2rem 3rem;
+        }
     }
     button {
         border-bottom: 1px solid $c1;
