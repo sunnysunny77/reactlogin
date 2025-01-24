@@ -257,7 +257,7 @@ const Store = (props) => {
         setReferance(false);
       };
     }
-  }, [referance, scroll_to, setIsScrolling, setReferance]);
+  }, [referance, scroll_to, setReferance]);
 
   useEffect(() => {
 
@@ -272,7 +272,7 @@ const Store = (props) => {
         setNotReferance(true);
       };
     }
-  }, [notReferance, scroll_to, setIsScrolling]);
+  }, [notReferance, scroll_to]);
 
   return (
 
