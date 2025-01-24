@@ -1,0 +1,36 @@
+.accordian-heading {
+    .accordion-item:last-of-type > .accordion-header .accordion-button.collapsed {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom: none;
+    }
+    .accordion-item:first-of-type > .accordion-header .accordion-button {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom: none;
+    }
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+    .accordion-button {
+        background-color: $c1;
+        color: $c7;
+    }
+    .accordion-button::after {
+        background-image: url("../../images/accordian-white.svg");
+    }
+    .accordion-item {
+        background-color: $c7;
+        color: $c8;
+        border: none;
+    }
+    .accordion {
+        border: 1px solid $c1;
+    }
+    .accordion-body {
+        padding: 3rem 3rem 2rem 3rem;
+    }
+    button {
+        border-bottom: 1px solid $c1;
+    }
+}

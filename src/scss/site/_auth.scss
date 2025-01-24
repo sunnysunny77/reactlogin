@@ -1,18 +1,18 @@
-.accordion-button:not(.collapsed) {
+.Auth-form-container .accordion-button:not(.collapsed) {
     background-color: $c2;
     color: $c6;
 }
 
-.accordion-button:focus {
+.Auth-form-container .accordion-button:focus {
     box-shadow: none;
 }
 
-.accordion-button {
+.Auth-form-container .accordion-button {
     background-color: $c7;
 }
 
-.accordion-button:not(.collapsed)::after {
-    background-image: url("../../images/accordian.svg");
+.Auth-form-container .accordion-button::after {
+    background-image: url("../../images/accordian-dark.svg");
 }
 
 .Auth-form-container {
@@ -46,7 +46,9 @@
             color: $c6;
             border: 1px solid $c13;
             background-color: $c14;
-            transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+            transition:
+                background-color 0.3s ease-in-out,
+                border 0.3s ease-in-out;
             will-change: background-color, border;
             font-weight: 400;
             &:hover {
