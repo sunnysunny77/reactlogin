@@ -16,6 +16,7 @@ footer {
     }
     a.active {
         text-decoration-color: $c9;
+        text-underline-offset: 5px;
     }
     ul {
         a {

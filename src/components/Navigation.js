@@ -28,7 +28,7 @@ const Navigation = (props) => {
       Object.assign(index.style, {
 
         transition: "transform 0.375s",
-        transform: has_collapsed ? `translateY(-${navbar_collapse.current.children.length * 3}00%)` : "translateY(0)",
+        transform: has_collapsed ? `translateY(-${navbar_collapse.current.children.length}00%)` : "translateY(0)",
       });
     };
 
@@ -233,11 +233,11 @@ const Navigation = (props) => {
 
         </div>
 
-        <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse">
+        <div ref={navbar_collapse} className="col-12 slider_8-navbar-collapse navbar-collapse py-1">
 
           <ul className="list-unstyled ms-3 my-3">
 
-            <li className="mb-1">
+            <li>
               
               <NavLink to="/"> 
               
@@ -247,7 +247,7 @@ const Navigation = (props) => {
               
             </li>
 
-            <li className="mb-1">
+            <li>
               
               <NavLink to="store"> 
               
