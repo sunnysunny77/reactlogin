@@ -57,7 +57,7 @@ const Navigation = (props) => {
 
     let max_height = !hasCollapse ? height : navbar.current.scrollHeight;
     
-    Object.assign( navbar.current.style, {
+    Object.assign(navbar.current.style, {
 
       transition: "top 0.375s, max-height 0.375s",
       maxHeight: `${max_height}px`,
