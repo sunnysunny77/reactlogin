@@ -23,12 +23,14 @@ const Navigation = (props) => {
 
   const handle_children = (has_collapsed) => {
 
+    const wins = window.innerWidth < 768;
+
     for (const index of navbar_collapse.current.children[0].children) {
 
       Object.assign(index.style, {
 
-        transition: "transform 0.375s",
-        transform: has_collapsed ? `translateY(-${navbar_collapse.current.children.length}00%)` : "translateY(0)",
+        transition: wins ? "transform 0.375s" : "none",
+        transform: has_collapsed && wins ? `translateY(-${navbar_collapse.current.children.length}00%)` : "translateY(0)",
       });
     };
 
@@ -53,12 +55,11 @@ const Navigation = (props) => {
   
   const toogle = () => {
 
-    const wins = window.innerWidth < 576;
     let max_height = !hasCollapse ? height : navbar.current.scrollHeight;
     
     Object.assign( navbar.current.style, {
 
-      transition: wins ? "max-height 0.375s" : "top 0.375s, max-height 0.375s",
+      transition: "top 0.375s, max-height 0.375s",
       maxHeight: `${max_height}px`,
     });
 
