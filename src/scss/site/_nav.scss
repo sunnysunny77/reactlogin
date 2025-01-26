@@ -2,8 +2,7 @@
     background-color: $c1;
     z-index: 999;
     overflow: hidden;
-    transition: max-height 0.4s;
-    will-change: max-height;
+    will-change: top, max-height;
     max-height: 83px;
     border-bottom: 1px solid $c9;
     @include min_md {
@@ -15,8 +14,7 @@
     }
     .navbar-collapse {
         background-color: inherit;
-        transition: max-height 0.4s;
-        will-change: max-height;
+        overflow: hidden;
         border-top: 1px solid $c9;
         @include min_md {
             border: none;
@@ -32,6 +30,9 @@
         &:hover {
             text-decoration-color: $c9;
         }
+    }
+    li {
+        will-change: transform;
     }
     a.active {
         text-decoration-color: $c9;
@@ -49,33 +50,12 @@
 }
 
 .slider_8-navbar-toggler {
-    &.has-collapsed {
-        .slider_8-bar1,
-        .slider_8-bar3 {
-            transform: none;
-        }
-        .slider_8-bar2 {
-            opacity: 1;
-        }
-    }
-    .slider_8-bar1,
-    .slider_8-bar2,
-    .slider_8-bar3 {
+    .slider_8-bar {
         width: 24px;
         height: 3px;
         background-color: $c9;
         margin: 4px 0;
-        transition: 0.4s;
         border-radius: 1.5px;
         will-change: transform;
-    }
-    .slider_8-bar1 {
-        transform: translate(0, 7px) rotate(-45deg);
-    }
-    .slider_8-bar2 {
-        opacity: 0;
-    }
-    .slider_8-bar3 {
-        transform: translate(0, -7px) rotate(45deg);
     }
 }

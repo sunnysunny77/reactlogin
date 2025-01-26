@@ -18,30 +18,56 @@ const Navigation = (props) => {
   const [scrollY, setScrollY] = useState(0);
   const [positive, setPositive] = useState(true);
   const [collapse, setCollapse] = useState(82);
+  const [hasCollapse, setHasCollapse] = useState(true);
   const [style, setStyle] = useState(null);
+
+  const handle_children = (has_collapsed) => {
+
+    for (const index of navbar_collapse.current.children[0].children) {
+
+      Object.assign(index.style, {
+
+        transition: "transform 0.375s",
+        transform: has_collapsed ? `translateY(-${navbar_collapse.current.children.length * 3}00%)` : "translateY(0)",
+      });
+    };
+
+    Object.assign(navbar_toggler.current.children[0].children[0].style, {
+
+      transition: "transform 0.375s",
+      transform: has_collapsed ? "none" : "translate(0, 7px) rotate(-45deg)",
+    });
+
+    Object.assign(navbar_toggler.current.children[0].children[1].style, {
+
+      transition: "opacity 0.375s",
+      opacity: has_collapsed ? 1 : 0,
+    });
+
+    Object.assign(navbar_toggler.current.children[0].children[2].style, {
+
+      transition: "transform 0.375s",
+      transform: has_collapsed ? "none" : "translate(0, -7px) rotate(45deg)",
+    });
+  };
   
   const toogle = () => {
 
-    let max_height;
-
-    navbar_toggler.current.classList.toggle("has-collapsed");
-
-    if (navbar_toggler.current.classList.contains("has-collapsed")) {
-
-      max_height = height;
-    }  else {
-      
-      max_height = navbar.current.scrollHeight;
-    }
-
-    navbar.current.style.maxHeight = `${max_height}px`;
+    const wins = window.innerWidth < 576;
+    let max_height = !hasCollapse ? height : navbar.current.scrollHeight;
     
+    Object.assign( navbar.current.style, {
+
+      transition: wins ? "max-height 0.375s" : "top 0.375s, max-height 0.375s",
+      maxHeight: `${max_height}px`,
+    });
+
+    setHasCollapse(!hasCollapse);
     setCollapse(max_height);
-  }
+    handle_children(!hasCollapse);
+  };
 
   const handle_collapse = useCallback((transition, height_param) => {
-
-    navbar_toggler.current.classList.add("has-collapsed");
 
     Object.assign(navbar.current.style, {
 
@@ -49,7 +75,9 @@ const Navigation = (props) => {
       maxHeight: `${height_param}px`,
     });
 
+    setHasCollapse(true);
     setCollapse(height);
+    handle_children(true);
   },[height]);
 
   useEffect(() => {
@@ -129,7 +157,7 @@ const Navigation = (props) => {
       if (scroll_pos === isScrolling) {
 
         setIsScrolling(null);
-      } ;
+      };
     };
 
     setScrollY(scroll_pos);
@@ -191,15 +219,15 @@ const Navigation = (props) => {
 
         </Link>
 
-        <div ref={navbar_toggler} onClick={toogle} aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler has-collapsed p-4" >
+        <div ref={navbar_toggler} onClick={toogle} aria-label="menu" role="button" className="col-auto d-flex align-items-center slider_8-navbar-toggler navbar-toggler p-4" >
 
           <div>
 
-              <div className="slider_8-bar1"></div>
+              <div className="slider_8-bar"></div>
 
-              <div className="slider_8-bar2"></div>
+              <div className="slider_8-bar"></div>
 
-              <div className="slider_8-bar3"></div>
+              <div className="slider_8-bar"></div>
 
           </div>
 
