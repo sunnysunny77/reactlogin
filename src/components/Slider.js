@@ -83,7 +83,7 @@ const Slider= (props) => {
 
           <div className="col-12 col-sm-9 col-lg-4 d-flex flex-column order-2 order-lg-1 pt-5 pb-sm-5 py-lg-5 mb-sm-5 my-lg-4 my-xl-5">
 
-            <div ref={counters} className="slider_9-inner inner-swap position-relative">
+            <div ref={counters} className="slider_9-inner inner-swap">
 
               {children}
               
