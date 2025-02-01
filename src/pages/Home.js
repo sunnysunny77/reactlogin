@@ -32,7 +32,7 @@ const Home = (props) => {
 
   const cart_click = (event) => {
 
-    const referance = event.currentTarget.getAttribute("referance");
+    const referance = event.currentTarget.getAttribute("data-referance");
     cartOrder[referance]();
     setReferance(referance);
   };
@@ -272,7 +272,7 @@ const Home = (props) => {
             
             onClick={cart_click}
 
-            referance={options[0].value}
+            data-referance={options[0].value}
 
           >
 
@@ -304,13 +304,13 @@ const Home = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </Link>
 
@@ -322,7 +322,7 @@ const Home = (props) => {
             
             onClick={cart_click}
 
-            referance={options[1].value}
+            data-referance={options[1].value}
 
           >
 
@@ -354,13 +354,13 @@ const Home = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </Link>
 
@@ -372,7 +372,7 @@ const Home = (props) => {
             
             onClick={cart_click}
 
-            referance={options[2].value}
+            data-referance={options[2].value}
 
           >
 
@@ -404,13 +404,13 @@ const Home = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </Link>
 
@@ -422,7 +422,7 @@ const Home = (props) => {
             
             onClick={cart_click}
 
-            referance={options[3].value}
+            data-referance={options[3].value}
 
           >
 
@@ -454,13 +454,13 @@ const Home = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </Link>
 
@@ -472,7 +472,7 @@ const Home = (props) => {
             
             onClick={cart_click}
 
-            referance={options[4].value}
+            data-referance={options[4].value}
 
           >
 
@@ -504,13 +504,13 @@ const Home = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </Link>
 
@@ -522,7 +522,7 @@ const Home = (props) => {
             
             onClick={cart_click}
 
-            referance={options[5].value}
+            data-referance={options[5].value}
 
           >
 
@@ -554,13 +554,13 @@ const Home = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </Link>
           

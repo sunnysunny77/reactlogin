@@ -23,21 +23,21 @@ const TwoRowFeature = (props) => {
                   
                   <h2 className="mb-0">
 
-                    <div className="row g-0">
+                    <span className="row g-0">
 
-                      <div className="col-12">
+                      <span className="col-12">
 
                         {heading_top}
 
-                      </div>
+                      </span>
 
-                      <div className="lower col-7 col-md-8">
+                      <span className="lower col-7 col-md-8">
 
                         {heading_bottom}
 
-                      </div>
+                      </span>
 
-                    </div>
+                    </span>
 
                   </h2>
 

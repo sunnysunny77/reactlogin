@@ -118,142 +118,138 @@ const Enquiry = (props) => {
 
           <form className="enquiry" onSubmit={handleSubmit}>
 
-            <fieldset>
+            <fieldset className="row justify-content-between g-0">
 
-                <div className="row justify-content-between g-0">
+              <legend className="col-12 mb-4">
 
-                  <div className="col-12">
+                Enquiry
 
-                      <legend className="mb-4">
-                        
-                        Enquiry
-                        
-                        <b ref={resRef} className="ms-4"></b>
-                        
-                      </legend>
+                <b ref={resRef} className="ms-4"></b>
 
-                      <p className="m-0">
-                        
-                        Required fields are marked *
-                        
-                      </p>
+              </legend>
 
-                  </div>
+              <div className="col-12">
 
-                  <div className="col-12 col-sm-6">
+                  <p className="m-0">
 
-                      <label className="pe-sm-3">
+                    Required fields are marked *
+
+                  </p>
+
+              </div>
+
+              <div className="col-12 col-sm-6">
+
+                  <label className="pe-sm-3">
+
+                    <span className="hidden d-block">
                       
-                        <span className="hidden d-block">
-                          
-                          Name
-                          
-                        </span>
+                      Name
 
-                        <span ref={nameRef}></span>
+                    </span>
 
-                        <input
+                    <span ref={nameRef}></span>
 
-                            className="ps-2"
-                            type="text"
-                            name="name" 
-                            value={name}
-                            placeholder="* Name"
-                            autoComplete=""
-                            onChange={(event) => setName(event.target.value)}
-                            
-                        />
+                    <input
 
-                      </label>
+                        className="ps-2"
+                        type="text"
+                        name="name"
+                        value={name}
+                        placeholder="* Name"
+                        autoComplete="on"
+                        onChange={(event) => setName(event.target.value)}
 
-                  </div>
+                    />
 
-                  <div className="col-12 col-sm-6">
+                  </label>
 
-                      <label className="ps-sm-3">
+              </div>
+
+              <div className="col-12 col-sm-6">
+
+                  <label className="ps-sm-3">
+
+                    <span className="hidden d-block">
                       
-                        <span className="hidden d-block">
-                          
-                          Phone
-                          
-                        </span>
+                      Phone
 
-                        <span ref={telRef}></span>
+                    </span>
 
-                        <input
+                    <span ref={telRef}></span>
 
-                            className="ps-2"
-                            type="text"
-                            name="tel" 
-                            value={tel}
-                            placeholder="* Phone"
-                            autoComplete=""
-                            onChange={(event) => setTel(event.target.value)}
+                    <input
 
-                        />
+                        className="ps-2"
+                        type="text"
+                        name="tel"
+                        value={tel}
+                        placeholder="* Phone"
+                        autoComplete="on"
+                        onChange={(event) => setTel(event.target.value)}
 
-                      </label>
+                    />
 
-                  </div>
+                  </label>
 
-                  <div className="col-12 col-sm-6">
+              </div>
 
-                      <label className="pe-sm-3">
-                        
-                        <span className="hidden d-block">
-                          
-                          Email
-                          
-                        </span>
+              <div className="col-12 col-sm-6">
 
-                        <span ref={emailRef}></span>
+                  <label className="pe-sm-3">
 
-                        <input
+                    <span className="hidden d-block">
 
-                            className="ps-2"
-                            type="text"
-                            name="email" 
-                            value={email}
-                            placeholder="* Email"
-                            autoComplete=""
-                            onChange={(event) => setEmail(event.target.value)}
+                      Email
 
-                        />
+                    </span>
 
-                      </label>
+                    <span ref={emailRef}></span>
 
-                  </div>
+                    <input
 
-                  <div className="col-12">
+                        className="ps-2"
+                        type="text"
+                        name="email"
+                        value={email}
+                        placeholder="* Email"
+                        autoComplete="on"
+                        onChange={(event) => setEmail(event.target.value)}
 
-                      <label htmlFor="text">
-                        
-                        <span className="hidden d-block">
+                    />
 
-                          Message
-                          
-                        </span>
+                  </label>
 
-                        <span ref={textRef}></span>
+              </div>
 
-                        <textarea
+              <div className="col-12">
 
-                            id="text"
-                            className="ps-2"
-                            name="text" 
-                            value={text}
-                            placeholder="* Message"
-                            onChange={(event) => setText(event.target.value)}
-                            rows="6"
+                <label htmlFor="text">
 
-                        >
-                        </textarea>
+                  <span className="hidden d-block">
 
-                      </label>
+                    Message
 
-                  </div>
+                  </span>
 
-                </div>
+                  <span ref={textRef}></span>
+
+                  <textarea
+
+                      id="text"
+                      className="ps-2"
+                      name="text"
+                      value={text}
+                      placeholder="* Message"
+                      onChange={(event) => setText(event.target.value)}
+                      rows="6"
+
+                  >
+                  </textarea>
+
+                </label>
+
+              </div>
 
             </fieldset>
 

@@ -225,7 +225,7 @@ const Store = (props) => {
 
   const optionOrder = (e) => {
 
-    cartOrder[e.currentTarget.getAttribute("value")]();
+    cartOrder[e.currentTarget.getAttribute("data-value")]();
     scroll_to(storeRef.current.offsetTop);
   };
 
@@ -291,7 +291,7 @@ const Store = (props) => {
 
             onClick={(e)=>optionOrder(e)}
 
-            value={options[0].value}
+            data-value={options[0].value}
         
           >
 
@@ -323,13 +323,13 @@ const Store = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </div>
 
@@ -339,7 +339,7 @@ const Store = (props) => {
 
             onClick={(e)=>optionOrder(e)}
 
-            value={options[1].value}
+            data-value={options[1].value}
         
           >
 
@@ -371,13 +371,13 @@ const Store = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </div>
 
@@ -387,7 +387,7 @@ const Store = (props) => {
 
             onClick={(e)=>optionOrder(e)}
 
-            value={options[2].value}
+            data-value={options[2].value}
         
           >
 
@@ -419,13 +419,13 @@ const Store = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </div>
 
@@ -435,7 +435,7 @@ const Store = (props) => {
 
             onClick={(e)=>optionOrder(e)}
 
-            value={options[3].value}
+            data-value={options[3].value}
         
           >
 
@@ -467,13 +467,13 @@ const Store = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </div>
 
@@ -483,7 +483,7 @@ const Store = (props) => {
 
             onClick={(e)=>optionOrder(e)}
 
-            value={options[4].value}
+            data-value={options[4].value}
         
           >
 
@@ -515,13 +515,13 @@ const Store = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </div>
 
@@ -531,7 +531,7 @@ const Store = (props) => {
 
             onClick={(e)=>optionOrder(e)}
 
-            value={options[5].value}
+            data-value={options[5].value}
         
           >
 
@@ -563,13 +563,13 @@ const Store = (props) => {
 
             </div>
 
-            <button className="w-100 text-start ps-3 py-2">
+            <div className="div-button w-100 text-start ps-3 py-2">
 
               Order
               
               <ArrowRight className="ms-2" />
 
-            </button>
+            </div>
 
           </div>
           
@@ -868,7 +868,7 @@ const Store = (props) => {
                     
                                 onClick={(e)=>optionOrder(e)}
 
-                                value={options[i]}
+                                data-value={options[i]}
                           
                               >
                     

@@ -6,7 +6,7 @@
     &:hover {
         background-color: lighten($c10, 2%);
 
-        button {
+        .div-button {
             background-color: lighten($c11, 2%);
             svg {
                 transform: translateX(50%);
@@ -20,7 +20,7 @@
     h2 {
         color: $c4;
     }
-    button {
+    .div-button {
         background-color: $c11;
         border: none;
         color: $c4;

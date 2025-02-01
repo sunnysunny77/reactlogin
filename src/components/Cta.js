@@ -52,11 +52,11 @@ const Cta = (props) => {
 
         <div className="col-11 col-lg-4 col-xl-3 d-flex align-items-end justify-content-md-center py-3 px-sm-2 py-sm-4 p-lg-4">
 
-            <button className="w-100 d-flex justify-content-between  align-items-center text-start py-3 px-4">
+            <div className="div-button w-100 d-flex justify-content-between  align-items-center text-start py-3 px-4">
                 
                 {button}  <ArrowRightCircleFill className="ms-3 me-1" />
                 
-            </button>
+            </div>
 
         </div>
 
