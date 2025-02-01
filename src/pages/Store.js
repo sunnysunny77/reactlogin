@@ -229,7 +229,7 @@ const Store = (props) => {
     scroll_to(storeRef.current.offsetTop);
   };
 
-  const action_callback = (e) => {
+  const action_callback = () => {
 
     scroll_to(itemsRef.current.offsetTop);
   };
