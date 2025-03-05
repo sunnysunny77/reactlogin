@@ -53,9 +53,9 @@ const TwoRowFeature = (props) => {
 
                   <div className="row justify-content-center g-0">
 
-                    <div className="col-11 col-lg-12 col-xxl-12 order-3 order-lg-1">
+                    <div className="col-11 col-lg-12 order-3 order-lg-1">
 
-                      <p className="mb-0 text-center text-md-start">
+                      <p className="mb-0 text-center text-md-start pe-xxl-5">
 
                         {paragraph}
 

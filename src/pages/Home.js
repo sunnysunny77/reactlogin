@@ -58,21 +58,21 @@ const Home = (props) => {
 
         <div className="col-12 bg-11 p-4 p-sm-5 ps-md-5 pt-md-5 pb-md-5 pe-md-0 pe-xl-5">
 
-          <div className="row align-items-center justify-content-between  g-0">
+          <div className="row align-items-center justify-content-between g-0">
             
             <div className="col-12 col-md-7 col-xl-5">
 
-              <p className="p-4">
+              <p className="p-4 p-xxl-5">
 
                 <span className="d-flex row align-items-center justify-content-between g-0">
 
-                  <span className="col-11 col-lg-9">
+                  <span className="col-11 col-lg-9 p-2 ps-sm-0">
                     
                     Ut enim ad ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                     
                   </span>
 
-                  <Link to="store" className="col-auto align-self-lg-end border rounded mt-4 mb-3 px-2 py-1" > 
+                  <Link to="store" className="col-auto align-self-lg-end border rounded mt-4 mb-3 px-2 py-1" >
                   
                     store 
                     
