@@ -79,7 +79,7 @@ const Footer = forwardRef(function Footer(props , ref) {
 
                     <div className="col-9">
 
-                      <p className="m-0">
+                      <p className="m-0 footer-text">
 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -183,7 +183,7 @@ const Footer = forwardRef(function Footer(props , ref) {
 
                 <div className="col-12">
 
-                  <p className="mb-0 text-end">
+                  <p className="mb-0 text-end year">
 
                     &copy;&nbsp;<span ref={year} id="year"></span>
 

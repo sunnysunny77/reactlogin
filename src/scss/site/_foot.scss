@@ -28,6 +28,12 @@ footer {
     address {
         background-color: $c5;
         color: $c9;
+    }
+    .footer-text {
+        font-size: clamp(15.5px, 2vw, 17px);
+    }
+    address,
+    .year {
         font-size: 15.5px;
     }
     svg {
