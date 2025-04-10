@@ -868,7 +868,7 @@ const Store = (props) => {
                     
                                 onClick={(e)=>optionOrder(e)}
 
-                                data-value={options[i]}
+                                data-value={options[i].value}
                           
                               >
                     
