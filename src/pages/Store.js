@@ -183,6 +183,7 @@ const Store = (props) => {
           value: order.value,
         },
         quantity: count,
+        ref: order.ref,
       }
     });
 
@@ -850,7 +851,7 @@ const Store = (props) => {
 
                         {Object.keys(cart).map((index, i) => {
 
-                          const { quantity, name, unit_amount: {value} } = cart[index];
+                          const { quantity, name, unit_amount: {value}, ref } = cart[index];
 
                           return (
 
@@ -868,7 +869,7 @@ const Store = (props) => {
                     
                                 onClick={(e)=>optionOrder(e)}
 
-                                data-value={options[i].value}
+                                data-value={ref.value}
                           
                               >
                     
